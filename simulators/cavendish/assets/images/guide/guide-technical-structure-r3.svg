@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-label="トーションバランス構造・支持・読取端部（再構成技術図）">
+<defs>
+<style>
+.t{font-family:-apple-system,BlinkMacSystemFont,'Noto Sans JP','Yu Gothic',sans-serif;fill:#202a31} .title{font-size:32px;font-weight:700} .h{font-size:24px;font-weight:700} .l{font-size:19px;font-weight:650} .s{font-size:16px} .xs{font-size:13px} .line{fill:none;stroke:#26343d;stroke-width:4} .thin{fill:none;stroke:#5b6972;stroke-width:2} .center{fill:none;stroke:#6f8795;stroke-width:2;stroke-dasharray:12 7} .hidden{fill:none;stroke:#85939c;stroke-width:2;stroke-dasharray:7 6} .dim{fill:none;stroke:#55646d;stroke-width:2} .part{fill:#e9edf0;stroke:#26343d;stroke-width:3} .dark{fill:#677681;stroke:#26343d;stroke-width:3} .wood{fill:#d9c49d;stroke:#4b4132;stroke-width:3} .lead{fill:#aab1b6;stroke:#303941;stroke-width:3} .glass{fill:#d9edf2;fill-opacity:.7;stroke:#476674;stroke-width:3} .force{fill:none;stroke:#a7493d;stroke-width:5} .motion{fill:none;stroke:#2d6f8a;stroke-width:5;stroke-dasharray:12 7} .read{fill:none;stroke:#c7771a;stroke-width:5} .light{fill:none;stroke:#b79a2c;stroke-width:4;stroke-dasharray:10 6} .box{fill:#fbfbf8;stroke:#74838c;stroke-width:2} .num{fill:#fff;stroke:#202a31;stroke-width:3} .hatch line{stroke:#8b969d;stroke-width:1.5}
+</style>
+<marker id="arr" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 z" fill="#26343d"/></marker>
+<marker id="force" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 z" fill="#a7493d"/></marker>
+<marker id="blue" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 z" fill="#2d6f8a"/></marker>
+<marker id="orange" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 z" fill="#c7771a"/></marker>
+<pattern id="hatch" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="12" stroke="#8b969d" stroke-width="2"/></pattern>
+</defs>
+<rect width="100%" height="100%" fill="#f7f7f3"/>
+<text x="800" y="48" class="t title" text-anchor="middle">トーションバランス構造・支持・読取端部（再構成技術図）</text>
+
+<!-- plan view -->
+<rect x="35" y="75" width="1000" height="675" rx="12" class="box"/><text x="65" y="112" class="t h">A　上面図（機構関係）</text>
+<!-- enclosure --> <rect x="90" y="145" width="890" height="520" rx="28" class="wood" fill-opacity=".2"/>
+<line x1="535" y1="145" x2="535" y2="665" class="center"/>
+<!-- central arm and pivot -->
+<rect x="252" y="376" width="566" height="16" rx="8" class="dark"/><circle cx="535" cy="384" r="28" class="dark"/>
+<circle cx="268" cy="384" r="44" class="lead"/><circle cx="802" cy="384" r="44" class="lead"/>
+<!-- lead balls, support arcs and posts -->
+<circle cx="175" cy="255" r="88" class="lead"/><circle cx="895" cy="515" r="88" class="lead"/>
+<path d="M118 189 Q94 254 122 322" class="line"/><path d="M952 448 Q982 517 951 583" class="line"/>
+<rect x="92" y="208" width="26" height="98" class="dark"/><rect x="952" y="466" width="26" height="98" class="dark"/>
+<!-- readout frame at arm end -->
+<path d="M801 340 L867 272 L941 272 L941 392 L859 392 L817 414" class="line"/>
+<rect x="866" y="295" width="52" height="70" class="glass"/><line x1="892" y1="295" x2="892" y2="365" class="read"/>
+<!-- forces -->
+<path d="M224 317 L250 348" class="force" marker-end="url(#force)"/><path d="M849 447 L818 416" class="force" marker-end="url(#force)"/>
+<path d="M390 564 A180 180 0 0 0 690 564" class="motion" marker-end="url(#blue)"/>
+<!-- callouts -->
+<g class="t l"><text x="142" y="154">① 大球（鉛）</text><text x="220" y="462">② 小球</text><text x="480" y="335">③ 回転中心</text><text x="650" y="350">④ 水平アーム</text><text x="820" y="250">⑤ 読取端部</text><text x="80" y="632">⑥ 大球支持・移動機構</text></g>
+<g class="t s"><text x="118" y="355">大球位置を反対側へ移す</text><text x="398" y="605">アームの微小回転</text><text x="205" y="303" fill="#a7493d">引力</text><text x="824" y="464" fill="#a7493d">引力</text></g>
+<!-- side section -->
+<rect x="1070" y="75" width="495" height="675" rx="12" class="box"/><text x="1100" y="112" class="t h">B　側面断面図</text>
+<rect x="1145" y="145" width="350" height="32" class="wood"/><text x="1262" y="138" class="t s">⑦ 上部支持梁</text>
+<line x1="1320" y1="177" x2="1320" y2="440" class="line"/><path d="M1305 240 Q1320 225 1335 240 L1335 280 Q1320 295 1305 280 Z" class="dark"/><text x="1350" y="250" class="t s">⑧ 吊り金具</text>
+<line x1="1320" y1="280" x2="1320" y2="492" class="thin"/><text x="1340" y="365" class="t s">⑨ ねじりワイヤー</text>
+<rect x="1175" y="492" width="290" height="16" rx="8" class="dark"/><circle cx="1203" cy="500" r="43" class="lead"/><circle cx="1437" cy="500" r="43" class="lead"/>
+<rect x="1392" y="350" width="92" height="92" class="glass"/><line x1="1438" y1="350" x2="1438" y2="442" class="read"/><path d="M1392 442 L1352 478" class="line"/><text x="1385" y="330" class="t s">⑤ 読取端部</text>
+<rect x="1125" y="575" width="390" height="82" fill="url(#hatch)" stroke="#26343d" stroke-width="3"/><text x="1320" y="685" class="t s" text-anchor="middle">装置外箱・支持床（断面模式）</text>
+<!-- detail inset -->
+<rect x="1115" y="700" width="405" height="225" rx="10" class="box"/><text x="1138" y="735" class="t h">C　読取端部拡大</text>
+<path d="M1168 860 L1168 770 L1335 770" class="wood"/><path d="M1335 770 L1395 790 L1395 870 L1290 870 L1290 815" class="line"/>
+<rect x="1305" y="795" width="54" height="58" class="glass"/><line x1="1332" y1="790" x2="1332" y2="865" class="read"/><line x1="1408" y1="760" x2="1408" y2="882" class="line"/><g class="t s"><text x="1145" y="895">アーム端</text><text x="1280" y="895">可動読取板</text><text x="1395" y="895">固定目盛側</text></g>
+</svg>

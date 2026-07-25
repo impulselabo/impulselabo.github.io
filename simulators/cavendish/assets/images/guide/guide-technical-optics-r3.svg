@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-label="観測光学系・室内配置・記録経路（断面技術図）">
+<defs>
+<style>
+.t{font-family:-apple-system,BlinkMacSystemFont,'Noto Sans JP','Yu Gothic',sans-serif;fill:#202a31} .title{font-size:32px;font-weight:700} .h{font-size:24px;font-weight:700} .l{font-size:19px;font-weight:650} .s{font-size:16px} .xs{font-size:13px} .line{fill:none;stroke:#26343d;stroke-width:4} .thin{fill:none;stroke:#5b6972;stroke-width:2} .center{fill:none;stroke:#6f8795;stroke-width:2;stroke-dasharray:12 7} .hidden{fill:none;stroke:#85939c;stroke-width:2;stroke-dasharray:7 6} .dim{fill:none;stroke:#55646d;stroke-width:2} .part{fill:#e9edf0;stroke:#26343d;stroke-width:3} .dark{fill:#677681;stroke:#26343d;stroke-width:3} .wood{fill:#d9c49d;stroke:#4b4132;stroke-width:3} .lead{fill:#aab1b6;stroke:#303941;stroke-width:3} .glass{fill:#d9edf2;fill-opacity:.7;stroke:#476674;stroke-width:3} .force{fill:none;stroke:#a7493d;stroke-width:5} .motion{fill:none;stroke:#2d6f8a;stroke-width:5;stroke-dasharray:12 7} .read{fill:none;stroke:#c7771a;stroke-width:5} .light{fill:none;stroke:#b79a2c;stroke-width:4;stroke-dasharray:10 6} .box{fill:#fbfbf8;stroke:#74838c;stroke-width:2} .num{fill:#fff;stroke:#202a31;stroke-width:3} .hatch line{stroke:#8b969d;stroke-width:1.5}
+</style>
+<marker id="arr" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 z" fill="#26343d"/></marker>
+<marker id="force" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 z" fill="#a7493d"/></marker>
+<marker id="blue" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 z" fill="#2d6f8a"/></marker>
+<marker id="orange" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0,0 L12,6 L0,12 z" fill="#c7771a"/></marker>
+<pattern id="hatch" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="12" stroke="#8b969d" stroke-width="2"/></pattern>
+</defs>
+<rect width="100%" height="100%" fill="#f7f7f3"/>
+<text x="800" y="48" class="t title" text-anchor="middle">観測光学系・室内配置・記録経路（断面技術図）</text>
+
+<rect x="35" y="75" width="1530" height="830" rx="12" class="box"/>
+<!-- room --> <rect x="70" y="135" width="885" height="680" class="wood" fill-opacity=".12"/><text x="95" y="175" class="t h">装置室（閉鎖・外乱低減）</text>
+<!-- apparatus in room -->
+<rect x="125" y="240" width="620" height="430" rx="16" class="hidden"/>
+<rect x="175" y="360" width="410" height="14" rx="7" class="dark"/><circle cx="200" cy="367" r="35" class="lead"/><circle cx="560" cy="367" r="35" class="lead"/><circle cx="135" cy="270" r="70" class="lead"/><circle cx="660" cy="540" r="70" class="lead"/>
+<line x1="380" y1="220" x2="380" y2="360" class="line"/><rect x="540" y="250" width="120" height="78" class="glass"/><line x1="600" y1="250" x2="600" y2="328" class="read"/><text x="530" y="230" class="t s">読取部</text>
+<!-- lamp and illumination --> <path d="M300 185 h120 l-20 55 h-80 z" class="part"/><circle cx="360" cy="242" r="10" fill="#d6b63d"/><path d="M360 245 L555 292" class="light" marker-end="url(#arr)"/><text x="280" y="170" class="t s">照明ランプ（模式）</text>
+<!-- wall --> <rect x="955" y="95" width="115" height="760" fill="url(#hatch)" stroke="#26343d" stroke-width="4"/><rect x="955" y="260" width="115" height="125" class="glass"/><text x="1012" y="245" class="t l" text-anchor="middle">読取窓</text><text x="1012" y="890" class="t s" text-anchor="middle">隔壁</text>
+<!-- optical path --> <path d="M600 290 L1012 322 L1235 322" class="read" marker-end="url(#orange)"/><path d="M600 304 L1012 347 L1235 347" class="thin"/><text x="790" y="280" class="t s">読取部の像</text>
+<!-- telescope detailed -->
+<text x="1105" y="175" class="t h">観測側</text>
+<path d="M1235 268 h210 l55 35 v72 l-55 35 h-210 z" class="glass"/><circle cx="1235" cy="339" r="73" class="glass"/><rect x="1445" y="304" width="70" height="70" class="dark"/><circle cx="1507" cy="339" r="19" class="glass"/>
+<line x1="1310" y1="410" x2="1260" y2="650" class="line"/><line x1="1350" y1="410" x2="1350" y2="650" class="line"/><line x1="1390" y1="410" x2="1440" y2="650" class="line"/><text x="1335" y="235" class="t l">望遠鏡</text>
+<!-- observer and notebook -->
+<circle cx="1510" cy="470" r="26" class="part"/><path d="M1510 496 v92 M1476 540 h68 M1488 588 l-20 70 M1532 588 l20 70" class="line"/><text x="1455" y="690" class="t s">観測者</text>
+<rect x="1135" y="675" width="250" height="115" rx="8" class="box"/><line x1="1160" y1="710" x2="1360" y2="710" class="thin"/><line x1="1160" y1="740" x2="1340" y2="740" class="thin"/><line x1="1160" y1="770" x2="1320" y2="770" class="thin"/><text x="1260" y="820" class="t l" text-anchor="middle">観測帳</text>
+<!-- numbered process -->
+<rect x="95" y="720" width="750" height="145" rx="10" class="box"/><text x="120" y="755" class="t h">観測関係</text><text x="120" y="790" class="t s">① 大球を配置　② アーム応答を待つ　③ 読取部を照明　④ 読取窓越しに望遠鏡で読む</text><text x="120" y="825" class="t s">⑤ 時計時刻と読取値を観測帳へ記録　⑥ 大球を反対側へ移して繰り返す</text>
+<!-- distances --> <path d="M1075 835 H1515" class="dim"/><path d="M1075 823 V847 M1515 823 V847" class="dim"/><text x="1295" y="872" class="t xs" text-anchor="middle">距離・高さは観測関係を示す模式。史実の厳密寸法ではない。</text>
+</svg>
