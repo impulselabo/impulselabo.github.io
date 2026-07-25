@@ -1,0 +1,46 @@
+{
+  "build": "CV082A06R1",
+  "title": "iPad landscape complete observation fit, telescope header split and help containment",
+  "target": {
+    "page": "cavendish-simulator.html",
+    "orientation": "landscape",
+    "minWidthPx": 901,
+    "maxWidthPx": 1199,
+    "minHeightPx": 521,
+    "controlColumnWidthPx": 300
+  },
+  "before": {
+    "observationRowRatio": "19/60/21",
+    "timelineDetailVisible": false,
+    "telescopeHeaderRows": 1,
+    "controlHelpMaxWidthPx": 336
+  },
+  "after": {
+    "observationRowRatio": "18/54/28",
+    "timelineMinimumHeightPx": 154,
+    "timelineDetailVisible": true,
+    "telescopeHeaderRows": 2,
+    "telescopeMetricsUseFlexibleColumns": true,
+    "controlHelpUsesAnchorWidth": true,
+    "controlHelpHorizontalOverflowPrevented": true
+  },
+  "preserved": [
+    "CV082A06R independent left control scrolling",
+    "CV082A06 fixed five-button operation bar",
+    "iPhone portrait and landscape layouts",
+    "iPad portrait mobile layout",
+    "desktop layout at 1200 px and wider",
+    "historical data, physics, report, CSV, 3D, guide and manual"
+  ],
+  "results": {
+    "right_three_row_complete_fit": "PASS",
+    "timeline_rows_and_detail_fit": "PASS",
+    "telescope_two_row_header": "PASS",
+    "telescope_metric_containment": "PASS",
+    "left_help_anchor_width": "PASS",
+    "left_scroll_regression": "PASS",
+    "operation_bar_regression": "PASS",
+    "iphone_regression": "PASS",
+    "desktop_regression": "PASS"
+  }
+}

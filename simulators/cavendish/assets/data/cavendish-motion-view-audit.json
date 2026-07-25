@@ -1,0 +1,532 @@
+{
+  "schema_version": "1.0.0",
+  "build": "CV080A25R",
+  "title": "All 17 experiments Motion View initial position / position order / waveform synchronization audit",
+  "status": "PASS",
+  "policy": {
+    "idle": "Before replay starts, Motion View shows the first historical placement section even when that section has no clock time.",
+    "running": "Outside record-order-only intervals, Motion View remains synchronized with the existing clock-axis mass frame.",
+    "grouped_interval": "When a bounded interval contains an untimed intermediate placement, Motion View shows each recorded placement and transition in source order, marks every phase time-uncertain, and does not animate an unrecorded path.",
+    "waveform": "Waveform, clock-axis boundaries, historical values, CSV, and report calculations are unchanged."
+  },
+  "correction": {
+    "previous_clock_axis_start_mismatches": 8,
+    "grouped_intermediate_ranges_restored": 2,
+    "issue": "Motion View reused the main clock-axis frame. Untimed initial sections were skipped at idle, and grouped uncertainty ranges hid recorded intermediate placements.",
+    "visible_change": true,
+    "historical_times_synthesized": false
+  },
+  "totals": {
+    "experiments": 17,
+    "sequence_sections": 46,
+    "idle_initial_position_checks": 17,
+    "previous_clock_axis_start_mismatches": 8,
+    "final_position_checks": 17,
+    "grouped_uncertainty_ranges": 2,
+    "grouped_motion_phases": 6,
+    "record_order_stable_phases": 2,
+    "single_transition_ranges": 15,
+    "clock_aligned_samples": 15511
+  },
+  "experiments": [
+    {
+      "key": "CAV-1798-EXP-I",
+      "experiment_id": "experiment-i",
+      "status": "PASS",
+      "expected_sequence": [
+        "midway",
+        "positive",
+        "midway"
+      ],
+      "motion_view_sequence": [
+        "midway",
+        "positive",
+        "midway"
+      ],
+      "idle_initial_position": "midway",
+      "idle_initial_record_order_only": false,
+      "previous_clock_axis_start_position": "midway",
+      "previous_start_mismatch": false,
+      "final_position": "midway",
+      "grouped_ranges": [],
+      "single_transition_ranges": []
+    },
+    {
+      "key": "CAV-1798-EXP-II",
+      "experiment_id": "experiment-ii",
+      "status": "PASS",
+      "expected_sequence": [
+        "midway",
+        "positive",
+        "midway"
+      ],
+      "motion_view_sequence": [
+        "midway",
+        "positive",
+        "midway"
+      ],
+      "idle_initial_position": "midway",
+      "idle_initial_record_order_only": false,
+      "previous_clock_axis_start_position": "midway",
+      "previous_start_mismatch": false,
+      "final_position": "midway",
+      "grouped_ranges": [
+        {
+          "from_section_index": 0,
+          "to_section_index": 2,
+          "historical_time_range": "10:25:00–13:03:50",
+          "phases": [
+            {
+              "kind": "transition",
+              "from_position": "midway",
+              "to_position": "positive",
+              "source_class": "historical_record_order_motion_transition"
+            },
+            {
+              "kind": "record_order_position",
+              "position": "positive",
+              "source_class": "historical_record_order_only_motion_view"
+            },
+            {
+              "kind": "transition",
+              "from_position": "positive",
+              "to_position": "midway",
+              "source_class": "historical_record_order_motion_transition"
+            }
+          ]
+        }
+      ],
+      "single_transition_ranges": []
+    },
+    {
+      "key": "CAV-1798-EXP-III",
+      "experiment_id": "experiment-iii",
+      "status": "PASS",
+      "expected_sequence": [
+        "positive",
+        "midway",
+        "positive"
+      ],
+      "motion_view_sequence": [
+        "positive",
+        "midway",
+        "positive"
+      ],
+      "idle_initial_position": "positive",
+      "idle_initial_record_order_only": true,
+      "previous_clock_axis_start_position": "midway",
+      "previous_start_mismatch": true,
+      "final_position": "positive",
+      "grouped_ranges": [],
+      "single_transition_ranges": [
+        {
+          "from_position": "midway",
+          "to_position": "positive",
+          "historical_time_range": "11:35:26–12:02:48"
+        }
+      ]
+    },
+    {
+      "key": "CAV-1798-EXP-IV",
+      "experiment_id": "experiment-iv",
+      "status": "PASS",
+      "expected_sequence": [
+        "midway",
+        "positive",
+        "negative",
+        "positive"
+      ],
+      "motion_view_sequence": [
+        "midway",
+        "positive",
+        "negative",
+        "positive"
+      ],
+      "idle_initial_position": "midway",
+      "idle_initial_record_order_only": false,
+      "previous_clock_axis_start_position": "midway",
+      "previous_start_mismatch": false,
+      "final_position": "positive",
+      "grouped_ranges": [
+        {
+          "from_section_index": 0,
+          "to_section_index": 2,
+          "historical_time_range": "10:13:00–22:19:25",
+          "phases": [
+            {
+              "kind": "transition",
+              "from_position": "midway",
+              "to_position": "positive",
+              "source_class": "historical_record_order_motion_transition"
+            },
+            {
+              "kind": "record_order_position",
+              "position": "positive",
+              "source_class": "historical_record_order_only_motion_view"
+            },
+            {
+              "kind": "transition",
+              "from_position": "positive",
+              "to_position": "negative",
+              "source_class": "historical_record_order_motion_transition"
+            }
+          ]
+        }
+      ],
+      "single_transition_ranges": [
+        {
+          "from_position": "negative",
+          "to_position": "positive",
+          "historical_time_range": "22:55:45–23:10:25"
+        }
+      ]
+    },
+    {
+      "key": "CAV-1798-EXP-V",
+      "experiment_id": "experiment-v",
+      "status": "PASS",
+      "expected_sequence": [
+        "positive",
+        "negative",
+        "positive"
+      ],
+      "motion_view_sequence": [
+        "positive",
+        "negative",
+        "positive"
+      ],
+      "idle_initial_position": "positive",
+      "idle_initial_record_order_only": true,
+      "previous_clock_axis_start_position": "negative",
+      "previous_start_mismatch": true,
+      "final_position": "positive",
+      "grouped_ranges": [],
+      "single_transition_ranges": [
+        {
+          "from_position": "negative",
+          "to_position": "positive",
+          "historical_time_range": "11:43:00–11:49:10"
+        }
+      ]
+    },
+    {
+      "key": "CAV-1798-EXP-VI",
+      "experiment_id": "experiment-vi",
+      "status": "PASS",
+      "expected_sequence": [
+        "midway",
+        "negative",
+        "positive"
+      ],
+      "motion_view_sequence": [
+        "midway",
+        "negative",
+        "positive"
+      ],
+      "idle_initial_position": "midway",
+      "idle_initial_record_order_only": false,
+      "previous_clock_axis_start_position": "midway",
+      "previous_start_mismatch": false,
+      "final_position": "positive",
+      "grouped_ranges": [],
+      "single_transition_ranges": [
+        {
+          "from_position": "midway",
+          "to_position": "negative",
+          "historical_time_range": "10:03:00–10:12:00"
+        },
+        {
+          "from_position": "negative",
+          "to_position": "positive",
+          "historical_time_range": "11:14:00–11:23:00"
+        }
+      ]
+    },
+    {
+      "key": "CAV-1798-EXP-VII",
+      "experiment_id": "experiment-vii",
+      "status": "PASS",
+      "expected_sequence": [
+        "midway",
+        "negative",
+        "positive"
+      ],
+      "motion_view_sequence": [
+        "midway",
+        "negative",
+        "positive"
+      ],
+      "idle_initial_position": "midway",
+      "idle_initial_record_order_only": false,
+      "previous_clock_axis_start_position": "midway",
+      "previous_start_mismatch": false,
+      "final_position": "positive",
+      "grouped_ranges": [],
+      "single_transition_ranges": [
+        {
+          "from_position": "midway",
+          "to_position": "negative",
+          "historical_time_range": "09:32:00–09:40:00"
+        },
+        {
+          "from_position": "negative",
+          "to_position": "positive",
+          "historical_time_range": "11:12:00–11:20:00"
+        }
+      ]
+    },
+    {
+      "key": "CAV-1798-EXP-VIII",
+      "experiment_id": "experiment-viii",
+      "status": "PASS",
+      "expected_sequence": [
+        "midway",
+        "negative",
+        "positive"
+      ],
+      "motion_view_sequence": [
+        "midway",
+        "negative",
+        "positive"
+      ],
+      "idle_initial_position": "midway",
+      "idle_initial_record_order_only": false,
+      "previous_clock_axis_start_position": "midway",
+      "previous_start_mismatch": false,
+      "final_position": "positive",
+      "grouped_ranges": [],
+      "single_transition_ranges": [
+        {
+          "from_position": "midway",
+          "to_position": "negative",
+          "historical_time_range": "10:45:00–10:56:00"
+        },
+        {
+          "from_position": "negative",
+          "to_position": "positive",
+          "historical_time_range": "11:58:00–12:01:00"
+        }
+      ]
+    },
+    {
+      "key": "CAV-1798-EXP-IX",
+      "experiment_id": "experiment-ix",
+      "status": "PASS",
+      "expected_sequence": [
+        "positive",
+        "negative"
+      ],
+      "motion_view_sequence": [
+        "positive",
+        "negative"
+      ],
+      "idle_initial_position": "positive",
+      "idle_initial_record_order_only": true,
+      "previous_clock_axis_start_position": "negative",
+      "previous_start_mismatch": true,
+      "final_position": "negative",
+      "grouped_ranges": [],
+      "single_transition_ranges": []
+    },
+    {
+      "key": "CAV-1798-EXP-X",
+      "experiment_id": "experiment-x",
+      "status": "PASS",
+      "expected_sequence": [
+        "positive",
+        "negative"
+      ],
+      "motion_view_sequence": [
+        "positive",
+        "negative"
+      ],
+      "idle_initial_position": "positive",
+      "idle_initial_record_order_only": true,
+      "previous_clock_axis_start_position": "negative",
+      "previous_start_mismatch": true,
+      "final_position": "negative",
+      "grouped_ranges": [],
+      "single_transition_ranges": []
+    },
+    {
+      "key": "CAV-1798-EXP-XI",
+      "experiment_id": "experiment-xi",
+      "status": "PASS",
+      "expected_sequence": [
+        "positive",
+        "negative"
+      ],
+      "motion_view_sequence": [
+        "positive",
+        "negative"
+      ],
+      "idle_initial_position": "positive",
+      "idle_initial_record_order_only": true,
+      "previous_clock_axis_start_position": "negative",
+      "previous_start_mismatch": true,
+      "final_position": "negative",
+      "grouped_ranges": [],
+      "single_transition_ranges": []
+    },
+    {
+      "key": "CAV-1798-EXP-XII",
+      "experiment_id": "experiment-xii",
+      "status": "PASS",
+      "expected_sequence": [
+        "negative",
+        "positive"
+      ],
+      "motion_view_sequence": [
+        "negative",
+        "positive"
+      ],
+      "idle_initial_position": "negative",
+      "idle_initial_record_order_only": false,
+      "previous_clock_axis_start_position": "negative",
+      "previous_start_mismatch": false,
+      "final_position": "positive",
+      "grouped_ranges": [],
+      "single_transition_ranges": [
+        {
+          "from_position": "negative",
+          "to_position": "positive",
+          "historical_time_range": "10:10:00–10:17:28"
+        }
+      ]
+    },
+    {
+      "key": "CAV-1798-EXP-XIII",
+      "experiment_id": "experiment-xiii",
+      "status": "PASS",
+      "expected_sequence": [
+        "negative",
+        "positive",
+        "negative"
+      ],
+      "motion_view_sequence": [
+        "negative",
+        "positive",
+        "negative"
+      ],
+      "idle_initial_position": "negative",
+      "idle_initial_record_order_only": true,
+      "previous_clock_axis_start_position": "positive",
+      "previous_start_mismatch": true,
+      "final_position": "negative",
+      "grouped_ranges": [],
+      "single_transition_ranges": [
+        {
+          "from_position": "positive",
+          "to_position": "negative",
+          "historical_time_range": "11:12:50–11:37:34"
+        }
+      ]
+    },
+    {
+      "key": "CAV-1798-EXP-XIV",
+      "experiment_id": "experiment-xiv",
+      "status": "PASS",
+      "expected_sequence": [
+        "negative",
+        "positive",
+        "negative"
+      ],
+      "motion_view_sequence": [
+        "negative",
+        "positive",
+        "negative"
+      ],
+      "idle_initial_position": "negative",
+      "idle_initial_record_order_only": false,
+      "previous_clock_axis_start_position": "negative",
+      "previous_start_mismatch": false,
+      "final_position": "negative",
+      "grouped_ranges": [],
+      "single_transition_ranges": [
+        {
+          "from_position": "negative",
+          "to_position": "positive",
+          "historical_time_range": "09:49:00–10:00:46"
+        },
+        {
+          "from_position": "positive",
+          "to_position": "negative",
+          "historical_time_range": "10:50:37–11:07:53"
+        }
+      ]
+    },
+    {
+      "key": "CAV-1798-EXP-XV",
+      "experiment_id": "experiment-xv",
+      "status": "PASS",
+      "expected_sequence": [
+        "negative",
+        "positive"
+      ],
+      "motion_view_sequence": [
+        "negative",
+        "positive"
+      ],
+      "idle_initial_position": "negative",
+      "idle_initial_record_order_only": true,
+      "previous_clock_axis_start_position": "positive",
+      "previous_start_mismatch": true,
+      "final_position": "positive",
+      "grouped_ranges": [],
+      "single_transition_ranges": []
+    },
+    {
+      "key": "CAV-1798-EXP-XVI",
+      "experiment_id": "experiment-xvi",
+      "status": "PASS",
+      "expected_sequence": [
+        "negative",
+        "positive"
+      ],
+      "motion_view_sequence": [
+        "negative",
+        "positive"
+      ],
+      "idle_initial_position": "negative",
+      "idle_initial_record_order_only": true,
+      "previous_clock_axis_start_position": "positive",
+      "previous_start_mismatch": true,
+      "final_position": "positive",
+      "grouped_ranges": [],
+      "single_transition_ranges": []
+    },
+    {
+      "key": "CAV-1798-EXP-XVII",
+      "experiment_id": "experiment-xvii",
+      "status": "PASS",
+      "expected_sequence": [
+        "negative",
+        "positive",
+        "negative"
+      ],
+      "motion_view_sequence": [
+        "negative",
+        "positive",
+        "negative"
+      ],
+      "idle_initial_position": "negative",
+      "idle_initial_record_order_only": false,
+      "previous_clock_axis_start_position": "negative",
+      "previous_start_mismatch": false,
+      "final_position": "negative",
+      "grouped_ranges": [],
+      "single_transition_ranges": [
+        {
+          "from_position": "negative",
+          "to_position": "positive",
+          "historical_time_range": "11:01:00–11:11:23"
+        },
+        {
+          "from_position": "positive",
+          "to_position": "negative",
+          "historical_time_range": "12:15:24–12:32:19"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "audit_id": "CV081A13-1-WEIGHT-MOTION-GEOMETRY-REAUDIT",
+  "date_jst": "2026-07-20",
+  "baseline_zip": "CV081A13.zip",
+  "application_build": "CV081A05",
+  "status": "AUDIT_COMPLETE_REQUIRES_GEOMETRY_FIX",
+  "public_files_modified": false,
+  "primary_source": {
+    "author": "Henry Cavendish",
+    "title": "Experiments to Determine the Density of the Earth",
+    "year": 1798,
+    "pages": "469–526",
+    "doi": "10.1098/rstl.1798.0022",
+    "focus": ["pp.472–473", "pp.509–519", "Fig.1", "Fig.2", "Experiment I–XVII tables"]
+  },
+  "counts": {
+    "現状OK": 3,
+    "表示修正": 2,
+    "機能修正": 2,
+    "史実再確認": 0,
+    "保留": 2
+  },
+  "source_geometry": {
+    "small_ball_center_spacing_in": 73.3,
+    "derived_support_radius_in": 36.65,
+    "near_position_lateral_offset_in": 8.85,
+    "derived_each_near_angle_deg": 13.9735177672,
+    "derived_positive_negative_total_angle_deg": 27.9470355344,
+    "midway_exact_coordinate": "not specified in the primary source",
+    "transition_path_and_duration": "not specified in the primary source"
+  },
+  "current_motion_view": {
+    "coordinates_percent": {
+      "positive": [[19, 31], [81, 73]],
+      "negative": [[84, 25], [16, 77]],
+      "midway": [[50, 15], [50, 85]]
+    },
+    "radii_from_stage_center": {
+      "positive": [36.3593179254, 38.6005181312],
+      "negative": [42.2018956920, 43.4165866922],
+      "midway": [35.0, 35.0]
+    },
+    "pair_center_error": {
+      "positive": [0, 2],
+      "negative": [0, 1],
+      "midway": [0, 0]
+    },
+    "transition_method": "Cartesian linear interpolation with smoothstep",
+    "decision": "NOT_GEOMETRICALLY_ALIGNED"
+  },
+  "current_three_d": {
+    "stable_near_anchors": "constant radius and diametric opposition are satisfied",
+    "midway_anchor": "90-degree explanatory reconstruction",
+    "transition_method": "Cartesian linear interpolation between anchors",
+    "positive_to_midway_chord_midpoint_radius_in": 28.8753787854,
+    "required_radius_in": 36.65,
+    "maximum_radius_contraction_percent": 21.2131547465,
+    "chord_midpoint_support_spacing_in": 57.7507575708,
+    "required_support_spacing_in": 73.3,
+    "decision": "STABLE_NEAR_POSITIONS_PASS_TRANSITION_FAIL_MIDWAY_HOLD"
+  },
+  "overall_decision": {
+    "all_17_position_sequences": "PASS — no data change",
+    "positive_negative_stable_geometry_3d": "PASS with angle-label clarification",
+    "motion_view_stable_geometry": "DISPLAY FIX REQUIRED",
+    "motion_view_transition": "FUNCTION FIX REQUIRED",
+    "three_d_transition": "FUNCTION FIX REQUIRED",
+    "midway_coordinate": "HOLD / explanatory reconstruction only",
+    "historical_continuous_motion": "DO NOT DISPLAY when route is unrecorded",
+    "fix_ready": false
+  }
+}

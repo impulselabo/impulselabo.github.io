@@ -1,0 +1,42 @@
+{
+  "build": "CV082A05",
+  "title": "iPhone landscape left-control help-card containment",
+  "target": {
+    "page": "cavendish-simulator.html",
+    "viewportCssPx": [844, 390],
+    "controlColumnWidthPx": 248,
+    "scope": "left operation column title and control-row help cards"
+  },
+  "before": {
+    "anchorRowWidthPx": 215,
+    "helpCardWidthPx": 318,
+    "helpCardLeftPx": -87,
+    "clippedLeftPx": 87,
+    "fitsControl": false
+  },
+  "after": {
+    "anchorRowWidthPx": 215,
+    "helpCardWidthPx": 213,
+    "helpCardLeftPx": 16,
+    "helpCardRightPx": 229,
+    "clippedLeftPx": 0,
+    "clippedRightPx": 0,
+    "fitsControl": true
+  },
+  "preserved": [
+    "portrait help-card rules",
+    "desktop help-card rules",
+    "right observation help cards",
+    "help text and open-close behavior",
+    "historical data and physics",
+    "report and CSV"
+  ],
+  "results": {
+    "landscape_width_containment": "PASS",
+    "landscape_left_edge_containment": "PASS",
+    "landscape_right_edge_containment": "PASS",
+    "portrait_regression": "PASS",
+    "desktop_regression": "PASS",
+    "public_route_regression": "PASS"
+  }
+}

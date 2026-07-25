@@ -1,0 +1,48 @@
+{
+  "build": "CV082A06R",
+  "title": "iPad landscape independent control scroll and three-row observation viewport fit",
+  "target": {
+    "page": "cavendish-simulator.html",
+    "orientation": "landscape",
+    "minWidthPx": 901,
+    "maxWidthPx": 1199,
+    "minHeightPx": 521,
+    "controlColumnWidthPx": 300
+  },
+  "before": {
+    "leftControlHasBoundedScrollContainer": false,
+    "rightObservationUsesThreeViewportRows": false,
+    "observationBottomContained": false
+  },
+  "after": {
+    "dynamicViewportBody": true,
+    "naturalHeaderHeightReserved": true,
+    "leftControlHasBoundedScrollContainer": true,
+    "operationBarRemainsFixed": true,
+    "rightObservationRows": [
+      "Historical Telescope",
+      "Waveform",
+      "Observation Timeline"
+    ],
+    "rightObservationUsesThreeViewportRows": true,
+    "timelineUsesTwoCompactColumns": true,
+    "timelineOverflowContainedLocally": true,
+    "observationBottomContained": true
+  },
+  "preserved": [
+    "CV082A06 fixed five-button operation bar",
+    "iPhone portrait and landscape layouts",
+    "iPad portrait mobile layout",
+    "desktop layout at 1200 px and wider",
+    "historical data, physics, report, CSV, 3D, guide and manual"
+  ],
+  "results": {
+    "dynamic_viewport_boundary": "PASS",
+    "left_independent_scroll": "PASS",
+    "operation_bar_regression": "PASS",
+    "right_three_row_fit": "PASS",
+    "timeline_local_containment": "PASS",
+    "iphone_regression": "PASS",
+    "desktop_regression": "PASS"
+  }
+}

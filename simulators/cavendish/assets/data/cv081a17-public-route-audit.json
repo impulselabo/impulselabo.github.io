@@ -1,0 +1,54 @@
+{
+  "build": "CV081A17",
+  "title": "Cavendish公開導線・関連ページ最終整合監査",
+  "date": "2026-07-22",
+  "publicPages": [
+    {
+      "file": "cavendish-simulator.html",
+      "role": "検証する",
+      "componentBuild": "CV081A10R2"
+    },
+    {
+      "file": "cavendish-3d/cavendish-guide-3d.html",
+      "role": "1798年装置3D",
+      "componentBuild": "CV081A092R2"
+    },
+    {
+      "file": "cavendish-guide.html",
+      "role": "実験の解説",
+      "componentBuild": "CV081A16"
+    },
+    {
+      "file": "cavendish-manual.html",
+      "role": "操作マニュアル",
+      "componentBuild": "CV081A11-2R12"
+    },
+    {
+      "file": "cavendish-report-preview.html",
+      "role": "A4レポート",
+      "componentBuild": "CV081A05"
+    }
+  ],
+  "commonNavigation": [
+    "検証する",
+    "1798年装置3D",
+    "実験の解説",
+    "操作マニュアル"
+  ],
+  "results": {
+    "localLinkTargets": "PASS",
+    "fragmentTargets": "PASS",
+    "globalNavigationOrder": "PASS",
+    "activePageMarkers": "PASS",
+    "documentTitles": "PASS",
+    "componentBuildAccuracy": "PASS",
+    "bottomRelatedRoutes": "PASS",
+    "mobileNavigationLabels": "PASS",
+    "nonPublicRouteExposure": "PASS"
+  },
+  "notes": [
+    "各コンポーネントのBuildは実装系統が異なるため同一番号へ置換せず、表示される番号を実ファイルの現行識別子へ合わせた。",
+    "操作マニュアル下部のBuild CV081A11-2R9を現行CV081A11-2R12へ修正した。",
+    "解説・操作マニュアル・3Dのページ下部に4公開ページへの共通導線を揃えた。"
+  ]
+}

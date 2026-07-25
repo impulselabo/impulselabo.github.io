@@ -1,0 +1,114 @@
+{
+  "build": "CV082A02",
+  "title": "Fig.1 upper support and central suspension fidelity audit",
+  "sourceBasis": [
+    "Cavendish 1798 Fig.1",
+    "1798 paper p.472 structural description",
+    "cv1798-constraints.json C008 and C009"
+  ],
+  "scope": [
+    "vertical pin Pp",
+    "retaining plate and head p",
+    "horizontal pulley MM",
+    "operating cord Mm",
+    "branch hub P",
+    "oblique supports P-r",
+    "joints r",
+    "rigid wooden cross-bar rr",
+    "vertical copper rods Rr"
+  ],
+  "fixedAnchors": {
+    "P_world_in": [0.0, 34.0, 0.0],
+    "MM_world_in": [0.0, 40.15, 0.0],
+    "Pp_axis": "world Y through X=0 and Z=0",
+    "largeBallSupportRadius_in": 36.65,
+    "crossBarSpan_in": 73.3,
+    "branchAngle_deg": 120.0,
+    "copperRodTotal_in": 62.0
+  },
+  "changes": {
+    "Pp_p": [
+      "continuous vertical pin",
+      "ceiling bearing collars",
+      "retaining plate",
+      "retaining head"
+    ],
+    "MM": [
+      "upper rim",
+      "lower rim",
+      "groove core",
+      "concentric hub"
+    ],
+    "Mm": [
+      "tangent approach to the MM groove",
+      "through-wall guide",
+      "outside guide wheel",
+      "downward cord run",
+      "hanging operating weight"
+    ],
+    "branchSupport": [
+      "P hub",
+      "paired oblique P-r members",
+      "left and right r joints",
+      "rectangular rigid wooden rr bar",
+      "paired vertical copper Rr rods and lower collars",
+      "rr endpoint coordinate master synchronized to the active rigid-arc phase"
+    ]
+  },
+  "evidenceClassification": {
+    "confirmedStructure": [
+      "MM is concentric with and fixed to Pp",
+      "Mm operates MM",
+      "P branches to the paired supports",
+      "rr connects the two r support points",
+      "Rr rods suspend the large balls"
+    ],
+    "figureCalibrated": [
+      "P and MM absolute heights",
+      "MM radius and thickness",
+      "p plate proportions",
+      "P-r branch angle",
+      "joint and collar proportions"
+    ],
+    "figureProportionalRepresentation": [
+      "Mm outside guide wheel",
+      "Mm hanging operating weight"
+    ],
+    "notClaimed": [
+      "unrecorded pulley material",
+      "unrecorded exact pulley thickness",
+      "unrecorded cord diameter",
+      "unrecorded external guide dimensions"
+    ]
+  },
+  "mobileFitBounds_world_in": {
+    "x": [-59.0, 54.0],
+    "y": [-52.0, 45.0],
+    "z": [-19.0, 19.0]
+  },
+  "preserved": [
+    "A01 reading case",
+    "A01 reader",
+    "A01 lamps",
+    "A01 telescopes",
+    "optical paths",
+    "large-ball stable coordinates",
+    "large-ball rigid arc interpolation",
+    "support radius and 180-degree opposition",
+    "desktop interaction",
+    "iPhone safe-area behavior",
+    "single top common navigation"
+  ],
+  "results": {
+    "Pp_p_continuity": "PASS",
+    "MM_concentric_groove": "PASS",
+    "Mm_tangent_and_external_end": "PASS",
+    "P_r_rr_Rr_structure": "PASS",
+    "rr_coordinate_master_and_span": "PASS",
+    "fixed_coordinate_preservation": "PASS",
+    "rigid_arc_regression": "PASS",
+    "mobile_fit_regression": "PASS",
+    "navigation_dedup_regression": "PASS"
+  },
+  "imageGeneration": "not used"
+}

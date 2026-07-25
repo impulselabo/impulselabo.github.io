@@ -1,0 +1,41 @@
+{
+  "build": "CV082A01MR",
+  "scope": [
+    "iphone-initial-free-view-fit",
+    "left-right-endpoint-containment",
+    "bottom-control-safe-area"
+  ],
+  "fit": {
+    "projection": "perspective-45deg",
+    "maxNdc": 0.93,
+    "cameraDistanceMin": 65,
+    "cameraDistanceMax": 280,
+    "zoomMinimumPercent": 45,
+    "fitEvents": ["initial", "orientation-change", "viewport-width-change", "reset"],
+    "preserveManualCamera": true
+  },
+  "viewports": [
+    {
+      "name": "iphone-15-portrait-equivalent",
+      "canvasAspect": 0.75,
+      "cameraDistance": 216.8,
+      "projectedMaxNdc": 0.93,
+      "result": "PASS"
+    },
+    {
+      "name": "iphone-se-portrait-equivalent",
+      "canvasAspect": 0.714,
+      "cameraDistance": 226.57,
+      "projectedMaxNdc": 0.93,
+      "result": "PASS"
+    },
+    {
+      "name": "iphone-15-landscape-equivalent",
+      "canvasAspect": 2.3939,
+      "cameraDistance": 172.7,
+      "projectedMaxNdc": 0.93,
+      "result": "PASS"
+    }
+  ],
+  "preserved": ["desktop-camera", "geometry", "coordinates", "physics", "optical-model"]
+}

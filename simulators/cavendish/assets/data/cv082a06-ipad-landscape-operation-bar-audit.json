@@ -1,0 +1,42 @@
+{
+  "build": "CV082A06",
+  "title": "iPad landscape left-column fixed operation bar",
+  "target": {
+    "page": "cavendish-simulator.html",
+    "orientation": "landscape",
+    "minWidthPx": 901,
+    "maxWidthPx": 1199,
+    "controlColumnWidthPx": 300,
+    "buttonCount": 5
+  },
+  "before": {
+    "tabletBreakpointCovered": false,
+    "operationBarVisibleAtViewportBottom": false
+  },
+  "after": {
+    "tabletBreakpointCovered": true,
+    "operationBarVisibleAtViewportBottom": true,
+    "operationBarPosition": "fixed",
+    "operationBarLeftPx": 0,
+    "operationBarBottomPx": 0,
+    "operationBarWidthPx": 300,
+    "equalButtonColumns": true,
+    "controlBottomSpaceReserved": true
+  },
+  "preserved": [
+    "iPhone portrait and landscape layouts",
+    "iPad portrait mobile layout",
+    "desktop layout at 1200 px and wider",
+    "button IDs and operation logic",
+    "CV082A05R1 edge-to-edge and help containment",
+    "historical data, physics, report, CSV, 3D, guide and manual"
+  ],
+  "results": {
+    "tablet_landscape_breakpoint": "PASS",
+    "left_column_bottom_fixed": "PASS",
+    "five_equal_button_columns": "PASS",
+    "control_scroll_reservation": "PASS",
+    "iphone_regression": "PASS",
+    "desktop_regression": "PASS"
+  }
+}

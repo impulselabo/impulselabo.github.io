@@ -1,0 +1,29 @@
+{
+  "version": "CV081A09-2",
+  "coordinateSystem": {
+    "origin": "C: torsion axis and horizontal arm intersection",
+    "unit": "inch",
+    "axes": {
+      "X": "apparatus longitudinal",
+      "Y": "vertical upward",
+      "Z": "forward"
+    }
+  },
+  "basisClasses": {
+    "confirmed": "本文確定",
+    "reconstructed": "本文値から算出",
+    "measured": "図版校正",
+    "inferred": "合理推定"
+  },
+  "geometryConstants": {
+    "armHalfSpan": 36.65,
+    "torsionWireLength": 40.0,
+    "smallBallDrop": 5.5,
+    "readerRadius": 38.3,
+    "largeOrbitRadius": 36.65,
+    "largeNearOffset": 8.85,
+    "copperRodTotal": 62.0,
+    "caseThickness": 0.75
+  },
+  "note": "Dynamic points such as large-ball coordinates are generated in assets/app.js from phase and geometry constants. Diagram-calibrated and inferred coordinates are not historical certainties."
+}

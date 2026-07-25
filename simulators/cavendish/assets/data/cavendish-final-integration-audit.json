@@ -1,0 +1,43 @@
+{
+  "audit_id": "CV080A31R-FINAL-INTEGRATION-PUBLIC-CANDIDATE-PATCH",
+  "build": "CV080A31R",
+  "report_version": "0.79",
+  "date_jst": "2026-07-10",
+  "baseline_zip": "CV080A31.zip",
+  "status": "public_candidate_patch_awaiting_device_confirmation",
+  "experiments": 17,
+  "historical_rows": 303,
+  "historical_csv_projections": 511,
+  "csv_exports": 34,
+  "report_exports": 17,
+  "viewports": [
+    "pc",
+    "iphone_portrait",
+    "iphone_landscape"
+  ],
+  "protected_baselines": {
+    "report": "CV080A28R",
+    "csv": "CV080A29",
+    "telescope": "CV080A29R2",
+    "wave_line_semantics": "CV080A30A",
+    "wave_support_legend": "CV080A30AR"
+  },
+  "manual_evidence": {
+    "all_17_waveforms": true,
+    "pc_layout": true,
+    "iphone_portrait": true,
+    "iphone_landscape": true,
+    "safari_clean_pdf": true,
+    "safari_csv_save": true,
+    "numbers_or_excel_reopen": false
+  },
+  "unchanged": [
+    "historical_values",
+    "reconstruction_values",
+    "physics_and_reconstruction_algorithms",
+    "report_content_and_layout",
+    "csv_schema_and_values",
+    "approved_pc_layout_and_other_mobile_sections"
+  ],
+  "result_summary_mobile_wrap": "implemented"
+}

@@ -1,0 +1,344 @@
+{
+  "build": "CV080A12",
+  "schema_version": "1.2.0",
+  "title": "Crossing-time constrained reconstruction for all audited two-section and multi-section experiments",
+  "purpose_ja": "Experiment II〜V・IX〜XVIIのうち直接時計型を除く交差時刻表について、原表の目盛通過時刻・静止読取時刻・振動中央時刻を分離し、配置区間ごとに極値時刻と半余弦波形を再構成する。時計時刻のない配置区間と配置変更不確定帯は主時計軸へ接続しない。",
+  "table_family": "crossing_interpolation_table",
+  "rules": {
+    "direct_clock_values": [
+      "division_crossings",
+      "static_division_readings"
+    ],
+    "printed_calculation_times": [
+      "time_of_mid_vibration"
+    ],
+    "untimed_values": [
+      "extreme_point",
+      "point_of_rest"
+    ],
+    "extreme_time_formula": "Fit clock time against half-cycle phase using printed time_of_mid_vibration at phase row_index+0.5; interpolate between markers and extrapolate only with the nearest audited phase slope or printed half-cycle period. These are reconstructed extreme times, not direct historical clocks.",
+    "wave_formula": "For each adjacent pair of recorded extrema, use a piecewise half-cosine segment. Where a printed time_of_mid_vibration exists for that row, force the curve to pass the arithmetic midpoint of the two extrema exactly at that printed clock time. Do not bridge a printed missed row.",
+    "historical_claim_boundary": "Division crossing times and printed middle-vibration times are historical table values. Reconstructed extreme times and curve samples are not direct historical clock observations.",
+    "transition_rule": "Show a transition uncertainty interval only when a pre-move direct clock record supplies the lower bound. For Experiment XII, use the first reconstructed post-move extreme time only as an explicitly labelled reconstructed upper bound; do not treat it as a direct historical clock.",
+    "clock_axis_edge_policy": "For Experiment IX, X, XI, XII, XV, and XVI, extrema without a confirmed clock-axis position remain in the order-only lane and are not rendered at x=0. Visible partial half-cycles retain their clipped historical clock bounds. Experiment XV uses the first and last direct observation clocks as the visible clock-axis edges.",
+    "missed_display_policy": "Experiment XI shows one printed missed extreme as a compact solid bracket centered on the reconstructed missing phase; the waveform remains disconnected across the full adjacent-extrema gap.",
+    "transition_uncertainty_display_policy": "Experiment XII displays the uncertainty band from the final pre-move direct reading to the first reconstructed post-move extreme. The waveform begins at that reconstructed extreme and the band labels its right boundary as 再構成による上限.",
+    "multi_section_rule": "For multi-section tables, reconstruct each timed placement section independently. Never connect wave segments across a placement transition. Sections containing only untimed extrema remain in the order-only lane.",
+    "marker_only_row_rule": "A row that prints division crossings and time_of_mid_vibration but no extreme point constrains the half-cycle between the preceding and following recorded extrema; it is not an extra extreme slot.",
+    "clock_cycle_rule": "Resolve the 12-hour clock forward in source order. If an intervening untimed extreme sequence cannot fit before the next printed clock on the same 12-hour occurrence, advance the next clocked section by 12 hours.",
+    "multi_transition_rule": "When one or more untimed placement sections lie between two clocked sections, display one bounded unresolved interval from the last direct clock of the earlier section to the first direct clock of the later section. Preserve the intermediate values in record order only."
+  },
+  "sets": {
+    "CAV-1798-EXP-II": {
+      "display_mode": "multi_section_crossing_time_reconstruction",
+      "direct_marker_kind": "division_crossing",
+      "reconstructed_marker_kind": "extreme_point",
+      "missed_policy": "cut_adjacent_half_cycle_segments_no_value_or_time_synthesis",
+      "clock_axis_outside_marker_policy": "hide_order_only_on_main_axis",
+      "clock_axis_segment_mapping": "visible_historical_bounds",
+      "clock_axis_edge_basis": "direct_value_clock_bounds",
+      "transition_boundary_policy": "surrounding_direct_clock_records",
+      "marker_only_row_policy": "bind_preceding_and_following_extrema",
+      "clock_normalization_policy": "forward_12h_with_minimum_intervening_phase_duration",
+      "data_key": "CAV-1798-EXP-II",
+      "middle_vibration_time_count": 5,
+      "division_crossing_time_count": 10,
+      "missed_row_count": 0,
+      "section_modes": [
+        {
+          "section_index": 0,
+          "mode": "static_direct"
+        },
+        {
+          "section_index": 1,
+          "mode": "order_only"
+        },
+        {
+          "section_index": 2,
+          "mode": "timed_crossing"
+        }
+      ]
+    },
+    "CAV-1798-EXP-III": {
+      "display_mode": "multi_section_crossing_time_reconstruction",
+      "direct_marker_kind": "division_crossing",
+      "reconstructed_marker_kind": "extreme_point",
+      "missed_policy": "cut_adjacent_half_cycle_segments_no_value_or_time_synthesis",
+      "clock_axis_outside_marker_policy": "hide_order_only_on_main_axis",
+      "clock_axis_segment_mapping": "visible_historical_bounds",
+      "clock_axis_edge_basis": "direct_value_clock_bounds",
+      "transition_boundary_policy": "surrounding_direct_clock_records",
+      "marker_only_row_policy": "bind_preceding_and_following_extrema",
+      "clock_normalization_policy": "forward_12h_with_minimum_intervening_phase_duration",
+      "data_key": "CAV-1798-EXP-III",
+      "middle_vibration_time_count": 7,
+      "division_crossing_time_count": 14,
+      "missed_row_count": 0,
+      "section_modes": [
+        {
+          "section_index": 0,
+          "mode": "order_only"
+        },
+        {
+          "section_index": 1,
+          "mode": "timed_crossing"
+        },
+        {
+          "section_index": 2,
+          "mode": "timed_crossing"
+        }
+      ]
+    },
+    "CAV-1798-EXP-IV": {
+      "display_mode": "multi_section_crossing_time_reconstruction",
+      "direct_marker_kind": "division_crossing",
+      "reconstructed_marker_kind": "extreme_point",
+      "missed_policy": "cut_adjacent_half_cycle_segments_no_value_or_time_synthesis",
+      "clock_axis_outside_marker_policy": "hide_order_only_on_main_axis",
+      "clock_axis_segment_mapping": "visible_historical_bounds",
+      "clock_axis_edge_basis": "direct_value_clock_bounds",
+      "transition_boundary_policy": "surrounding_direct_clock_records",
+      "marker_only_row_policy": "bind_preceding_and_following_extrema",
+      "clock_normalization_policy": "forward_12h_with_minimum_intervening_phase_duration",
+      "data_key": "CAV-1798-EXP-IV",
+      "middle_vibration_time_count": 12,
+      "division_crossing_time_count": 24,
+      "missed_row_count": 0,
+      "section_modes": [
+        {
+          "section_index": 0,
+          "mode": "static_direct"
+        },
+        {
+          "section_index": 1,
+          "mode": "order_only"
+        },
+        {
+          "section_index": 2,
+          "mode": "timed_crossing"
+        },
+        {
+          "section_index": 3,
+          "mode": "timed_crossing"
+        }
+      ]
+    },
+    "CAV-1798-EXP-V": {
+      "display_mode": "multi_section_crossing_time_reconstruction",
+      "direct_marker_kind": "division_crossing",
+      "reconstructed_marker_kind": "extreme_point",
+      "missed_policy": "cut_adjacent_half_cycle_segments_no_value_or_time_synthesis",
+      "clock_axis_outside_marker_policy": "hide_order_only_on_main_axis",
+      "clock_axis_segment_mapping": "visible_historical_bounds",
+      "clock_axis_edge_basis": "direct_value_clock_bounds",
+      "transition_boundary_policy": "surrounding_direct_clock_records",
+      "marker_only_row_policy": "bind_preceding_and_following_extrema",
+      "clock_normalization_policy": "forward_12h_with_minimum_intervening_phase_duration",
+      "data_key": "CAV-1798-EXP-V",
+      "middle_vibration_time_count": 7,
+      "division_crossing_time_count": 14,
+      "missed_row_count": 0,
+      "section_modes": [
+        {
+          "section_index": 0,
+          "mode": "order_only"
+        },
+        {
+          "section_index": 1,
+          "mode": "timed_crossing"
+        },
+        {
+          "section_index": 2,
+          "mode": "timed_crossing"
+        }
+      ]
+    },
+    "CAV-1798-EXP-IX": {
+      "data_key": "CAV-1798-EXP-IX",
+      "timed_section_index": 1,
+      "initial_section_index": 0,
+      "middle_vibration_time_count": 3,
+      "division_crossing_time_count": 6,
+      "missed_row_count": 0,
+      "static_pre_move_clock": false,
+      "display_mode": "crossing_time_constrained_reconstruction",
+      "direct_marker_kind": "division_crossing",
+      "reconstructed_marker_kind": "extreme_point",
+      "missed_policy": "cut_adjacent_half_cycle_segments_no_value_or_time_synthesis",
+      "clock_axis_outside_marker_policy": "hide_order_only_on_main_axis",
+      "clock_axis_segment_mapping": "visible_historical_bounds"
+    },
+    "CAV-1798-EXP-X": {
+      "data_key": "CAV-1798-EXP-X",
+      "timed_section_index": 1,
+      "initial_section_index": 0,
+      "middle_vibration_time_count": 5,
+      "division_crossing_time_count": 10,
+      "missed_row_count": 0,
+      "static_pre_move_clock": false,
+      "display_mode": "crossing_time_constrained_reconstruction",
+      "direct_marker_kind": "division_crossing",
+      "reconstructed_marker_kind": "extreme_point",
+      "missed_policy": "cut_adjacent_half_cycle_segments_no_value_or_time_synthesis",
+      "clock_axis_outside_marker_policy": "hide_order_only_on_main_axis",
+      "clock_axis_segment_mapping": "visible_historical_bounds"
+    },
+    "CAV-1798-EXP-XI": {
+      "data_key": "CAV-1798-EXP-XI",
+      "timed_section_index": 1,
+      "initial_section_index": 0,
+      "middle_vibration_time_count": 3,
+      "division_crossing_time_count": 8,
+      "missed_row_count": 1,
+      "static_pre_move_clock": false,
+      "display_mode": "crossing_time_constrained_reconstruction",
+      "direct_marker_kind": "division_crossing",
+      "reconstructed_marker_kind": "extreme_point",
+      "missed_policy": "cut_adjacent_half_cycle_segments_no_value_or_time_synthesis",
+      "clock_axis_outside_marker_policy": "hide_order_only_on_main_axis",
+      "clock_axis_segment_mapping": "visible_historical_bounds",
+      "missed_display_style": "single_extreme_bracket"
+    },
+    "CAV-1798-EXP-XII": {
+      "data_key": "CAV-1798-EXP-XII",
+      "timed_section_index": 1,
+      "initial_section_index": 0,
+      "middle_vibration_time_count": 3,
+      "division_crossing_time_count": 6,
+      "missed_row_count": 0,
+      "static_pre_move_clock": true,
+      "display_mode": "crossing_time_constrained_reconstruction",
+      "direct_marker_kind": "division_crossing",
+      "reconstructed_marker_kind": "extreme_point",
+      "missed_policy": "cut_adjacent_half_cycle_segments_no_value_or_time_synthesis",
+      "clock_axis_outside_marker_policy": "hide_order_only_on_main_axis",
+      "clock_axis_segment_mapping": "visible_historical_bounds",
+      "clock_axis_edge_basis": "direct_value_clock_bounds",
+      "transition_end_boundary_policy": "first_reconstructed_post_move_extreme",
+      "transition_end_boundary_label_ja": "再構成による上限",
+      "transition_display_label_ja": "配置時刻不明"
+    },
+    "CAV-1798-EXP-XV": {
+      "data_key": "CAV-1798-EXP-XV",
+      "timed_section_index": 1,
+      "initial_section_index": 0,
+      "middle_vibration_time_count": 5,
+      "division_crossing_time_count": 10,
+      "missed_row_count": 0,
+      "static_pre_move_clock": false,
+      "display_mode": "crossing_time_constrained_reconstruction",
+      "direct_marker_kind": "division_crossing",
+      "reconstructed_marker_kind": "extreme_point",
+      "missed_policy": "cut_adjacent_half_cycle_segments_no_value_or_time_synthesis",
+      "clock_axis_outside_marker_policy": "hide_order_only_on_main_axis",
+      "clock_axis_segment_mapping": "visible_historical_bounds",
+      "clock_axis_edge_basis": "direct_value_clock_bounds"
+    },
+    "CAV-1798-EXP-XVI": {
+      "data_key": "CAV-1798-EXP-XVI",
+      "timed_section_index": 1,
+      "initial_section_index": 0,
+      "middle_vibration_time_count": 7,
+      "division_crossing_time_count": 14,
+      "missed_row_count": 0,
+      "static_pre_move_clock": false,
+      "display_mode": "crossing_time_constrained_reconstruction",
+      "direct_marker_kind": "division_crossing",
+      "reconstructed_marker_kind": "extreme_point",
+      "missed_policy": "cut_adjacent_half_cycle_segments_no_value_or_time_synthesis",
+      "clock_axis_outside_marker_policy": "hide_order_only_on_main_axis",
+      "clock_axis_segment_mapping": "visible_historical_bounds",
+      "clock_axis_edge_basis": "direct_value_clock_bounds"
+    },
+    "CAV-1798-EXP-XIII": {
+      "display_mode": "multi_section_crossing_time_reconstruction",
+      "direct_marker_kind": "division_crossing",
+      "reconstructed_marker_kind": "extreme_point",
+      "missed_policy": "cut_adjacent_half_cycle_segments_no_value_or_time_synthesis",
+      "clock_axis_outside_marker_policy": "hide_order_only_on_main_axis",
+      "clock_axis_segment_mapping": "visible_historical_bounds",
+      "clock_axis_edge_basis": "direct_value_clock_bounds",
+      "transition_boundary_policy": "surrounding_direct_clock_records",
+      "marker_only_row_policy": "bind_preceding_and_following_extrema",
+      "clock_normalization_policy": "forward_12h_with_minimum_intervening_phase_duration",
+      "missed_row_count": 0,
+      "data_key": "CAV-1798-EXP-XIII",
+      "middle_vibration_time_count": 10,
+      "division_crossing_time_count": 20,
+      "section_modes": [
+        {
+          "section_index": 0,
+          "mode": "order_only"
+        },
+        {
+          "section_index": 1,
+          "mode": "timed_crossing"
+        },
+        {
+          "section_index": 2,
+          "mode": "timed_crossing"
+        }
+      ]
+    },
+    "CAV-1798-EXP-XIV": {
+      "display_mode": "multi_section_crossing_time_reconstruction",
+      "direct_marker_kind": "division_crossing",
+      "reconstructed_marker_kind": "extreme_point",
+      "missed_policy": "cut_adjacent_half_cycle_segments_no_value_or_time_synthesis",
+      "clock_axis_outside_marker_policy": "hide_order_only_on_main_axis",
+      "clock_axis_segment_mapping": "visible_historical_bounds",
+      "clock_axis_edge_basis": "direct_value_clock_bounds",
+      "transition_boundary_policy": "surrounding_direct_clock_records",
+      "marker_only_row_policy": "bind_preceding_and_following_extrema",
+      "clock_normalization_policy": "forward_12h_with_minimum_intervening_phase_duration",
+      "missed_row_count": 0,
+      "data_key": "CAV-1798-EXP-XIV",
+      "middle_vibration_time_count": 9,
+      "division_crossing_time_count": 18,
+      "section_modes": [
+        {
+          "section_index": 0,
+          "mode": "static_direct"
+        },
+        {
+          "section_index": 1,
+          "mode": "timed_crossing"
+        },
+        {
+          "section_index": 2,
+          "mode": "timed_crossing"
+        }
+      ]
+    },
+    "CAV-1798-EXP-XVII": {
+      "display_mode": "multi_section_crossing_time_reconstruction",
+      "direct_marker_kind": "division_crossing",
+      "reconstructed_marker_kind": "extreme_point",
+      "missed_policy": "cut_adjacent_half_cycle_segments_no_value_or_time_synthesis",
+      "clock_axis_outside_marker_policy": "hide_order_only_on_main_axis",
+      "clock_axis_segment_mapping": "visible_historical_bounds",
+      "clock_axis_edge_basis": "direct_value_clock_bounds",
+      "transition_boundary_policy": "surrounding_direct_clock_records",
+      "marker_only_row_policy": "bind_preceding_and_following_extrema",
+      "clock_normalization_policy": "forward_12h_with_minimum_intervening_phase_duration",
+      "missed_row_count": 0,
+      "data_key": "CAV-1798-EXP-XVII",
+      "middle_vibration_time_count": 18,
+      "division_crossing_time_count": 36,
+      "section_modes": [
+        {
+          "section_index": 0,
+          "mode": "static_direct"
+        },
+        {
+          "section_index": 1,
+          "mode": "timed_crossing"
+        },
+        {
+          "section_index": 2,
+          "mode": "timed_crossing"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "resolution_id": "CV081A12-1R-EXPERIMENT-III-SOURCE-PAGE-CORRECTION",
+  "resolution_build": "CV081A12-1R",
+  "application_build": "CV081A05",
+  "baseline_zip": "CV081A123R1.zip",
+  "date_jst": "2026-07-20",
+  "status": "PASS_CORRECTION_APPLIED_ALL_17_CURRENT_OK",
+  "resolved_issue_id": "CV081A12-1-DISPLAY-001",
+  "correction": {
+    "experiment": "Experiment III",
+    "historical_values_changed": false,
+    "historical_times_changed": false,
+    "position_sequence_changed": false,
+    "table_source_pages": [
+      483,
+      484
+    ],
+    "narrative_source_pages": [
+      485
+    ],
+    "public_row_source_label": "p.483–484",
+    "narrative_note": "関連叙述 p.485"
+  },
+  "cross_layer_reflection": {
+    "historical_data_json_js": "updated",
+    "observation_registry_json_js": "updated",
+    "column_semantics_audit_json_js": "updated",
+    "historical_record_table_audit_json": "updated",
+    "summary_result_audit_json": "updated",
+    "screen_source_label": "p.483–484",
+    "report_source_label": "p.483–484",
+    "historical_csv_source_pages": "483–484",
+    "historical_csv_narrative_source_pages": "485",
+    "all_17_experiment_audit_result": "PASS"
+  },
+  "totals_preserved": {
+    "experiments": 17,
+    "historical_source_rows": 303,
+    "missed_rows_or_groups_preserved": 7,
+    "printed_point_of_rest_values": 183,
+    "printed_vibration_intervals": 28,
+    "printed_summary_motions": 29,
+    "printed_summary_periods": 20,
+    "historical_calculation_records": 260,
+    "position_statistics": 38,
+    "transition_statistics": 29,
+    "replay_report_records": 511,
+    "historical_direct_values": 492,
+    "historical_table_derived_values": 19,
+    "exact_clock_records": 270,
+    "reconstructed_clock_records": 128,
+    "order_only_records": 94,
+    "no_instant_calculations": 19,
+    "position_sections": 46,
+    "hypothetical_ui_preludes": 8,
+    "hypothetical_ui_records_in_report": 0,
+    "records_after_observation_end": 0,
+    "telescope_latest_direct_checks": 17,
+    "csv_files": 34,
+    "historical_csv_rows": 511,
+    "analysis_csv_rows": 2048,
+    "anomalous_printed_mid_vibration_times_preserved": 12,
+    "display_metadata_correction_candidates": 0,
+    "functional_corrections_required": 0,
+    "historical_value_rechecks_remaining": 0,
+    "display_metadata_corrections_applied": 1
+  },
+  "classification_after_resolution": {
+    "現状OK": 17,
+    "表示修正": 0,
+    "機能修正": 0,
+    "史実再確認": 0,
+    "保留": 0
+  },
+  "preservation": {
+    "historical_numeric_values_changed": false,
+    "historical_times_changed": false,
+    "position_sequences_changed": false,
+    "reconstruction_algorithms_changed": false,
+    "report_layout_changed": false,
+    "csv_schema_core_changed": false,
+    "ui_layout_changed": false
+  }
+}

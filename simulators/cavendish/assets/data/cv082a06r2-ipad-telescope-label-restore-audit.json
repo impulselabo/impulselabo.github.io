@@ -1,0 +1,40 @@
+{
+  "build": "CV082A06R2",
+  "title": "iPad landscape Historical Telescope scale-label restoration",
+  "target": {
+    "page": "cavendish-simulator.html",
+    "orientation": "landscape",
+    "minWidthPx": 901,
+    "maxWidthPx": 1199,
+    "minHeightPx": 521
+  },
+  "before": {
+    "fixedMainLabelTopPx": -10,
+    "movingVernierLabelTopPx": 33,
+    "fixedMainLabelsVisibleInsideLens": false,
+    "movingVernierLabelsVisibleInsideLens": false
+  },
+  "after": {
+    "fixedMainLabelTopPx": -1,
+    "movingVernierLabelTopPx": 23,
+    "fixedMainLabelsVisibleInsideLens": true,
+    "movingVernierLabelsVisibleInsideLens": true,
+    "observationRowRatio": "18/54/28"
+  },
+  "preserved": [
+    "CV082A06R1 three-row viewport fit",
+    "CV082A06R1 two-row Telescope header",
+    "CV082A06R1 left help containment",
+    "CV082A06R independent left control scrolling",
+    "CV082A06 fixed five-button operation bar",
+    "all iPhone layout and safe-area rules",
+    "left control sections 2 through 4 pending separate review"
+  ],
+  "results": {
+    "fixed_main_label_restore": "PASS",
+    "moving_vernier_label_restore": "PASS",
+    "three_row_fit_regression": "PASS",
+    "iphone_scope_exclusion": "PASS",
+    "left_control_scope_exclusion": "PASS"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "build": "CV082A01",
+  "source": "1798 Fig.1",
+  "scope": ["reading-case", "reader", "lamp", "telescope"],
+  "changes": {
+    "readingCase": ["open frame", "inner recess", "top and bottom members", "side members"],
+    "reader": ["fixed scale h", "moving index", "tick marks", "support", "fine screw S"],
+    "telescope": ["wall aperture sleeve", "main tube", "objective collar", "eyepiece", "support board"],
+    "lamp": ["inclined support", "glass body", "hood", "light tube"]
+  },
+  "preserved": ["coordinates", "symmetry", "optical paths", "camera", "controls", "physics"],
+  "imageGenerationPolicy": "Only on explicit user request"
+}

@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <title>キャベンディッシュ実験｜1798年装置3D｜IMPULSE LABO</title>
+  <link rel="stylesheet" href="assets/style.css?v=CV082A03">
+</head>
+<body class="three-d-page">
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="brand" href="../cavendish-guide.html">IMPULSE LABO</a>
+    <div class="header-tools">
+      <div class="font-size-control" role="group" aria-label="文字サイズ">
+        <span>文字サイズ</span>
+        <button type="button" data-font-size="standard" aria-pressed="true">標準</button>
+        <button type="button" data-font-size="large" aria-pressed="false">大</button>
+        <button type="button" data-font-size="xlarge" aria-pressed="false">特大</button>
+      </div>
+      <nav class="cav-global-nav" aria-label="Cavendish関連ページ"><a href="../cavendish-simulator.html"><span class="nav-label-full">検証する</span><span class="nav-label-mobile" aria-hidden="true">検証</span></a><a href="cavendish-guide-3d.html" class="active" aria-current="page"><span class="nav-label-full">1798年装置3D</span><span class="nav-label-mobile" aria-hidden="true">3D</span></a><a href="../cavendish-guide.html"><span class="nav-label-full">実験の解説</span><span class="nav-label-mobile" aria-hidden="true">解説</span></a><a href="../cavendish-manual.html"><span class="nav-label-full">操作マニュアル</span><span class="nav-label-mobile" aria-hidden="true">マニュアル</span></a></nav>
+    </div>
+  </div>
+</header>
+<section class="three-d-intro" aria-labelledby="page-title">
+  <h1 id="page-title">1798年装置3D</h1>
+  <p class="lead">1798年論文をもとに、装置の構造・動作・光学系・XYZ座標を確認します。</p>
+</section>
+<main class="layout">
+  <aside class="control-panel">
+    <section>
+      <h2>表示</h2>
+      <div class="button-grid">
+        <button class="mode active" data-mode="all">全体</button>
+        <button class="mode" data-mode="transparent">ケース透明</button>
+        <button class="mode" data-mode="inside">ねじり天秤</button>
+        <button class="mode" data-mode="drive">大球駆動系</button>
+        <button class="mode" data-mode="optics">読取光学系</button>
+        <button class="mode" data-mode="clearance">干渉確認</button>
+        <button class="mode" data-mode="assembly">アセンブリ</button>
+        <button class="mode" data-mode="constraints">拘束確認</button>
+        <button class="mode" data-mode="audit">Fig.1輪郭監査</button>
+      </div>
+    </section>
+
+    <section class="optics-visual-controls">
+      <h2>光学可視化</h2>
+      <div class="optics-toggle-grid">
+        <button class="optics-toggle" data-optics="source" aria-pressed="false">ランプ光源</button>
+        <button class="optics-toggle" data-optics="path" aria-pressed="false">照射光路</button>
+        <button class="optics-toggle" data-optics="axis" aria-pressed="false">望遠鏡視線</button>
+        <button class="optics-toggle" data-optics="fov" aria-pressed="false">視野範囲</button>
+        <button class="optics-toggle active" data-optics="occlusion" aria-pressed="true">遮蔽確認</button>
+      </div>
+      <div class="optics-basis-list" aria-label="光学可視化の根拠区分">
+        <p><span class="basis-chip confirmed-chip">史実確認</span>ランプ・望遠鏡・読取部の存在と概略配置</p>
+        <p><span class="basis-chip inferred-chip">合理推定</span>光源から読取部までの照射方向と望遠鏡視線軸</p>
+        <p><span class="basis-chip guide-chip">説明用</span>半透明の視野範囲と遮蔽判定色</p>
+      </div>
+      <div class="optics-status-box">
+        <div><span>表示状態</span><b id="opticsVisualStatus">OFF</b></div>
+        <div><span>遮蔽判定</span><b id="opticsOcclusionStatus">待機</b></div>
+      </div>
+      <p class="audit-help">Mobileでは装置全体を見たまま光学項目を選びます。初期表示は照射光路です。</p>
+    </section>
+
+    <section id="auditControls" class="audit-controls" hidden>
+      <h2>Fig.1輪郭オーバーレイ</h2>
+      <label class="range-row">原図透明度
+        <input id="sourceOpacity" type="range" min="0" max="1" step="0.01" value="0.62">
+        <output id="sourceOpacityValue">62%</output>
+      </label>
+      <label class="range-row">CAD輪郭透明度
+        <input id="outlineOpacity" type="range" min="0" max="1" step="0.01" value="0.90">
+        <output id="outlineOpacityValue">90%</output>
+      </label>
+      <div class="button-grid audit-buttons">
+        <button id="toggleSource" class="action active">原図 ON</button>
+        <button id="toggleOutline" class="action active">輪郭 ON</button>
+        <button id="togglePoints" class="action active">A〜F ON</button>
+        <button id="fitAudit" class="action">位置合わせ</button>
+      </div>
+      <p class="audit-help">正面・正投影固定。回転操作は無効、ズームのみ有効です。</p>
+    </section>
+
+    <section>
+      <h2>ケース表示</h2>
+      <label class="range-row">ケース不透明度
+        <input id="caseOpacity" type="range" min="0" max="100" step="1" value="28">
+        <output id="caseOpacityValue">28%</output>
+      </label>
+      <label class="range-row">前後識別
+        <input id="depthContrast" type="range" min="0" max="100" step="1" value="42">
+        <output id="depthContrastValue">42%</output>
+      </label>
+    </section>
+
+    <section class="coordinate-controls">
+      <h2>XYZ座標監査</h2>
+      <div class="projection-grid" role="group" aria-label="正投影方向">
+        <button class="projection active" data-view="free" type="button">自由視点</button>
+        <button class="projection" data-view="front" type="button">正面 X–Y</button>
+        <button class="projection" data-view="side" type="button">側面 Z–Y</button>
+        <button class="projection" data-view="top" type="button">上面 X–Z</button>
+      </div>
+      <div class="coordinate-toggle-grid">
+        <button id="toggleAxes" class="action active" type="button">XYZ軸 ON</button>
+        <button id="toggleCoordLabels" class="action active" type="button">中心点 ON</button>
+      </div>
+      <p class="audit-help">三面図は透視歪みのない正投影固定です。1本指ドラッグは表示位置の移動、ピンチは拡大・縮小になります。</p>
+    </section>
+
+    <section>
+      <h2>視点操作</h2>
+      <label class="range-row">拡大・縮小
+        <input id="zoomLevel" type="range" min="45" max="190" step="1" value="100">
+        <output id="zoomLevelValue">100%</output>
+      </label>
+      <label class="range-row">表示位置・左右
+        <input id="panX" type="range" min="-50" max="50" step="1" value="0">
+        <output id="panXValue">0</output>
+      </label>
+      <label class="range-row">表示位置・上下
+        <input id="panY" type="range" min="-50" max="50" step="1" value="0">
+        <output id="panYValue">0</output>
+      </label>
+      <p class="audit-help">拡大後は2本指ドラッグで表示位置を移動できます。PCではShift＋ドラッグでも移動できます。</p>
+    </section>
+
+    <section>
+      <h2>動作</h2>
+      <div class="button-grid">
+        <button id="posA" class="action active">正位置</button>
+        <button id="posMid" class="action">中間位置</button>
+        <button id="posB" class="action">負位置</button>
+        <button id="playMove" class="action wide">3配置を順に再生</button>
+        <button id="armDemo" class="action wide">アーム微小回転を強調表示</button>
+      </div>
+      <label class="range-row">大球配置（説明用補間）
+        <input id="ballPhase" type="range" min="0" max="1" step="0.001" value="0">
+        <output id="ballPhaseValue">正位置</output>
+      </label>
+      <p class="audit-help">正位置・負位置・中間位置は史実記録にある配置区分です。配置間は大球2個の支持半径と180°対向を保つ円弧で補間します。中間位置座標・経路・速度は装置構造を説明するための再構成で、史実の移動時間ではありません。</p>
+      <label class="range-row">アーム角（表示倍率込み）
+        <input id="armAngle" type="range" min="-1" max="1" step="0.001" value="0">
+        <output id="armAngleValue">0.000</output>
+      </label>
+    </section>
+
+    <section>
+      <h2>CADアセンブリ</h2>
+      <div id="assemblyTree" class="assembly-tree"></div>
+    </section>
+
+    <section>
+      <h2>部品</h2>
+      <div id="parts" class="part-list"></div>
+    </section>
+
+    <section class="facts">
+      <h2 id="partTitle">装置全体</h2>
+      <p id="partRole">大球を正位置・負位置・中間位置へ切り替え、ねじり天秤の微小回転を望遠鏡で読み取ります。</p>
+      <dl>
+        <div><dt>部品ID</dt><dd id="partId">—</dd></div>
+        <div><dt>記号</dt><dd id="partSymbol">—</dd></div>
+        <div><dt>寸法・値</dt><dd id="partValue">—</dd></div>
+        <div><dt>根拠区分</dt><dd id="partBasis">統合モデル</dd></div>
+        <div><dt>自由度</dt><dd id="partDof">—</dd></div>
+        <div><dt>親部品</dt><dd id="partParent">—</dd></div>
+        <div><dt>拘束</dt><dd id="partConstraint">—</dd></div>
+        <div><dt>基準座標</dt><dd id="partCoord">—</dd></div>
+      </dl>
+    </section>
+  </aside>
+
+  <section class="viewer-card">
+    <div class="viewer-head">
+      <div>
+        <strong id="viewTitle">全体表示</strong>
+        <span>1本指ドラッグ：回転　ピンチ：拡大　2本指ドラッグ：移動</span>
+      </div>
+      <button id="resetView">視点を戻す</button>
+    </div>
+    <div class="viewer-stage">
+      <canvas id="viewer" aria-label="1798年Cavendish装置の機能再現骨格3D"></canvas>
+      <div id="scaleBar" class="scale-bar" aria-label="3D表示の実寸スケール"><small>中央面基準</small><span id="scaleBarLabel">12 in</span><i id="scaleBarLine"></i></div>
+      <div id="coordinateOverlay" class="coordinate-overlay" hidden aria-label="中心点座標ラベル"></div>
+      <div id="axisLegend" class="axis-legend" hidden>
+        <span class="axis-x">X</span><small>装置長手</small>
+        <span class="axis-y">Y</span><small>鉛直上向き</small>
+        <span class="axis-z">Z</span><small>前方</small>
+      </div>
+      <div id="auditStage" class="audit-stage" hidden>
+        <img id="auditSource" src="assets/fig1.png" alt="1798年論文 Fig.1 原図">
+        <svg id="auditSvg" viewBox="0 0 1000 760" preserveAspectRatio="xMidYMid meet" aria-label="CADケース輪郭監査">
+          <g id="auditOutline" class="audit-outline">
+            <path id="caseOuterPath" d="M180 459 L180 546 L221 546 L221 483 L779 483 L779 546 L820 546 L820 459 L543 425 L523 90 L477 90 L457 425 Z"/>
+            <path id="caseInnerPath" d="M186 465 L186 540 L227 540 L227 477 L773 477 L773 540 L814 540 L814 465 L536 431 L516 96 L484 96 L464 431 Z"/>
+          </g>
+          <g id="auditPoints" class="audit-points"></g>
+        </svg>
+      </div>
+    </div>
+    <div id="projectionStatus" class="projection-status" hidden aria-live="polite">
+      <div><b id="projectionName">正面正投影</b><span id="projectionPlane">X–Y平面／Z方向から観察</span></div>
+      <div><b>原点 C</b><span>ねじり軸と水平アームの交点</span></div>
+      <div><b id="projectionAuditResult">主要中心点整合</b><span>モデル内座標接続の残差</span></div>
+    </div>
+
+    
+    <div id="mobileOpticsGuide" class="mobile-optics-guide" hidden>
+      <div class="mobile-optics-guide-head">
+        <div class="mobile-optics-guide-title"><b>光学表示：<span id="mobileOpticsGuideTitle">照射光路</span></b><span id="lampStateBadge" class="lamp-state-badge lit">ランプ点灯・照射中</span></div>
+        <button id="exitMobileOptics" type="button">通常表示へ戻る</button>
+      </div>
+      <p>下の項目を選ぶと、その光学要素だけを表示します。装置全体はそのまま確認できます。</p>
+      <div class="mobile-optics-choice" role="group" aria-label="Mobile光学項目">
+        <button type="button" data-mobile-optics="source">ランプ光源</button>
+        <button type="button" data-mobile-optics="path" class="active">照射光路</button>
+        <button type="button" data-mobile-optics="axis">望遠鏡視線</button>
+        <button type="button" data-mobile-optics="fov">視野範囲</button>
+      </div>
+    </div>
+
+    <div id="mobileOpticsLegend" class="mobile-optics-legend" hidden aria-live="polite">
+      <span id="mobileOpticsLegendMark" class="legend-mark legend-source"></span>
+      <b id="mobileOpticsLegendTitle">ランプ光源</b>
+      <span id="mobileOpticsLegendText">黄色の点：ランプの光源位置</span>
+    </div>
+    <div id="occlusionBanner" class="occlusion-banner" hidden aria-live="polite">
+      <b id="occlusionBannerTitle">遮蔽確認</b>
+      <span id="occlusionBannerText">左右の照射光路・望遠鏡視線を確認します。</span>
+    </div>
+    <div class="status-strip">
+      <span>大球支持系：<b id="driveStatus">正位置</b></span>
+      <span>正・負位置の近接偏位角：<b>約27.95°</b></span>
+      <span>大球軌道半径：<b>36.65 in</b></span>
+      <span>垂直銅棒：<b>62 in</b></span><span>停止隙間：<b>0.20 in</b></span><span>可動自由度：<b>φ・θ の2系統</b></span><span>拘束状態：<b id="constraintStatus">監査中</b></span><span>座標監査：<b id="coordinateStatus">自由視点</b></span><span>光学可視化：<b id="opticsStatusStrip">OFF</b></span>
+    </div>
+  </section>
+
+  <aside class="reference-panel">
+    <section>
+      <h2>寸法・構造基準</h2>
+      <table class="data-table">
+        <tbody>
+          <tr><th>ねじり線 gl</th><td>40.00 in</td><td class="confirmed">本文確定</td></tr>
+          <tr><th>小球中心間</th><td>73.30 in</td><td class="confirmed">本文確定</td></tr>
+          <tr><th>小球中心の垂直落差</th><td>5.50 in</td><td class="confirmed">本文確定</td></tr>
+          <tr><th>読取尺度の回転中心距離</th><td>38.30 in</td><td class="confirmed">本文確定</td></tr>
+          <tr><th>主尺／副尺</th><td>1/20・1/100 in</td><td class="confirmed">本文確定</td></tr>
+          <tr><th>大球支持軌道半径</th><td>36.65 in</td><td class="confirmed">本文確定</td></tr>
+          <tr><th>近接時の中心線偏位</th><td>8.85 in</td><td class="confirmed">本文確定</td></tr>
+          <tr><th>正・負位置の近接偏位角</th><td>27.95°</td><td class="reconstructed">本文値から算出</td></tr>
+          <tr><th>中間位置</th><td>史実配置区分</td><td class="reconstructed">3D座標は説明用再構成</td></tr>
+          <tr><th>垂直銅棒</th><td>16.00 + 46.00 = 62.00 in</td><td class="confirmed">本文確定</td></tr>
+          <tr><th>大球直径</th><td>約12.0 in</td><td class="reconstructed">質量・鉛密度から復元</td></tr>
+          <tr><th>端部小球室 内寸</th><td>3.50 × 3.60 × 6.75 in</td><td class="confirmed">本文・Fig.9対応</td></tr>
+          <tr><th>ケース板厚</th><td>0.75 in</td><td class="confirmed">本文確定</td></tr>
+          <tr><th>中央縦室・肩部輪郭</th><td>Fig.1比例校正</td><td class="measured">図版校正</td></tr>
+</tbody>
+      </table>
+    </section>
+
+    
+    <section class="geometry-audit">
+      <h2>XYZ・拘束精度監査</h2>
+      <p class="coordinate-note"><b>原点 C：</b>ねじり軸と水平アームの交点　<b>X：</b>装置長手　<b>Y：</b>鉛直上向き　<b>Z：</b>前方</p>
+      <div class="audit-summary geometry-summary">
+        <div><span>監査中心点</span><b id="coordAuditCount" class="pass">10</b></div>
+        <div><span>対称条件</span><b id="coordAuditSymmetry" class="pass">3/3</b></div>
+        <div><span>最大内部残差</span><b id="coordAuditMax" class="pass">0.000 in</b></div>
+        <div><span>現在投影</span><b id="coordAuditView">自由視点</b></div>
+      </div>
+      <table class="data-table geometry-table">
+        <thead><tr><th>基準点</th><th>XYZ [in]</th><th>根拠</th><th>内部残差</th></tr></thead>
+        <tbody id="coordinateAuditRows"></tbody>
+      </table>
+
+      <div class="coordinate-master-head">
+        <div>
+          <h3>全部品基準点XYZ表</h3>
+          <p>主要部品の中心点・端点をC基準で表示します。</p>
+        </div>
+        <div class="coordinate-filter">
+          <label>確度
+            <select id="coordBasisFilter">
+              <option value="all">すべて</option>
+              <option value="confirmed">本文確定</option>
+              <option value="reconstructed">本文値から算出</option>
+              <option value="measured">図版校正</option>
+              <option value="inferred">合理推定</option>
+            </select>
+          </label>
+          <label>部品
+            <select id="coordPartFilter">
+              <option value="all">すべて</option>
+            </select>
+          </label>
+        </div>
+      </div>
+
+      <div class="table-scroll">
+        <table class="data-table coordinate-master-table">
+          <thead>
+            <tr><th>ID</th><th>部品・基準点</th><th>X</th><th>Y</th><th>Z</th><th>確度</th><th>根拠</th></tr>
+          </thead>
+          <tbody id="coordinateMasterRows"></tbody>
+        </table>
+      </div>
+
+      <div class="difference-audit">
+        <div class="difference-audit-head">
+          <div>
+            <h3>寸法・差分監査</h3>
+            <p>モデル実測値と史実値・校正値を比較します。</p>
+          </div>
+          <label>監査寸法
+            <select id="dimensionAuditSelect"></select>
+          </label>
+        </div>
+        <div class="difference-result">
+          <div><span>基準点</span><b id="dimensionEndpoints">—</b></div>
+          <div><span>モデル実測</span><b id="dimensionActual">—</b></div>
+          <div><span>基準値</span><b id="dimensionReference">—</b></div>
+          <div><span>差分</span><b id="dimensionDelta">—</b></div>
+        </div>
+        <p id="dimensionBasis" class="audit-note">—</p>
+        <div class="table-scroll">
+          <table class="data-table difference-table">
+            <thead><tr><th>監査項目</th><th>実測</th><th>基準</th><th>差分</th><th>根拠</th><th>判定</th></tr></thead>
+            <tbody id="dimensionAuditRows"></tbody>
+          </table>
+        </div>
+      </div>
+
+      
+    </section>
+
+    <section class="source-tabs">
+      <div class="tab-buttons">
+        <button class="tab active" data-tab="fig1">Fig.1</button>
+        <button class="tab" data-tab="fig2">Fig.2</button>
+      </div>
+      <div class="source-frame">
+        <img id="sourceImage" src="assets/fig1.png" alt="1798年論文図版">
+        <i id="sourceMarker"></i>
+      </div>
+    </section>
+
+    <section id="auditResults">
+      <h2>Fig.1輪郭監査結果</h2>
+      <div class="audit-summary">
+        <div><span>判定</span><b id="auditVerdict" class="pass">PASS</b></div>
+        <div><span>中央縦室</span><b id="auditTower" class="pass">テーパー一致</b></div>
+        <div><span>左右端部</span><b id="auditEnds" class="pass">ABCD段差一致</b></div>
+        <div><span>寸法拘束</span><b id="auditDimensions" class="pass">3/3整合</b></div>
+      </div>
+      <table class="data-table audit-table">
+        <thead><tr><th>区間</th><th>Fig.1形状</th><th>モデル形状</th><th>判定</th></tr></thead>
+        <tbody id="auditFeatureRows">
+          <tr><td>中央縦室 EF</td><td>上端Fへ縮小</td><td>左右対称テーパー</td><td class="audit-pass">一致</td></tr>
+          <tr><td>肩部 AE</td><td>左右対称傾斜</td><td>左右対称傾斜</td><td class="audit-pass">一致</td></tr>
+          <tr><td>端部 ABCD</td><td>B–C–D段差</td><td>B–C–D段差</td><td class="audit-pass">一致</td></tr>
+          <tr><td>主室底面 DD</td><td>中央水平床</td><td>中央水平床</td><td class="audit-pass">一致</td></tr>
+        </tbody>
+      </table>
+      <p class="audit-note public-note">Fig.1のABCDDCBAEFFE輪郭と、本文確定の端部内寸・奥行・板厚を併用した構造照合です。</p>
+    </section>
+
+    <section>
+      <h2>拘束・自由度</h2>
+      <div id="constraintList" class="constraint-list"></div>
+    </section>
+
+  </aside>
+</main>
+
+<footer class="related-footer" aria-label="関連ページ">
+  <p>IMPULSE LABO / Cavendish 1798 Apparatus 3D / Build CV082A03</p>
+  <p><a href="../cavendish-simulator.html">検証する</a> ｜ <a href="cavendish-guide-3d.html">1798年装置3D</a> ｜ <a href="../cavendish-guide.html">実験の解説</a> ｜ <a href="../cavendish-manual.html">操作マニュアル</a></p>
+</footer>
+
+<script src="assets/app.js?v=CV082A03"></script>
+
+<script>
+(() => {
+  const key = 'cavendishReadingFontSize';
+  const allowed = ['standard', 'large', 'xlarge'];
+  const root = document.documentElement;
+  const buttons = Array.from(document.querySelectorAll('[data-font-size]'));
+  const apply = (value) => {
+    const size = allowed.includes(value) ? value : 'standard';
+    root.dataset.readingFont = size;
+    buttons.forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.fontSize === size)));
+    try { localStorage.setItem(key, size); } catch (_) {}
+  };
+  buttons.forEach((button) => button.addEventListener('click', () => apply(button.dataset.fontSize)));
+  let saved = 'standard';
+  try { saved = localStorage.getItem(key) || 'standard'; } catch (_) {}
+  apply(saved);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,984 @@
+{
+  "schema_version": "1.0.0",
+  "build": "CV080A25R",
+  "title": "All 17 experiments historical summaries / averages / differences / calculated results audit",
+  "status": "PASS",
+  "policy": {
+    "historical_summary": "Printed summary motions and vibration periods remain historical printed calculations and are never recomputed or overwritten.",
+    "application_average": "Position averages and equilibria are application calculations with explicit source-value bases.",
+    "difference": "average_difference is the signed to-minus-from application statistic; result_value separately preserves the printed historical motion magnitude.",
+    "missing": "Blank and missed rows are excluded rather than numerically imputed.",
+    "display": "UI, CSV and report use result_value for historical movement and keep application averages separate."
+  },
+  "correction": {
+    "issue": "Two replay builders copied printed historical motion into average_difference, merging a source result with an application statistic.",
+    "fixed_fields": 21,
+    "affected_experiments": 13,
+    "visible_result_change": false,
+    "historical_values_changed": false
+  },
+  "totals": {
+    "experiments": 17,
+    "source_rows": 303,
+    "missed_rows": 7,
+    "printed_point_of_rest": 183,
+    "printed_vibration_intervals": 28,
+    "printed_summary_motions": 29,
+    "printed_summary_periods": 20,
+    "historical_calculation_records": 260,
+    "position_statistics": 38,
+    "position_average_checks": 38,
+    "equilibrium_checks": 38,
+    "transition_statistics": 29,
+    "transition_result_checks": 29,
+    "signed_difference_checks": 29,
+    "application_position_records": 38,
+    "application_transition_records": 29,
+    "application_record_checks": 67,
+    "period_parse_checks": 20,
+    "profile_period_checks": 14,
+    "source_layer_checks": 260,
+    "summary_value_preservation_checks": 49,
+    "unit_checks": 29,
+    "historical_vs_calculated_difference_count": 28,
+    "corrected_average_difference_fields": 21
+  },
+  "experiments": [
+    {
+      "key": "CAV-1798-EXP-I",
+      "experiment_id": "experiment-i",
+      "status": "PASS",
+      "source_pages": [
+        480
+      ],
+      "source_rows": 13,
+      "missed_rows": 0,
+      "point_of_rest_count": 7,
+      "vibration_interval_count": 3,
+      "summary_motion_count": 2,
+      "summary_period_count": 1,
+      "period_seconds": [
+        895
+      ],
+      "positions": [
+        {
+          "position": "midway",
+          "count": 6,
+          "average": 11.673333333333334,
+          "equilibrium": 11.92,
+          "average_basis": "experiment_i_midway_composite",
+          "equilibrium_basis": "experiment_i_return_point_of_rest"
+        },
+        {
+          "position": "positive",
+          "count": 3,
+          "average": 25.99666666666667,
+          "equilibrium": 26.07,
+          "average_basis": "point_of_rest",
+          "equilibrium_basis": "point_of_rest"
+        }
+      ],
+      "transitions": [
+        {
+          "transition": "midway_to_positive",
+          "printed_motion": 14.32,
+          "from_value": 11.92,
+          "to_value": 26.07,
+          "signed_calculated_difference": 14.15,
+          "result_value": 14.32,
+          "result_source": "historical_summary_motion"
+        },
+        {
+          "transition": "positive_to_midway",
+          "printed_motion": 14.1,
+          "from_value": 26.07,
+          "to_value": 11.92,
+          "signed_calculated_difference": -14.15,
+          "result_value": 14.1,
+          "result_source": "historical_summary_motion"
+        }
+      ]
+    },
+    {
+      "key": "CAV-1798-EXP-II",
+      "experiment_id": "experiment-ii",
+      "status": "PASS",
+      "source_pages": [
+        482,
+        483
+      ],
+      "source_rows": 19,
+      "missed_rows": 0,
+      "point_of_rest_count": 12,
+      "vibration_interval_count": 4,
+      "summary_motion_count": 2,
+      "summary_period_count": 1,
+      "period_seconds": [
+        882
+      ],
+      "positions": [
+        {
+          "position": "midway",
+          "count": 5,
+          "average": 11.358,
+          "equilibrium": 11,
+          "average_basis": "point_of_rest",
+          "equilibrium_basis": "point_of_rest"
+        },
+        {
+          "position": "positive",
+          "count": 7,
+          "average": 27.757142857142856,
+          "equilibrium": 27.85,
+          "average_basis": "point_of_rest",
+          "equilibrium_basis": "point_of_rest"
+        }
+      ],
+      "transitions": [
+        {
+          "transition": "midway_to_positive",
+          "printed_motion": 15.87,
+          "from_value": 11,
+          "to_value": 27.85,
+          "signed_calculated_difference": 16.85,
+          "result_value": 15.87,
+          "result_source": "historical_summary_motion"
+        },
+        {
+          "transition": "positive_to_midway",
+          "printed_motion": 15.45,
+          "from_value": 27.85,
+          "to_value": 11,
+          "signed_calculated_difference": -16.85,
+          "result_value": 15.45,
+          "result_source": "historical_summary_motion"
+        }
+      ]
+    },
+    {
+      "key": "CAV-1798-EXP-III",
+      "experiment_id": "experiment-iii",
+      "status": "PASS",
+      "source_pages": [
+        483,
+        484
+      ],
+      "source_rows": 16,
+      "missed_rows": 0,
+      "point_of_rest_count": 9,
+      "vibration_interval_count": 4,
+      "summary_motion_count": 2,
+      "summary_period_count": 2,
+      "period_seconds": [
+        879,
+        894
+      ],
+      "positions": [
+        {
+          "position": "positive",
+          "count": 5,
+          "average": 28.965999999999998,
+          "equilibrium": 28.62,
+          "average_basis": "point_of_rest",
+          "equilibrium_basis": "point_of_rest"
+        },
+        {
+          "position": "midway",
+          "count": 4,
+          "average": 14.0475,
+          "equilibrium": 13.935,
+          "average_basis": "point_of_rest",
+          "equilibrium_basis": "point_of_rest"
+        }
+      ],
+      "transitions": [
+        {
+          "transition": "positive_to_midway",
+          "printed_motion": 15.22,
+          "from_value": 28.62,
+          "to_value": 13.935,
+          "signed_calculated_difference": -14.685,
+          "result_value": 15.22,
+          "result_source": "historical_summary_motion"
+        },
+        {
+          "transition": "midway_to_positive",
+          "printed_motion": 14.5,
+          "from_value": 13.935,
+          "to_value": 28.62,
+          "signed_calculated_difference": 14.685,
+          "result_value": 14.5,
+          "result_source": "historical_summary_motion"
+        }
+      ]
+    },
+    {
+      "key": "CAV-1798-EXP-IV",
+      "experiment_id": "experiment-iv",
+      "status": "PASS",
+      "source_pages": [
+        486,
+        487
+      ],
+      "source_rows": 25,
+      "missed_rows": 0,
+      "point_of_rest_count": 17,
+      "vibration_interval_count": 10,
+      "summary_motion_count": 3,
+      "summary_period_count": 2,
+      "period_seconds": [
+        421,
+        423
+      ],
+      "positions": [
+        {
+          "position": "midway",
+          "count": 1,
+          "average": 21.5,
+          "equilibrium": 21.5,
+          "average_basis": "point_of_rest",
+          "equilibrium_basis": "point_of_rest"
+        },
+        {
+          "position": "positive",
+          "count": 11,
+          "average": 24.543636363636367,
+          "equilibrium": 24.6,
+          "average_basis": "point_of_rest",
+          "equilibrium_basis": "point_of_rest"
+        },
+        {
+          "position": "negative",
+          "count": 5,
+          "average": 18.381999999999998,
+          "equilibrium": 18.35,
+          "average_basis": "point_of_rest",
+          "equilibrium_basis": "point_of_rest"
+        }
+      ],
+      "transitions": [
+        {
+          "transition": "midway_to_positive",
+          "printed_motion": 3.1,
+          "from_value": 21.5,
+          "to_value": 24.6,
+          "signed_calculated_difference": 3.1000000000000014,
+          "result_value": 3.1,
+          "result_source": "historical_summary_motion"
+        },
+        {
+          "transition": "positive_to_negative",
+          "printed_motion": 6.18,
+          "from_value": 24.6,
+          "to_value": 18.35,
+          "signed_calculated_difference": -6.25,
+          "result_value": 6.18,
+          "result_source": "historical_summary_motion"
+        },
+        {
+          "transition": "negative_to_positive",
+          "printed_motion": 5.92,
+          "from_value": 18.35,
+          "to_value": 24.6,
+          "signed_calculated_difference": 6.25,
+          "result_value": 5.92,
+          "result_source": "historical_summary_motion"
+        }
+      ]
+    },
+    {
+      "key": "CAV-1798-EXP-V",
+      "experiment_id": "experiment-v",
+      "status": "PASS",
+      "source_pages": [
+        488,
+        489
+      ],
+      "source_rows": 29,
+      "missed_rows": 0,
+      "point_of_rest_count": 22,
+      "vibration_interval_count": 3,
+      "summary_motion_count": 2,
+      "summary_period_count": 2,
+      "period_seconds": [
+        425,
+        425
+      ],
+      "positions": [
+        {
+          "position": "positive",
+          "count": 11,
+          "average": 24.85909090909091,
+          "equilibrium": 24.85,
+          "average_basis": "point_of_rest",
+          "equilibrium_basis": "point_of_rest"
+        },
+        {
+          "position": "negative",
+          "count": 11,
+          "average": 19.076363636363638,
+          "equilibrium": 19.07,
+          "average_basis": "point_of_rest",
+          "equilibrium_basis": "point_of_rest"
+        }
+      ],
+      "transitions": [
+        {
+          "transition": "positive_to_negative",
+          "printed_motion": 5.9,
+          "from_value": 24.85,
+          "to_value": 19.07,
+          "signed_calculated_difference": -5.780000000000001,
+          "result_value": 5.9,
+          "result_source": "historical_summary_motion"
+        },
+        {
+          "transition": "negative_to_positive",
+          "printed_motion": 5.98,
+          "from_value": 19.07,
+          "to_value": 24.85,
+          "signed_calculated_difference": 5.780000000000001,
+          "result_value": 5.98,
+          "result_source": "historical_summary_motion"
+        }
+      ]
+    },
+    {
+      "key": "CAV-1798-EXP-VI",
+      "experiment_id": "experiment-vi",
+      "status": "PASS",
+      "source_pages": [
+        493
+      ],
+      "source_rows": 21,
+      "missed_rows": 2,
+      "point_of_rest_count": 10,
+      "vibration_interval_count": 0,
+      "summary_motion_count": 2,
+      "summary_period_count": 0,
+      "period_seconds": [],
+      "positions": [
+        {
+          "position": "midway",
+          "count": 3,
+          "average": 18.866666666666667,
+          "equilibrium": 18.85,
+          "average_basis": "summary_eligible_replay",
+          "equilibrium_basis": "point_of_rest"
+        },
+        {
+          "position": "negative",
+          "count": 5,
+          "average": 15.684000000000001,
+          "equilibrium": 15.65,
+          "average_basis": "point_of_rest",
+          "equilibrium_basis": "point_of_rest"
+        },
+        {
+          "position": "positive",
+          "count": 4,
+          "average": 21.642500000000002,
+          "equilibrium": 21.625,
+          "average_basis": "point_of_rest",
+          "equilibrium_basis": "point_of_rest"
+        }
+      ],
+      "transitions": [
+        {
+          "transition": "midway_to_negative",
+          "printed_motion": 3.03,
+          "from_value": 18.85,
+          "to_value": 15.65,
+          "signed_calculated_difference": -3.200000000000001,
+          "result_value": 3.03,
+          "result_source": "historical_summary_motion"
+        },
+        {
+          "transition": "negative_to_positive",
+          "printed_motion": 5.9,
+          "from_value": 15.65,
+          "to_value": 21.625,
+          "signed_calculated_difference": 5.975,
+          "result_value": 5.9,
+          "result_source": "historical_summary_motion"
+        }
+      ]
+    },
+    {
+      "key": "CAV-1798-EXP-VII",
+      "experiment_id": "experiment-vii",
+      "status": "PASS",
+      "source_pages": [
+        494
+      ],
+      "source_rows": 16,
+      "missed_rows": 2,
+      "point_of_rest_count": 4,
+      "vibration_interval_count": 0,
+      "summary_motion_count": 2,
+      "summary_period_count": 0,
+      "period_seconds": [],
+      "positions": [
+        {
+          "position": "midway",
+          "count": 2,
+          "average": 19.4,
+          "equilibrium": 19.4,
+          "average_basis": "division_reading",
+          "equilibrium_basis": "division_reading"
+        },
+        {
+          "position": "negative",
+          "count": 2,
+          "average": 15.934999999999999,
+          "equilibrium": 15.934999999999999,
+          "average_basis": "point_of_rest",
+          "equilibrium_basis": "point_of_rest"
+        },
+        {
+          "position": "positive",
+          "count": 2,
+          "average": 22.009999999999998,
+          "equilibrium": 22.009999999999998,
+          "average_basis": "point_of_rest",
+          "equilibrium_basis": "point_of_rest"
+        }
+      ],
+      "transitions": [
+        {
+          "transition": "midway_to_negative",
+          "printed_motion": 3.15,
+          "from_value": 19.4,
+          "to_value": 15.934999999999999,
+          "signed_calculated_difference": -3.465,
+          "result_value": 3.15,
+          "result_source": "historical_summary_motion"
+        },
+        {
+          "transition": "negative_to_positive",
+          "printed_motion": 6.1,
+          "from_value": 15.934999999999999,
+          "to_value": 22.009999999999998,
+          "signed_calculated_difference": 6.074999999999999,
+          "result_value": 6.1,
+          "result_source": "historical_summary_motion"
+        }
+      ]
+    },
+    {
+      "key": "CAV-1798-EXP-VIII",
+      "experiment_id": "experiment-viii",
+      "status": "PASS",
+      "source_pages": [
+        495
+      ],
+      "source_rows": 16,
+      "missed_rows": 2,
+      "point_of_rest_count": 5,
+      "vibration_interval_count": 0,
+      "summary_motion_count": 2,
+      "summary_period_count": 0,
+      "period_seconds": [],
+      "positions": [
+        {
+          "position": "midway",
+          "count": 3,
+          "average": 19.233333333333334,
+          "equilibrium": 19.2,
+          "average_basis": "summary_eligible_replay",
+          "equilibrium_basis": "point_of_rest"
+        },
+        {
+          "position": "negative",
+          "count": 2,
+          "average": 15.885,
+          "equilibrium": 15.885,
+          "average_basis": "point_of_rest",
+          "equilibrium_basis": "point_of_rest"
+        },
+        {
+          "position": "positive",
+          "count": 2,
+          "average": 21.66,
+          "equilibrium": 21.66,
+          "average_basis": "point_of_rest",
+          "equilibrium_basis": "point_of_rest"
+        }
+      ],
+      "transitions": [
+        {
+          "transition": "midway_to_negative",
+          "printed_motion": 3.13,
+          "from_value": 19.2,
+          "to_value": 15.885,
+          "signed_calculated_difference": -3.3149999999999995,
+          "result_value": 3.13,
+          "result_source": "historical_summary_motion"
+        },
+        {
+          "transition": "negative_to_positive",
+          "printed_motion": 5.72,
+          "from_value": 15.885,
+          "to_value": 21.66,
+          "signed_calculated_difference": 5.775,
+          "result_value": 5.72,
+          "result_source": "historical_summary_motion"
+        }
+      ]
+    },
+    {
+      "key": "CAV-1798-EXP-IX",
+      "experiment_id": "experiment-ix",
+      "status": "PASS",
+      "source_pages": [
+        497,
+        498
+      ],
+      "source_rows": 12,
+      "missed_rows": 0,
+      "point_of_rest_count": 8,
+      "vibration_interval_count": 0,
+      "summary_motion_count": 1,
+      "summary_period_count": 1,
+      "period_seconds": [
+        418
+      ],
+      "positions": [
+        {
+          "position": "positive",
+          "count": 1,
+          "average": 34.84,
+          "equilibrium": 34.84,
+          "average_basis": "point_of_rest",
+          "equilibrium_basis": "point_of_rest"
+        },
+        {
+          "position": "negative",
+          "count": 7,
+          "average": 27.892857142857142,
+          "equilibrium": 27.82,
+          "average_basis": "point_of_rest",
+          "equilibrium_basis": "point_of_rest"
+        }
+      ],
+      "transitions": [
+        {
+          "transition": "positive_to_negative",
+          "printed_motion": 6.32,
+          "from_value": 34.84,
+          "to_value": 27.892857142857142,
+          "signed_calculated_difference": -6.947142857142861,
+          "result_value": 6.32,
+          "result_source": "historical_summary_motion"
+        }
+      ]
+    },
+    {
+      "key": "CAV-1798-EXP-X",
+      "experiment_id": "experiment-x",
+      "status": "PASS",
+      "source_pages": [
+        498,
+        499
+      ],
+      "source_rows": 13,
+      "missed_rows": 0,
+      "point_of_rest_count": 9,
+      "vibration_interval_count": 3,
+      "summary_motion_count": 1,
+      "summary_period_count": 1,
+      "period_seconds": [
+        419
+      ],
+      "positions": [
+        {
+          "position": "positive",
+          "count": 1,
+          "average": 33.97,
+          "equilibrium": 33.97,
+          "average_basis": "point_of_rest",
+          "equilibrium_basis": "point_of_rest"
+        },
+        {
+          "position": "negative",
+          "count": 8,
+          "average": 27.490000000000002,
+          "equilibrium": 27.49,
+          "average_basis": "point_of_rest",
+          "equilibrium_basis": "point_of_rest"
+        }
+      ],
+      "transitions": [
+        {
+          "transition": "positive_to_negative",
+          "printed_motion": 6.15,
+          "from_value": 33.97,
+          "to_value": 27.490000000000002,
+          "signed_calculated_difference": -6.479999999999997,
+          "result_value": 6.15,
+          "result_source": "historical_summary_motion"
+        }
+      ]
+    },
+    {
+      "key": "CAV-1798-EXP-XI",
+      "experiment_id": "experiment-xi",
+      "status": "PASS",
+      "source_pages": [
+        499,
+        500
+      ],
+      "source_rows": 14,
+      "missed_rows": 1,
+      "point_of_rest_count": 7,
+      "vibration_interval_count": 1,
+      "summary_motion_count": 1,
+      "summary_period_count": 1,
+      "period_seconds": [
+        421
+      ],
+      "positions": [
+        {
+          "position": "positive",
+          "count": 2,
+          "average": 34.480000000000004,
+          "equilibrium": 34.480000000000004,
+          "average_basis": "point_of_rest",
+          "equilibrium_basis": "point_of_rest"
+        },
+        {
+          "position": "negative",
+          "count": 5,
+          "average": 28.288,
+          "equilibrium": 28.3,
+          "average_basis": "point_of_rest",
+          "equilibrium_basis": "point_of_rest"
+        }
+      ],
+      "transitions": [
+        {
+          "transition": "positive_to_negative",
+          "printed_motion": 6.07,
+          "from_value": 34.480000000000004,
+          "to_value": 28.288,
+          "signed_calculated_difference": -6.192000000000004,
+          "result_value": 6.07,
+          "result_source": "historical_summary_motion"
+        }
+      ]
+    },
+    {
+      "key": "CAV-1798-EXP-XII",
+      "experiment_id": "experiment-xii",
+      "status": "PASS",
+      "source_pages": [
+        500,
+        501
+      ],
+      "source_rows": 13,
+      "missed_rows": 0,
+      "point_of_rest_count": 8,
+      "vibration_interval_count": 0,
+      "summary_motion_count": 1,
+      "summary_period_count": 1,
+      "period_seconds": [
+        423
+      ],
+      "positions": [
+        {
+          "position": "negative",
+          "count": 1,
+          "average": 17.4,
+          "equilibrium": 17.4,
+          "average_basis": "point_of_rest",
+          "equilibrium_basis": "point_of_rest"
+        },
+        {
+          "position": "positive",
+          "count": 7,
+          "average": 23.707142857142856,
+          "equilibrium": 23.72,
+          "average_basis": "point_of_rest",
+          "equilibrium_basis": "point_of_rest"
+        }
+      ],
+      "transitions": [
+        {
+          "transition": "negative_to_positive",
+          "printed_motion": 6.09,
+          "from_value": 17.4,
+          "to_value": 23.707142857142856,
+          "signed_calculated_difference": 6.307142857142857,
+          "result_value": 6.09,
+          "result_source": "historical_summary_motion"
+        }
+      ]
+    },
+    {
+      "key": "CAV-1798-EXP-XIII",
+      "experiment_id": "experiment-xiii",
+      "status": "PASS",
+      "source_pages": [
+        501,
+        502
+      ],
+      "source_rows": 22,
+      "missed_rows": 0,
+      "point_of_rest_count": 16,
+      "vibration_interval_count": 0,
+      "summary_motion_count": 2,
+      "summary_period_count": 2,
+      "period_seconds": [
+        426,
+        427
+      ],
+      "positions": [
+        {
+          "position": "negative",
+          "count": 9,
+          "average": 17.513333333333335,
+          "equilibrium": 17.52,
+          "average_basis": "point_of_rest",
+          "equilibrium_basis": "point_of_rest"
+        },
+        {
+          "position": "positive",
+          "count": 7,
+          "average": 23.568571428571428,
+          "equilibrium": 23.62,
+          "average_basis": "point_of_rest",
+          "equilibrium_basis": "point_of_rest"
+        }
+      ],
+      "transitions": [
+        {
+          "transition": "negative_to_positive",
+          "printed_motion": 6.12,
+          "from_value": 17.52,
+          "to_value": 23.62,
+          "signed_calculated_difference": 6.100000000000001,
+          "result_value": 6.12,
+          "result_source": "historical_summary_motion"
+        },
+        {
+          "transition": "positive_to_negative",
+          "printed_motion": 5.97,
+          "from_value": 23.62,
+          "to_value": 17.52,
+          "signed_calculated_difference": -6.100000000000001,
+          "result_value": 5.97,
+          "result_source": "historical_summary_motion"
+        }
+      ]
+    },
+    {
+      "key": "CAV-1798-EXP-XIV",
+      "experiment_id": "experiment-xiv",
+      "status": "PASS",
+      "source_pages": [
+        503,
+        504
+      ],
+      "source_rows": 22,
+      "missed_rows": 0,
+      "point_of_rest_count": 15,
+      "vibration_interval_count": 0,
+      "summary_motion_count": 2,
+      "summary_period_count": 2,
+      "period_seconds": [
+        426,
+        426
+      ],
+      "positions": [
+        {
+          "position": "negative",
+          "count": 8,
+          "average": 16.71625,
+          "equilibrium": 16.77,
+          "average_basis": "point_of_rest",
+          "equilibrium_basis": "point_of_rest"
+        },
+        {
+          "position": "positive",
+          "count": 7,
+          "average": 22.74857142857143,
+          "equilibrium": 22.75,
+          "average_basis": "point_of_rest",
+          "equilibrium_basis": "point_of_rest"
+        }
+      ],
+      "transitions": [
+        {
+          "transition": "negative_to_positive",
+          "printed_motion": 6.27,
+          "from_value": 16.77,
+          "to_value": 22.75,
+          "signed_calculated_difference": 5.98,
+          "result_value": 6.27,
+          "result_source": "historical_summary_motion"
+        },
+        {
+          "transition": "positive_to_negative",
+          "printed_motion": 6.13,
+          "from_value": 22.75,
+          "to_value": 16.77,
+          "signed_calculated_difference": -5.98,
+          "result_value": 6.13,
+          "result_source": "historical_summary_motion"
+        }
+      ]
+    },
+    {
+      "key": "CAV-1798-EXP-XV",
+      "experiment_id": "experiment-xv",
+      "status": "PASS",
+      "source_pages": [
+        504,
+        505
+      ],
+      "source_rows": 13,
+      "missed_rows": 0,
+      "point_of_rest_count": 9,
+      "vibration_interval_count": 0,
+      "summary_motion_count": 1,
+      "summary_period_count": 1,
+      "period_seconds": [
+        427
+      ],
+      "positions": [
+        {
+          "position": "negative",
+          "count": 2,
+          "average": 3.61,
+          "equilibrium": 3.61,
+          "average_basis": "point_of_rest",
+          "equilibrium_basis": "point_of_rest"
+        },
+        {
+          "position": "positive",
+          "count": 7,
+          "average": 10.31142857142857,
+          "equilibrium": 10.35,
+          "average_basis": "point_of_rest",
+          "equilibrium_basis": "point_of_rest"
+        }
+      ],
+      "transitions": [
+        {
+          "transition": "negative_to_positive",
+          "printed_motion": 6.34,
+          "from_value": 3.61,
+          "to_value": 10.31142857142857,
+          "signed_calculated_difference": 6.70142857142857,
+          "result_value": 6.34,
+          "result_source": "historical_summary_motion"
+        }
+      ]
+    },
+    {
+      "key": "CAV-1798-EXP-XVI",
+      "experiment_id": "experiment-xvi",
+      "status": "PASS",
+      "source_pages": [
+        505,
+        506
+      ],
+      "source_rows": 12,
+      "missed_rows": 0,
+      "point_of_rest_count": 8,
+      "vibration_interval_count": 0,
+      "summary_motion_count": 1,
+      "summary_period_count": 1,
+      "period_seconds": [
+        436
+      ],
+      "positions": [
+        {
+          "position": "negative",
+          "count": 2,
+          "average": 14.995000000000001,
+          "equilibrium": 14.995000000000001,
+          "average_basis": "point_of_rest",
+          "equilibrium_basis": "point_of_rest"
+        },
+        {
+          "position": "positive",
+          "count": 6,
+          "average": 21.125,
+          "equilibrium": 21.11,
+          "average_basis": "point_of_rest",
+          "equilibrium_basis": "point_of_rest"
+        }
+      ],
+      "transitions": [
+        {
+          "transition": "negative_to_positive",
+          "printed_motion": 6.1,
+          "from_value": 14.995000000000001,
+          "to_value": 21.125,
+          "signed_calculated_difference": 6.129999999999999,
+          "result_value": 6.1,
+          "result_source": "historical_summary_motion"
+        }
+      ]
+    },
+    {
+      "key": "CAV-1798-EXP-XVII",
+      "experiment_id": "experiment-xvii",
+      "status": "PASS",
+      "source_pages": [
+        506,
+        507,
+        508
+      ],
+      "source_rows": 27,
+      "missed_rows": 0,
+      "point_of_rest_count": 17,
+      "vibration_interval_count": 0,
+      "summary_motion_count": 2,
+      "summary_period_count": 2,
+      "period_seconds": [
+        422,
+        423
+      ],
+      "positions": [
+        {
+          "position": "negative",
+          "count": 8,
+          "average": 17.58125,
+          "equilibrium": 17.535,
+          "average_basis": "point_of_rest",
+          "equilibrium_basis": "point_of_rest"
+        },
+        {
+          "position": "positive",
+          "count": 9,
+          "average": 23.38888888888889,
+          "equilibrium": 23.44,
+          "average_basis": "point_of_rest",
+          "equilibrium_basis": "point_of_rest"
+        }
+      ],
+      "transitions": [
+        {
+          "transition": "negative_to_positive",
+          "printed_motion": 5.78,
+          "from_value": 17.535,
+          "to_value": 23.44,
+          "signed_calculated_difference": 5.905000000000001,
+          "result_value": 5.78,
+          "result_source": "historical_summary_motion"
+        },
+        {
+          "transition": "positive_to_negative",
+          "printed_motion": 5.64,
+          "from_value": 23.44,
+          "to_value": 17.535,
+          "signed_calculated_difference": -5.905000000000001,
+          "result_value": 5.64,
+          "result_source": "historical_summary_motion"
+        }
+      ]
+    }
+  ]
+}

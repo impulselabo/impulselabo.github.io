@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="IMPULSE LABO Cavendish Experiment Simulator Ver0.79の現行画面、史実再生、望遠鏡読取、波形、結果、PDF・CSV出力を説明する操作マニュアルです。">
+  <title>キャベンディッシュ実験｜操作マニュアル｜IMPULSE LABO</title>
+  <link rel="stylesheet" href="assets/css/cavendish-guide.css?v=CV082A01MR2">
+</head>
+<body class="manual-page reading-page">
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="brand" href="#top">IMPULSE LABO</a>
+      <div class="header-tools">
+        <div class="font-size-control" role="group" aria-label="文字サイズ">
+          <span>文字サイズ</span>
+          <button type="button" data-font-size="standard" aria-pressed="true">標準</button>
+          <button type="button" data-font-size="large" aria-pressed="false">大</button>
+          <button type="button" data-font-size="xlarge" aria-pressed="false">特大</button>
+        </div>
+        <nav class="cav-global-nav" aria-label="Cavendish関連ページ"><a href="cavendish-simulator.html"><span class="nav-label-full">検証する</span><span class="nav-label-mobile" aria-hidden="true">検証</span></a><a href="cavendish-3d/cavendish-guide-3d.html"><span class="nav-label-full">1798年装置3D</span><span class="nav-label-mobile" aria-hidden="true">3D</span></a><a href="cavendish-guide.html"><span class="nav-label-full">実験の解説</span><span class="nav-label-mobile" aria-hidden="true">解説</span></a><a href="cavendish-manual.html" class="active" aria-current="page"><span class="nav-label-full">操作マニュアル</span><span class="nav-label-mobile" aria-hidden="true">マニュアル</span></a></nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="intro intro--manual" aria-labelledby="page-title">
+      <p class="eyebrow">IMPULSE LABO / CAVENDISH EXPERIMENT</p>
+      <h1 id="page-title">操作マニュアル</h1>
+      <p class="lead">検証画面の構成、Experiment I〜XVIIの確認方法、望遠鏡・波形・大球配置の見方、PDF・CSV出力の操作を整理します。</p>
+      <nav class="toc toc-card" aria-label="ページ内目次">
+        <a href="#screen">画面構成</a>
+        <a href="#before">開始前の確認</a>
+        <a href="#operate">操作ボタン</a>
+        <a href="#telescope">望遠鏡読取</a>
+        <a href="#wave">波形・配置・工程</a>
+        <a href="#flow">観測の流れ</a>
+        <a href="#results">結果表示</a>
+        <a href="#outputs">PDF・CSV出力</a>
+        <a href="#mobile">PC / Mobile</a>
+        <a href="#notes">表示上の注意</a>
+      </nav>
+    </section>
+
+    <section id="screen" class="section" aria-labelledby="screen-title">
+      <div class="section-heading"><p class="section-no">01</p><h2 id="screen-title">画面構成</h2></div>
+      <p class="section-intro">PCでは左側に操作・条件、右側に観測表示を配置します。Mobileでは同じ内容を上から順に表示し、操作ボタンを画面下部へ固定します。</p>
+      <div class="screen-map" aria-label="現行シミュレータの画面構成">
+        <div class="screen-map__controls">
+          <strong>左：操作・条件</strong>
+          <span>観測セット、観測方式、読取テスト、史実値範囲、振動周期、開始位置、位置順序を確認します。追加設定と出力確認は折りたたみ欄に分けています。</span>
+        </div>
+        <div class="screen-map__telescope">
+          <strong>右上：史実望遠鏡表示</strong>
+          <span>史実直接値、史実副尺、再構成値と、固定主尺・移動5分割副尺を表示します。</span>
+        </div>
+        <div class="screen-map__wave">
+          <strong>右中：波形表示・大球の配置</strong>
+          <span>大球位置とアーム、Read divの時間変化、省略区間、欠測、配置変更区間を表示します。</span>
+        </div>
+        <div class="screen-map__summary">
+          <strong>右下：観測工程・読取記録・結果</strong>
+          <span>実験ごとの工程、時計時刻なし記録、結果サマリー、比較結果を確認します。</span>
+        </div>
+        <div class="screen-map__buttons">
+          <strong>下：操作ボタン</strong>
+          <span>開始、一時停止、停止、観測クリア、リセットを使用します。</span>
+        </div>
+      </div>
+      <figure class="manual-shot manual-shot--wide">
+        <img src="assets/images/manual/manual-pc-overview.jpg" alt="PC版シミュレータ全体。左に操作条件、右上に望遠鏡、右中に波形と大球配置、下に観測工程を配置。">
+        <figcaption>PC全体画面。左の操作・条件と、右側の望遠鏡・大球配置・波形・観測工程を同時に確認できます。</figcaption>
+      </figure>
+    </section>
+
+    <section id="before" class="section" aria-labelledby="before-title">
+      <div class="section-heading"><p class="section-no">02</p><h2 id="before-title">観測開始前の確認</h2></div>
+      <p class="section-intro">現行版は史実記録の再現を目的としています。利用者が振幅や減衰を任意調整する方式ではなく、選択したExperimentの史実記録と再構成条件を読み込みます。</p>
+
+      <div class="first-use-setting" aria-label="初回推奨設定">
+        <strong>初回推奨</strong>
+        <span>観測セット：実験I</span>
+        <span>観測方式：史実記録の再現</span>
+        <span>読取テスト：自動再生</span>
+      </div>
+
+      <div class="setting-guide setting-guide--current" role="table" aria-label="開始前に確認する項目">
+        <div class="setting-guide-head" role="row">
+          <span role="columnheader">項目</span>
+          <span role="columnheader">意味</span>
+          <span role="columnheader">画面への反映</span>
+        </div>
+        <div class="setting-guide-row" role="row">
+          <div class="setting-guide-name" role="cell" data-label="項目"><strong>観測セット</strong><span class="setting-recommend">実験I〜XVII</span></div>
+          <div class="setting-cell-main" role="cell" data-label="意味"><p>再生する史実観測セットを選びます。実験ごとに日付、原表行、時刻構造、位置順序が異なります。</p></div>
+          <div class="setting-cell-impact" role="cell" data-label="画面への反映"><p>望遠鏡、波形、大球配置、観測工程、読取記録、結果、PDF、CSVが切り替わります。</p></div>
+        </div>
+        <div class="setting-guide-row" role="row">
+          <div class="setting-guide-name" role="cell" data-label="項目"><strong>観測方式</strong><span class="setting-recommend">固定</span></div>
+          <div class="setting-cell-main" role="cell" data-label="意味"><p>史実記録の再現であることを示します。変更する操作項目ではありません。</p></div>
+          <div class="setting-cell-impact" role="cell" data-label="画面への反映"><p>結果、PDF、CSVへ観測方式として記録されます。</p></div>
+        </div>
+        <div class="setting-guide-row" role="row">
+          <div class="setting-guide-name" role="cell" data-label="項目"><strong>読取テスト</strong><span class="setting-recommend">自動再生</span></div>
+          <div class="setting-cell-main" role="cell" data-label="意味"><p>史実工程を順番に再生します。開始後は望遠鏡、配置、波形、観測工程が同期します。</p></div>
+          <div class="setting-cell-impact" role="cell" data-label="画面への反映"><p>観測進行と出力メタ情報へ反映されます。</p></div>
+        </div>
+        <div class="setting-guide-row" role="row">
+          <div class="setting-guide-name" role="cell" data-label="項目"><strong>史実値範囲</strong></div>
+          <div class="setting-cell-main" role="cell" data-label="意味"><p>選択した観測セットの史実Read値が持つ範囲です。</p></div>
+          <div class="setting-cell-impact" role="cell" data-label="画面への反映"><p>波形の縦軸範囲を判断する基礎情報です。</p></div>
+        </div>
+        <div class="setting-guide-row" role="row">
+          <div class="setting-guide-name" role="cell" data-label="項目"><strong>振動周期</strong></div>
+          <div class="setting-cell-main" role="cell" data-label="意味"><p>原表記録から扱う振動周期です。利用者が変更する値ではありません。</p></div>
+          <div class="setting-cell-impact" role="cell" data-label="画面への反映"><p>条件付き再構成と波形表示に使用します。</p></div>
+        </div>
+        <div class="setting-guide-row" role="row">
+          <div class="setting-guide-name" role="cell" data-label="項目"><strong>開始位置・位置順序</strong></div>
+          <div class="setting-cell-main" role="cell" data-label="意味"><p>大球がどの位置から始まり、どの順番で移動したかを示します。</p></div>
+          <div class="setting-cell-impact" role="cell" data-label="画面への反映"><p>大球配置、観測工程、波形の配置変更区間に反映されます。</p></div>
+        </div>
+      </div>
+      <p class="note">Experimentを切り替えた後は、開始位置・位置順序・時計時刻範囲を確認してから開始してください。</p>
+      <figure class="manual-shot manual-shot--portrait">
+        <img src="assets/images/manual/manual-mobile-controls.jpg" alt="iPhone縦向きの操作・条件欄。観測セット、観測方式、読取テスト、史実値範囲、振動周期、開始位置、位置順序を表示。">
+        <figcaption>iPhone縦向きの操作・条件欄。開始前に観測セットと位置順序を確認します。</figcaption>
+      </figure>
+    </section>
+
+    <section id="operate" class="section" aria-labelledby="operate-title">
+      <div class="section-heading"><p class="section-no">03</p><h2 id="operate-title">操作ボタン</h2></div>
+      <div class="command-list" aria-label="操作ボタンの役割">
+        <div><span class="command-icon">▶</span><strong>開始</strong><p>選択した実験の史実再生を開始します。</p></div>
+        <div><span class="command-icon">Ⅱ</span><strong>一時停止 / 再開</strong><p>現在位置を保持して停止し、同じボタンで再開します。</p></div>
+        <div><span class="command-icon">■</span><strong>停止</strong><p>その時点で観測を終了し、得られた記録を保持します。</p></div>
+        <div><span class="command-icon">▣</span><strong>観測クリア</strong><p>経過と結果を消去し、選択中の観測セットは保持します。</p></div>
+        <div><span class="command-icon">↻</span><strong>リセット</strong><p>観測状態と選択を初期状態へ戻します。</p></div>
+      </div>
+      <p class="note">観測完了後は史実波形を保持します。別のExperimentを確認するときは、観測クリアまたはリセット後に選択し直してください。</p>
+    </section>
+
+    <section id="telescope" class="section" aria-labelledby="telescope-title">
+      <div class="section-heading"><p class="section-no">04</p><h2 id="telescope-title">史実望遠鏡表示の見方</h2></div>
+      <p class="section-intro">固定主尺と、アームに連動して動く5分割副尺を表示します。上下配置は読取比較のための表示上の再構成です。</p>
+      <figure class="manual-shot manual-shot--detail">
+        <img src="assets/images/manual/manual-telescope.jpg" alt="Historical Telescope。固定主尺とアーム連動の移動5分割副尺を近接表示。">
+        <figcaption>Historical Telescopeの拡大。固定主尺とアーム連動副尺を比較しやすく上下へ再構成して表示しています。</figcaption>
+      </figure>
+      <dl class="manual-definition-list">
+        <div><dt>史実直接</dt><dd>原表に記録された直接読取値です。時計時刻付き読取または選択中の史実記録を示します。</dd></div>
+        <div><dt>史実副尺</dt><dd>副尺の位置を0/5〜5/5で示します。副尺1/5は0.2 divです。原表の0.1 div値は目測値として区別されます。</dd></div>
+        <div><dt>再構成値</dt><dd>史実記録と条件付き再構成から、現在の表示位置に対応させた値です。</dd></div>
+        <div><dt>固定主尺</dt><dd>1目盛は1 div、すなわち1/20 inchです。</dd></div>
+        <div><dt>移動5分割副尺</dt><dd>主尺4目盛幅を5分割した副尺です。アームの動きに合わせて移動します。</dd></div>
+        <div><dt>一致位置</dt><dd>主尺と副尺の目盛が一致する位置を強調します。直接値と副尺値の関係を確認するための表示です。</dd></div>
+      </dl>
+    </section>
+
+    <section id="wave" class="section" aria-labelledby="wave-title">
+      <div class="section-heading"><p class="section-no">05</p><h2 id="wave-title">波形・大球配置・観測工程</h2></div>
+      <figure class="manual-shot manual-shot--portrait">
+        <img src="assets/images/manual/manual-motion-wave.jpg" alt="iPhone縦向きの大球配置と波形表示。大球位置、アーム、Read div波形、省略区間を表示。">
+        <figcaption>大球配置と波形表示。配置とRead値の変化を同じ画面で確認します。</figcaption>
+      </figure>
+      <div class="manual-grid manual-grid--views">
+        <article>
+          <h3>大球の配置</h3>
+          <p>原表に記録された正位置、負位置、中間位置とアームの向きを模式表示します。Motion Viewと1798年装置3Dの中間位置座標は、どちらも史実配置区分を説明するための模式・再構成表示です。時計時刻が確定できない移動は、前後の史実記録に挟まれた区間として示します。</p>
+        </article>
+        <article>
+          <h3>波形表示</h3>
+          <p>縦軸はRead divです。横軸は史実時計軸または実験別に定義された記録順・再構成軸です。</p>
+        </article>
+        <article>
+          <h3>省略表示</h3>
+          <p>変化のない長時間区間を圧縮します。「全時間軸を表示」で省略区間を展開できます。</p>
+        </article>
+        <article>
+          <h3>観測工程</h3>
+          <p>時計付き観測、配置変更、時計時刻なし極値、読取再開、観測終了など、実験ごとの史実工程を示します。</p>
+        </article>
+        <article>
+          <h3>補助情報</h3>
+          <p>時計時刻なし記録、欠測、凡例、原表記録順など、時計軸だけでは表せない情報を確認できます。</p>
+        </article>
+        <article>
+          <h3>読取記録</h3>
+          <p>史実時刻、位置、種別、Read divを一覧表示します。全記録はCSVへ保存できます。</p>
+        </article>
+      </div>
+
+      <h3 class="setting-guide-title">波形の線・点・区間</h3>
+      <div class="signal-legend" aria-label="波形表示の凡例">
+        <div><span class="legend-sample legend-sample--solid" aria-hidden="true"></span><strong>実線</strong><p>直接時計付き観測点間の表示ガイドです。連続測定そのものを意味しません。</p></div>
+        <div><span class="legend-sample legend-sample--dash" aria-hidden="true"></span><strong>破線</strong><p>交差時刻・振動中央時刻などに拘束した条件付き補完・再構成波形です。</p></div>
+        <div><span class="legend-dot legend-dot--red" aria-hidden="true"></span><strong>赤点</strong><p>史実の時計時刻付き直接読取、または目盛通過時刻です。</p></div>
+        <div><span class="legend-dot legend-dot--blue" aria-hidden="true"></span><strong>青点</strong><p>時計時刻が記録されていない極値などを、記録順と振幅の照合用に表示します。</p></div>
+        <div><span class="legend-band legend-band--blank" aria-hidden="true"></span><strong>空白</strong><p>未観測・欠測・補完しない区間です。根拠のない線で接続しません。</p></div>
+        <div><span class="legend-band legend-band--uncertain" aria-hidden="true"></span><strong>配置変更区間</strong><p>配置変更時刻が確定できない区間です。波形を接続せず区間として示します。</p></div>
+      </div>
+    </section>
+
+    <section id="flow" class="section" aria-labelledby="flow-title">
+      <div class="section-heading"><p class="section-no">06</p><h2 id="flow-title">観測の流れ</h2></div>
+      <figure class="manual-shot manual-shot--detail">
+        <img src="assets/images/manual/manual-timeline.jpg" alt="iPhone縦向きの観測工程。時計付き観測、配置変更、時計時刻なし極値、読取再開、観測終了を表示。">
+        <figcaption>観測工程は、時計付き観測・配置変更・時刻なし記録・観測終了を順番に示します。</figcaption>
+      </figure>
+      <ol class="manual-steps manual-steps--simple">
+        <li><strong>Experimentを選ぶ</strong><span>観測セット、開始位置、位置順序、史実時刻範囲を確認します。</span></li>
+        <li><strong>開始を押す</strong><span>望遠鏡、大球配置、波形、観測工程が同期して進みます。</span></li>
+        <li><strong>配置変更を確認する</strong><span>史実区分である正位置・負位置・中間位置の変化と、時刻が確定しているかを確認します。</span></li>
+        <li><strong>線種と点を確認する</strong><span>直接観測、時計時刻なし記録、補完、未観測を区別します。</span></li>
+        <li><strong>観測完了を待つ</strong><span>観測終了時刻まで進むと、読取記録と結果サマリーが確定します。</span></li>
+        <li><strong>結果を保存する</strong><span>A4レポート、史実読取記録CSV、再構成詳細CSVを必要に応じて保存します。</span></li>
+      </ol>
+    </section>
+
+    <section id="results" class="section" aria-labelledby="results-title">
+      <div class="section-heading"><p class="section-no">07</p><h2 id="results-title">結果表示</h2></div>
+      <p class="section-intro">結果サマリーでは、原表から直接集計した値と、記録・計算の比較結果を分けて表示します。</p>
+      <div class="manual-columns manual-columns--two">
+        <div>
+          <h3>史実記録から集計する値</h3>
+          <ul class="plain-list">
+            <li>位置別の読取件数</li>
+            <li>位置別の平均Read div</li>
+            <li>配置変更による史実移動量</li>
+            <li>史実時刻範囲と時刻未記載件数</li>
+          </ul>
+        </div>
+        <div>
+          <h3>比較・確認する値</h3>
+          <ul class="plain-list">
+            <li>史実記録と条件付き再構成の区間別比較</li>
+            <li>比較対象となった記録数</li>
+            <li>残差が表示基準内にあるか</li>
+            <li>欠測・未観測を推定で埋めていないこと</li>
+          </ul>
+        </div>
+      </div>
+      <p class="note">現公開版の主結果はRead divです。角度、トルク、力、万有引力定数Gへの換算は、史実装置定数との接続検証後に扱う範囲であり、この画面では確定値として表示しません。</p>
+    </section>
+
+    <section id="outputs" class="section" aria-labelledby="outputs-title">
+      <div class="section-heading"><p class="section-no">08</p><h2 id="outputs-title">PDF・CSV出力</h2></div>
+      <div class="manual-columns manual-columns--three">
+        <div>
+          <h3>A4レポート</h3>
+          <p>観測概要、大球配置、望遠鏡、史実波形、代表読取記録、結果サマリーをA4縦1ページへ整理します。</p>
+        </div>
+        <div>
+          <h3>史実読取記録CSV</h3>
+          <p>原表の時刻、位置、記録種別、Read div、出典ページ、原表行IDを保存します。</p>
+        </div>
+        <div>
+          <h3>再構成詳細CSV</h3>
+          <p>時計軸、条件付き補完、再構成値、残差、表示区分を詳細に保存します。</p>
+        </div>
+      </div>
+
+      <div class="output-flow" aria-label="出力操作">
+        <article>
+          <h3>PDF保存</h3>
+          <p>レポートプレビューで「PDF保存」を押します。iPhone Safariでは共有シートが開くため、「ファイルに保存」を選びます。</p>
+        </article>
+        <article>
+          <h3>印刷</h3>
+          <p>プリンタ出力が必要な場合に使用します。保存用PDFは「PDF保存」を使用してください。</p>
+        </article>
+        <article>
+          <h3>CSV</h3>
+          <p>プレビューで史実読取記録または再構成詳細を選び、「CSV保存」を押します。</p>
+        </article>
+      </div>
+      <dl class="manual-definition-list output-spec-list">
+        <div><dt>CSV文字コード</dt><dd>UTF-8 BOM付き</dd></div>
+        <div><dt>改行・区切り</dt><dd>CRLF・カンマ区切り</dd></div>
+        <div><dt>セル形式</dt><dd>すべてのセルを二重引用符で囲みます。</dd></div>
+        <div><dt>識別情報</dt><dd>Experiment ID、Record ID、出典ページ、原表行ID、JST生成日時を記録します。</dd></div>
+      </dl>
+    </section>
+
+    <section id="mobile" class="section" aria-labelledby="mobile-title">
+      <div class="section-heading"><p class="section-no">09</p><h2 id="mobile-title">PCとMobileの違い</h2></div>
+      <div class="manual-columns manual-columns--three">
+        <div>
+          <h3>PC</h3>
+          <ul class="plain-list">
+            <li>左に操作・条件、右に観測表示を配置します。</li>
+            <li>望遠鏡、波形、大球配置、観測工程を同時に確認できます。</li>
+            <li>結果と出力は縦スクロールで確認します。</li>
+          </ul>
+        </div>
+        <div>
+          <h3>iPhone縦向き</h3>
+          <ul class="plain-list">
+            <li>各領域を縦に並べます。</li>
+            <li>操作ボタンは画面下部へ固定します。</li>
+            <li>補助情報や読取記録は折りたたんで確認できます。</li>
+          </ul>
+        </div>
+        <div>
+          <h3>iPhone横向き</h3>
+          <ul class="plain-list">
+            <li>望遠鏡の高さを抑え、波形と大球配置の確認領域を確保します。</li>
+            <li>操作パネルは簡易表示になります。</li>
+            <li>PCと同じ情報量を無理に並べず、確認しやすさを優先します。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="notes" class="section" aria-labelledby="notes-title">
+      <div class="section-heading"><p class="section-no">10</p><h2 id="notes-title">表示上の注意</h2></div>
+      <div class="manual-stack">
+        <article><h3>史実値と再構成値</h3><p>史実直接値、時計時刻なし記録、条件付き再構成を区別します。再構成値を原表の直接観測値として扱わないでください。</p></article>
+        <article><h3>未観測・欠測</h3><p>原表の空欄、missed、時刻未記載値へ根拠のない値や擬似時刻を付与しません。未観測区間は空白として残します。</p></article>
+        <article><h3>大球配置図</h3><p>観測関係を理解するための上面図です。装置寸法や実験室全体を完全な縮尺で復元した図ではありません。</p></article>
+        <article><h3>個人情報</h3><p>シミュレータ、レポート、CSVは個人端末情報を収集しません。</p></article>
+      </div>
+    </section>
+
+    <section class="launch" aria-labelledby="launch-title">
+      <div>
+        <p class="eyebrow">START</p>
+        <h2 id="launch-title">検証する</h2>
+        <p>実験の背景、装置、史実資料の位置付けは解説ページで確認できます。</p>
+      </div>
+      <div class="launch-actions">
+        <a class="button" href="cavendish-guide.html"><span class="nav-label-full">実験の解説</span><span class="nav-label-mobile" aria-hidden="true">解説</span></a>
+        <a class="button button--primary" href="cavendish-simulator.html">シミュレータ</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>IMPULSE LABO / Cavendish Simulator Manual Ver0.79 / Build CV082A01MR2</p>
+    <p><a href="cavendish-simulator.html">検証する</a> ｜ <a href="cavendish-3d/cavendish-guide-3d.html">1798年装置3D</a> ｜ <a href="cavendish-guide.html">実験の解説</a> ｜ <a href="cavendish-manual.html">操作マニュアル</a></p>
+  </footer>
+
+  <script>
+  (() => {
+    const key = 'cavendishReadingFontSize';
+    const allowed = ['standard', 'large', 'xlarge'];
+    const root = document.documentElement;
+    const buttons = Array.from(document.querySelectorAll('[data-font-size]'));
+    const apply = (value) => {
+      const size = allowed.includes(value) ? value : 'standard';
+      root.dataset.readingFont = size;
+      buttons.forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.fontSize === size)));
+      try { localStorage.setItem(key, size); } catch (_) {}
+    };
+    let saved = 'standard';
+    try { saved = localStorage.getItem(key) || 'standard'; } catch (_) {}
+    apply(saved);
+    buttons.forEach((button) => button.addEventListener('click', () => apply(button.dataset.fontSize)));
+  })();
+  </script>
+</body>
+</html>

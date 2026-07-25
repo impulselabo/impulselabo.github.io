@@ -1,0 +1,443 @@
+{
+  "audit_id": "CV081A13",
+  "baseline_zip": "CV081A121R.zip",
+  "purpose": "Prove audit-only packaging did not modify public runtime files.",
+  "file_count": 87,
+  "files": [
+    {
+      "path": "_mobile_help_test.html",
+      "sha256": "7b4b003acf7fa0a51d661ec925e83af38b9e1fb70fcbfdd4dce2de40b5e38066",
+      "size": 46621
+    },
+    {
+      "path": "assets/css/cavendish-guide.css",
+      "sha256": "97f37eacae27032d3c66f017475f3c239664bc5cbae4cca309be06ca4c9bd291",
+      "size": 50374
+    },
+    {
+      "path": "assets/data/cavendish-a4-pdf-output-audit.json",
+      "sha256": "9983d52044bfa5d86084601911919013400188393557c690c42c7744ebe42c1f",
+      "size": 8037
+    },
+    {
+      "path": "assets/data/cavendish-column-semantics-audit.js",
+      "sha256": "ad33600caa59b1d75490235dbff74bdb8d85ddad9a07233b9af967f33b42f168",
+      "size": 48067
+    },
+    {
+      "path": "assets/data/cavendish-column-semantics-audit.json",
+      "sha256": "8a3864462d4cf2fb09e9c53ddc0eeae323310dfe42775ebeef94bd31907e53a3",
+      "size": 48024
+    },
+    {
+      "path": "assets/data/cavendish-crossing-time-semantics.js",
+      "sha256": "4777dde477b2060ea7f0874409b352ec1bbbf6567dab38439075ee81bbd0f15f",
+      "size": 13894
+    },
+    {
+      "path": "assets/data/cavendish-crossing-time-semantics.json",
+      "sha256": "233d63934b1fe787dfb75dd54205e3a5b9c23f3c09c6aec9746d21710911915b",
+      "size": 16570
+    },
+    {
+      "path": "assets/data/cavendish-csv-final-audit.json",
+      "sha256": "95f07f930cbc9001bf7cb3af7b5b5d6d3e4a8143555a2af89fe874c1d631cc15",
+      "size": 29943
+    },
+    {
+      "path": "assets/data/cavendish-data-layer-manifest.json",
+      "sha256": "a6e21889216f39f1d7e0bb8da3ad7a12b69439d8b932f0c98c2ecd0b0917910c",
+      "size": 14630
+    },
+    {
+      "path": "assets/data/cavendish-direct-clock-semantics.json",
+      "sha256": "4ad44ae03cdef9344fa98aadd4c8e531e236c5db3db602638059ceb2f766d6a0",
+      "size": 14402
+    },
+    {
+      "path": "assets/data/cavendish-direct-pdf-output-audit.json",
+      "sha256": "aab6666e74edf8afbe6c6ad40f80f85d8b222a1fa5fbb583848aa37d1132064f",
+      "size": 3881
+    },
+    {
+      "path": "assets/data/cavendish-experiment-i-physical-model-spec.json",
+      "sha256": "33ed1c01bd86768a92da631f878fe27e914d80b90ea5378ffabdd0663060b4a4",
+      "size": 8458
+    },
+    {
+      "path": "assets/data/cavendish-experiment-i-semantics.json",
+      "sha256": "4c2cb6e01fe0f25673beb559a679d94ab79d72024ca70b905a0c4c7a542da716",
+      "size": 70685
+    },
+    {
+      "path": "assets/data/cavendish-experiment-i-wave-display-spec.json",
+      "sha256": "a876cce3eb1417578e0f40675c0e1fdd6c744567c6bf32f78d00b92aba9ba96e",
+      "size": 10740
+    },
+    {
+      "path": "assets/data/cavendish-experiment-vi-semantics.json",
+      "sha256": "dbed00fc9dd5e52a13f7958c3a330f660b1b7cc206b3aef49182c77ed7a0669c",
+      "size": 2531
+    },
+    {
+      "path": "assets/data/cavendish-final-integration-audit.json",
+      "sha256": "3766416e0664d92abcd99293784abe9471a1f01aeeaa406afd655dc91a69c7bf",
+      "size": 1169
+    },
+    {
+      "path": "assets/data/cavendish-historical-data.js",
+      "sha256": "ba6da95a5b1a4b0b7ab230ba21b5bae9e8b74ffd6ec77f52e23a27eb9c9fa6d7",
+      "size": 246271
+    },
+    {
+      "path": "assets/data/cavendish-historical-data.json",
+      "sha256": "505e78259728471389b57260fac47bed98b718e1f8f7dee8cee16b26d47e1aa8",
+      "size": 246106
+    },
+    {
+      "path": "assets/data/cavendish-historical-record-table-audit.json",
+      "sha256": "1d4762745a546d4161554501f0234da3113c6e221a659344c92587c11150e68e",
+      "size": 11174
+    },
+    {
+      "path": "assets/data/cavendish-motion-view-audit.json",
+      "sha256": "5e8d6334ab5592b8ca1713ad01d0e9bca0e66fdb581b6c0fc720034ff0e54da8",
+      "size": 15395
+    },
+    {
+      "path": "assets/data/cavendish-motion-view-final-audit.json",
+      "sha256": "39075d52d69c0394f59eb62ffc5ebc15f03cc9c41ac4283a1d1d2a7cad3fa274",
+      "size": 42507
+    },
+    {
+      "path": "assets/data/cavendish-observation-process-audit.json",
+      "sha256": "d70b765b3fc5be7ec37b7e5ce5ce3c9ae6f39a200dbf2dafd4725cccf220dda9",
+      "size": 10336
+    },
+    {
+      "path": "assets/data/cavendish-observation-set-registry.js",
+      "sha256": "8aa7cf3c8ab91438b861286604b4354013343e9029f2b480e168bdfb103c14b1",
+      "size": 22377
+    },
+    {
+      "path": "assets/data/cavendish-observation-set-registry.json",
+      "sha256": "8b67914637d5682457c1960bfacd90d38cc5003cb305f9d889eaada9147d70cf",
+      "size": 27111
+    },
+    {
+      "path": "assets/data/cavendish-observation-structure.js",
+      "sha256": "c017cc7aca49136f45cc38d750b8fce8a91816ea456e2929a2d9cef87dbf6e29",
+      "size": 303396
+    },
+    {
+      "path": "assets/data/cavendish-observation-structure.json",
+      "sha256": "c549365a929f6e7157a8eb5fc0ba5fda4f3af8c5198ae0653292530ad70e4d97",
+      "size": 466693
+    },
+    {
+      "path": "assets/data/cavendish-report-final-audit.json",
+      "sha256": "02180362ff52b3bc8a04ebc519bb9a9bbcc0736b4a5fc30c172fd17f68059d67",
+      "size": 21375
+    },
+    {
+      "path": "assets/data/cavendish-summary-result-audit.json",
+      "sha256": "9670e92db56e5c8b881b700c929d53fef5da6d650b90a03847e397d109e449dc",
+      "size": 27850
+    },
+    {
+      "path": "assets/data/cavendish-telescope-layer-audit.json",
+      "sha256": "58ba96f54b6f3c4f7cf9842032af8fe59c86efde030885112b1a2397e8c7b153",
+      "size": 11324
+    },
+    {
+      "path": "assets/data/cavendish-time-axis-config.js",
+      "sha256": "f1fc8cff4663fecc180d42038e54ac579a4ac1f605271bc06b5e428f1220ed6f",
+      "size": 10273
+    },
+    {
+      "path": "assets/data/cavendish-time-axis-config.json",
+      "sha256": "41551c1c2ddc9d13d8db3ac87d1a766d11b75492ed90e02b70219131315e688d",
+      "size": 15834
+    },
+    {
+      "path": "assets/data/cavendish-wave-time-axis-audit.json",
+      "sha256": "3b23d31ef075822adbd754ec615d37857c9ce42827fe5c64f5f99509a7336c64",
+      "size": 14176
+    },
+    {
+      "path": "assets/data/cv080a31-validation-summary.json",
+      "sha256": "d1f03f43d5e7e738fe6ca8e1df5b9f5642ed3c068677146fc4b8b49ddd617c71",
+      "size": 794
+    },
+    {
+      "path": "assets/data/cv080a31r-validation-summary.json",
+      "sha256": "2890163f56f9f80d63ec418238583792688156f1928105e92afe4e4c1809e80d",
+      "size": 720
+    },
+    {
+      "path": "assets/data/cv080a31r2-validation-summary.json",
+      "sha256": "56492084f8498e3f1fda4e1b72027095f0da9f79ec4538cd4a7dd222f69d9360",
+      "size": 655
+    },
+    {
+      "path": "assets/data/cv081a01-validation-summary.json",
+      "sha256": "3e6eeeefff620c322f6c9a97005bb46d38fe52c9ddb05ce48721c5321acd3130",
+      "size": 895
+    },
+    {
+      "path": "assets/data/cv081a12-1-historical-cross-layer-audit.json",
+      "sha256": "4c059a247f136ada75714009cfd7ca685128ed4d7a9001aa0415520a0be9a3a3",
+      "size": 23517
+    },
+    {
+      "path": "assets/data/cv081a12-1r-historical-cross-layer-audit-resolution.json",
+      "sha256": "11809f5e366884443e454ab0cc5de4dcbb28849e2cbe2f3f30c64039623f6da7",
+      "size": 2800
+    },
+    {
+      "path": "assets/images/guide/guide-historical-apparatus-reference.jpg",
+      "sha256": "866137ab76478e614da2c3abd7ab5d0a7363a3b9845ffd8bedb470805ee3976a",
+      "size": 502772
+    },
+    {
+      "path": "assets/images/guide/guide-historical-telescope.jpg",
+      "sha256": "fee481895e84e99aa831c503a6b529658a446d483696260667b81331479ce0bf",
+      "size": 78140
+    },
+    {
+      "path": "assets/images/guide/guide-motion-view.jpg",
+      "sha256": "83c4c8fe69215f2d03b9545814e3a9d1137c6144f099e85cfde959c98587df37",
+      "size": 65126
+    },
+    {
+      "path": "assets/images/guide/guide-observation-process.jpg",
+      "sha256": "d634c1d02edbda89a0325db79da3dc3f44ca7bb645e5c8e538d301c28bb17d76",
+      "size": 104715
+    },
+    {
+      "path": "assets/images/guide/guide-observation-sequence-r3.svg",
+      "sha256": "40bdafa26a6a928432864537f2be2361f3de6ada4010537294caa41ff1f0484c",
+      "size": 7108
+    },
+    {
+      "path": "assets/images/guide/guide-observation-sequence-r3i.png",
+      "sha256": "89410212f1b7e0d382c46b461ee3d77c96d9b3becbc3a865733d8ca707892d64",
+      "size": 1506943
+    },
+    {
+      "path": "assets/images/guide/guide-simulator-mapping-r3.svg",
+      "sha256": "58beb81f80f93a955e6f7abac0e44ae5638228afbdf2972726fae65c9a111c23",
+      "size": 4575
+    },
+    {
+      "path": "assets/images/guide/guide-simulator-mapping-r3i.png",
+      "sha256": "c67f8aaf88dd0abbd9155dacbecd2cf456af95a2a3e3667c93c09c75713a6626",
+      "size": 1674340
+    },
+    {
+      "path": "assets/images/guide/guide-simulator-overview.jpg",
+      "sha256": "5acf90c65e3d67d5bb3d05960d1e0f8bd7e1dfdf4785ade567be574e8143dcfd",
+      "size": 155807
+    },
+    {
+      "path": "assets/images/guide/guide-technical-optics-r3.svg",
+      "sha256": "66799cc197e8084d43a9efcad405771adb162c00f3bc6b1ee343bc23bfab811c",
+      "size": 5683
+    },
+    {
+      "path": "assets/images/guide/guide-technical-optics-r3i.png",
+      "sha256": "7357f17e92cb0c3c0f30cc17cd38007aa836cd4c2a3f16759e84ca0798518bfe",
+      "size": 1735386
+    },
+    {
+      "path": "assets/images/guide/guide-technical-readout-r3.svg",
+      "sha256": "96dfa90ba16c2f1b37f441548f5fbc1f6904b23a9032975f8c53ddd89c434606",
+      "size": 10119
+    },
+    {
+      "path": "assets/images/guide/guide-technical-readout-r3i.png",
+      "sha256": "c5b472e8eac89f2645350589502217060dfc64961c5af417b70668fb7ec67616",
+      "size": 1688053
+    },
+    {
+      "path": "assets/images/guide/guide-technical-structure-r3.svg",
+      "sha256": "ec565378faea397728bbb6139b282adc34e8a9f43f3c092c9c1f3587c773a507",
+      "size": 6083
+    },
+    {
+      "path": "assets/images/guide/guide-technical-structure-r3i.png",
+      "sha256": "9e6b183fc118ade73790d3cb9b9a1f93b04cdf474620bc9c3bb5c092792c7610",
+      "size": 1701912
+    },
+    {
+      "path": "assets/images/guide/guide-waveform.jpg",
+      "sha256": "592da823246fcab2bf76eef090c07ef674dd2c754e20ee2af6422d37c85a8a19",
+      "size": 119297
+    },
+    {
+      "path": "assets/images/manual/manual-mobile-controls.jpg",
+      "sha256": "7e1a18c287a1eeed191f3f45b7ef2d9427bf8333460a3791e8b26a725ebf8a81",
+      "size": 126892
+    },
+    {
+      "path": "assets/images/manual/manual-motion-wave.jpg",
+      "sha256": "7bad417b10c371ec320494e2f135421c3cac5966146bd8a09ad3f50b5b23a682",
+      "size": 143843
+    },
+    {
+      "path": "assets/images/manual/manual-pc-overview.jpg",
+      "sha256": "43b036fad6a62d5455fe517183aeba5b5c3b4f3cc8cd675f1eaf25f8f7f29c25",
+      "size": 121140
+    },
+    {
+      "path": "assets/images/manual/manual-telescope.jpg",
+      "sha256": "ab88a2ae3e7ed5eb964e9a53e893e7d149662a2a1259d66604311722edd28ca2",
+      "size": 59945
+    },
+    {
+      "path": "assets/images/manual/manual-timeline.jpg",
+      "sha256": "5613a72082f1dcbc983a0b5de9a05717f05f521591c62b262ddc625cc1f314ad",
+      "size": 76567
+    },
+    {
+      "path": "assets/js/cavendish-data-layers.js",
+      "sha256": "6e94ccbc9122cc5d666bbdbb561cc85cb02d9d0d34fd6dd49848d3d9c0ee500c",
+      "size": 12750
+    },
+    {
+      "path": "assets/js/cavendish-direct-clock-semantics.js",
+      "sha256": "2df1cfa0a55fb695489e428bfa0a290038f6c16211babd4d93e83885721cbb68",
+      "size": 12020
+    },
+    {
+      "path": "assets/js/cavendish-direct-clock-time-axis.js",
+      "sha256": "0867cc2b77867ac6be339f059b7a3962b89940eacf6c6c5a9a2004a98c81d31f",
+      "size": 5132
+    },
+    {
+      "path": "assets/js/cavendish-experiment-i-physical-model.js",
+      "sha256": "32450e9d47edf52d2bb182b259756ba678cc0dff7f3fe2a1fc05d4cb30cfb186",
+      "size": 16738
+    },
+    {
+      "path": "assets/js/cavendish-experiment-i-semantics.js",
+      "sha256": "2bbd563b0f89b99d090217b2d160989cc892300b746f0892a71d1b6475061650",
+      "size": 56208
+    },
+    {
+      "path": "assets/js/cavendish-experiment-vi-semantics.js",
+      "sha256": "c6b316de8ce4caefadb17a7f008dbf3f8e78ef99db58c2f6acf8d8a7635317dd",
+      "size": 12040
+    },
+    {
+      "path": "assets/js/cavendish-historical-replay.js",
+      "sha256": "f4e1cbd12463c1eca2d73f235452cc95b6c157552787bf697bc584f2c3343421",
+      "size": 180886
+    },
+    {
+      "path": "assets/js/cavendish-time-axis.js",
+      "sha256": "fd650473b2e09bb1b0c253f354c1b57364b4aa848d4561517830f7efbed6e4e8",
+      "size": 17238
+    },
+    {
+      "path": "assets/vendor/html2canvas/LICENSE",
+      "sha256": "86200ce4e92d9a22c41c8647a55f7a5fddff304ff89b4d36ecc699ed8c123d2c",
+      "size": 1061
+    },
+    {
+      "path": "assets/vendor/html2canvas/html2canvas.min.js",
+      "sha256": "e87e550794322e574a1fda0c1549a3c70dae5a93d9113417a429016838eab8cb",
+      "size": 198689
+    },
+    {
+      "path": "assets/vendor/jspdf/LICENSE",
+      "sha256": "2d26bfab8a36d2250602c7a7597237e180c5cd3517acc108126e3cb399f483c8",
+      "size": 1142
+    },
+    {
+      "path": "assets/vendor/jspdf/jspdf.umd.min.js",
+      "sha256": "85ba2cc3ff858a20fa49fe6e457bec863ea40b55a9f3725e58a940e62f6f61a4",
+      "size": 365730
+    },
+    {
+      "path": "cavendish-3d/assets/app.js",
+      "sha256": "57d5d35d7fb2eee4adc5c3538c80c469982293c3ddde4de36fc12c08ed72a0ff",
+      "size": 56419
+    },
+    {
+      "path": "cavendish-3d/assets/data/cavendish-geometry-audit.json",
+      "sha256": "cdb8f90a5d2b1ff7b928071c6b5a3fc44824b7a2828d662198f9f6baa039be0c",
+      "size": 872
+    },
+    {
+      "path": "cavendish-3d/assets/data/cv1798-constraints.json",
+      "sha256": "8ecad357165f6e2e460997606f0b14842fc1496f5c1ba300da1f4dfb3e3dcea9",
+      "size": 2205
+    },
+    {
+      "path": "cavendish-3d/assets/data/cv1798-coordinate-audit.json",
+      "sha256": "72b5bdc891bdd7a5b3c8db048ede2ff19397f07118aaf97096cca401b2250437",
+      "size": 1014
+    },
+    {
+      "path": "cavendish-3d/assets/data/cv1798-geometry.json",
+      "sha256": "865902f817171c9f2c135545f4a8a73eee4f73d4a1e28f2bb3b8d1875e621d46",
+      "size": 2919
+    },
+    {
+      "path": "cavendish-3d/assets/fig1.png",
+      "sha256": "c31e3afcdf80cf7cdfdca6aaf66da905744f21cac344de710fadb0f8eddfcaa3",
+      "size": 2770357
+    },
+    {
+      "path": "cavendish-3d/assets/fig2.png",
+      "sha256": "c5475a58147a361c01ec0648a4295f3f45ea45f7c5f5f3fd03fc4cbaeffea9af",
+      "size": 2638584
+    },
+    {
+      "path": "cavendish-3d/assets/style.css",
+      "sha256": "0a1f636fa819145a3bb5106c442ce2b810c05f25ce2577a6cf03b5e44506dc24",
+      "size": 40678
+    },
+    {
+      "path": "cavendish-3d/cavendish-guide-3d.html",
+      "sha256": "c5c61eaf9d5caa55d47c9285216a8763db9339133787046de29b6e7125c5f036",
+      "size": 20998
+    },
+    {
+      "path": "cavendish-guide.html",
+      "sha256": "a37b35ebacbca2e46ac8e6bb35d728ed7e10e61e7c97470fea8563dfaedc6435",
+      "size": 16741
+    },
+    {
+      "path": "cavendish-manual.html",
+      "sha256": "2b9715ebdffdbf34559f73c3bab21bc03cc72f0af3b08f4493f3eb4dbb4d0568",
+      "size": 27120
+    },
+    {
+      "path": "cavendish-report-preview.html",
+      "sha256": "f8ed730181c6d2f0a088f1d7f1575c3a8595ebb80153401805d1d5cc9c6d84ef",
+      "size": 27383
+    },
+    {
+      "path": "cavendish-simulator.html",
+      "sha256": "9f01bfa19256408a52f628a1432cda9c6c2f94691b06548d90d1674314392438",
+      "size": 39953
+    },
+    {
+      "path": "report_script_1.js",
+      "sha256": "a399059f6af9c6d4d043af4c8339194ce464d298dbf31d02ca82e67e09782432",
+      "size": 42978
+    },
+    {
+      "path": "script.js",
+      "sha256": "bf410c977c01011869dfb9ed779183a9a9e8ba0f5768f44c0d6994048c77fcee",
+      "size": 248682
+    },
+    {
+      "path": "style.css",
+      "sha256": "e8132b6e737b7f42544d09898998b1a2e960171eaff0308120bace4a5986b179",
+      "size": 245701
+    }
+  ]
+}

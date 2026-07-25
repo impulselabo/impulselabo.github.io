@@ -1,0 +1,21 @@
+{
+  "build": "CV082A01MR2",
+  "scope": [
+    "cavendish-guide.html",
+    "cavendish-manual.html",
+    "cavendish-simulator.html",
+    "cavendish-3d/cavendish-guide-3d.html"
+  ],
+  "results": {
+    "guideGlobalNavigationCount": 1,
+    "manualGlobalNavigationCount": 1,
+    "simulatorGlobalNavigationCount": 1,
+    "threeDGlobalNavigationCount": 1,
+    "guideIntroNavigationRemoved": "PASS",
+    "manualIntroNavigationRemoved": "PASS",
+    "guidePageTocPreserved": "PASS",
+    "manualPageTocPreserved": "PASS",
+    "bottomContextualActionsPreserved": "PASS",
+    "threeDInitialFitPreserved": "PASS"
+  }
+}

@@ -1,0 +1,763 @@
+{
+  "audit_id": "CV081A12-1-ALL-17-EXPERIMENT-HISTORICAL-CROSS-LAYER-AUDIT",
+  "audit_build": "CV081A12-1",
+  "application_build": "CV081A05",
+  "baseline_zip": "CV081A123R1.zip",
+  "date_jst": "2026-07-20",
+  "status": "PASS_WITH_ONE_DISPLAY_METADATA_CORRECTION_CANDIDATE",
+  "scope": "All 17 Experiment source rows, times, large-mass positions, Historical Telescope, Motion View, waveform/replay, report, CSV, result summaries, and judgement-source separation.",
+  "primary_source": {
+    "title": "Experiments to Determine the Density of the Earth",
+    "author": "Henry Cavendish",
+    "year": 1798,
+    "journal": "Philosophical Transactions of the Royal Society of London",
+    "volume": 88,
+    "pages": "469–526",
+    "doi": "10.1098/rstl.1798.0022",
+    "visual_audit": "Original scan table pages p.480, 482–489, 493–495, 497–508 and printed conclusion table were visually compared with the structured transcription."
+  },
+  "classification_policy": {
+    "現状OK": "Historical source, current data, UI/replay, report and CSV agree.",
+    "表示修正": "Historical values are correct, but a public source-page label is broader or ambiguous.",
+    "機能修正": "Runtime connection or output behavior is inconsistent.",
+    "史実再確認": "Primary source does not support a final determination.",
+    "保留": "Outside the current audit scope."
+  },
+  "totals": {
+    "experiments": 17,
+    "historical_source_rows": 303,
+    "missed_rows_or_groups_preserved": 7,
+    "printed_point_of_rest_values": 183,
+    "printed_vibration_intervals": 28,
+    "printed_summary_motions": 29,
+    "printed_summary_periods": 20,
+    "historical_calculation_records": 260,
+    "position_statistics": 38,
+    "transition_statistics": 29,
+    "replay_report_records": 511,
+    "historical_direct_values": 492,
+    "historical_table_derived_values": 19,
+    "exact_clock_records": 270,
+    "reconstructed_clock_records": 128,
+    "order_only_records": 94,
+    "no_instant_calculations": 19,
+    "position_sections": 46,
+    "hypothetical_ui_preludes": 8,
+    "hypothetical_ui_records_in_report": 0,
+    "records_after_observation_end": 0,
+    "telescope_latest_direct_checks": 17,
+    "csv_files": 34,
+    "historical_csv_rows": 511,
+    "analysis_csv_rows": 2048,
+    "anomalous_printed_mid_vibration_times_preserved": 12,
+    "display_metadata_correction_candidates": 1,
+    "functional_corrections_required": 0,
+    "historical_value_rechecks_remaining": 0
+  },
+  "preservation": {
+    "historical_numeric_values_changed": false,
+    "historical_times_changed": false,
+    "position_sequences_changed": false,
+    "reconstruction_algorithms_changed": false,
+    "report_content_changed": false,
+    "csv_schema_or_values_changed": false,
+    "ui_layout_changed": false
+  },
+  "source_reaudit_corrections_confirmed": [
+    {
+      "row_id": "EXP-XIII-ROW-004",
+      "field": "division_crossings[1].time_hms",
+      "from": "10:23:45",
+      "to": "10:22:45"
+    },
+    {
+      "row_id": "EXP-XVII-ROW-009",
+      "field": "division_crossings[0].division",
+      "from": "23",
+      "to": "22"
+    },
+    {
+      "row_id": "EXP-XVII-ROW-009",
+      "field": "division_crossings[1].division",
+      "from": "24",
+      "to": "23"
+    }
+  ],
+  "printed_anomalies_preserved": {
+    "mid_vibration_row_ids": [
+      "EXP-I-ROW-012",
+      "EXP-II-ROW-016",
+      "EXP-II-ROW-017",
+      "EXP-II-ROW-018",
+      "EXP-III-ROW-007",
+      "EXP-III-ROW-009",
+      "EXP-III-ROW-015",
+      "EXP-IV-ROW-014",
+      "EXP-V-ROW-016",
+      "EXP-X-ROW-004",
+      "EXP-XIV-ROW-011",
+      "EXP-XV-ROW-005"
+    ],
+    "policy": "Values that appear internally unusual remain exactly as printed and are not silently corrected."
+  },
+  "issues": [
+    {
+      "issue_id": "CV081A12-1-DISPLAY-001",
+      "experiment": "Experiment III",
+      "classification": "表示修正",
+      "severity": "low",
+      "historical_values_affected": false,
+      "current_declared_source_pages": [
+        483,
+        484,
+        485
+      ],
+      "table_row_source_pages": [
+        483,
+        484
+      ],
+      "finding": "p.485 is a narrative continuation, not a page containing Experiment III table rows. Displays describing “原表行データ” should use p.483–484 or distinguish table pages from narrative pages.",
+      "recommended_follow_up": "Add table_source_pages=[483,484] and narrative_source_pages=[485], or derive the public row-source label from row.source_page values."
+    }
+  ],
+  "experiments": [
+    {
+      "experiment": "Experiment I",
+      "data_key": "CAV-1798-EXP-I",
+      "heading_original": "EXPERIMENT I. Aug. 5.",
+      "date_iso": "1797-08-05",
+      "declared_source_pages": [
+        480
+      ],
+      "table_row_source_pages": [
+        480
+      ],
+      "source_page_metadata_extra_pages": [],
+      "source_rows": 13,
+      "expected_rows": 13,
+      "position_sequence": [
+        "中間位置",
+        "正位置",
+        "中間位置"
+      ],
+      "printed_summary_motions": 2,
+      "printed_summary_periods": 1,
+      "report_records": 21,
+      "historical_direct_values": 21,
+      "historical_table_derived_values": 0,
+      "exact_clock_records": 11,
+      "reconstructed_clock_records": 0,
+      "order_only_records": 10,
+      "no_instant_calculations": 0,
+      "summary_position_statistics": 2,
+      "summary_transition_statistics": 2,
+      "historical_csv_rows": 21,
+      "analysis_csv_rows": 1117,
+      "cross_layer_result": "PASS",
+      "classification": "現状OK",
+      "note": "原表・表示・出力の横断整合に問題なし。"
+    },
+    {
+      "experiment": "Experiment II",
+      "data_key": "CAV-1798-EXP-II",
+      "heading_original": "EXPERIMENT II. Aug. 6.",
+      "date_iso": "1797-08-06",
+      "declared_source_pages": [
+        482,
+        483
+      ],
+      "table_row_source_pages": [
+        482,
+        483
+      ],
+      "source_page_metadata_extra_pages": [],
+      "source_rows": 19,
+      "expected_rows": 19,
+      "position_sequence": [
+        "中間位置",
+        "正位置",
+        "中間位置"
+      ],
+      "printed_summary_motions": 2,
+      "printed_summary_periods": 1,
+      "report_records": 29,
+      "historical_direct_values": 29,
+      "historical_table_derived_values": 0,
+      "exact_clock_records": 14,
+      "reconstructed_clock_records": 4,
+      "order_only_records": 11,
+      "no_instant_calculations": 0,
+      "summary_position_statistics": 2,
+      "summary_transition_statistics": 2,
+      "historical_csv_rows": 29,
+      "analysis_csv_rows": 50,
+      "cross_layer_result": "PASS",
+      "classification": "現状OK",
+      "note": "原表・表示・出力の横断整合に問題なし。"
+    },
+    {
+      "experiment": "Experiment III",
+      "data_key": "CAV-1798-EXP-III",
+      "heading_original": "EXPERIMENT III. Aug. 7.",
+      "date_iso": "1797-08-07",
+      "declared_source_pages": [
+        483,
+        484,
+        485
+      ],
+      "table_row_source_pages": [
+        483,
+        484
+      ],
+      "source_page_metadata_extra_pages": [
+        485
+      ],
+      "source_rows": 16,
+      "expected_rows": 16,
+      "position_sequence": [
+        "正位置",
+        "中間位置",
+        "正位置"
+      ],
+      "printed_summary_motions": 2,
+      "printed_summary_periods": 2,
+      "report_records": 29,
+      "historical_direct_values": 29,
+      "historical_table_derived_values": 0,
+      "exact_clock_records": 14,
+      "reconstructed_clock_records": 7,
+      "order_only_records": 8,
+      "no_instant_calculations": 0,
+      "summary_position_statistics": 2,
+      "summary_transition_statistics": 2,
+      "historical_csv_rows": 29,
+      "analysis_csv_rows": 60,
+      "cross_layer_result": "PASS",
+      "classification": "表示修正",
+      "note": "原表行はp.483–484。p.485は実験IIIの叙述ページで、原表行データの出典範囲表示に含まれている。"
+    },
+    {
+      "experiment": "Experiment IV",
+      "data_key": "CAV-1798-EXP-IV",
+      "heading_original": "EXPERIMENT IV. Aug. 12.",
+      "date_iso": "1797-08-12",
+      "declared_source_pages": [
+        486,
+        487
+      ],
+      "table_row_source_pages": [
+        486,
+        487
+      ],
+      "source_page_metadata_extra_pages": [],
+      "source_rows": 25,
+      "expected_rows": 25,
+      "position_sequence": [
+        "中間位置",
+        "正位置",
+        "負位置",
+        "正位置"
+      ],
+      "printed_summary_motions": 3,
+      "printed_summary_periods": 2,
+      "report_records": 49,
+      "historical_direct_values": 49,
+      "historical_table_derived_values": 0,
+      "exact_clock_records": 27,
+      "reconstructed_clock_records": 10,
+      "order_only_records": 12,
+      "no_instant_calculations": 0,
+      "summary_position_statistics": 3,
+      "summary_transition_statistics": 3,
+      "historical_csv_rows": 49,
+      "analysis_csv_rows": 99,
+      "cross_layer_result": "PASS",
+      "classification": "現状OK",
+      "note": "原表・表示・出力の横断整合に問題なし。"
+    },
+    {
+      "experiment": "Experiment V",
+      "data_key": "CAV-1798-EXP-V",
+      "heading_original": "EXPERIMENT V. Aug. 20.",
+      "date_iso": "1797-08-20",
+      "declared_source_pages": [
+        488,
+        489
+      ],
+      "table_row_source_pages": [
+        488,
+        489
+      ],
+      "source_page_metadata_extra_pages": [],
+      "source_rows": 29,
+      "expected_rows": 29,
+      "position_sequence": [
+        "正位置",
+        "負位置",
+        "正位置"
+      ],
+      "printed_summary_motions": 2,
+      "printed_summary_periods": 2,
+      "report_records": 42,
+      "historical_direct_values": 42,
+      "historical_table_derived_values": 0,
+      "exact_clock_records": 14,
+      "reconstructed_clock_records": 20,
+      "order_only_records": 8,
+      "no_instant_calculations": 0,
+      "summary_position_statistics": 2,
+      "summary_transition_statistics": 2,
+      "historical_csv_rows": 42,
+      "analysis_csv_rows": 86,
+      "cross_layer_result": "PASS",
+      "classification": "現状OK",
+      "note": "原表・表示・出力の横断整合に問題なし。"
+    },
+    {
+      "experiment": "Experiment VI",
+      "data_key": "CAV-1798-EXP-VI",
+      "heading_original": "EXPERIMENT VI. Sept. 6.",
+      "date_iso": "1797-09-06",
+      "declared_source_pages": [
+        493
+      ],
+      "table_row_source_pages": [
+        493
+      ],
+      "source_page_metadata_extra_pages": [],
+      "source_rows": 21,
+      "expected_rows": 21,
+      "position_sequence": [
+        "中間位置",
+        "負位置",
+        "正位置"
+      ],
+      "printed_summary_motions": 2,
+      "printed_summary_periods": 0,
+      "report_records": 29,
+      "historical_direct_values": 19,
+      "historical_table_derived_values": 10,
+      "exact_clock_records": 19,
+      "reconstructed_clock_records": 0,
+      "order_only_records": 0,
+      "no_instant_calculations": 10,
+      "summary_position_statistics": 3,
+      "summary_transition_statistics": 2,
+      "historical_csv_rows": 29,
+      "analysis_csv_rows": 29,
+      "cross_layer_result": "PASS",
+      "classification": "現状OK",
+      "note": "原表・表示・出力の横断整合に問題なし。"
+    },
+    {
+      "experiment": "Experiment VII",
+      "data_key": "CAV-1798-EXP-VII",
+      "heading_original": "EXPERIMENT VII. Sept. 18.",
+      "date_iso": "1797-09-18",
+      "declared_source_pages": [
+        494
+      ],
+      "table_row_source_pages": [
+        494
+      ],
+      "source_page_metadata_extra_pages": [],
+      "source_rows": 16,
+      "expected_rows": 16,
+      "position_sequence": [
+        "中間位置",
+        "負位置",
+        "正位置"
+      ],
+      "printed_summary_motions": 2,
+      "printed_summary_periods": 0,
+      "report_records": 18,
+      "historical_direct_values": 14,
+      "historical_table_derived_values": 4,
+      "exact_clock_records": 14,
+      "reconstructed_clock_records": 0,
+      "order_only_records": 0,
+      "no_instant_calculations": 4,
+      "summary_position_statistics": 3,
+      "summary_transition_statistics": 2,
+      "historical_csv_rows": 18,
+      "analysis_csv_rows": 18,
+      "cross_layer_result": "PASS",
+      "classification": "現状OK",
+      "note": "原表・表示・出力の横断整合に問題なし。"
+    },
+    {
+      "experiment": "Experiment VIII",
+      "data_key": "CAV-1798-EXP-VIII",
+      "heading_original": "EXPERIMENT VIII. Sept. 23.",
+      "date_iso": "1797-09-23",
+      "declared_source_pages": [
+        495
+      ],
+      "table_row_source_pages": [
+        495
+      ],
+      "source_page_metadata_extra_pages": [],
+      "source_rows": 16,
+      "expected_rows": 16,
+      "position_sequence": [
+        "中間位置",
+        "負位置",
+        "正位置"
+      ],
+      "printed_summary_motions": 2,
+      "printed_summary_periods": 0,
+      "report_records": 19,
+      "historical_direct_values": 14,
+      "historical_table_derived_values": 5,
+      "exact_clock_records": 14,
+      "reconstructed_clock_records": 0,
+      "order_only_records": 0,
+      "no_instant_calculations": 5,
+      "summary_position_statistics": 3,
+      "summary_transition_statistics": 2,
+      "historical_csv_rows": 19,
+      "analysis_csv_rows": 19,
+      "cross_layer_result": "PASS",
+      "classification": "現状OK",
+      "note": "原表・表示・出力の横断整合に問題なし。"
+    },
+    {
+      "experiment": "Experiment IX",
+      "data_key": "CAV-1798-EXP-IX",
+      "heading_original": "EXPERIMENT IX. April 29.",
+      "date_iso": "1798-04-29",
+      "declared_source_pages": [
+        497,
+        498
+      ],
+      "table_row_source_pages": [
+        497,
+        498
+      ],
+      "source_page_metadata_extra_pages": [],
+      "source_rows": 12,
+      "expected_rows": 12,
+      "position_sequence": [
+        "正位置",
+        "負位置"
+      ],
+      "printed_summary_motions": 1,
+      "printed_summary_periods": 1,
+      "report_records": 18,
+      "historical_direct_values": 18,
+      "historical_table_derived_values": 0,
+      "exact_clock_records": 6,
+      "reconstructed_clock_records": 7,
+      "order_only_records": 5,
+      "no_instant_calculations": 0,
+      "summary_position_statistics": 2,
+      "summary_transition_statistics": 1,
+      "historical_csv_rows": 18,
+      "analysis_csv_rows": 35,
+      "cross_layer_result": "PASS",
+      "classification": "現状OK",
+      "note": "原表・表示・出力の横断整合に問題なし。"
+    },
+    {
+      "experiment": "Experiment X",
+      "data_key": "CAV-1798-EXP-X",
+      "heading_original": "EXPERIMENT X. May 5.",
+      "date_iso": "1798-05-05",
+      "declared_source_pages": [
+        498,
+        499
+      ],
+      "table_row_source_pages": [
+        498,
+        499
+      ],
+      "source_page_metadata_extra_pages": [],
+      "source_rows": 13,
+      "expected_rows": 13,
+      "position_sequence": [
+        "正位置",
+        "負位置"
+      ],
+      "printed_summary_motions": 1,
+      "printed_summary_periods": 1,
+      "report_records": 23,
+      "historical_direct_values": 23,
+      "historical_table_derived_values": 0,
+      "exact_clock_records": 10,
+      "reconstructed_clock_records": 8,
+      "order_only_records": 5,
+      "no_instant_calculations": 0,
+      "summary_position_statistics": 2,
+      "summary_transition_statistics": 1,
+      "historical_csv_rows": 23,
+      "analysis_csv_rows": 47,
+      "cross_layer_result": "PASS",
+      "classification": "現状OK",
+      "note": "原表・表示・出力の横断整合に問題なし。"
+    },
+    {
+      "experiment": "Experiment XI",
+      "data_key": "CAV-1798-EXP-XI",
+      "heading_original": "EXPERIMENT XI. May 6.",
+      "date_iso": "1798-05-06",
+      "declared_source_pages": [
+        499,
+        500
+      ],
+      "table_row_source_pages": [
+        499,
+        500
+      ],
+      "source_page_metadata_extra_pages": [],
+      "source_rows": 14,
+      "expected_rows": 14,
+      "position_sequence": [
+        "正位置",
+        "負位置"
+      ],
+      "printed_summary_motions": 1,
+      "printed_summary_periods": 1,
+      "report_records": 21,
+      "historical_direct_values": 21,
+      "historical_table_derived_values": 0,
+      "exact_clock_records": 8,
+      "reconstructed_clock_records": 7,
+      "order_only_records": 6,
+      "no_instant_calculations": 0,
+      "summary_position_statistics": 2,
+      "summary_transition_statistics": 1,
+      "historical_csv_rows": 21,
+      "analysis_csv_rows": 40,
+      "cross_layer_result": "PASS",
+      "classification": "現状OK",
+      "note": "原表・表示・出力の横断整合に問題なし。"
+    },
+    {
+      "experiment": "Experiment XII",
+      "data_key": "CAV-1798-EXP-XII",
+      "heading_original": "EXPERIMENT XII. May 9.",
+      "date_iso": "1798-05-09",
+      "declared_source_pages": [
+        500,
+        501
+      ],
+      "table_row_source_pages": [
+        500,
+        501
+      ],
+      "source_page_metadata_extra_pages": [],
+      "source_rows": 13,
+      "expected_rows": 13,
+      "position_sequence": [
+        "負位置",
+        "正位置"
+      ],
+      "printed_summary_motions": 1,
+      "printed_summary_periods": 1,
+      "report_records": 19,
+      "historical_direct_values": 19,
+      "historical_table_derived_values": 0,
+      "exact_clock_records": 10,
+      "reconstructed_clock_records": 8,
+      "order_only_records": 1,
+      "no_instant_calculations": 0,
+      "summary_position_statistics": 2,
+      "summary_transition_statistics": 1,
+      "historical_csv_rows": 19,
+      "analysis_csv_rows": 37,
+      "cross_layer_result": "PASS",
+      "classification": "現状OK",
+      "note": "原表・表示・出力の横断整合に問題なし。"
+    },
+    {
+      "experiment": "Experiment XIII",
+      "data_key": "CAV-1798-EXP-XIII",
+      "heading_original": "EXPERIMENT XIII. May 25.",
+      "date_iso": "1798-05-25",
+      "declared_source_pages": [
+        501,
+        502
+      ],
+      "table_row_source_pages": [
+        501,
+        502
+      ],
+      "source_page_metadata_extra_pages": [],
+      "source_rows": 22,
+      "expected_rows": 22,
+      "position_sequence": [
+        "負位置",
+        "正位置",
+        "負位置"
+      ],
+      "printed_summary_motions": 2,
+      "printed_summary_periods": 2,
+      "report_records": 42,
+      "historical_direct_values": 42,
+      "historical_table_derived_values": 0,
+      "exact_clock_records": 20,
+      "reconstructed_clock_records": 14,
+      "order_only_records": 8,
+      "no_instant_calculations": 0,
+      "summary_position_statistics": 2,
+      "summary_transition_statistics": 2,
+      "historical_csv_rows": 42,
+      "analysis_csv_rows": 89,
+      "cross_layer_result": "PASS",
+      "classification": "現状OK",
+      "note": "原表・表示・出力の横断整合に問題なし。"
+    },
+    {
+      "experiment": "Experiment XIV",
+      "data_key": "CAV-1798-EXP-XIV",
+      "heading_original": "EXPERIMENT XIV. May 26.",
+      "date_iso": "1798-05-26",
+      "declared_source_pages": [
+        503,
+        504
+      ],
+      "table_row_source_pages": [
+        503,
+        504
+      ],
+      "source_page_metadata_extra_pages": [],
+      "source_rows": 22,
+      "expected_rows": 22,
+      "position_sequence": [
+        "負位置",
+        "正位置",
+        "負位置"
+      ],
+      "printed_summary_motions": 2,
+      "printed_summary_periods": 2,
+      "report_records": 40,
+      "historical_direct_values": 40,
+      "historical_table_derived_values": 0,
+      "exact_clock_records": 22,
+      "reconstructed_clock_records": 14,
+      "order_only_records": 4,
+      "no_instant_calculations": 0,
+      "summary_position_statistics": 2,
+      "summary_transition_statistics": 2,
+      "historical_csv_rows": 40,
+      "analysis_csv_rows": 85,
+      "cross_layer_result": "PASS",
+      "classification": "現状OK",
+      "note": "原表・表示・出力の横断整合に問題なし。"
+    },
+    {
+      "experiment": "Experiment XV",
+      "data_key": "CAV-1798-EXP-XV",
+      "heading_original": "EXPERIMENT XV. May 27.",
+      "date_iso": "1798-05-27",
+      "declared_source_pages": [
+        504,
+        505
+      ],
+      "table_row_source_pages": [
+        504,
+        505
+      ],
+      "source_page_metadata_extra_pages": [],
+      "source_rows": 13,
+      "expected_rows": 13,
+      "position_sequence": [
+        "負位置",
+        "正位置"
+      ],
+      "printed_summary_motions": 1,
+      "printed_summary_periods": 1,
+      "report_records": 23,
+      "historical_direct_values": 23,
+      "historical_table_derived_values": 0,
+      "exact_clock_records": 10,
+      "reconstructed_clock_records": 7,
+      "order_only_records": 6,
+      "no_instant_calculations": 0,
+      "summary_position_statistics": 2,
+      "summary_transition_statistics": 1,
+      "historical_csv_rows": 23,
+      "analysis_csv_rows": 46,
+      "cross_layer_result": "PASS",
+      "classification": "現状OK",
+      "note": "原表・表示・出力の横断整合に問題なし。"
+    },
+    {
+      "experiment": "Experiment XVI",
+      "data_key": "CAV-1798-EXP-XVI",
+      "heading_original": "EXPERIMENT XVI. May 28.",
+      "date_iso": "1798-05-28",
+      "declared_source_pages": [
+        505,
+        506
+      ],
+      "table_row_source_pages": [
+        505,
+        506
+      ],
+      "source_page_metadata_extra_pages": [],
+      "source_rows": 12,
+      "expected_rows": 12,
+      "position_sequence": [
+        "負位置",
+        "正位置"
+      ],
+      "printed_summary_motions": 1,
+      "printed_summary_periods": 1,
+      "report_records": 26,
+      "historical_direct_values": 26,
+      "historical_table_derived_values": 0,
+      "exact_clock_records": 14,
+      "reconstructed_clock_records": 6,
+      "order_only_records": 6,
+      "no_instant_calculations": 0,
+      "summary_position_statistics": 2,
+      "summary_transition_statistics": 1,
+      "historical_csv_rows": 26,
+      "analysis_csv_rows": 54,
+      "cross_layer_result": "PASS",
+      "classification": "現状OK",
+      "note": "原表・表示・出力の横断整合に問題なし。"
+    },
+    {
+      "experiment": "Experiment XVII",
+      "data_key": "CAV-1798-EXP-XVII",
+      "heading_original": "EXPERIMENT XVII. May 30.",
+      "date_iso": "1798-05-30",
+      "declared_source_pages": [
+        506,
+        507,
+        508
+      ],
+      "table_row_source_pages": [
+        506,
+        507,
+        508
+      ],
+      "source_page_metadata_extra_pages": [],
+      "source_rows": 27,
+      "expected_rows": 27,
+      "position_sequence": [
+        "負位置",
+        "正位置",
+        "負位置"
+      ],
+      "printed_summary_motions": 2,
+      "printed_summary_periods": 2,
+      "report_records": 63,
+      "historical_direct_values": 63,
+      "historical_table_derived_values": 0,
+      "exact_clock_records": 43,
+      "reconstructed_clock_records": 16,
+      "order_only_records": 4,
+      "no_instant_calculations": 0,
+      "summary_position_statistics": 2,
+      "summary_transition_statistics": 2,
+      "historical_csv_rows": 63,
+      "analysis_csv_rows": 137,
+      "cross_layer_result": "PASS",
+      "classification": "現状OK",
+      "note": "原表・表示・出力の横断整合に問題なし。"
+    }
+  ]
+}

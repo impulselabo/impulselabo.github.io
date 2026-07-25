@@ -1,0 +1,83 @@
+{
+  "version": "CV081A09-1",
+  "constraints": [
+    {
+      "id": "C001",
+      "name": "torsion axis",
+      "rule": "wire gl vertical through C",
+      "status": "confirmed"
+    },
+    {
+      "id": "C002",
+      "name": "arm",
+      "rule": "small-ball centers remain 73.30 in apart",
+      "status": "confirmed"
+    },
+    {
+      "id": "C003",
+      "name": "small balls",
+      "rule": "centers 5.50 in below arm end reference d",
+      "status": "confirmed"
+    },
+    {
+      "id": "C004",
+      "name": "large support",
+      "rule": "support rod centers 73.30 in apart; orbit radius 36.65 in",
+      "status": "confirmed"
+    },
+    {
+      "id": "C005",
+      "name": "large near position",
+      "rule": "weight center is 8.85 in from case middle line",
+      "status": "confirmed"
+    },
+    {
+      "id": "C006",
+      "name": "copper rods",
+      "rule": "ad 16.00 in + de 46.00 in = 62.00 in",
+      "status": "confirmed"
+    },
+    {
+      "id": "C007",
+      "name": "case end chamber",
+      "rule": "inside 3.50 x 3.60 x 6.75 in; wall 0.75 in",
+      "status": "confirmed_mapping"
+    },
+    {
+      "id": "C008",
+      "name": "P branch",
+      "rule": "two oblique supports meet at about 120 degrees",
+      "status": "figure_calibrated"
+    },
+    {
+      "id": "C009",
+      "name": "pulley",
+      "rule": "MM concentric and fixed to vertical pin Pp",
+      "status": "confirmed_structure"
+    },
+    {
+      "id": "C010",
+      "name": "optics",
+      "rule": "lamp and telescope sightlines pass end apertures",
+      "status": "explanatory_geometry"
+    },
+    {
+      "id": "C011",
+      "name": "coordinate frame",
+      "rule": "C=(0,0,0); X longitudinal, Y upward, Z front; WebGL world offset is explicitly transformed",
+      "status": "implemented"
+    },
+    {
+      "id": "C012",
+      "name": "orthographic audit",
+      "rule": "front X-Y, side Z-Y and top X-Z views use fixed orthographic projection",
+      "status": "implemented"
+    },
+    {
+      "id": "C013",
+      "name": "center point residual",
+      "rule": "confirmed/derived/calibrated centers are audited separately; zero residual is internal connectivity only",
+      "status": "implemented"
+    }
+  ]
+}

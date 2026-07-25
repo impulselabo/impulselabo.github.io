@@ -1,0 +1,26 @@
+{
+  "build": "CV080A31R",
+  "date_jst": "2026-07-10",
+  "javascript_validators": {
+    "count": 77,
+    "status": "PASS"
+  },
+  "historical_data_validator": {
+    "file": "tests/validate-historical-data.py",
+    "status": "PASS",
+    "experiments": 17,
+    "experiment_rows": 303,
+    "conclusion_rows": 29,
+    "appendix_lookup_values": 55
+  },
+  "syntax_checks": {
+    "script.js": "PASS",
+    "report_script_1.js": "PASS",
+    "result_summary_mobile_wrap_validator": "PASS"
+  },
+  "runtime_manual_evidence": {
+    "mobile_result_summary_full_text": "AWAITING_DEVICE_CONFIRMATION",
+    "pc_result_summary_layout": "UNCHANGED_BY_MOBILE_SCOPED_CSS"
+  },
+  "result": "AUTOMATED_AUDIT_PASS_AWAITING_DEVICE_CONFIRMATION"
+}

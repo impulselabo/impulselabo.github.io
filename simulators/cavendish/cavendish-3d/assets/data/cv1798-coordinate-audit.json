@@ -1,0 +1,55 @@
+{
+  "version": "CV081A09-1",
+  "unit": "inch",
+  "coordinate_frame": {
+    "origin": "C",
+    "C_world": [
+      0,
+      -29.5,
+      0
+    ],
+    "x": "+ longitudinal/right",
+    "y": "+ upward",
+    "z": "+ front"
+  },
+  "fixed_views": [
+    {
+      "id": "front",
+      "plane": "X-Y",
+      "view_from": "+Z",
+      "perspective": false
+    },
+    {
+      "id": "side",
+      "plane": "Z-Y",
+      "view_from": "+X",
+      "perspective": false
+    },
+    {
+      "id": "top",
+      "plane": "X-Z",
+      "view_from": "+Y",
+      "perspective": false
+    }
+  ],
+  "audit_points": [
+    "C",
+    "gl",
+    "xL",
+    "xR",
+    "hL",
+    "hR",
+    "WL",
+    "WR",
+    "P",
+    "MM"
+  ],
+  "checks": [
+    "small-ball bilateral symmetry",
+    "reader bilateral symmetry",
+    "large-ball support symmetry",
+    "torsion wire axiality",
+    "left/right large-ball orbit radius"
+  ],
+  "caution": "Internal residual does not promote figure-calibrated or explanatory coordinates to confirmed historical dimensions."
+}

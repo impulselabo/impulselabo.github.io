@@ -1,0 +1,721 @@
+{
+  "schema_version": "1.0.0",
+  "build": "CV081A05",
+  "title": "All 17 experiments A4 report historical/reconstructed/calculated result final audit",
+  "status": "PASS",
+  "policy": {
+    "historical_values": "Historical direct values and printed table calculations remain separate layers.",
+    "time_layers": "Exact historical clocks, reconstructed clocks, order-only records, and no-instant calculations remain separate.",
+    "telescope": "The report Telescope selects the latest historical_direct_value record only; reconstructed values remain in the waveform layer.",
+    "position_sequence": "The report uses motion_view_sections so every recorded placement, including untimed initial placement, is preserved.",
+    "hypothetical_interpolation": "The 2.5-second Motion View interpolation is UI-only and is excluded from report time, waveform, records, and summary calculations.",
+    "print": "A4 portrait, 10 mm margins, one-page print envelope remains unchanged."
+  },
+  "correction": {
+    "issue": "The report mass-position diagram used clock-axis sections, omitting untimed initial placements in five experiments. Telescope selection was not explicitly restricted to historical direct values, and report time-basis counts grouped non-clock records too broadly.",
+    "restored_initial_placement_experiments": [
+      "experiment-ix",
+      "experiment-x",
+      "experiment-xi",
+      "experiment-xv",
+      "experiment-xvi"
+    ],
+    "restored_initial_placement_count": 5,
+    "hypothetical_prelude_experiments": [
+      "experiment-iii",
+      "experiment-v",
+      "experiment-ix",
+      "experiment-x",
+      "experiment-xi",
+      "experiment-xiii",
+      "experiment-xv",
+      "experiment-xvi"
+    ],
+    "visible_layout_redesign": false,
+    "historical_values_changed": false,
+    "waveform_changed": false,
+    "csv_schema_changed": false
+  },
+  "totals": {
+    "experiments": 17,
+    "source_rows": 303,
+    "report_records": 511,
+    "historical_direct_values": 492,
+    "historical_table_values": 19,
+    "exact_clock_records": 270,
+    "reconstructed_clock_records": 128,
+    "order_only_records": 94,
+    "no_instant_calculations": 19,
+    "report_position_sections": 46,
+    "legacy_sequence_omission_experiments": 5,
+    "restored_initial_untimed_sections": 5,
+    "hypothetical_prelude_experiments": 8,
+    "hypothetical_records_in_report": 0,
+    "records_after_observation_end": 0,
+    "summary_positions": 38,
+    "summary_transitions": 29,
+    "telescope_latest_direct_checks": 17
+  },
+  "experiments": [
+    {
+      "experiment_id": "experiment-i",
+      "data_key": "CAV-1798-EXP-I",
+      "status": "PASS",
+      "source_rows": 13,
+      "report_records": 21,
+      "direct_values": 21,
+      "table_derived_values": 0,
+      "exact_clock_records": 11,
+      "reconstructed_clock_records": 0,
+      "order_only_records": 10,
+      "no_instant_calculations": 0,
+      "expected_position_sequence": [
+        "midway",
+        "positive",
+        "midway"
+      ],
+      "legacy_report_sequence": [
+        "midway",
+        "positive",
+        "midway"
+      ],
+      "report_position_sequence": [
+        "midway",
+        "positive",
+        "midway"
+      ],
+      "restored_initial_untimed_section": false,
+      "hypothetical_ui_prelude": false,
+      "hypothetical_ui_interpolation_in_report": false,
+      "latest_telescope_direct": {
+        "anchor_id": "CAV-1798-EXP-I-ANCHOR-020",
+        "value": 11,
+        "position": "midway",
+        "historical_time_hms": "12:47:04",
+        "time_status": "historical_clock_time"
+      },
+      "summary_position_count": 2,
+      "summary_transition_count": 2
+    },
+    {
+      "experiment_id": "experiment-ii",
+      "data_key": "CAV-1798-EXP-II",
+      "status": "PASS",
+      "source_rows": 19,
+      "report_records": 29,
+      "direct_values": 29,
+      "table_derived_values": 0,
+      "exact_clock_records": 14,
+      "reconstructed_clock_records": 4,
+      "order_only_records": 11,
+      "no_instant_calculations": 0,
+      "expected_position_sequence": [
+        "midway",
+        "positive",
+        "midway"
+      ],
+      "legacy_report_sequence": [
+        "midway",
+        "positive",
+        "midway"
+      ],
+      "report_position_sequence": [
+        "midway",
+        "positive",
+        "midway"
+      ],
+      "restored_initial_untimed_section": false,
+      "hypothetical_ui_prelude": false,
+      "hypothetical_ui_interpolation_in_report": false,
+      "latest_telescope_direct": {
+        "anchor_id": "CAV-1798-EXP-II-ANCHOR-023",
+        "value": 12,
+        "position": "midway",
+        "historical_time_hms": "14:05:18",
+        "time_status": "historical_clock_time"
+      },
+      "summary_position_count": 2,
+      "summary_transition_count": 2
+    },
+    {
+      "experiment_id": "experiment-iii",
+      "data_key": "CAV-1798-EXP-III",
+      "status": "PASS",
+      "source_rows": 16,
+      "report_records": 29,
+      "direct_values": 29,
+      "table_derived_values": 0,
+      "exact_clock_records": 14,
+      "reconstructed_clock_records": 7,
+      "order_only_records": 8,
+      "no_instant_calculations": 0,
+      "expected_position_sequence": [
+        "positive",
+        "midway",
+        "positive"
+      ],
+      "legacy_report_sequence": [
+        "positive",
+        "midway",
+        "positive"
+      ],
+      "report_position_sequence": [
+        "positive",
+        "midway",
+        "positive"
+      ],
+      "restored_initial_untimed_section": false,
+      "hypothetical_ui_prelude": true,
+      "hypothetical_ui_interpolation_in_report": false,
+      "latest_telescope_direct": {
+        "anchor_id": "CAV-1798-EXP-III-ANCHOR-024",
+        "value": 28,
+        "position": "positive",
+        "historical_time_hms": "12:46:50",
+        "time_status": "historical_clock_time"
+      },
+      "summary_position_count": 2,
+      "summary_transition_count": 2
+    },
+    {
+      "experiment_id": "experiment-iv",
+      "data_key": "CAV-1798-EXP-IV",
+      "status": "PASS",
+      "source_rows": 25,
+      "report_records": 49,
+      "direct_values": 49,
+      "table_derived_values": 0,
+      "exact_clock_records": 27,
+      "reconstructed_clock_records": 10,
+      "order_only_records": 12,
+      "no_instant_calculations": 0,
+      "expected_position_sequence": [
+        "midway",
+        "positive",
+        "negative",
+        "positive"
+      ],
+      "legacy_report_sequence": [
+        "midway",
+        "positive",
+        "negative",
+        "positive"
+      ],
+      "report_position_sequence": [
+        "midway",
+        "positive",
+        "negative",
+        "positive"
+      ],
+      "restored_initial_untimed_section": false,
+      "hypothetical_ui_prelude": false,
+      "hypothetical_ui_interpolation_in_report": false,
+      "latest_telescope_direct": {
+        "anchor_id": "CAV-1798-EXP-IV-ANCHOR-042",
+        "value": 25,
+        "position": "positive",
+        "historical_time_hms": "23:46:12",
+        "time_status": "historical_clock_time"
+      },
+      "summary_position_count": 3,
+      "summary_transition_count": 3
+    },
+    {
+      "experiment_id": "experiment-v",
+      "data_key": "CAV-1798-EXP-V",
+      "status": "PASS",
+      "source_rows": 29,
+      "report_records": 42,
+      "direct_values": 42,
+      "table_derived_values": 0,
+      "exact_clock_records": 14,
+      "reconstructed_clock_records": 20,
+      "order_only_records": 8,
+      "no_instant_calculations": 0,
+      "expected_position_sequence": [
+        "positive",
+        "negative",
+        "positive"
+      ],
+      "legacy_report_sequence": [
+        "positive",
+        "negative",
+        "positive"
+      ],
+      "report_position_sequence": [
+        "positive",
+        "negative",
+        "positive"
+      ],
+      "restored_initial_untimed_section": false,
+      "hypothetical_ui_prelude": true,
+      "hypothetical_ui_interpolation_in_report": false,
+      "latest_telescope_direct": {
+        "anchor_id": "CAV-1798-EXP-V-ANCHOR-031",
+        "value": 24,
+        "position": "positive",
+        "historical_time_hms": "12:54:09",
+        "time_status": "historical_clock_time"
+      },
+      "summary_position_count": 2,
+      "summary_transition_count": 2
+    },
+    {
+      "experiment_id": "experiment-vi",
+      "data_key": "CAV-1798-EXP-VI",
+      "status": "PASS",
+      "source_rows": 21,
+      "report_records": 29,
+      "direct_values": 19,
+      "table_derived_values": 10,
+      "exact_clock_records": 19,
+      "reconstructed_clock_records": 0,
+      "order_only_records": 0,
+      "no_instant_calculations": 10,
+      "expected_position_sequence": [
+        "midway",
+        "negative",
+        "positive"
+      ],
+      "legacy_report_sequence": [
+        "midway",
+        "negative",
+        "positive"
+      ],
+      "report_position_sequence": [
+        "midway",
+        "negative",
+        "positive"
+      ],
+      "restored_initial_untimed_section": false,
+      "hypothetical_ui_prelude": false,
+      "hypothetical_ui_interpolation_in_report": false,
+      "latest_telescope_direct": {
+        "anchor_id": "CAV-1798-EXP-VI-ANCHOR-029",
+        "value": 24.4,
+        "position": "positive",
+        "historical_time_hms": "12:19:00",
+        "time_status": "historical_clock_time"
+      },
+      "summary_position_count": 3,
+      "summary_transition_count": 2
+    },
+    {
+      "experiment_id": "experiment-vii",
+      "data_key": "CAV-1798-EXP-VII",
+      "status": "PASS",
+      "source_rows": 16,
+      "report_records": 18,
+      "direct_values": 14,
+      "table_derived_values": 4,
+      "exact_clock_records": 14,
+      "reconstructed_clock_records": 0,
+      "order_only_records": 0,
+      "no_instant_calculations": 4,
+      "expected_position_sequence": [
+        "midway",
+        "negative",
+        "positive"
+      ],
+      "legacy_report_sequence": [
+        "midway",
+        "negative",
+        "positive"
+      ],
+      "report_position_sequence": [
+        "midway",
+        "negative",
+        "positive"
+      ],
+      "restored_initial_untimed_section": false,
+      "hypothetical_ui_prelude": false,
+      "hypothetical_ui_interpolation_in_report": false,
+      "latest_telescope_direct": {
+        "anchor_id": "CAV-1798-EXP-VII-ANCHOR-018",
+        "value": 19.7,
+        "position": "positive",
+        "historical_time_hms": "12:24:00",
+        "time_status": "historical_clock_time"
+      },
+      "summary_position_count": 3,
+      "summary_transition_count": 2
+    },
+    {
+      "experiment_id": "experiment-viii",
+      "data_key": "CAV-1798-EXP-VIII",
+      "status": "PASS",
+      "source_rows": 16,
+      "report_records": 19,
+      "direct_values": 14,
+      "table_derived_values": 5,
+      "exact_clock_records": 14,
+      "reconstructed_clock_records": 0,
+      "order_only_records": 0,
+      "no_instant_calculations": 5,
+      "expected_position_sequence": [
+        "midway",
+        "negative",
+        "positive"
+      ],
+      "legacy_report_sequence": [
+        "midway",
+        "negative",
+        "positive"
+      ],
+      "report_position_sequence": [
+        "midway",
+        "negative",
+        "positive"
+      ],
+      "restored_initial_untimed_section": false,
+      "hypothetical_ui_prelude": false,
+      "hypothetical_ui_interpolation_in_report": false,
+      "latest_telescope_direct": {
+        "anchor_id": "CAV-1798-EXP-VIII-ANCHOR-019",
+        "value": 25.5,
+        "position": "positive",
+        "historical_time_hms": "12:50:00",
+        "time_status": "historical_clock_time"
+      },
+      "summary_position_count": 3,
+      "summary_transition_count": 2
+    },
+    {
+      "experiment_id": "experiment-ix",
+      "data_key": "CAV-1798-EXP-IX",
+      "status": "PASS",
+      "source_rows": 12,
+      "report_records": 18,
+      "direct_values": 18,
+      "table_derived_values": 0,
+      "exact_clock_records": 6,
+      "reconstructed_clock_records": 7,
+      "order_only_records": 5,
+      "no_instant_calculations": 0,
+      "expected_position_sequence": [
+        "positive",
+        "negative"
+      ],
+      "legacy_report_sequence": [
+        "negative"
+      ],
+      "report_position_sequence": [
+        "positive",
+        "negative"
+      ],
+      "restored_initial_untimed_section": true,
+      "hypothetical_ui_prelude": true,
+      "hypothetical_ui_interpolation_in_report": false,
+      "latest_telescope_direct": {
+        "anchor_id": "CAV-1798-EXP-IX-ANCHOR-009",
+        "value": 27,
+        "position": "negative",
+        "historical_time_hms": "12:07:53",
+        "time_status": "historical_clock_time"
+      },
+      "summary_position_count": 2,
+      "summary_transition_count": 1
+    },
+    {
+      "experiment_id": "experiment-x",
+      "data_key": "CAV-1798-EXP-X",
+      "status": "PASS",
+      "source_rows": 13,
+      "report_records": 23,
+      "direct_values": 23,
+      "table_derived_values": 0,
+      "exact_clock_records": 10,
+      "reconstructed_clock_records": 8,
+      "order_only_records": 5,
+      "no_instant_calculations": 0,
+      "expected_position_sequence": [
+        "positive",
+        "negative"
+      ],
+      "legacy_report_sequence": [
+        "negative"
+      ],
+      "report_position_sequence": [
+        "positive",
+        "negative"
+      ],
+      "restored_initial_untimed_section": true,
+      "hypothetical_ui_prelude": true,
+      "hypothetical_ui_interpolation_in_report": false,
+      "latest_telescope_direct": {
+        "anchor_id": "CAV-1798-EXP-X-ANCHOR-013",
+        "value": 28,
+        "position": "negative",
+        "historical_time_hms": "11:40:02",
+        "time_status": "historical_clock_time"
+      },
+      "summary_position_count": 2,
+      "summary_transition_count": 1
+    },
+    {
+      "experiment_id": "experiment-xi",
+      "data_key": "CAV-1798-EXP-XI",
+      "status": "PASS",
+      "source_rows": 14,
+      "report_records": 21,
+      "direct_values": 21,
+      "table_derived_values": 0,
+      "exact_clock_records": 8,
+      "reconstructed_clock_records": 7,
+      "order_only_records": 6,
+      "no_instant_calculations": 0,
+      "expected_position_sequence": [
+        "positive",
+        "negative"
+      ],
+      "legacy_report_sequence": [
+        "negative"
+      ],
+      "report_position_sequence": [
+        "positive",
+        "negative"
+      ],
+      "restored_initial_untimed_section": true,
+      "hypothetical_ui_prelude": true,
+      "hypothetical_ui_interpolation_in_report": false,
+      "latest_telescope_direct": {
+        "anchor_id": "CAV-1798-EXP-XI-ANCHOR-012",
+        "value": 29,
+        "position": "negative",
+        "historical_time_hms": "10:56:56",
+        "time_status": "historical_clock_time"
+      },
+      "summary_position_count": 2,
+      "summary_transition_count": 1
+    },
+    {
+      "experiment_id": "experiment-xii",
+      "data_key": "CAV-1798-EXP-XII",
+      "status": "PASS",
+      "source_rows": 13,
+      "report_records": 19,
+      "direct_values": 19,
+      "table_derived_values": 0,
+      "exact_clock_records": 10,
+      "reconstructed_clock_records": 8,
+      "order_only_records": 1,
+      "no_instant_calculations": 0,
+      "expected_position_sequence": [
+        "negative",
+        "positive"
+      ],
+      "legacy_report_sequence": [
+        "negative",
+        "positive"
+      ],
+      "report_position_sequence": [
+        "negative",
+        "positive"
+      ],
+      "restored_initial_untimed_section": false,
+      "hypothetical_ui_prelude": false,
+      "hypothetical_ui_interpolation_in_report": false,
+      "latest_telescope_direct": {
+        "anchor_id": "CAV-1798-EXP-XII-ANCHOR-010",
+        "value": 24,
+        "position": "positive",
+        "historical_time_hms": "11:10:28",
+        "time_status": "historical_clock_time"
+      },
+      "summary_position_count": 2,
+      "summary_transition_count": 1
+    },
+    {
+      "experiment_id": "experiment-xiii",
+      "data_key": "CAV-1798-EXP-XIII",
+      "status": "PASS",
+      "source_rows": 22,
+      "report_records": 42,
+      "direct_values": 42,
+      "table_derived_values": 0,
+      "exact_clock_records": 20,
+      "reconstructed_clock_records": 14,
+      "order_only_records": 8,
+      "no_instant_calculations": 0,
+      "expected_position_sequence": [
+        "negative",
+        "positive",
+        "negative"
+      ],
+      "legacy_report_sequence": [
+        "negative",
+        "positive",
+        "negative"
+      ],
+      "report_position_sequence": [
+        "negative",
+        "positive",
+        "negative"
+      ],
+      "restored_initial_untimed_section": false,
+      "hypothetical_ui_prelude": true,
+      "hypothetical_ui_interpolation_in_report": false,
+      "latest_telescope_direct": {
+        "anchor_id": "CAV-1798-EXP-XIII-ANCHOR-032",
+        "value": 18,
+        "position": "negative",
+        "historical_time_hms": "12:28:15",
+        "time_status": "historical_clock_time"
+      },
+      "summary_position_count": 2,
+      "summary_transition_count": 2
+    },
+    {
+      "experiment_id": "experiment-xiv",
+      "data_key": "CAV-1798-EXP-XIV",
+      "status": "PASS",
+      "source_rows": 22,
+      "report_records": 40,
+      "direct_values": 40,
+      "table_derived_values": 0,
+      "exact_clock_records": 22,
+      "reconstructed_clock_records": 14,
+      "order_only_records": 4,
+      "no_instant_calculations": 0,
+      "expected_position_sequence": [
+        "negative",
+        "positive",
+        "negative"
+      ],
+      "legacy_report_sequence": [
+        "negative",
+        "positive",
+        "negative"
+      ],
+      "report_position_sequence": [
+        "negative",
+        "positive",
+        "negative"
+      ],
+      "restored_initial_untimed_section": false,
+      "hypothetical_ui_prelude": false,
+      "hypothetical_ui_interpolation_in_report": false,
+      "latest_telescope_direct": {
+        "anchor_id": "CAV-1798-EXP-XIV-ANCHOR-031",
+        "value": 16,
+        "position": "negative",
+        "historical_time_hms": "11:58:44",
+        "time_status": "historical_clock_time"
+      },
+      "summary_position_count": 2,
+      "summary_transition_count": 2
+    },
+    {
+      "experiment_id": "experiment-xv",
+      "data_key": "CAV-1798-EXP-XV",
+      "status": "PASS",
+      "source_rows": 13,
+      "report_records": 23,
+      "direct_values": 23,
+      "table_derived_values": 0,
+      "exact_clock_records": 10,
+      "reconstructed_clock_records": 7,
+      "order_only_records": 6,
+      "no_instant_calculations": 0,
+      "expected_position_sequence": [
+        "negative",
+        "positive"
+      ],
+      "legacy_report_sequence": [
+        "positive"
+      ],
+      "report_position_sequence": [
+        "negative",
+        "positive"
+      ],
+      "restored_initial_untimed_section": true,
+      "hypothetical_ui_prelude": true,
+      "hypothetical_ui_interpolation_in_report": false,
+      "latest_telescope_direct": {
+        "anchor_id": "CAV-1798-EXP-XV-ANCHOR-014",
+        "value": 11,
+        "position": "positive",
+        "historical_time_hms": "10:56:10",
+        "time_status": "historical_clock_time"
+      },
+      "summary_position_count": 2,
+      "summary_transition_count": 1
+    },
+    {
+      "experiment_id": "experiment-xvi",
+      "data_key": "CAV-1798-EXP-XVI",
+      "status": "PASS",
+      "source_rows": 12,
+      "report_records": 26,
+      "direct_values": 26,
+      "table_derived_values": 0,
+      "exact_clock_records": 14,
+      "reconstructed_clock_records": 6,
+      "order_only_records": 6,
+      "no_instant_calculations": 0,
+      "expected_position_sequence": [
+        "negative",
+        "positive"
+      ],
+      "legacy_report_sequence": [
+        "positive"
+      ],
+      "report_position_sequence": [
+        "negative",
+        "positive"
+      ],
+      "restored_initial_untimed_section": true,
+      "hypothetical_ui_prelude": true,
+      "hypothetical_ui_interpolation_in_report": false,
+      "latest_telescope_direct": {
+        "anchor_id": "CAV-1798-EXP-XVI-ANCHOR-018",
+        "value": 21,
+        "position": "positive",
+        "historical_time_hms": "11:07:09",
+        "time_status": "historical_clock_time"
+      },
+      "summary_position_count": 2,
+      "summary_transition_count": 1
+    },
+    {
+      "experiment_id": "experiment-xvii",
+      "data_key": "CAV-1798-EXP-XVII",
+      "status": "PASS",
+      "source_rows": 27,
+      "report_records": 63,
+      "direct_values": 63,
+      "table_derived_values": 0,
+      "exact_clock_records": 43,
+      "reconstructed_clock_records": 16,
+      "order_only_records": 4,
+      "no_instant_calculations": 0,
+      "expected_position_sequence": [
+        "negative",
+        "positive",
+        "negative"
+      ],
+      "legacy_report_sequence": [
+        "negative",
+        "positive",
+        "negative"
+      ],
+      "report_position_sequence": [
+        "negative",
+        "positive",
+        "negative"
+      ],
+      "restored_initial_untimed_section": false,
+      "hypothetical_ui_prelude": false,
+      "hypothetical_ui_interpolation_in_report": false,
+      "latest_telescope_direct": {
+        "anchor_id": "CAV-1798-EXP-XVII-ANCHOR-054",
+        "value": 17,
+        "position": "negative",
+        "historical_time_hms": "13:22:22",
+        "time_status": "historical_clock_time"
+      },
+      "summary_position_count": 2,
+      "summary_transition_count": 2
+    }
+  ]
+}

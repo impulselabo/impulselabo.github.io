@@ -1,0 +1,70 @@
+{
+  "build": "CV082A04",
+  "title": "Guide figures 1 and 2 refreshed from the CV082A03 canonical 3D model",
+  "source": {
+    "page": "cavendish-3d/cavendish-guide-3d.html",
+    "appBuild": "CV082A03",
+    "captureType": "live WebGL browser rendering",
+    "viewportCssPx": [1909, 1038],
+    "deviceScaleFactor": 1,
+    "font": "Noto Sans JP Variable"
+  },
+  "figures": {
+    "figure1": {
+      "file": "assets/images/guide/guide-canonical-3d-structure-cv082a04.png",
+      "mode": "all",
+      "camera": "default free camera",
+      "zoomPercent": 85,
+      "pixelSize": [1295, 708],
+      "sha256": "aec6cdf28803c5f7ef327bf4585bb2a2ff15bdcf07abc1c8c90fdb7367908a32",
+      "shows": [
+        "CV082A03 tapered EF central chamber",
+        "CV082A03 AE shoulders and ABCD end chambers",
+        "CV082A02R separated MM pulley materials and Mm cord",
+        "P-r-rr-Rr large-ball support",
+        "paired reader, lamp and telescope ends"
+      ]
+    },
+    "figure2": {
+      "file": "assets/images/guide/guide-canonical-3d-optics-cv082a04.png",
+      "mode": "optics",
+      "camera": "default free camera",
+      "zoomPercent": 100,
+      "sourceStagePixelSize": [1295, 708],
+      "cropCssPx": [125, 275, 1045, 425],
+      "pixelSize": [1045, 425],
+      "sha256": "a4d4a8b17f840cfa374c7189b68691e070dd1072ae937642555e06e98c307b03",
+      "shows": [
+        "paired external telescopes",
+        "paired lamps and illuminated sources",
+        "wall apertures and end readers",
+        "explanatory light and sight paths",
+        "CV082A03 case end contour"
+      ]
+    }
+  },
+  "retiredFromPublicHtml": [
+    "assets/images/guide/guide-canonical-3d-structure-cv081a14.png",
+    "assets/images/guide/guide-canonical-3d-optics-cv081a14.png"
+  ],
+  "preserved": [
+    "figure 3 Historical Telescope image",
+    "figure 4 Motion View image",
+    "figure 5 waveform image",
+    "figure 6 simulator overview image",
+    "guide layout and responsive image rules",
+    "CV082A03 3D source code and behavior",
+    "manual page illustrations"
+  ],
+  "results": {
+    "figure1_source_build": "PASS",
+    "figure1_full_apparatus_containment": "PASS",
+    "figure2_source_build": "PASS",
+    "figure2_optical_relationships": "PASS",
+    "guide_html_reference_update": "PASS",
+    "alt_and_caption_alignment": "PASS",
+    "mobile_width_regression": "PASS",
+    "public_route_regression": "PASS"
+  },
+  "imageGeneration": "not used"
+}

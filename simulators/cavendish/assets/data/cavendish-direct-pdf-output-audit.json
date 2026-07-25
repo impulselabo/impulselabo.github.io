@@ -1,0 +1,158 @@
+{
+  "build": "CV080A28R",
+  "method": "direct_client_pdf",
+  "experiments": [
+    {
+      "experiment_id": "Experiment I",
+      "records": 21,
+      "file": "CAV-REPORT-EXPERIMENT-I_CV080A28R.pdf",
+      "pages": 1,
+      "size": 878915,
+      "status": "PASS"
+    },
+    {
+      "experiment_id": "Experiment II",
+      "records": 29,
+      "file": "CAV-REPORT-EXPERIMENT-II_CV080A28R.pdf",
+      "pages": 1,
+      "size": 889214,
+      "status": "PASS"
+    },
+    {
+      "experiment_id": "Experiment III",
+      "records": 29,
+      "file": "CAV-REPORT-EXPERIMENT-III_CV080A28R.pdf",
+      "pages": 1,
+      "size": 953538,
+      "status": "PASS"
+    },
+    {
+      "experiment_id": "Experiment IV",
+      "records": 49,
+      "file": "CAV-REPORT-EXPERIMENT-IV_CV080A28R.pdf",
+      "pages": 1,
+      "size": 919588,
+      "status": "PASS"
+    },
+    {
+      "experiment_id": "Experiment V",
+      "records": 42,
+      "file": "CAV-REPORT-EXPERIMENT-V_CV080A28R.pdf",
+      "pages": 1,
+      "size": 953236,
+      "status": "PASS"
+    },
+    {
+      "experiment_id": "Experiment VI",
+      "records": 29,
+      "file": "CAV-REPORT-EXPERIMENT-VI_CV080A28R.pdf",
+      "pages": 1,
+      "size": 826458,
+      "status": "PASS"
+    },
+    {
+      "experiment_id": "Experiment VII",
+      "records": 18,
+      "file": "CAV-REPORT-EXPERIMENT-VII_CV080A28R.pdf",
+      "pages": 1,
+      "size": 826760,
+      "status": "PASS"
+    },
+    {
+      "experiment_id": "Experiment VIII",
+      "records": 19,
+      "file": "CAV-REPORT-EXPERIMENT-VIII_CV080A28R.pdf",
+      "pages": 1,
+      "size": 826241,
+      "status": "PASS"
+    },
+    {
+      "experiment_id": "Experiment IX",
+      "records": 18,
+      "file": "CAV-REPORT-EXPERIMENT-IX_CV080A28R.pdf",
+      "pages": 1,
+      "size": 940414,
+      "status": "PASS"
+    },
+    {
+      "experiment_id": "Experiment X",
+      "records": 23,
+      "file": "CAV-REPORT-EXPERIMENT-X_CV080A28R.pdf",
+      "pages": 1,
+      "size": 940035,
+      "status": "PASS"
+    },
+    {
+      "experiment_id": "Experiment XI",
+      "records": 21,
+      "file": "CAV-REPORT-EXPERIMENT-XI_CV080A28R.pdf",
+      "pages": 1,
+      "size": 939621,
+      "status": "PASS"
+    },
+    {
+      "experiment_id": "Experiment XII",
+      "records": 19,
+      "file": "CAV-REPORT-EXPERIMENT-XII_CV080A28R.pdf",
+      "pages": 1,
+      "size": 881299,
+      "status": "PASS"
+    },
+    {
+      "experiment_id": "Experiment XIII",
+      "records": 42,
+      "file": "CAV-REPORT-EXPERIMENT-XIII_CV080A28R.pdf",
+      "pages": 1,
+      "size": 950443,
+      "status": "PASS"
+    },
+    {
+      "experiment_id": "Experiment XIV",
+      "records": 40,
+      "file": "CAV-REPORT-EXPERIMENT-XIV_CV080A28R.pdf",
+      "pages": 1,
+      "size": 893959,
+      "status": "PASS"
+    },
+    {
+      "experiment_id": "Experiment XV",
+      "records": 23,
+      "file": "CAV-REPORT-EXPERIMENT-XV_CV080A28R.pdf",
+      "pages": 1,
+      "size": 941358,
+      "status": "PASS"
+    },
+    {
+      "experiment_id": "Experiment XVI",
+      "records": 26,
+      "file": "CAV-REPORT-EXPERIMENT-XVI_CV080A28R.pdf",
+      "pages": 1,
+      "size": 940133,
+      "status": "PASS"
+    },
+    {
+      "experiment_id": "Experiment XVII",
+      "records": 63,
+      "file": "CAV-REPORT-EXPERIMENT-XVII_CV080A28R.pdf",
+      "pages": 1,
+      "size": 897641,
+      "status": "PASS"
+    }
+  ],
+  "generated_at": "2026-07-08T16:41:00+09:00",
+  "environment": {
+    "browser": "Chromium 144.0.7559.96",
+    "pdf_engine": "html2canvas 1.4.1 + jsPDF 2.5.2",
+    "page_size": "A4 portrait 210 x 297 mm",
+    "capture_scale": 2.5
+  },
+  "totals": {
+    "experiments": 17,
+    "pass": 17,
+    "one_page": 17,
+    "min_bytes": 826241,
+    "max_bytes": 953538
+  },
+  "browser_generated_header_footer": "not_applicable_direct_pdf",
+  "real_device_status": "iPhone Safari final save confirmation pending"
+}

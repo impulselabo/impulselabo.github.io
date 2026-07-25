@@ -1,0 +1,31 @@
+{
+  "build": "CV080A31",
+  "date_jst": "2026-07-10",
+  "javascript_validators": {
+    "count": 76,
+    "status": "PASS"
+  },
+  "historical_data_validator": {
+    "file": "tests/validate-historical-data.py",
+    "status": "PASS",
+    "experiments": 17,
+    "experiment_rows": 303,
+    "conclusion_rows": 29,
+    "appendix_lookup_values": 55
+  },
+  "syntax_checks": {
+    "script.js": "PASS",
+    "report_script_1.js": "PASS",
+    "final_integration_validator": "PASS"
+  },
+  "runtime_manual_evidence": {
+    "all_17_experiment_waveforms": "PASS",
+    "pc_layout": "PASS",
+    "iphone_portrait": "PASS",
+    "iphone_landscape": "PASS",
+    "safari_clean_pdf": "PASS",
+    "safari_csv_preview_and_save": "PASS",
+    "numbers_or_excel_reopen": "NOT_RECHECKED"
+  },
+  "result": "PUBLIC_CANDIDATE"
+}

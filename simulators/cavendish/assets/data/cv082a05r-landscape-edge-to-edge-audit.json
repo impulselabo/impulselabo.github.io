@@ -1,0 +1,40 @@
+{
+  "build": "CV082A05R",
+  "title": "iPhone landscape edge-to-edge viewport correction",
+  "target": {
+    "page": "cavendish-simulator.html",
+    "viewportCssPx": [844, 390],
+    "simulatedSafeInsetLeftPx": 59,
+    "simulatedSafeInsetRightPx": 59,
+    "baseControlColumnWidthPx": 248
+  },
+  "before": {
+    "viewportFitCover": false,
+    "safariOuterGutters": true,
+    "fullWidthStructure": false
+  },
+  "after": {
+    "viewportFitCover": true,
+    "safariOuterGutters": false,
+    "fullWidthStructure": true,
+    "controlColumnOuterWidthPx": 307,
+    "usableControlWidthPx": 248,
+    "helpContainmentPreserved": true
+  },
+  "preserved": [
+    "CV082A05 landscape help-card containment",
+    "portrait layout",
+    "desktop layout",
+    "historical data and physics",
+    "report and CSV",
+    "3D guide and manual"
+  ],
+  "results": {
+    "viewport_fit_cover": "PASS",
+    "edge_to_edge_structure": "PASS",
+    "safe_control_width": "PASS",
+    "help_containment_regression": "PASS",
+    "portrait_regression": "PASS",
+    "desktop_regression": "PASS"
+  }
+}

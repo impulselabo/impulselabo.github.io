@@ -1,0 +1,20 @@
+{
+  "build": "CV080A31R2",
+  "base_build": "CV080A31R",
+  "scope": "iphone_safari_pdf_share_sheet_and_double_preview_stop",
+  "pdf_pre_generated": true,
+  "web_share_files": true,
+  "share_first": true,
+  "blob_preview_fallback_only": true,
+  "report_content_changed": false,
+  "historical_data_changed": false,
+  "device_confirmation": "pending",
+  "javascript_tests_total": 78,
+  "javascript_tests_pass": 78,
+  "historical_data_validation": "PASS",
+  "experiments": 17,
+  "historical_rows": 303,
+  "javascript_syntax": "PASS",
+  "runtime_browser_share_mock": "not_executed_container_browser_navigation_blocked",
+  "zip_integrity": "pending_packaging"
+}

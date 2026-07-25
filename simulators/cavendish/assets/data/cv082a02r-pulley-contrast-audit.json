@@ -1,0 +1,61 @@
+{
+  "build": "CV082A02R",
+  "title": "MM pulley and Mm cord material-value separation audit",
+  "trigger": "iPhone and close side-view screenshots showed MM as one nearly black plate",
+  "scope": [
+    "MM upper and lower rims",
+    "MM groove core",
+    "MM hub and collars",
+    "Mm operating cord",
+    "Mm outside guide wheel"
+  ],
+  "colorsLinearRgb": {
+    "rimMetal": [0.64, 0.67, 0.66],
+    "grooveMetal": [0.29, 0.32, 0.33],
+    "hubBrass": [0.72, 0.56, 0.3],
+    "cordBrown": [0.31, 0.2, 0.12],
+    "guideMetal": [0.56, 0.59, 0.58],
+    "pinMetal": [0.36, 0.39, 0.4]
+  },
+  "contrastPolicy": {
+    "rim": "middle-light neutral metal",
+    "groove": "dark neutral metal",
+    "hub": "warm high-chroma brass cue",
+    "cord": "dark brown, separated from the neutral groove",
+    "minimumShaderLightFactor": 0.72,
+    "rimMinusGrooveWeightedValue": 0.3486
+  },
+  "preservedGeometry": {
+    "P_world_in": [0.0, 34.0, 0.0],
+    "MM_world_in": [0.0, 40.15, 0.0],
+    "MM_radius_in": 11.75,
+    "MM_rimYOffset_in": 0.27,
+    "MM_rimHalfThickness_in": 0.12,
+    "MM_grooveRadiusInset_in": 0.48,
+    "MM_grooveHalfThickness_in": 0.18,
+    "Mm_radius_in": 0.085,
+    "outsideGuideX_in": -56.2,
+    "outsideGuideRadius_in": 1.45
+  },
+  "preserved": [
+    "Pp and MM concentricity",
+    "Pp, p, MM and P coordinates",
+    "Mm tangent, wrap and outside routing",
+    "P-r-rr-Rr support geometry",
+    "large-ball rigid arc motion",
+    "optics",
+    "desktop camera",
+    "iPhone initial fit and safe-area",
+    "single top common navigation"
+  ],
+  "results": {
+    "rim_groove_value_separation": "PASS",
+    "hub_warm_color_separation": "PASS",
+    "cord_neutral_color_separation": "PASS",
+    "geometry_unchanged": "PASS",
+    "mobile_fit_regression": "PASS",
+    "rigid_arc_regression": "PASS",
+    "navigation_regression": "PASS"
+  },
+  "imageGeneration": "not used"
+}

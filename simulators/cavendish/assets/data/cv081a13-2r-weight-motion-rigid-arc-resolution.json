@@ -1,0 +1,33 @@
+{
+  "task": "CV081A13-2R",
+  "date": "2026-07-20",
+  "baseline_zip": "CV081A132.zip",
+  "motion_view": {
+    "center_percent": [50.0, 50.0],
+    "radius_percent": 35.0,
+    "positive": [[16.0357396192, 41.5484311050], [83.9642603808, 58.4515688950]],
+    "midway": [[50.0, 15.0], [50.0, 85.0]],
+    "negative": [[83.9642603808, 41.5484311050], [16.0357396192, 58.4515688950]],
+    "interpolation": "angular_smoothstep",
+    "untimed_prelude_ms": 2500,
+    "historical_time": false,
+    "included_in_wave_results_csv": false
+  },
+  "three_d": {
+    "orbit_radius_in": 36.65,
+    "near_offset_in": 8.85,
+    "interpolation": "angular",
+    "opposed_degrees": 180.0,
+    "play_sequence": ["positive", "midway", "negative", "midway", "positive"],
+    "midway_basis": "explanatory_reconstruction"
+  },
+  "protected": {
+    "historical_experiment_values": true,
+    "position_order": true,
+    "historical_clock": true,
+    "waveform": true,
+    "result_summary": true,
+    "report": true,
+    "csv": true
+  }
+}

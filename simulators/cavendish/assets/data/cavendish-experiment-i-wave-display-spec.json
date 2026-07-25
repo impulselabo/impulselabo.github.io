@@ -1,0 +1,240 @@
+{
+  "schema": "impulse-labo.cavendish.experiment-i.wave-display.v2.9",
+  "build": "CV079B17S2D",
+  "raw_data_build": "CV079A02",
+  "semantic_build": "CV079B02",
+  "physical_model_build": "CV079B12",
+  "scope": "CV079B17S2D keeps the CV079B17S2C four-color common time-axis markers and fixes the narrow-screen Y-axis title overflow by left-anchoring SVG text aspect correction and applying only a minimal title inset. Plot margins, common time-to-X geometry, historical values, physical reconstruction, residuals, CSV columns, and report content remain unchanged.",
+  "clock_axis": {
+    "start_hms": "09:42:00",
+    "end_hms": "12:47:04",
+    "direct_historical_marker": {
+      "count": 11,
+      "color": "red",
+      "shape": "filled_circle",
+      "required_time_basis": "historical_direct_time"
+    },
+    "historical_relation_guide": {
+      "count": 6,
+      "style": "solid",
+      "rendering": "straight_connector_between_two_direct_historical_endpoints",
+      "meaning": "Endpoint clocks and values are historical; intermediate values are a visual relation guide."
+    },
+    "reconstruction_line": {
+      "count": 3,
+      "style": "dashed",
+      "rendering": "middle-vibration-phase-constrained-damped-oscillation",
+      "meaning": "Conditional reconstruction constrained by the same Experiment I source table. It is not a uniquely validated physical history."
+    },
+    "sensitivity_band": {
+      "displayed_on_main_waveform": false,
+      "placement": "finalized_result_analysis",
+      "meaning": "Deterministic beta sensitivity; not uncertainty or confidence interval.",
+      "confidence_interval": false
+    },
+    "untimed_extreme_marker": {
+      "allowed": false,
+      "reason": "Untimed extrema have no historical clock and cannot appear on the clock axis."
+    },
+    "unobserved_interval": {
+      "count": 2,
+      "style": "blank_gap_band",
+      "continuous_connection": false
+    },
+    "residual_audit": {
+      "count": 3,
+      "main_waveform_placement": "compact_same_source_internal_closure_status",
+      "numeric_detail_placement": "finalized_result_summary_analysis",
+      "comparison": "model versus eight printed direct clock/division readings from the same source table",
+      "historical_time_claim": false,
+      "statistical": false,
+      "source_resolution_div": 0.1,
+      "statuses": [
+        "consistent",
+        "consistent",
+        "consistent"
+      ],
+      "independent_validation": false,
+      "physical_validity_claim": false
+    }
+  },
+  "record_order_lane": {
+    "marker_count": 10,
+    "marker": "blue_filled_circle",
+    "x_basis": "printed_record_order_1_to_5_not_clock_time",
+    "connector": "none",
+    "groups": [
+      "positive",
+      "midway"
+    ],
+    "historical_claim": "Values and printed order only; no pseudo time.",
+    "label": "sequence_number_and_value",
+    "presentation": "three-column record-order table",
+    "columns": [
+      "record_order",
+      "large_mass_position",
+      "recorded_extreme"
+    ],
+    "clock_axis_visual_alignment": false
+  },
+  "csv_outputs": {
+    "historical_record_csv": {
+      "untimed_timestamp": "blank",
+      "untimed_elapsed_time_s": "blank"
+    },
+    "reconstruction_audit_csv": {
+      "record_types": [
+        "historical_direct_observation",
+        "untimed_historical_extreme",
+        "reconstruction_segment_summary",
+        "direct_clock_closure_check",
+        "reconstruction_sample",
+        "unresolved_interval"
+      ],
+      "reconstruction_sample_count": 1083,
+      "direct_clock_closure_check_count": 8,
+      "middle_vibration_phase_marker_count": 4,
+      "untimed_extreme_pseudo_time_count": 0,
+      "includes_parameter_sensitivity_bounds": true,
+      "includes_measurement_uncertainty_bounds": false
+    }
+  },
+  "excluded": [
+    "report layout, wording, and print pagination",
+    "Weight Motion route presentation",
+    "Experiment II-XVII replay logic",
+    "CV079A02 raw historical values",
+    "CV079B02 cell semantics",
+    "statistical uncertainty or confidence-interval estimation"
+  ],
+  "mobile_readability": {
+    "portrait_main_clock_waveform_min_height_px": 278,
+    "status_strip_numeric_residuals": false,
+    "record_order_connector": false,
+    "priority": "historical clock waveform",
+    "weight_motion_compact_height_px": 202,
+    "auxiliary_information_initial_state": "collapsed",
+    "axis_label_priority": "enlarged",
+    "plot_width_priority": "portrait horizontal panel padding reduced to 4 CSS px per side; adaptive plot gutters use 38 CSS px left and 4 CSS px right"
+  },
+  "numeric_model_build": "CV079B10",
+  "interpretation": {
+    "consistent_label_ja": "記録の細かさ0.1目盛以内",
+    "compact_label_ja": "0.1目盛以内",
+    "overall_label_ja": "3区間とも0.1目盛以内",
+    "model_assumptions_visible": true,
+    "fix_scope_visible": true,
+    "observer_heading_ja": "実験I 当時の観測記録と計算結果の比較",
+    "technical_terms_japanese_first": true,
+    "fix_label_ja": "確定",
+    "unfixed_label_ja": "未確定"
+  },
+  "comparison_matrix_typography": {
+    "desktop_font_px": 9,
+    "mobile_portrait_font_px": 14,
+    "reference": "exact_same_explicit_font_size_and_line_height_as_model_validation_explanatory_prose",
+    "rows": 7,
+    "columns": 4,
+    "horizontal_scroll": false,
+    "mobile_adjustment": "shared_14px_typography_token_plus_wrapping_row_height_and_cell_padding",
+    "content_changed": false,
+    "mobile_item_column_percent": 40,
+    "wording_changed": true,
+    "numeric_content_changed": false
+  },
+  "observer_language_policy": {
+    "primary_language": "ja",
+    "english_usage": "retain only identifiers, standard abbreviations, and parenthetical technical references",
+    "plain_language_replacements": {
+      "Experiment": "実験",
+      "Historical Reconstruction": "史実記録の再現",
+      "Auto Motion": "自動再生",
+      "Weight Motion": "大球の配置",
+      "Waveform View": "波形表示",
+      "Cycle Timeline": "観測工程",
+      "Read": "読取値",
+      "RMS": "差の平均的な大きさ（RMS）",
+      "FIX": "確定",
+      "unfixed": "未確定"
+    }
+  },
+  "time_axis_display": {
+    "default": "folded_no_record_interval",
+    "full_axis_on_demand": true,
+    "folded_interval_basis": "fixed historical clock boundaries: 10:05:00 to 12:00:48",
+    "historical_clock_values_changed": false,
+    "wave_values_changed": false,
+    "playback_behavior": "known transition windows normal speed; unresolved intervals accelerated 18x only in folded mode",
+    "fold_marker_required": "visible whenever folded mode is selected, including idle, so geometry does not change after replay starts",
+    "folded_width_allocation": {
+      "fixed_percentages_removed": true,
+      "desktop_left_margin_css_px": 42,
+      "narrow_left_margin_css_px": 38,
+      "desktop_right_margin_css_px": 6,
+      "narrow_right_margin_css_px": 4,
+      "omitted_width_ratio": 0.08,
+      "omitted_width_min_css_px": 44,
+      "omitted_width_max_css_px": 64,
+      "normal_width_basis": "historical_duration_ratio",
+      "waveform_width_priority": "numeric Y labels use only the minimum gutter; axis title overlays the non-data top strip"
+    },
+    "folded_axis_labels": [
+      "09:42",
+      "10:05",
+      "12:00:48",
+      "12:47"
+    ],
+    "full_axis_labels": [
+      "09:42",
+      "10:05",
+      "11:06",
+      "12:00:48",
+      "12:47"
+    ],
+    "waiting_state": "same segment boundaries, omission band, fold marks, grid, and clock labels as running/completed; no waveform, current marker, transition cue, or equilibrium cue",
+    "fold_label_over_waveform": false,
+    "reconstruction_start_boundary_label": "12:00:48",
+    "folded_x_mapping": {
+      "fixed_svg_x_removed": true,
+      "mapping_basis": "ordered segment layout generated from rendered CSS width",
+      "boundary_rule": "each adjacent segment shares one computed boundary coordinate",
+      "experiment_i_rule": "10:05 is the omitted segment left edge; 12:00:48 is its right edge and the first post-omission waveform boundary"
+    },
+    "boundary_label_alignment": "10:05 and 12:00:48 are read from the Experiment I time-axis data and mapped by the same segment layout used by the omitted band, grid, markers, current position, and waveform paths.",
+    "first_post_fold_direct_pair": [
+      "12:00:48",
+      "12:01:30"
+    ],
+    "engine": "assets/js/cavendish-time-axis.js",
+    "configuration": "assets/data/cavendish-time-axis-config.js",
+    "configuration_model": "ordered arbitrary normal/omitted segments per observation set; sets without configuration use one full-time normal segment",
+    "multi_omission_supported": true,
+    "coordinate_basis": "CSS rendered width determines margins and omitted widths once; the result is converted to SVG viewBox coordinates and shared by all draw elements",
+    "normal_segment_width": "remaining plot width allocated in proportion to actual historical duration after compact adaptive gutters and omission widths",
+    "omitted_segment_width": "8% of rendered width, normally clamped to 44-64 CSS px and compressed only when required by narrow screens or multiple omitted segments",
+    "shared_consumers": [
+      "waveform paths",
+      "historical markers",
+      "current line",
+      "current marker",
+      "vertical grid",
+      "clock labels",
+      "omitted bands",
+      "fold marks",
+      "event lines"
+    ],
+    "label_collision_policy": "dataset candidates with priority; omission boundaries and observation endpoints use boundary-directed anchors; lower-priority labels are removed or placed on the secondary row",
+    "full_axis_implementation": "same engine and segment data with omitted-width compression disabled; actual historical duration remains proportional",
+    "record_policy_in_omitted_segment": "hidden for Experiment I; future sets may choose hidden, boundary, or inside in configuration",
+    "full_axis_unobserved_interval": "wave remains disconnected; only subtle dashed boundary lines and an unobserved label are shown, never a filled omission-style band",
+    "cache_policy": "HTML appends the current build query to CSS and JS resources to prevent mixed old/new draw paths in local Safari server caches",
+    "draw_connection_audit": "all waveform paths, direct markers, current indicators, grid, labels, omitted bands, fold marks, and event lines resolve X through the same cached layout"
+  },
+  "mass_motion_display": {
+    "continuous_unrecorded_route_animation": false,
+    "known_stable_positions": "displayed",
+    "known_transition_event": "state card; no interpolated path",
+    "unresolved_interval": "state card stating no observation record",
+    "historical_values_changed": false
+  }
+}

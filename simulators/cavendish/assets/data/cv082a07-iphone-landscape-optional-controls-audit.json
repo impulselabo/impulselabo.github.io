@@ -1,0 +1,42 @@
+{
+  "build": "CV082A07",
+  "title": "iPhone landscape optional control sections restoration",
+  "target": {
+    "page": "cavendish-simulator.html",
+    "orientation": "landscape",
+    "maxHeightPx": 520,
+    "minWidthPx": 700,
+    "maxWidthPx": 1180
+  },
+  "before": {
+    "optionalControlDisplay": "none",
+    "section2Visible": false,
+    "section3Visible": false,
+    "section4Visible": false
+  },
+  "after": {
+    "optionalControlDisplay": "block",
+    "section2Visible": true,
+    "section3Visible": true,
+    "section4Visible": true,
+    "detailsInitiallyClosed": true,
+    "leftControlIndependentScroll": true
+  },
+  "preserved": [
+    "iPhone landscape control-column width",
+    "iPhone landscape safe-area handling",
+    "iPhone landscape help-card containment",
+    "fixed five-button operation bar",
+    "CV082A06R2 iPad landscape provisional FIX",
+    "desktop layout at 1200 px and wider"
+  ],
+  "results": {
+    "optional_sections_restored": "PASS",
+    "disclosure_structure_preserved": "PASS",
+    "left_independent_scroll": "PASS",
+    "operation_bar_regression": "PASS",
+    "safe_area_regression": "PASS",
+    "ipad_scope_exclusion": "PASS",
+    "desktop_scope_exclusion": "PASS"
+  }
+}

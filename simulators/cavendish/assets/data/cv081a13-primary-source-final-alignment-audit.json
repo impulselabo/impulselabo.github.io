@@ -1,0 +1,272 @@
+{
+  "audit_id": "CV081A13-1798-PRIMARY-SOURCE-FINAL-ALIGNMENT-AUDIT",
+  "date_jst": "2026-07-20",
+  "baseline_zip": "CV081A121R.zip",
+  "application_build": "CV081A05",
+  "status": "AUDIT_COMPLETE_NOT_FIX_READY",
+  "scope": [
+    "1798年原論文本文",
+    "Fig.1・Fig.2図版",
+    "全17 Experiment表",
+    "公開注記・確度表示",
+    "検証画面",
+    "3D",
+    "解説",
+    "マニュアル",
+    "A4レポート",
+    "HIST/RECON CSV"
+  ],
+  "primary_source": {
+    "author": "Henry Cavendish",
+    "title": "Experiments to Determine the Density of the Earth",
+    "journal": "Philosophical Transactions of the Royal Society of London",
+    "volume": 88,
+    "year": 1798,
+    "pages": "469–526",
+    "doi": "10.1098/rstl.1798.0022",
+    "source_scan": "Wikimedia Commons / Royal Society scan, 64 PDF pages",
+    "ocr_reference": "Internet Archive item philtrans07861996"
+  },
+  "counts": {
+    "現状OK": 11,
+    "表示修正": 8,
+    "機能修正": 0,
+    "史実再確認": 0,
+    "保留": 1
+  },
+  "overall_decision": {
+    "historical_table_data": "PASS — CV081A12-1Rを維持",
+    "telescope_motion_report_csv": "PASS",
+    "guide_technical_figures": "NOT PASS — 5図すべてに修正事項",
+    "three_d": "HOLD — Fig.1輪郭監査FAILが残存",
+    "cv081a13_fix_ready": false
+  },
+  "public_files_modified": false,
+  "issues": [
+    {
+      "id": "CV081A13-OK-001",
+      "area": "一次史料・書誌",
+      "basis": "Henry Cavendish, “Experiments to Determine the Density of the Earth,” Philosophical Transactions 88 (1798), pp.469–526, DOI 10.1098/rstl.1798.0022.",
+      "current": "論文名、著者、1798年、地球密度測定という目的の説明。",
+      "classification": "現状OK",
+      "severity": "none",
+      "historical_values_affected": false,
+      "action": "変更不要。",
+      "source_pages": "p.469; article metadata"
+    },
+    {
+      "id": "CV081A13-OK-002",
+      "area": "解説本文・基本装置",
+      "basis": "木製アーム6 ft、細い吊り線40 in、両端の小鉛球約2 in、狭い木製ケース。",
+      "current": "細いねじりワイヤー、水平アーム、小球、大球間の微小引力を基本原理として説明。",
+      "classification": "現状OK",
+      "severity": "none",
+      "historical_values_affected": false,
+      "action": "本文は維持。図1は別項で修正。",
+      "source_pages": "pp.469–470"
+    },
+    {
+      "id": "CV081A13-OK-003",
+      "area": "解説本文・観測環境",
+      "basis": "装置室を常時閉鎖し、外から望遠鏡で観測し、入室せず大球を移動。",
+      "current": "装置へ直接触れず、離れた位置から望遠鏡で読取る説明。",
+      "classification": "現状OK",
+      "severity": "none",
+      "historical_values_affected": false,
+      "action": "本文は維持。図2は別項で修正。",
+      "source_pages": "p.471"
+    },
+    {
+      "id": "CV081A13-OK-004",
+      "area": "全ページ・配置名称",
+      "basis": "positive position、negative position、midway position が本文・実験表に登場。",
+      "current": "正位置／負位置／中間位置へ統一済み。中間位置の画面座標は再構成と明記。",
+      "classification": "現状OK",
+      "severity": "none",
+      "historical_values_affected": false,
+      "action": "維持。",
+      "source_pages": "pp.473, 486ほか実験表"
+    },
+    {
+      "id": "CV081A13-OK-005",
+      "area": "Historical Telescope",
+      "basis": "ケース内固定象牙主尺1/20 in、アーム端の象牙副尺が5分割し1/100 inを読取る。短い望遠鏡T/Tを使用。",
+      "current": "固定主尺、可動5分割副尺、直接値／再構成値を分離。",
+      "classification": "現状OK",
+      "severity": "none",
+      "historical_values_affected": false,
+      "action": "表示仕様を維持。",
+      "source_pages": "p.473"
+    },
+    {
+      "id": "CV081A13-OK-006",
+      "area": "観測法・波形意味",
+      "basis": "三つの連続極値から第一・第三の平均、さらに第二極値との平均でpoint of restを求める。",
+      "current": "極値、直接時計、再構成、欠測、配置変更区間を分離し、連続測定と断定しない。",
+      "classification": "現状OK",
+      "severity": "none",
+      "historical_values_affected": false,
+      "action": "データ分離を維持。図4の「平均値」表現は別項で修正。",
+      "source_pages": "p.474"
+    },
+    {
+      "id": "CV081A13-OK-007",
+      "area": "全17 Experiment表・時刻・位置",
+      "basis": "原論文の全17実験表。",
+      "current": "CV081A12-1Rで303原表行、時刻、位置、missed、移動量、周期、出典頁を横断監査済み。",
+      "classification": "現状OK",
+      "severity": "none",
+      "historical_values_affected": false,
+      "action": "史実データは変更しない。",
+      "source_pages": "pp.480–508"
+    },
+    {
+      "id": "CV081A13-OK-008",
+      "area": "Motion View",
+      "basis": "正・負・中間の配置区分と配置変更記録。正確な画面XY座標は本文にない。",
+      "current": "配置区分を表示し、座標・約2.5秒の補間は模式・再構成と明記。",
+      "classification": "現状OK",
+      "severity": "none",
+      "historical_values_affected": false,
+      "action": "維持。",
+      "source_pages": "実験表各頁; Fig.2"
+    },
+    {
+      "id": "CV081A13-OK-009",
+      "area": "A4レポート",
+      "basis": "原表値・位置・時刻・出典を史実記録として扱う。",
+      "current": "史実直接値、時計時刻なし、再構成、配置変更、出典頁を区別しA4縦1ページへ出力。",
+      "classification": "現状OK",
+      "severity": "none",
+      "historical_values_affected": false,
+      "action": "維持。",
+      "source_pages": "全実験表; CV081A12-1R"
+    },
+    {
+      "id": "CV081A13-OK-010",
+      "area": "HIST／RECON CSV",
+      "basis": "原表転記とアプリ再構成を混同しないこと。",
+      "current": "史実読取記録CSVと再構成詳細CSVを分離し、Experiment ID・出典頁・原表行IDを保持。",
+      "classification": "現状OK",
+      "severity": "none",
+      "historical_values_affected": false,
+      "action": "維持。",
+      "source_pages": "全実験表; CV081A12-1R"
+    },
+    {
+      "id": "CV081A13-OK-011",
+      "area": "3D・本文確定寸法",
+      "basis": "吊り線40 in、小球中心間73.3 in、読取尺度半径38.3 in、近接中心線偏位8.85 in、銅棒16+46 in、停止隙間1/5 in。",
+      "current": "対応値は数値として一次史料と一致。停止隙間0.20 inも1/5 inに一致。",
+      "classification": "現状OK",
+      "severity": "none",
+      "historical_values_affected": false,
+      "action": "数値を維持。確度ラベルは個別に監査。",
+      "source_pages": "pp.472–473, 509–512"
+    },
+    {
+      "id": "CV081A13-DISPLAY-001",
+      "area": "解説 図1 構造図",
+      "basis": "吊りは細いワイヤー。アームは細いdeal rodを銀線で補強。最初の実験では銀めっき銅線、Experiment IV前により硬い線へ交換。",
+      "current": "「回転中心（ナイフエッジ）」「ねじりワイヤー（石英またはリン青銅）」「水平アーム（木または金属）」と表示し、約1830/1270/930/200 mm等の未確認寸法を歴史図のように示す。",
+      "classification": "表示修正",
+      "severity": "high",
+      "historical_values_affected": false,
+      "action": "ナイフエッジを撤去し吊り線へ統一。材質は一次史料に限定。未確認寸法と創作読取筐体は削除または明確な現代模式図へ降格。",
+      "source_pages": "pp.469–472, 486"
+    },
+    {
+      "id": "CV081A13-DISPLAY-002",
+      "area": "解説 図2 光学系",
+      "basis": "二つの短い望遠鏡T/T、二つのランプL/L、各読取端のガラスで塞いだスリット。ランプは凸レンズで目盛へ光を投射。",
+      "current": "中央上部の単一ランプ、単一望遠鏡、厚さ約300 mm以上の隔壁、単一読取窓、反射光路、観測側「静かな場所」を史実構成のように描く。",
+      "classification": "表示修正",
+      "severity": "high",
+      "historical_values_affected": false,
+      "action": "Fig.1に従い左右2系統のランプ・望遠鏡・読取窓へ修正。根拠のない隔壁厚、単一中央照明、反射経路を撤去。",
+      "source_pages": "pp.471–473; Fig.1"
+    },
+    {
+      "id": "CV081A13-DISPLAY-003",
+      "area": "解説 図3 読取機構",
+      "basis": "固定象牙主尺とアーム端の小象牙副尺の関係は確定。機械筐体の詳細形状は本文・図版から一意に復元できない。",
+      "current": "特定の真鍮筐体・可動板機構を詳細復元のように表示。比較例17.8 div欄の式が「=17.6 div」と誤記。",
+      "classification": "表示修正",
+      "severity": "high",
+      "historical_values_affected": false,
+      "action": "固定主尺／可動副尺だけを史実確定として描き、筐体を模式化。17.8 divの式を17.8へ修正。",
+      "source_pages": "p.473"
+    },
+    {
+      "id": "CV081A13-DISPLAY-004",
+      "area": "解説 図4 観測シーケンス",
+      "basis": "配置変更後、三つの連続極値を用いてpoint of restを求める。材質は石英・リン青銅と記されていない。",
+      "current": "「各位置で複数回の読取りを行い、平均値を用いる」と一般化し、観測帳と石英／リン青銅・木または金属を史実要素のように描く。",
+      "classification": "表示修正",
+      "severity": "medium",
+      "historical_values_affected": false,
+      "action": "三極値によるpoint of rest手順を中心に修正。観測帳は説明用再構成と明示し、誤材質を撤去。",
+      "source_pages": "pp.474–475"
+    },
+    {
+      "id": "CV081A13-DISPLAY-005",
+      "area": "解説 図5 シミュレータ対応",
+      "basis": "原論文の直接観測量は目盛読取と時刻。角度波形は論文の直接記録ではない。",
+      "current": "Waveformを「角度の時間変化」と表示し、史実側に誤材質と観測帳を含める。現公開画面の主結果Read divと不一致。",
+      "classification": "表示修正",
+      "severity": "high",
+      "historical_values_affected": false,
+      "action": "WaveformをRead div中心へ統一。角度は理論・換算層として分離。誤材質を撤去し、観測帳は模式表示と明記。",
+      "source_pages": "実験表; p.473"
+    },
+    {
+      "id": "CV081A13-DISPLAY-006",
+      "area": "解説 図1〜5 キャプション・注記",
+      "basis": "一次史料で確定できる部分と、模式・合理推定・現代説明を個別に区別する必要がある。",
+      "current": "一般注記で「一部は確定できない」としつつ、本文非記載の材質・寸法・光路・筐体を明示し、「史実装置」と強く表現。",
+      "classification": "表示修正",
+      "severity": "high",
+      "historical_values_affected": false,
+      "action": "各部品・寸法ごとに「本文確定／図版読取／本文値から算出／説明用再構成／未確認」を表示。一般免責だけで誤断定を残さない。",
+      "source_pages": "論文本文・Fig.1/2全体"
+    },
+    {
+      "id": "CV081A13-DISPLAY-007",
+      "area": "操作マニュアル PDF保存",
+      "basis": "現行実機仕様はPDF保存ボタンからSafariの直接ダウンロード確認へ進む。",
+      "current": "「共有シートが開くため、ファイルに保存を選ぶ」と旧仕様を記載。",
+      "classification": "表示修正",
+      "severity": "low",
+      "historical_values_affected": false,
+      "action": "直接ダウンロード確認とSafariダウンロード一覧の説明へ更新。",
+      "source_pages": "CV081A12-3R1 FIX"
+    },
+    {
+      "id": "CV081A13-DISPLAY-008",
+      "area": "3D 大球支持軌道半径の確度",
+      "basis": "小球中心間73.3 in→各小球36.65 in。大球支持棒間隔は小球中心間と等しいため、大球支持半径36.65 inは二つの本文値から導く。",
+      "current": "「大球支持軌道半径 36.65 in／本文確定」と表示。",
+      "classification": "表示修正",
+      "severity": "medium",
+      "historical_values_affected": false,
+      "action": "数値は維持し、確度を「本文値から算出」へ変更。",
+      "source_pages": "pp.509–510"
+    },
+    {
+      "id": "CV081A13-HOLD-001",
+      "area": "3D Fig.1輪郭・公開状態",
+      "basis": "Fig.1は装置と建物の縦断面。最終史実整合を名乗るにはモデル輪郭が設定基準内で一致する必要がある。",
+      "current": "公開3Dページ自身が「Fig.1輪郭監査結果：FAIL、最大4.8%、平均2.7%、RMS3.1%」「拘束状態：監査中」と表示。",
+      "classification": "保留",
+      "severity": "high",
+      "historical_values_affected": false,
+      "action": "Fig.1輪郭差を閉じ、PASS基準を満たすまで3Dの最終史実整合FIXを保留。開発監査語を公開UIへ残すかも別途整理。",
+      "source_pages": "Fig.1; current 3D audit result"
+    }
+  ],
+  "next_steps": [
+    "CV081A13-1：解説図1〜5を一次史料基準で再設計し、確度ラベルを個別表示する。",
+    "CV081A13-2：3Dの大球支持半径の確度区分を修正し、Fig.1輪郭監査をPASSへ収束させる。",
+    "CV081A13-3：マニュアルのPDF保存手順を直接ダウンロード仕様へ更新する。"
+  ]
+}

@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="1797〜1798年のキャベンディッシュ実験、トーションバランス、望遠鏡による読取方法、実験結果とシミュレータの再現範囲を説明します。">
+  <title>キャベンディッシュ実験｜解説｜IMPULSE LABO</title>
+  <link rel="stylesheet" href="assets/css/cavendish-guide.css?v=CV082A04">
+</head>
+<body class="guide-page reading-page">
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="brand" href="#top">IMPULSE LABO</a>
+      <div class="header-tools">
+        <div class="font-size-control" role="group" aria-label="文字サイズ">
+          <span>文字サイズ</span>
+          <button type="button" data-font-size="standard" aria-pressed="true">標準</button>
+          <button type="button" data-font-size="large" aria-pressed="false">大</button>
+          <button type="button" data-font-size="xlarge" aria-pressed="false">特大</button>
+        </div>
+        <nav class="cav-global-nav" aria-label="Cavendish関連ページ"><a href="cavendish-simulator.html"><span class="nav-label-full">検証する</span><span class="nav-label-mobile" aria-hidden="true">検証</span></a><a href="cavendish-3d/cavendish-guide-3d.html"><span class="nav-label-full">1798年装置3D</span><span class="nav-label-mobile" aria-hidden="true">3D</span></a><a href="cavendish-guide.html" class="active" aria-current="page"><span class="nav-label-full">実験の解説</span><span class="nav-label-mobile" aria-hidden="true">解説</span></a><a href="cavendish-manual.html"><span class="nav-label-full">操作マニュアル</span><span class="nav-label-mobile" aria-hidden="true">マニュアル</span></a></nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="intro" aria-labelledby="page-title">
+      <p class="eyebrow">IMPULSE LABO / CAVENDISH EXPERIMENT</p>
+      <h1 id="page-title">キャベンディッシュ実験</h1>
+      <p class="lead">1798年論文をもとに、実験の目的、装置の構造、望遠鏡による読取方法、観測記録と再構成の範囲を整理します。</p>
+    </section>
+
+    <nav class="toc" aria-label="ページ内目次">
+      <a href="#outline">実験の概要</a>
+      <a href="#balance">トーションバランス</a>
+      <a href="#observation">観測方法</a>
+      <a href="#result">実験で分かったこと</a>
+      <a href="#simulator">シミュレータでできること</a>
+    </nav>
+
+    <section id="outline" class="section" aria-labelledby="outline-title">
+      <div class="section-heading"><p class="section-no">01</p><h2 id="outline-title">実験の概要</h2></div>
+      <div class="prose prose--wide">
+        <p>1797年から1798年にかけて、イギリスの科学者ヘンリー・キャベンディッシュは、トーションバランス（ねじり秤）を用いた精密な重力実験を行いました。</p>
+        <p>実験では、大球と小球の間に働く非常に弱い万有引力によって生じるわずかな回転を、望遠鏡を用いて観測し、その読取値を記録しました。</p>
+        <p>この研究成果は、1798年に <cite>Experiments to Determine the Density of the Earth</cite>（地球の密度を求める実験）として王立協会の学術誌に発表されました。</p>
+        <p>本シミュレータは、その論文に記載された観測記録と読取方法をもとに、当時の観測過程を再構成しています。</p>
+      </div>
+    </section>
+
+    <section id="balance" class="section" aria-labelledby="balance-title">
+      <div class="section-heading"><p class="section-no">02</p><h2 id="balance-title">トーションバランスとは — 装置の構造</h2></div>
+      <div class="prose prose--wide">
+        <p>トーションバランスは、細いねじりワイヤーに水平アームを吊り、アーム両端の小球へ働くごく小さな力を回転として検出する装置です。大球の配置を変えると小球へ働く引力の向きが変わり、アームは回転中心のまわりでわずかに動きます。</p>
+      </div>
+      <figure class="diagram canonical-figure" aria-labelledby="structure-caption">
+        <img class="canonical-plate" loading="lazy" decoding="async" src="assets/images/guide/guide-canonical-3d-structure-cv082a04.png" alt="1798年装置3Dの現行モデルを斜め前方から見た装置全体。Fig.1に合わせた木製ケース、上部滑車と分岐支持、大球支持、ねじり天秤、左右の読取端部を示す。">
+        <figcaption id="structure-caption"><span class="canonical-source">正本：1798年装置3D</span><strong>図1　装置全体と支持・読取構造。</strong> Fig.1に対応する中央テーパー縦室・左右端部室、上部滑車と分岐支持、大球配置、左右の読取端部を、現在の1798年装置3Dと同じモデルで示します。</figcaption>
+      </figure>
+    </section>
+
+    <section id="observation" class="section" aria-labelledby="observation-title">
+      <div class="section-heading"><p class="section-no">03</p><h2 id="observation-title">キャベンディッシュはどのように観測したか</h2></div>
+      <div class="prose prose--wide">
+        <p>キャベンディッシュは観測室の外側に望遠鏡を設置し、壁の開口部を通して装置内部の読取部を観測しました。望遠鏡は開口部へ差し込むように読取部へ向けられ、装置へ直接触れずに、大球を移動させた後のアームの応答を待ちながら時刻と読取値を記録しました。</p>
+      </div>
+      <figure class="diagram canonical-figure" aria-labelledby="optics-caption">
+        <img class="canonical-plate canonical-plate--detail" loading="lazy" decoding="async" src="assets/images/guide/guide-canonical-3d-optics-cv082a04.png" alt="現行の1798年装置3Dで、観測室外側の左右望遠鏡、ランプ、壁の開口部、端部読取部、照射光路と視線の位置関係を拡大した表示。">
+        <figcaption id="optics-caption"><span class="canonical-source">正本：1798年装置3D</span><strong>図2　壁の開口部を通した望遠鏡と左右の読取部。</strong> 現行ケースの左右端部を中心に、観測室外側の望遠鏡とランプを開口部から読取部へ向けた位置関係を示します。光路・視線の線表示は構造理解のための説明用可視化です。</figcaption>
+      </figure>
+
+      <ol class="observation-steps" aria-label="観測手順">
+        <li><strong>大球を配置する</strong><span>大球を所定の位置へ移し、小球へ働く引力の向きを変えます。</span></li>
+        <li><strong>装置の応答を待つ</strong><span>水平アームはねじりワイヤーを中心に振動しながら、新しい状態へ移ります。</span></li>
+        <li><strong>望遠鏡で読む</strong><span>固定目盛と動く読取部の相対位置を確認します。</span></li>
+        <li><strong>時刻と値を記録する</strong><span>時計時刻がある読取値と、時刻が記載されていない極値を区別して残します。</span></li>
+        <li><strong>配置を変えて繰り返す</strong><span>大球を正位置・負位置・中間位置へ切り替え、同じ観測を続けます。中間位置は原表に記録された史実区分です。</span></li>
+      </ol>
+      <p class="canonical-policy-note">大球配置と装置機構は1798年装置3D、望遠鏡の読取表示は検証画面を基準に示しています。</p>
+
+      <figure class="diagram canonical-figure canonical-figure--telescope" aria-labelledby="telescope-caption">
+        <img class="canonical-plate" loading="lazy" decoding="async" src="assets/images/guide/guide-canonical-telescope-cv081a14.png" alt="検証画面のHistorical Telescope。固定主尺、アーム連動の5分割副尺、史実直接値、史実副尺、再構成値を表示する。">
+        <figcaption id="telescope-caption"><span class="canonical-source">正本：検証画面 Historical Telescope</span><strong>図3　固定主尺とアーム連動5分割副尺。</strong> 固定主尺、アーム連動5分割副尺、史実直接値、史実副尺、再構成値の関係を示します。上段・下段の近接配置は読取比較のための表示上の再構成です。</figcaption>
+      </figure>
+    </section>
+
+    <section id="result" class="section" aria-labelledby="result-title">
+      <div class="section-heading"><p class="section-no">04</p><h2 id="result-title">実験で分かったこと</h2></div>
+      <div class="prose prose--wide">
+        <p>観測記録から、大球の配置を変えると読取値が変化することが確認されました。これは、大球と小球の間の万有引力によってトーションバランスがわずかに回転した結果です。</p>
+        <p>キャベンディッシュは、観測された変化と装置の寸法・質量・ねじり特性を用いて地球の平均密度を求めました。この実験は、後に万有引力定数を数値化するための基礎となる測定として扱われています。</p>
+      </div>
+      <p class="note">1798年の論文が直接の目的として掲げたのは「地球の密度を求めること」です。本シミュレータの現公開版は、論文に残された読取記録と観測過程の再現を中心としています。</p>
+    </section>
+
+    <section id="simulator" class="section" aria-labelledby="simulator-title">
+      <div class="section-heading"><p class="section-no">05</p><h2 id="simulator-title">シミュレータでできること</h2></div>
+      <div class="prose prose--wide">
+        <p>本シミュレータでは、論文のExperiment I〜XVIIに対応する観測記録を選び、望遠鏡読取、大球配置、波形、観測工程を同じ時間軸で確認できます。</p>
+        <p>史実の直接観測、時刻が記載されていない極値、条件付き再構成、欠測、配置変更時刻が不確定な区間を区別して表示します。</p>
+      </div>
+
+      <div class="image-grid image-grid--three">
+        <figure class="screen-figure">
+          <img src="assets/images/guide/guide-canonical-motion-view-cv081a14.png" alt="大球配置とトーションバランスの上面表示。">
+          <figcaption><strong>Motion View</strong>　正位置・負位置・中間位置とアームの読取状態を表示します。説明用補間では剛体円弧を維持します。</figcaption>
+        </figure>
+        <figure class="screen-figure">
+          <img src="assets/images/guide/guide-canonical-waveform-cv081a14.png" alt="史実直接値と再構成波形を区別して表示する波形画面。">
+          <figcaption><strong>Waveform</strong>　直接観測、再構成波形、欠測、配置変更区間を線種と記号で区別します。</figcaption>
+        </figure>
+        <figure class="screen-figure">
+          <img src="assets/images/guide/guide-canonical-simulator-overview-cv081a14.png" alt="Cavendish Experiment SimulatorのPC全体画面。">
+          <figcaption><strong>全体画面</strong>　条件、望遠鏡、波形、大球配置、観測工程、結果を一つの画面で確認できます。</figcaption>
+        </figure>
+      </div>
+
+      <p class="canonical-policy-note">史実の観測・記録と各表示の対応を下表に示します。</p>
+
+      <div class="table-wrap" role="region" aria-label="史実の観測とシミュレータ画面の対応" tabindex="0">
+        <table>
+          <thead><tr><th>史実の観測・記録</th><th>シミュレータ</th><th>確認できる内容</th></tr></thead>
+          <tbody>
+            <tr><td data-label="史実の観測・記録">望遠鏡による読取</td><td data-label="シミュレータ">Historical Telescope</td><td data-label="確認できる内容">固定主尺、アーム連動5分割副尺、史実直接値、史実副尺、再構成値</td></tr>
+            <tr><td data-label="史実の観測・記録">大球配置とアーム</td><td data-label="シミュレータ">Motion View</td><td data-label="確認できる内容">史実区分としての正位置・負位置・中間位置、読取状態。配置座標は模式表示</td></tr>
+            <tr><td data-label="史実の観測・記録">時系列の読取記録</td><td data-label="シミュレータ">Waveform</td><td data-label="確認できる内容">直接観測、条件付き再構成、未観測・補完しない区間、欠測</td></tr>
+            <tr><td data-label="史実の観測・記録">観測順序</td><td data-label="シミュレータ">観測工程</td><td data-label="確認できる内容">時計付き観測、配置変更、時計時刻なしの記録、終了</td></tr>
+            <tr><td data-label="史実の観測・記録">観測結果の整理</td><td data-label="シミュレータ">結果サマリー</td><td data-label="確認できる内容">位置別件数・平均、配置変更による読取差、区間比較</td></tr>
+            <tr><td data-label="史実の観測・記録">保存記録</td><td data-label="シミュレータ">PDF・CSV</td><td data-label="確認できる内容">A4レポート、史実読取記録CSV、再構成詳細CSV</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section section--quiet" aria-labelledby="scope-title">
+      <div class="section-heading"><p class="section-no">06</p><h2 id="scope-title">再構成の範囲</h2></div>
+      <div class="prose prose--wide">
+        <p>史実の直接観測と再構成値は分離して表示します。原表に時計時刻がない値へ擬似時刻を付けず、未観測区間や欠測を根拠なく補完しません。</p>
+        <p>装置画像は1798年装置3D、望遠鏡画像と画面例は検証画面を基準にしています。3Dモデルは論文と関連資料を基にした再構成であり、史実装置の全寸法、材質、室内配置を完全に確定したものではありません。</p>
+      </div>
+    </section>
+
+    <section class="launch" aria-labelledby="launch-title">
+      <div>
+        <p class="eyebrow">NEXT</p>
+        <h2 id="launch-title">観測記録を確認する</h2>
+        <p>操作方法はマニュアルで確認できます。シミュレータではExperiment I〜XVIIを選択し、史実読取と再構成表示を比較できます。</p>
+      </div>
+      <div class="launch-actions">
+        <a class="button" href="cavendish-3d/cavendish-guide-3d.html"><span class="nav-label-full">1798年装置3D</span><span class="nav-label-mobile" aria-hidden="true">3D</span></a>
+        <a class="button" href="cavendish-manual.html"><span class="nav-label-full">操作マニュアル</span><span class="nav-label-mobile" aria-hidden="true">マニュアル</span></a>
+        <a class="button button--primary" href="cavendish-simulator.html">シミュレータ</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>IMPULSE LABO / Cavendish Experiment Guide / Build CV082A04</p>
+    <p><a href="cavendish-simulator.html">検証する</a> ｜ <a href="cavendish-3d/cavendish-guide-3d.html">1798年装置3D</a> ｜ <a href="cavendish-guide.html">実験の解説</a> ｜ <a href="cavendish-manual.html">操作マニュアル</a></p>
+  </footer>
+
+  <script>
+  (() => {
+    const key = 'cavendishReadingFontSize';
+    const allowed = ['standard', 'large', 'xlarge'];
+    const root = document.documentElement;
+    const buttons = Array.from(document.querySelectorAll('[data-font-size]'));
+    const apply = (value) => {
+      const size = allowed.includes(value) ? value : 'standard';
+      root.dataset.readingFont = size;
+      buttons.forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.fontSize === size)));
+      try { localStorage.setItem(key, size); } catch (_) {}
+    };
+    let saved = 'standard';
+    try { saved = localStorage.getItem(key) || 'standard'; } catch (_) {}
+    apply(saved);
+    buttons.forEach((button) => button.addEventListener('click', () => apply(button.dataset.fontSize)));
+  })();
+  </script>
+
+</body>
+</html>

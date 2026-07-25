@@ -1,0 +1,36 @@
+{
+  "build": "CV082A05R1",
+  "status": "FIX",
+  "title": "iPhone landscape bottom operation bar left safe-area removal",
+  "target": {
+    "page": "cavendish-simulator.html",
+    "scope": "landscape fixed operation button row",
+    "buttonCount": 5
+  },
+  "before": {
+    "leftPadding": "4px + safe-area-inset-left",
+    "visibleLeftGap": true
+  },
+  "after": {
+    "leftPaddingPx": 4,
+    "rightPaddingPx": 4,
+    "visibleLeftGap": false,
+    "equalButtonColumns": true
+  },
+  "preserved": [
+    "control-content safe-area protection",
+    "edge-to-edge landscape viewport",
+    "CV082A05 help-card containment",
+    "portrait and desktop layouts",
+    "historical data and physics",
+    "report, CSV, 3D, guide and manual"
+  ],
+  "results": {
+    "operation_bar_left_inset_removed": "PASS",
+    "five_equal_button_columns": "PASS",
+    "control_content_safe_area_preserved": "PASS",
+    "edge_to_edge_regression": "PASS",
+    "help_containment_regression": "PASS",
+    "iphone_landscape_field_check": "PASS"
+  }
+}

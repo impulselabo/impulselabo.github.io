@@ -1,0 +1,14 @@
+{
+  "build": "CV081A17R",
+  "page": "cavendish-guide.html",
+  "section": "03 キャベンディッシュはどのように観測したか",
+  "checks": {
+    "oldAmbiguousSentenceRemoved": true,
+    "outsideObservationRoomStated": true,
+    "wallOpeningStated": true,
+    "insertedTowardReaderStated": true,
+    "figureCaptionAligned": true,
+    "altTextAligned": true,
+    "canonical3DImageRetained": true
+  }
+}

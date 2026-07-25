@@ -1,0 +1,1279 @@
+{
+  "schema_version": "1.0.0",
+  "build": "CV081A01",
+  "title": "All 17 experiments Motion View hypothetical interpolation / historical clock handoff / placement order final audit",
+  "status": "PASS",
+  "policy": {
+    "start_operation": "Every experiment starts with one Start operation.",
+    "untimed_initial": "When the first recorded placement has no clock time and differs from the first clock-timed placement, Motion View shows a 2.5-second UI-only hypothetical interpolation. The last 0.6 second is the visible placement transition.",
+    "historical_clock": "Historical clock time, waveform, and historical-record accumulation remain frozen during the UI-only hypothetical interpolation and begin at the first recorded clock position after handoff.",
+    "timed_initial": "Experiments whose initial placement already matches the historical clock start begin the historical replay immediately.",
+    "uncertainty": "Recorded placement order is preserved; bounded uncertainty intervals remain explicitly time-uncertain; no missing historical clock time is synthesized.",
+    "unchanged": "Historical values, clock records, waveform data, Telescope, CSV, report, and physical calculations are unchanged."
+  },
+  "matrix": {
+    "clock_time_missing_initial": {
+      "experiments": [
+        "experiment-iii",
+        "experiment-v",
+        "experiment-ix",
+        "experiment-x",
+        "experiment-xi",
+        "experiment-xiii",
+        "experiment-xv",
+        "experiment-xvi"
+      ],
+      "count": 8,
+      "start_clicks": 1,
+      "prelude_ms": 2500,
+      "transition_ms": 600,
+      "waveform_start": "after_handoff",
+      "historical_clock_start": "after_handoff_at_0s"
+    },
+    "historical_clock_initial_available": {
+      "experiments": [
+        "experiment-i",
+        "experiment-ii",
+        "experiment-iv",
+        "experiment-vi",
+        "experiment-vii",
+        "experiment-viii",
+        "experiment-xii",
+        "experiment-xiv",
+        "experiment-xvii"
+      ],
+      "count": 9,
+      "start_clicks": 1,
+      "prelude_ms": 0,
+      "transition_ms": 0,
+      "waveform_start": "immediate",
+      "historical_clock_start": "immediate_at_0s"
+    }
+  },
+  "totals": {
+    "experiments": 17,
+    "position_sections": 46,
+    "hypothetical_prelude_experiments": 8,
+    "direct_clock_start_experiments": 9,
+    "hypothetical_phase_samples": 80,
+    "historical_clock_alignment_samples": 15511,
+    "final_position_checks": 17,
+    "grouped_uncertainty_ranges": 2,
+    "single_transition_ranges": 15,
+    "start_operation_count_variants": 1,
+    "synthesized_historical_times": 0
+  },
+  "experiments": [
+    {
+      "experiment_id": "experiment-i",
+      "data_key": "CAV-1798-EXP-I",
+      "status": "PASS",
+      "position_sequence": [
+        "midway",
+        "positive",
+        "midway"
+      ],
+      "initial_position": "midway",
+      "initial_time_status": "historical_clock_start_available",
+      "start_operation": "single_click",
+      "hypothetical_prelude": false,
+      "hypothetical_duration_ms": 0,
+      "hypothetical_transition_ms": 0,
+      "historical_clock_start_position": "midway",
+      "historical_clock_start_s": 0,
+      "waveform_during_hypothetical_prelude": "not_applicable",
+      "handoff_position": "midway",
+      "final_position": "midway",
+      "grouped_uncertainty_ranges": 0,
+      "single_transition_ranges": 0,
+      "sampled_hypothetical_phases": []
+    },
+    {
+      "experiment_id": "experiment-ii",
+      "data_key": "CAV-1798-EXP-II",
+      "status": "PASS",
+      "position_sequence": [
+        "midway",
+        "positive",
+        "midway"
+      ],
+      "initial_position": "midway",
+      "initial_time_status": "historical_clock_start_available",
+      "start_operation": "single_click",
+      "hypothetical_prelude": false,
+      "hypothetical_duration_ms": 0,
+      "hypothetical_transition_ms": 0,
+      "historical_clock_start_position": "midway",
+      "historical_clock_start_s": 0,
+      "waveform_during_hypothetical_prelude": "not_applicable",
+      "handoff_position": "midway",
+      "final_position": "midway",
+      "grouped_uncertainty_ranges": 1,
+      "single_transition_ranges": 0,
+      "sampled_hypothetical_phases": []
+    },
+    {
+      "experiment_id": "experiment-iii",
+      "data_key": "CAV-1798-EXP-III",
+      "status": "PASS",
+      "position_sequence": [
+        "positive",
+        "midway",
+        "positive"
+      ],
+      "initial_position": "positive",
+      "initial_time_status": "clock_time_missing_record_order_only",
+      "start_operation": "single_click",
+      "hypothetical_prelude": true,
+      "hypothetical_duration_ms": 2500,
+      "hypothetical_transition_ms": 600,
+      "historical_clock_start_position": "midway",
+      "historical_clock_start_s": 0,
+      "waveform_during_hypothetical_prelude": "not_started",
+      "handoff_position": "midway",
+      "final_position": "positive",
+      "grouped_uncertainty_ranges": 0,
+      "single_transition_ranges": 1,
+      "sampled_hypothetical_phases": [
+        {
+          "elapsed_ms": 0,
+          "phase": "hypothetical_initial_hold",
+          "from_position": "positive",
+          "to_position": "midway",
+          "transition_progress": 0,
+          "displayed_position": "positive",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 500,
+          "phase": "hypothetical_initial_hold",
+          "from_position": "positive",
+          "to_position": "midway",
+          "transition_progress": 0,
+          "displayed_position": "positive",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 1000,
+          "phase": "hypothetical_initial_hold",
+          "from_position": "positive",
+          "to_position": "midway",
+          "transition_progress": 0,
+          "displayed_position": "positive",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 1500,
+          "phase": "hypothetical_initial_hold",
+          "from_position": "positive",
+          "to_position": "midway",
+          "transition_progress": 0,
+          "displayed_position": "positive",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 1899,
+          "phase": "hypothetical_initial_hold",
+          "from_position": "positive",
+          "to_position": "midway",
+          "transition_progress": 0,
+          "displayed_position": "positive",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 1900,
+          "phase": "hypothetical_initial_hold",
+          "from_position": "positive",
+          "to_position": "midway",
+          "transition_progress": 0,
+          "displayed_position": "positive",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 2100,
+          "phase": "hypothetical_transition",
+          "from_position": "positive",
+          "to_position": "midway",
+          "transition_progress": 0.333333,
+          "displayed_position": "positive",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 2300,
+          "phase": "hypothetical_transition",
+          "from_position": "positive",
+          "to_position": "midway",
+          "transition_progress": 0.666667,
+          "displayed_position": "positive",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 2499,
+          "phase": "hypothetical_transition",
+          "from_position": "positive",
+          "to_position": "midway",
+          "transition_progress": 0.998333,
+          "displayed_position": "positive",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 2500,
+          "phase": "historical_clock_start",
+          "from_position": "positive",
+          "to_position": "midway",
+          "transition_progress": 1,
+          "displayed_position": "midway",
+          "historical_clock_s": 0,
+          "waveform_started": true
+        }
+      ]
+    },
+    {
+      "experiment_id": "experiment-iv",
+      "data_key": "CAV-1798-EXP-IV",
+      "status": "PASS",
+      "position_sequence": [
+        "midway",
+        "positive",
+        "negative",
+        "positive"
+      ],
+      "initial_position": "midway",
+      "initial_time_status": "historical_clock_start_available",
+      "start_operation": "single_click",
+      "hypothetical_prelude": false,
+      "hypothetical_duration_ms": 0,
+      "hypothetical_transition_ms": 0,
+      "historical_clock_start_position": "midway",
+      "historical_clock_start_s": 0,
+      "waveform_during_hypothetical_prelude": "not_applicable",
+      "handoff_position": "midway",
+      "final_position": "positive",
+      "grouped_uncertainty_ranges": 1,
+      "single_transition_ranges": 1,
+      "sampled_hypothetical_phases": []
+    },
+    {
+      "experiment_id": "experiment-v",
+      "data_key": "CAV-1798-EXP-V",
+      "status": "PASS",
+      "position_sequence": [
+        "positive",
+        "negative",
+        "positive"
+      ],
+      "initial_position": "positive",
+      "initial_time_status": "clock_time_missing_record_order_only",
+      "start_operation": "single_click",
+      "hypothetical_prelude": true,
+      "hypothetical_duration_ms": 2500,
+      "hypothetical_transition_ms": 600,
+      "historical_clock_start_position": "negative",
+      "historical_clock_start_s": 0,
+      "waveform_during_hypothetical_prelude": "not_started",
+      "handoff_position": "negative",
+      "final_position": "positive",
+      "grouped_uncertainty_ranges": 0,
+      "single_transition_ranges": 1,
+      "sampled_hypothetical_phases": [
+        {
+          "elapsed_ms": 0,
+          "phase": "hypothetical_initial_hold",
+          "from_position": "positive",
+          "to_position": "negative",
+          "transition_progress": 0,
+          "displayed_position": "positive",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 500,
+          "phase": "hypothetical_initial_hold",
+          "from_position": "positive",
+          "to_position": "negative",
+          "transition_progress": 0,
+          "displayed_position": "positive",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 1000,
+          "phase": "hypothetical_initial_hold",
+          "from_position": "positive",
+          "to_position": "negative",
+          "transition_progress": 0,
+          "displayed_position": "positive",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 1500,
+          "phase": "hypothetical_initial_hold",
+          "from_position": "positive",
+          "to_position": "negative",
+          "transition_progress": 0,
+          "displayed_position": "positive",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 1899,
+          "phase": "hypothetical_initial_hold",
+          "from_position": "positive",
+          "to_position": "negative",
+          "transition_progress": 0,
+          "displayed_position": "positive",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 1900,
+          "phase": "hypothetical_initial_hold",
+          "from_position": "positive",
+          "to_position": "negative",
+          "transition_progress": 0,
+          "displayed_position": "positive",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 2100,
+          "phase": "hypothetical_transition",
+          "from_position": "positive",
+          "to_position": "negative",
+          "transition_progress": 0.333333,
+          "displayed_position": "positive",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 2300,
+          "phase": "hypothetical_transition",
+          "from_position": "positive",
+          "to_position": "negative",
+          "transition_progress": 0.666667,
+          "displayed_position": "positive",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 2499,
+          "phase": "hypothetical_transition",
+          "from_position": "positive",
+          "to_position": "negative",
+          "transition_progress": 0.998333,
+          "displayed_position": "positive",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 2500,
+          "phase": "historical_clock_start",
+          "from_position": "positive",
+          "to_position": "negative",
+          "transition_progress": 1,
+          "displayed_position": "negative",
+          "historical_clock_s": 0,
+          "waveform_started": true
+        }
+      ]
+    },
+    {
+      "experiment_id": "experiment-vi",
+      "data_key": "CAV-1798-EXP-VI",
+      "status": "PASS",
+      "position_sequence": [
+        "midway",
+        "negative",
+        "positive"
+      ],
+      "initial_position": "midway",
+      "initial_time_status": "historical_clock_start_available",
+      "start_operation": "single_click",
+      "hypothetical_prelude": false,
+      "hypothetical_duration_ms": 0,
+      "hypothetical_transition_ms": 0,
+      "historical_clock_start_position": "midway",
+      "historical_clock_start_s": 0,
+      "waveform_during_hypothetical_prelude": "not_applicable",
+      "handoff_position": "midway",
+      "final_position": "positive",
+      "grouped_uncertainty_ranges": 0,
+      "single_transition_ranges": 2,
+      "sampled_hypothetical_phases": []
+    },
+    {
+      "experiment_id": "experiment-vii",
+      "data_key": "CAV-1798-EXP-VII",
+      "status": "PASS",
+      "position_sequence": [
+        "midway",
+        "negative",
+        "positive"
+      ],
+      "initial_position": "midway",
+      "initial_time_status": "historical_clock_start_available",
+      "start_operation": "single_click",
+      "hypothetical_prelude": false,
+      "hypothetical_duration_ms": 0,
+      "hypothetical_transition_ms": 0,
+      "historical_clock_start_position": "midway",
+      "historical_clock_start_s": 0,
+      "waveform_during_hypothetical_prelude": "not_applicable",
+      "handoff_position": "midway",
+      "final_position": "positive",
+      "grouped_uncertainty_ranges": 0,
+      "single_transition_ranges": 2,
+      "sampled_hypothetical_phases": []
+    },
+    {
+      "experiment_id": "experiment-viii",
+      "data_key": "CAV-1798-EXP-VIII",
+      "status": "PASS",
+      "position_sequence": [
+        "midway",
+        "negative",
+        "positive"
+      ],
+      "initial_position": "midway",
+      "initial_time_status": "historical_clock_start_available",
+      "start_operation": "single_click",
+      "hypothetical_prelude": false,
+      "hypothetical_duration_ms": 0,
+      "hypothetical_transition_ms": 0,
+      "historical_clock_start_position": "midway",
+      "historical_clock_start_s": 0,
+      "waveform_during_hypothetical_prelude": "not_applicable",
+      "handoff_position": "midway",
+      "final_position": "positive",
+      "grouped_uncertainty_ranges": 0,
+      "single_transition_ranges": 2,
+      "sampled_hypothetical_phases": []
+    },
+    {
+      "experiment_id": "experiment-ix",
+      "data_key": "CAV-1798-EXP-IX",
+      "status": "PASS",
+      "position_sequence": [
+        "positive",
+        "negative"
+      ],
+      "initial_position": "positive",
+      "initial_time_status": "clock_time_missing_record_order_only",
+      "start_operation": "single_click",
+      "hypothetical_prelude": true,
+      "hypothetical_duration_ms": 2500,
+      "hypothetical_transition_ms": 600,
+      "historical_clock_start_position": "negative",
+      "historical_clock_start_s": 0,
+      "waveform_during_hypothetical_prelude": "not_started",
+      "handoff_position": "negative",
+      "final_position": "negative",
+      "grouped_uncertainty_ranges": 0,
+      "single_transition_ranges": 0,
+      "sampled_hypothetical_phases": [
+        {
+          "elapsed_ms": 0,
+          "phase": "hypothetical_initial_hold",
+          "from_position": "positive",
+          "to_position": "negative",
+          "transition_progress": 0,
+          "displayed_position": "positive",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 500,
+          "phase": "hypothetical_initial_hold",
+          "from_position": "positive",
+          "to_position": "negative",
+          "transition_progress": 0,
+          "displayed_position": "positive",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 1000,
+          "phase": "hypothetical_initial_hold",
+          "from_position": "positive",
+          "to_position": "negative",
+          "transition_progress": 0,
+          "displayed_position": "positive",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 1500,
+          "phase": "hypothetical_initial_hold",
+          "from_position": "positive",
+          "to_position": "negative",
+          "transition_progress": 0,
+          "displayed_position": "positive",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 1899,
+          "phase": "hypothetical_initial_hold",
+          "from_position": "positive",
+          "to_position": "negative",
+          "transition_progress": 0,
+          "displayed_position": "positive",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 1900,
+          "phase": "hypothetical_initial_hold",
+          "from_position": "positive",
+          "to_position": "negative",
+          "transition_progress": 0,
+          "displayed_position": "positive",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 2100,
+          "phase": "hypothetical_transition",
+          "from_position": "positive",
+          "to_position": "negative",
+          "transition_progress": 0.333333,
+          "displayed_position": "positive",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 2300,
+          "phase": "hypothetical_transition",
+          "from_position": "positive",
+          "to_position": "negative",
+          "transition_progress": 0.666667,
+          "displayed_position": "positive",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 2499,
+          "phase": "hypothetical_transition",
+          "from_position": "positive",
+          "to_position": "negative",
+          "transition_progress": 0.998333,
+          "displayed_position": "positive",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 2500,
+          "phase": "historical_clock_start",
+          "from_position": "positive",
+          "to_position": "negative",
+          "transition_progress": 1,
+          "displayed_position": "negative",
+          "historical_clock_s": 0,
+          "waveform_started": true
+        }
+      ]
+    },
+    {
+      "experiment_id": "experiment-x",
+      "data_key": "CAV-1798-EXP-X",
+      "status": "PASS",
+      "position_sequence": [
+        "positive",
+        "negative"
+      ],
+      "initial_position": "positive",
+      "initial_time_status": "clock_time_missing_record_order_only",
+      "start_operation": "single_click",
+      "hypothetical_prelude": true,
+      "hypothetical_duration_ms": 2500,
+      "hypothetical_transition_ms": 600,
+      "historical_clock_start_position": "negative",
+      "historical_clock_start_s": 0,
+      "waveform_during_hypothetical_prelude": "not_started",
+      "handoff_position": "negative",
+      "final_position": "negative",
+      "grouped_uncertainty_ranges": 0,
+      "single_transition_ranges": 0,
+      "sampled_hypothetical_phases": [
+        {
+          "elapsed_ms": 0,
+          "phase": "hypothetical_initial_hold",
+          "from_position": "positive",
+          "to_position": "negative",
+          "transition_progress": 0,
+          "displayed_position": "positive",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 500,
+          "phase": "hypothetical_initial_hold",
+          "from_position": "positive",
+          "to_position": "negative",
+          "transition_progress": 0,
+          "displayed_position": "positive",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 1000,
+          "phase": "hypothetical_initial_hold",
+          "from_position": "positive",
+          "to_position": "negative",
+          "transition_progress": 0,
+          "displayed_position": "positive",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 1500,
+          "phase": "hypothetical_initial_hold",
+          "from_position": "positive",
+          "to_position": "negative",
+          "transition_progress": 0,
+          "displayed_position": "positive",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 1899,
+          "phase": "hypothetical_initial_hold",
+          "from_position": "positive",
+          "to_position": "negative",
+          "transition_progress": 0,
+          "displayed_position": "positive",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 1900,
+          "phase": "hypothetical_initial_hold",
+          "from_position": "positive",
+          "to_position": "negative",
+          "transition_progress": 0,
+          "displayed_position": "positive",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 2100,
+          "phase": "hypothetical_transition",
+          "from_position": "positive",
+          "to_position": "negative",
+          "transition_progress": 0.333333,
+          "displayed_position": "positive",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 2300,
+          "phase": "hypothetical_transition",
+          "from_position": "positive",
+          "to_position": "negative",
+          "transition_progress": 0.666667,
+          "displayed_position": "positive",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 2499,
+          "phase": "hypothetical_transition",
+          "from_position": "positive",
+          "to_position": "negative",
+          "transition_progress": 0.998333,
+          "displayed_position": "positive",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 2500,
+          "phase": "historical_clock_start",
+          "from_position": "positive",
+          "to_position": "negative",
+          "transition_progress": 1,
+          "displayed_position": "negative",
+          "historical_clock_s": 0,
+          "waveform_started": true
+        }
+      ]
+    },
+    {
+      "experiment_id": "experiment-xi",
+      "data_key": "CAV-1798-EXP-XI",
+      "status": "PASS",
+      "position_sequence": [
+        "positive",
+        "negative"
+      ],
+      "initial_position": "positive",
+      "initial_time_status": "clock_time_missing_record_order_only",
+      "start_operation": "single_click",
+      "hypothetical_prelude": true,
+      "hypothetical_duration_ms": 2500,
+      "hypothetical_transition_ms": 600,
+      "historical_clock_start_position": "negative",
+      "historical_clock_start_s": 0,
+      "waveform_during_hypothetical_prelude": "not_started",
+      "handoff_position": "negative",
+      "final_position": "negative",
+      "grouped_uncertainty_ranges": 0,
+      "single_transition_ranges": 0,
+      "sampled_hypothetical_phases": [
+        {
+          "elapsed_ms": 0,
+          "phase": "hypothetical_initial_hold",
+          "from_position": "positive",
+          "to_position": "negative",
+          "transition_progress": 0,
+          "displayed_position": "positive",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 500,
+          "phase": "hypothetical_initial_hold",
+          "from_position": "positive",
+          "to_position": "negative",
+          "transition_progress": 0,
+          "displayed_position": "positive",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 1000,
+          "phase": "hypothetical_initial_hold",
+          "from_position": "positive",
+          "to_position": "negative",
+          "transition_progress": 0,
+          "displayed_position": "positive",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 1500,
+          "phase": "hypothetical_initial_hold",
+          "from_position": "positive",
+          "to_position": "negative",
+          "transition_progress": 0,
+          "displayed_position": "positive",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 1899,
+          "phase": "hypothetical_initial_hold",
+          "from_position": "positive",
+          "to_position": "negative",
+          "transition_progress": 0,
+          "displayed_position": "positive",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 1900,
+          "phase": "hypothetical_initial_hold",
+          "from_position": "positive",
+          "to_position": "negative",
+          "transition_progress": 0,
+          "displayed_position": "positive",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 2100,
+          "phase": "hypothetical_transition",
+          "from_position": "positive",
+          "to_position": "negative",
+          "transition_progress": 0.333333,
+          "displayed_position": "positive",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 2300,
+          "phase": "hypothetical_transition",
+          "from_position": "positive",
+          "to_position": "negative",
+          "transition_progress": 0.666667,
+          "displayed_position": "positive",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 2499,
+          "phase": "hypothetical_transition",
+          "from_position": "positive",
+          "to_position": "negative",
+          "transition_progress": 0.998333,
+          "displayed_position": "positive",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 2500,
+          "phase": "historical_clock_start",
+          "from_position": "positive",
+          "to_position": "negative",
+          "transition_progress": 1,
+          "displayed_position": "negative",
+          "historical_clock_s": 0,
+          "waveform_started": true
+        }
+      ]
+    },
+    {
+      "experiment_id": "experiment-xii",
+      "data_key": "CAV-1798-EXP-XII",
+      "status": "PASS",
+      "position_sequence": [
+        "negative",
+        "positive"
+      ],
+      "initial_position": "negative",
+      "initial_time_status": "historical_clock_start_available",
+      "start_operation": "single_click",
+      "hypothetical_prelude": false,
+      "hypothetical_duration_ms": 0,
+      "hypothetical_transition_ms": 0,
+      "historical_clock_start_position": "negative",
+      "historical_clock_start_s": 0,
+      "waveform_during_hypothetical_prelude": "not_applicable",
+      "handoff_position": "negative",
+      "final_position": "positive",
+      "grouped_uncertainty_ranges": 0,
+      "single_transition_ranges": 1,
+      "sampled_hypothetical_phases": []
+    },
+    {
+      "experiment_id": "experiment-xiii",
+      "data_key": "CAV-1798-EXP-XIII",
+      "status": "PASS",
+      "position_sequence": [
+        "negative",
+        "positive",
+        "negative"
+      ],
+      "initial_position": "negative",
+      "initial_time_status": "clock_time_missing_record_order_only",
+      "start_operation": "single_click",
+      "hypothetical_prelude": true,
+      "hypothetical_duration_ms": 2500,
+      "hypothetical_transition_ms": 600,
+      "historical_clock_start_position": "positive",
+      "historical_clock_start_s": 0,
+      "waveform_during_hypothetical_prelude": "not_started",
+      "handoff_position": "positive",
+      "final_position": "negative",
+      "grouped_uncertainty_ranges": 0,
+      "single_transition_ranges": 1,
+      "sampled_hypothetical_phases": [
+        {
+          "elapsed_ms": 0,
+          "phase": "hypothetical_initial_hold",
+          "from_position": "negative",
+          "to_position": "positive",
+          "transition_progress": 0,
+          "displayed_position": "negative",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 500,
+          "phase": "hypothetical_initial_hold",
+          "from_position": "negative",
+          "to_position": "positive",
+          "transition_progress": 0,
+          "displayed_position": "negative",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 1000,
+          "phase": "hypothetical_initial_hold",
+          "from_position": "negative",
+          "to_position": "positive",
+          "transition_progress": 0,
+          "displayed_position": "negative",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 1500,
+          "phase": "hypothetical_initial_hold",
+          "from_position": "negative",
+          "to_position": "positive",
+          "transition_progress": 0,
+          "displayed_position": "negative",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 1899,
+          "phase": "hypothetical_initial_hold",
+          "from_position": "negative",
+          "to_position": "positive",
+          "transition_progress": 0,
+          "displayed_position": "negative",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 1900,
+          "phase": "hypothetical_initial_hold",
+          "from_position": "negative",
+          "to_position": "positive",
+          "transition_progress": 0,
+          "displayed_position": "negative",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 2100,
+          "phase": "hypothetical_transition",
+          "from_position": "negative",
+          "to_position": "positive",
+          "transition_progress": 0.333333,
+          "displayed_position": "negative",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 2300,
+          "phase": "hypothetical_transition",
+          "from_position": "negative",
+          "to_position": "positive",
+          "transition_progress": 0.666667,
+          "displayed_position": "negative",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 2499,
+          "phase": "hypothetical_transition",
+          "from_position": "negative",
+          "to_position": "positive",
+          "transition_progress": 0.998333,
+          "displayed_position": "negative",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 2500,
+          "phase": "historical_clock_start",
+          "from_position": "negative",
+          "to_position": "positive",
+          "transition_progress": 1,
+          "displayed_position": "positive",
+          "historical_clock_s": 0,
+          "waveform_started": true
+        }
+      ]
+    },
+    {
+      "experiment_id": "experiment-xiv",
+      "data_key": "CAV-1798-EXP-XIV",
+      "status": "PASS",
+      "position_sequence": [
+        "negative",
+        "positive",
+        "negative"
+      ],
+      "initial_position": "negative",
+      "initial_time_status": "historical_clock_start_available",
+      "start_operation": "single_click",
+      "hypothetical_prelude": false,
+      "hypothetical_duration_ms": 0,
+      "hypothetical_transition_ms": 0,
+      "historical_clock_start_position": "negative",
+      "historical_clock_start_s": 0,
+      "waveform_during_hypothetical_prelude": "not_applicable",
+      "handoff_position": "negative",
+      "final_position": "negative",
+      "grouped_uncertainty_ranges": 0,
+      "single_transition_ranges": 2,
+      "sampled_hypothetical_phases": []
+    },
+    {
+      "experiment_id": "experiment-xv",
+      "data_key": "CAV-1798-EXP-XV",
+      "status": "PASS",
+      "position_sequence": [
+        "negative",
+        "positive"
+      ],
+      "initial_position": "negative",
+      "initial_time_status": "clock_time_missing_record_order_only",
+      "start_operation": "single_click",
+      "hypothetical_prelude": true,
+      "hypothetical_duration_ms": 2500,
+      "hypothetical_transition_ms": 600,
+      "historical_clock_start_position": "positive",
+      "historical_clock_start_s": 0,
+      "waveform_during_hypothetical_prelude": "not_started",
+      "handoff_position": "positive",
+      "final_position": "positive",
+      "grouped_uncertainty_ranges": 0,
+      "single_transition_ranges": 0,
+      "sampled_hypothetical_phases": [
+        {
+          "elapsed_ms": 0,
+          "phase": "hypothetical_initial_hold",
+          "from_position": "negative",
+          "to_position": "positive",
+          "transition_progress": 0,
+          "displayed_position": "negative",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 500,
+          "phase": "hypothetical_initial_hold",
+          "from_position": "negative",
+          "to_position": "positive",
+          "transition_progress": 0,
+          "displayed_position": "negative",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 1000,
+          "phase": "hypothetical_initial_hold",
+          "from_position": "negative",
+          "to_position": "positive",
+          "transition_progress": 0,
+          "displayed_position": "negative",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 1500,
+          "phase": "hypothetical_initial_hold",
+          "from_position": "negative",
+          "to_position": "positive",
+          "transition_progress": 0,
+          "displayed_position": "negative",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 1899,
+          "phase": "hypothetical_initial_hold",
+          "from_position": "negative",
+          "to_position": "positive",
+          "transition_progress": 0,
+          "displayed_position": "negative",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 1900,
+          "phase": "hypothetical_initial_hold",
+          "from_position": "negative",
+          "to_position": "positive",
+          "transition_progress": 0,
+          "displayed_position": "negative",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 2100,
+          "phase": "hypothetical_transition",
+          "from_position": "negative",
+          "to_position": "positive",
+          "transition_progress": 0.333333,
+          "displayed_position": "negative",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 2300,
+          "phase": "hypothetical_transition",
+          "from_position": "negative",
+          "to_position": "positive",
+          "transition_progress": 0.666667,
+          "displayed_position": "negative",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 2499,
+          "phase": "hypothetical_transition",
+          "from_position": "negative",
+          "to_position": "positive",
+          "transition_progress": 0.998333,
+          "displayed_position": "negative",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 2500,
+          "phase": "historical_clock_start",
+          "from_position": "negative",
+          "to_position": "positive",
+          "transition_progress": 1,
+          "displayed_position": "positive",
+          "historical_clock_s": 0,
+          "waveform_started": true
+        }
+      ]
+    },
+    {
+      "experiment_id": "experiment-xvi",
+      "data_key": "CAV-1798-EXP-XVI",
+      "status": "PASS",
+      "position_sequence": [
+        "negative",
+        "positive"
+      ],
+      "initial_position": "negative",
+      "initial_time_status": "clock_time_missing_record_order_only",
+      "start_operation": "single_click",
+      "hypothetical_prelude": true,
+      "hypothetical_duration_ms": 2500,
+      "hypothetical_transition_ms": 600,
+      "historical_clock_start_position": "positive",
+      "historical_clock_start_s": 0,
+      "waveform_during_hypothetical_prelude": "not_started",
+      "handoff_position": "positive",
+      "final_position": "positive",
+      "grouped_uncertainty_ranges": 0,
+      "single_transition_ranges": 0,
+      "sampled_hypothetical_phases": [
+        {
+          "elapsed_ms": 0,
+          "phase": "hypothetical_initial_hold",
+          "from_position": "negative",
+          "to_position": "positive",
+          "transition_progress": 0,
+          "displayed_position": "negative",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 500,
+          "phase": "hypothetical_initial_hold",
+          "from_position": "negative",
+          "to_position": "positive",
+          "transition_progress": 0,
+          "displayed_position": "negative",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 1000,
+          "phase": "hypothetical_initial_hold",
+          "from_position": "negative",
+          "to_position": "positive",
+          "transition_progress": 0,
+          "displayed_position": "negative",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 1500,
+          "phase": "hypothetical_initial_hold",
+          "from_position": "negative",
+          "to_position": "positive",
+          "transition_progress": 0,
+          "displayed_position": "negative",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 1899,
+          "phase": "hypothetical_initial_hold",
+          "from_position": "negative",
+          "to_position": "positive",
+          "transition_progress": 0,
+          "displayed_position": "negative",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 1900,
+          "phase": "hypothetical_initial_hold",
+          "from_position": "negative",
+          "to_position": "positive",
+          "transition_progress": 0,
+          "displayed_position": "negative",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 2100,
+          "phase": "hypothetical_transition",
+          "from_position": "negative",
+          "to_position": "positive",
+          "transition_progress": 0.333333,
+          "displayed_position": "negative",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 2300,
+          "phase": "hypothetical_transition",
+          "from_position": "negative",
+          "to_position": "positive",
+          "transition_progress": 0.666667,
+          "displayed_position": "negative",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 2499,
+          "phase": "hypothetical_transition",
+          "from_position": "negative",
+          "to_position": "positive",
+          "transition_progress": 0.998333,
+          "displayed_position": "negative",
+          "historical_clock_s": 0,
+          "waveform_started": false
+        },
+        {
+          "elapsed_ms": 2500,
+          "phase": "historical_clock_start",
+          "from_position": "negative",
+          "to_position": "positive",
+          "transition_progress": 1,
+          "displayed_position": "positive",
+          "historical_clock_s": 0,
+          "waveform_started": true
+        }
+      ]
+    },
+    {
+      "experiment_id": "experiment-xvii",
+      "data_key": "CAV-1798-EXP-XVII",
+      "status": "PASS",
+      "position_sequence": [
+        "negative",
+        "positive",
+        "negative"
+      ],
+      "initial_position": "negative",
+      "initial_time_status": "historical_clock_start_available",
+      "start_operation": "single_click",
+      "hypothetical_prelude": false,
+      "hypothetical_duration_ms": 0,
+      "hypothetical_transition_ms": 0,
+      "historical_clock_start_position": "negative",
+      "historical_clock_start_s": 0,
+      "waveform_during_hypothetical_prelude": "not_applicable",
+      "handoff_position": "negative",
+      "final_position": "negative",
+      "grouped_uncertainty_ranges": 0,
+      "single_transition_ranges": 2,
+      "sampled_hypothetical_phases": []
+    }
+  ]
+}

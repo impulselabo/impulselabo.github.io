@@ -1,0 +1,132 @@
+{
+  "version": "CV081A09-1",
+  "unit": "inch",
+  "coordinate_system": {
+    "origin": "C: torsion axis / horizontal arm intersection",
+    "x": "+ right along case",
+    "y": "+ upward",
+    "z": "+ front"
+  },
+  "confirmed_dimensions": {
+    "torsion_wire_length": 40.0,
+    "small_ball_center_spacing": 73.3,
+    "small_ball_diameter_approx": 2.0,
+    "small_ball_vertical_drop": 5.5,
+    "reader_radius": 38.3,
+    "main_scale_division": 0.05,
+    "vernier_resolution": 0.01,
+    "large_orbit_radius": 36.65,
+    "large_near_offset_z": 8.85,
+    "copper_rod_ball_segment": 16.0,
+    "copper_rod_upper_segment": 46.0,
+    "copper_rod_total": 62.0,
+    "case_inner_x": 3.5,
+    "case_inner_y": 3.6,
+    "case_inner_z": 6.75,
+    "case_thickness": 0.75,
+    "stop_gap": 0.2
+  },
+  "derived_dimensions": {
+    "large_near_x": 35.56543266,
+    "large_switch_half_angle_deg": 13.97351777,
+    "large_switch_angle_deg": 27.94703553,
+    "large_ball_diameter_approx": 12.0
+  },
+  "key_coordinates_C_origin": {
+    "C": [
+      0,
+      0,
+      0
+    ],
+    "small_ball_left": [
+      -36.65,
+      -5.5,
+      0
+    ],
+    "small_ball_right": [
+      36.65,
+      -5.5,
+      0
+    ],
+    "reader_left": [
+      -38.3,
+      1.0,
+      0
+    ],
+    "reader_right": [
+      38.3,
+      1.0,
+      0
+    ],
+    "torsion_wire_top": [
+      0,
+      40,
+      0
+    ],
+    "large_near_left_A": [
+      -35.56543266,
+      -11.65988737,
+      8.85
+    ],
+    "large_near_right_A": [
+      35.56543266,
+      -11.65988737,
+      -8.85
+    ]
+  },
+  "classification": {
+    "confirmed_text": [
+      "wire length",
+      "ball spacing",
+      "small-ball drop",
+      "reader radius",
+      "near offset",
+      "copper rod segments",
+      "case dimensions",
+      "case thickness"
+    ],
+    "derived_from_confirmed": [
+      "switch angle",
+      "near-position X",
+      "large-ball diameter approximation"
+    ],
+    "figure_calibrated": [
+      "central case tower/shoulders",
+      "P support height",
+      "120-degree branch",
+      "pulley diameter/height",
+      "building frame"
+    ],
+    "explanatory_inference": [
+      "lamp Z",
+      "telescope Z",
+      "light cone",
+      "field of view"
+    ]
+  },
+  "coordinate_audit": {
+    "scene_world_origin_note": "WebGL world Y is offset; historical coordinate C maps to world [0, -29.50, 0].",
+    "C_world": [
+      0,
+      -29.5,
+      0
+    ],
+    "relative_to_world": "world = coordinate + C_world",
+    "orthographic_views": {
+      "front": {
+        "plane": "X-Y",
+        "view_direction": "+Z to C"
+      },
+      "side": {
+        "plane": "Z-Y",
+        "view_direction": "+X to C"
+      },
+      "top": {
+        "plane": "X-Z",
+        "view_direction": "+Y to C"
+      }
+    },
+    "internal_residual_unit": "inch",
+    "interpretation": "Zero residual verifies model coordinate connectivity, not historical certainty of figure-calibrated points."
+  }
+}

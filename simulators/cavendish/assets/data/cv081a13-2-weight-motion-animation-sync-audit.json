@@ -1,0 +1,139 @@
+{
+  "audit_id": "CV081A13-2-WEIGHT-MOTION-ANIMATION-3D-SYNC-AUDIT",
+  "date_jst": "2026-07-20",
+  "baseline_zip": "CV081A131.zip",
+  "application_build": "CV081A05",
+  "status": "AUDIT_COMPLETE_ANIMATION_AND_CROSS_VIEW_SYNC_FAIL",
+  "public_files_modified": false,
+  "counts": {
+    "現状OK": 4,
+    "表示修正": 2,
+    "機能修正": 3,
+    "史実再確認": 0,
+    "保留": 2
+  },
+  "scope": [
+    "Motion View stable position geometry",
+    "Motion View hypothetical untimed initial animation",
+    "historical transition interval rendering",
+    "3D phase slider and three-position playback",
+    "Motion View / 3D cross-view orientation and radius consistency",
+    "all 17 Experiment position-sequence regression"
+  ],
+  "motion_view": {
+    "stable_metrics": {
+      "positive": {
+        "midpoint_percent": [
+          50.0,
+          52.0
+        ],
+        "diameter_percent": 74.88658090739622,
+        "radii_percent": [
+          36.359317925395686,
+          38.600518131237564
+        ],
+        "axis_angle_from_horizontal_deg": 34.11447294534126
+      },
+      "negative": {
+        "midpoint_percent": [
+          50.0,
+          51.0
+        ],
+        "diameter_percent": 85.60373823613078,
+        "radii_percent": [
+          42.20189569201838,
+          43.41658669218482
+        ],
+        "axis_angle_from_horizontal_deg": 37.40535663140855
+      },
+      "midway": {
+        "midpoint_percent": [
+          50.0,
+          50.0
+        ],
+        "diameter_percent": 70.0,
+        "radii_percent": [
+          35.0,
+          35.0
+        ],
+        "axis_angle_from_horizontal_deg": 90.0
+      }
+    },
+    "positive_to_midway_chord": {
+      "segment": "positive_to_midway",
+      "minimum_pair_spacing_percent": 63.79594197909457,
+      "minimum_radius_from_stage_center_percent": 31.101723041818758,
+      "maximum_pair_center_drift_percent": 2.0
+    },
+    "midway_to_negative_chord": {
+      "segment": "midway_to_negative",
+      "minimum_pair_spacing_percent": 67.66936603574767,
+      "minimum_radius_from_stage_center_percent": 33.57779258140714,
+      "maximum_pair_center_drift_percent": 1.0
+    },
+    "historical_transition_policy": "Recorded or bounded historical transitions are not continuously interpolated; the prior stable position is held and the unknown route is disclosed.",
+    "exception": "The approximately 2.5-second untimed initial prelude uses Cartesian x/y interpolation and is labelled hypothetical.",
+    "decision": "STATIC_GEOMETRY_NOT_SHARED_WITH_3D_AND_PRELUDE_ANIMATION_NOT_RIGID_ROTATION"
+  },
+  "three_d": {
+    "support_radius_in": 36.65,
+    "support_spacing_in": 73.3,
+    "near_position_angle_each_deg": 13.973517767216551,
+    "positive_to_midway": {
+      "segment": "positive_to_midway",
+      "midpoint_radius_in": 28.875378785394314,
+      "midpoint_support_spacing_in": 57.75075757078863,
+      "radius_contraction_percent": 21.213154746536656
+    },
+    "midway_to_negative": {
+      "segment": "midway_to_negative",
+      "midpoint_radius_in": 22.570666804505354,
+      "midpoint_support_spacing_in": 45.14133360901071,
+      "radius_contraction_percent": 38.41564309821186
+    },
+    "stable_anchor_policy": "positive, midway and negative endpoints are diametric and use radius 36.65 in",
+    "interpolation_policy": "Cartesian mix between independently defined anchors",
+    "playback_policy": {
+      "targets": [
+        0,
+        0.5,
+        1,
+        0
+      ],
+      "single_leg_duration_ms": 1500,
+      "pause_after_each_target_ms": 320,
+      "final_negative_to_positive_leg": "phase 1 to 0 crosses midway without a target pause and traverses two segments in the same 1500 ms used for one segment"
+    },
+    "decision": "STABLE_ENDPOINTS_PASS_INTERPOLATION_AND_SEQUENCE_PLAYBACK_FAIL"
+  },
+  "cross_view_sync": {
+    "qualitative_direction_labels": "PASS — positive is left-up/right-down, negative is left-down/right-up, midway is vertical in both views",
+    "quantitative_axis_angle": {
+      "motion_view_positive_abs_deg": 34.11447294534126,
+      "three_d_positive_abs_deg": 13.973517767216551,
+      "difference_deg": 20.140955178124713,
+      "motion_view_negative_abs_deg": 37.40535663140855,
+      "three_d_negative_abs_deg": 13.973517767216551,
+      "negative_difference_deg": 23.431838864192002
+    },
+    "shared_coordinate_provider": false,
+    "runtime_state_link": "none; separate pages and independently hard-coded geometry",
+    "decision": "LABEL_SYNC_ONLY_GEOMETRY_NOT_SYNCHRONIZED"
+  },
+  "historical_scope": {
+    "all_17_position_sequences": "PASS — no data change",
+    "historical_route_direction_speed_duration": "not specified in the primary source",
+    "midway_exact_angle_coordinate": "not specified in the primary source",
+    "continuous_historical_motion": "must not be presented as measured motion"
+  },
+  "overall_decision": {
+    "motion_view_stable_display": "DISPLAY FIX REQUIRED",
+    "motion_view_hypothetical_prelude": "FUNCTION FIX REQUIRED",
+    "historical_transition_intervals": "PASS — discrete/unknown route policy retained",
+    "three_d_stable_endpoints": "PASS as explanatory anchors",
+    "three_d_interpolation": "FUNCTION FIX REQUIRED",
+    "three_d_sequence_playback": "FUNCTION FIX REQUIRED",
+    "motion_view_three_d_sync": "DISPLAY/ARCHITECTURE FIX REQUIRED",
+    "fix_ready": false
+  }
+}

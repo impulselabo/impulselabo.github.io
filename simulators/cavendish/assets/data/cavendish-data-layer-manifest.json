@@ -1,0 +1,435 @@
+{
+  "schema_version": "1.0.0",
+  "build": "CV079B02",
+  "raw_data_build": "CV079A02",
+  "raw_data_hashes": {
+    "javascript_sha256": "15cc4f6c9c6ee5596547ff1a17d711c5f918f8378a971fcf14976a19f20c96e7",
+    "json_sha256": "1355046b4cbb635e824278163164754c95554b6aa13fd7345597a87939647736"
+  },
+  "status": "historical_layers_separated_experiment_i_semantics_defined_replay_unchanged",
+  "policies": {
+    "historical_source": "Directly printed observations, clocks, temperatures and mass-position events. No application model time is stored in this layer.",
+    "historical_printed_calculation": "Point of rest, printed differences, periods and summary motions as printed by Cavendish. These are historical source values but are not direct observations.",
+    "reconstruction": "Application-only placement, interpolation and playback compression. Reconstruction values must never be represented as historical clock data.",
+    "experiment_i_semantics": "Experiment I cell meanings, certainty, method relations and prohibited reconstruction regions are defined in CV079B02. Existing compatibility replay remains provisional and is not validated by this semantic definition."
+  },
+  "totals": {
+    "experiments": 17,
+    "historical_source_records": 679,
+    "historical_printed_calculation_records": 260,
+    "compatibility_anchors": 668,
+    "reconstruction_records": 668,
+    "application_calculation_records": 67,
+    "reconstruction_segments": 20
+  },
+  "experiments": [
+    {
+      "experiment_id": "experiment-i",
+      "data_key": "CAV-1798-EXP-I",
+      "historical_source_records": 30,
+      "historical_source_kinds": {
+        "row_clock_time": 3,
+        "division_reading": 3,
+        "mass_position_event": 2,
+        "extreme_point": 10,
+        "division_crossing": 8,
+        "middle_vibration_time": 4
+      },
+      "historical_printed_calculation_records": 13,
+      "historical_calculation_kinds": {
+        "point_of_rest": 7,
+        "vibration_interval": 3,
+        "summary_motion": 2,
+        "summary_vibration_period": 1
+      },
+      "compatibility_anchors": 21,
+      "reconstructed_time_anchors": 10,
+      "reconstruction_records": 21,
+      "application_calculation_records": 4,
+      "reconstruction_segments": 4,
+      "replay_status": "separated_provisional_replay"
+    },
+    {
+      "experiment_id": "experiment-ii",
+      "data_key": "CAV-1798-EXP-II",
+      "historical_source_records": 38,
+      "historical_source_kinds": {
+        "row_clock_time": 4,
+        "division_reading": 4,
+        "extreme_point": 15,
+        "division_crossing": 10,
+        "middle_vibration_time": 5
+      },
+      "historical_printed_calculation_records": 19,
+      "historical_calculation_kinds": {
+        "point_of_rest": 12,
+        "vibration_interval": 4,
+        "summary_motion": 2,
+        "summary_vibration_period": 1
+      },
+      "compatibility_anchors": 41,
+      "reconstructed_time_anchors": 22,
+      "reconstruction_records": 41,
+      "application_calculation_records": 4,
+      "reconstruction_segments": 1,
+      "replay_status": "separated_provisional_replay"
+    },
+    {
+      "experiment_id": "experiment-iii",
+      "data_key": "CAV-1798-EXP-III",
+      "historical_source_records": 36,
+      "historical_source_kinds": {
+        "extreme_point": 15,
+        "division_crossing": 14,
+        "middle_vibration_time": 7
+      },
+      "historical_printed_calculation_records": 17,
+      "historical_calculation_kinds": {
+        "point_of_rest": 9,
+        "vibration_interval": 4,
+        "summary_motion": 2,
+        "summary_vibration_period": 2
+      },
+      "compatibility_anchors": 38,
+      "reconstructed_time_anchors": 20,
+      "reconstruction_records": 38,
+      "application_calculation_records": 4,
+      "reconstruction_segments": 1,
+      "replay_status": "separated_provisional_replay"
+    },
+    {
+      "experiment_id": "experiment-iv",
+      "data_key": "CAV-1798-EXP-IV",
+      "historical_source_records": 64,
+      "historical_source_kinds": {
+        "row_clock_time": 3,
+        "division_reading": 3,
+        "extreme_point": 22,
+        "division_crossing": 24,
+        "middle_vibration_time": 12
+      },
+      "historical_printed_calculation_records": 32,
+      "historical_calculation_kinds": {
+        "point_of_rest": 17,
+        "vibration_interval": 10,
+        "summary_motion": 3,
+        "summary_vibration_period": 2
+      },
+      "compatibility_anchors": 66,
+      "reconstructed_time_anchors": 28,
+      "reconstruction_records": 66,
+      "application_calculation_records": 6,
+      "reconstruction_segments": 1,
+      "replay_status": "separated_provisional_replay"
+    },
+    {
+      "experiment_id": "experiment-v",
+      "data_key": "CAV-1798-EXP-V",
+      "historical_source_records": 49,
+      "historical_source_kinds": {
+        "extreme_point": 28,
+        "division_crossing": 14,
+        "middle_vibration_time": 7
+      },
+      "historical_printed_calculation_records": 29,
+      "historical_calculation_kinds": {
+        "point_of_rest": 22,
+        "vibration_interval": 3,
+        "summary_motion": 2,
+        "summary_vibration_period": 2
+      },
+      "compatibility_anchors": 64,
+      "reconstructed_time_anchors": 45,
+      "reconstruction_records": 64,
+      "application_calculation_records": 4,
+      "reconstruction_segments": 1,
+      "replay_status": "separated_provisional_replay"
+    },
+    {
+      "experiment_id": "experiment-vi",
+      "data_key": "CAV-1798-EXP-VI",
+      "historical_source_records": 44,
+      "historical_source_kinds": {
+        "row_clock_time": 19,
+        "division_reading": 2,
+        "thermometer_air": 4,
+        "extreme_point": 17,
+        "thermometer_weight": 2
+      },
+      "historical_printed_calculation_records": 12,
+      "historical_calculation_kinds": {
+        "point_of_rest": 10,
+        "summary_motion": 2
+      },
+      "compatibility_anchors": 29,
+      "reconstructed_time_anchors": 17,
+      "reconstruction_records": 29,
+      "application_calculation_records": 5,
+      "reconstruction_segments": 1,
+      "replay_status": "separated_provisional_replay"
+    },
+    {
+      "experiment_id": "experiment-vii",
+      "data_key": "CAV-1798-EXP-VII",
+      "historical_source_records": 32,
+      "historical_source_kinds": {
+        "row_clock_time": 14,
+        "division_reading": 2,
+        "thermometer_air": 3,
+        "extreme_point": 12,
+        "thermometer_weight": 1
+      },
+      "historical_printed_calculation_records": 6,
+      "historical_calculation_kinds": {
+        "point_of_rest": 4,
+        "summary_motion": 2
+      },
+      "compatibility_anchors": 18,
+      "reconstructed_time_anchors": 12,
+      "reconstruction_records": 18,
+      "application_calculation_records": 5,
+      "reconstruction_segments": 1,
+      "replay_status": "separated_provisional_replay"
+    },
+    {
+      "experiment_id": "experiment-viii",
+      "data_key": "CAV-1798-EXP-VIII",
+      "historical_source_records": 33,
+      "historical_source_kinds": {
+        "row_clock_time": 14,
+        "division_reading": 2,
+        "thermometer_air": 3,
+        "extreme_point": 12,
+        "thermometer_weight": 2
+      },
+      "historical_printed_calculation_records": 7,
+      "historical_calculation_kinds": {
+        "point_of_rest": 5,
+        "summary_motion": 2
+      },
+      "compatibility_anchors": 19,
+      "reconstructed_time_anchors": 12,
+      "reconstruction_records": 19,
+      "application_calculation_records": 5,
+      "reconstruction_segments": 1,
+      "replay_status": "separated_provisional_replay"
+    },
+    {
+      "experiment_id": "experiment-ix",
+      "data_key": "CAV-1798-EXP-IX",
+      "historical_source_records": 21,
+      "historical_source_kinds": {
+        "extreme_point": 12,
+        "division_crossing": 6,
+        "middle_vibration_time": 3
+      },
+      "historical_printed_calculation_records": 10,
+      "historical_calculation_kinds": {
+        "point_of_rest": 8,
+        "summary_motion": 1,
+        "summary_vibration_period": 1
+      },
+      "compatibility_anchors": 26,
+      "reconstructed_time_anchors": 18,
+      "reconstruction_records": 26,
+      "application_calculation_records": 3,
+      "reconstruction_segments": 1,
+      "replay_status": "separated_provisional_replay"
+    },
+    {
+      "experiment_id": "experiment-x",
+      "data_key": "CAV-1798-EXP-X",
+      "historical_source_records": 28,
+      "historical_source_kinds": {
+        "extreme_point": 13,
+        "division_crossing": 10,
+        "middle_vibration_time": 5
+      },
+      "historical_printed_calculation_records": 14,
+      "historical_calculation_kinds": {
+        "point_of_rest": 9,
+        "vibration_interval": 3,
+        "summary_motion": 1,
+        "summary_vibration_period": 1
+      },
+      "compatibility_anchors": 32,
+      "reconstructed_time_anchors": 18,
+      "reconstruction_records": 32,
+      "application_calculation_records": 3,
+      "reconstruction_segments": 1,
+      "replay_status": "separated_provisional_replay"
+    },
+    {
+      "experiment_id": "experiment-xi",
+      "data_key": "CAV-1798-EXP-XI",
+      "historical_source_records": 24,
+      "historical_source_kinds": {
+        "extreme_point": 13,
+        "division_crossing": 8,
+        "middle_vibration_time": 3
+      },
+      "historical_printed_calculation_records": 10,
+      "historical_calculation_kinds": {
+        "point_of_rest": 7,
+        "vibration_interval": 1,
+        "summary_motion": 1,
+        "summary_vibration_period": 1
+      },
+      "compatibility_anchors": 28,
+      "reconstructed_time_anchors": 18,
+      "reconstruction_records": 28,
+      "application_calculation_records": 3,
+      "reconstruction_segments": 1,
+      "replay_status": "separated_provisional_replay"
+    },
+    {
+      "experiment_id": "experiment-xii",
+      "data_key": "CAV-1798-EXP-XII",
+      "historical_source_records": 26,
+      "historical_source_kinds": {
+        "row_clock_time": 4,
+        "division_reading": 4,
+        "extreme_point": 9,
+        "division_crossing": 6,
+        "middle_vibration_time": 3
+      },
+      "historical_printed_calculation_records": 10,
+      "historical_calculation_kinds": {
+        "point_of_rest": 8,
+        "summary_motion": 1,
+        "summary_vibration_period": 1
+      },
+      "compatibility_anchors": 27,
+      "reconstructed_time_anchors": 14,
+      "reconstruction_records": 27,
+      "application_calculation_records": 3,
+      "reconstruction_segments": 1,
+      "replay_status": "separated_provisional_replay"
+    },
+    {
+      "experiment_id": "experiment-xiii",
+      "data_key": "CAV-1798-EXP-XIII",
+      "historical_source_records": 52,
+      "historical_source_kinds": {
+        "extreme_point": 22,
+        "division_crossing": 20,
+        "middle_vibration_time": 10
+      },
+      "historical_printed_calculation_records": 20,
+      "historical_calculation_kinds": {
+        "point_of_rest": 16,
+        "summary_motion": 2,
+        "summary_vibration_period": 2
+      },
+      "compatibility_anchors": 58,
+      "reconstructed_time_anchors": 29,
+      "reconstruction_records": 58,
+      "application_calculation_records": 4,
+      "reconstruction_segments": 1,
+      "replay_status": "separated_provisional_replay"
+    },
+    {
+      "experiment_id": "experiment-xiv",
+      "data_key": "CAV-1798-EXP-XIV",
+      "historical_source_records": 53,
+      "historical_source_kinds": {
+        "row_clock_time": 4,
+        "division_reading": 4,
+        "extreme_point": 18,
+        "division_crossing": 18,
+        "middle_vibration_time": 9
+      },
+      "historical_printed_calculation_records": 19,
+      "historical_calculation_kinds": {
+        "point_of_rest": 15,
+        "summary_motion": 2,
+        "summary_vibration_period": 2
+      },
+      "compatibility_anchors": 55,
+      "reconstructed_time_anchors": 25,
+      "reconstruction_records": 55,
+      "application_calculation_records": 4,
+      "reconstruction_segments": 1,
+      "replay_status": "separated_provisional_replay"
+    },
+    {
+      "experiment_id": "experiment-xv",
+      "data_key": "CAV-1798-EXP-XV",
+      "historical_source_records": 28,
+      "historical_source_kinds": {
+        "extreme_point": 13,
+        "division_crossing": 10,
+        "middle_vibration_time": 5
+      },
+      "historical_printed_calculation_records": 11,
+      "historical_calculation_kinds": {
+        "point_of_rest": 9,
+        "summary_motion": 1,
+        "summary_vibration_period": 1
+      },
+      "compatibility_anchors": 32,
+      "reconstructed_time_anchors": 18,
+      "reconstruction_records": 32,
+      "application_calculation_records": 3,
+      "reconstruction_segments": 1,
+      "replay_status": "separated_provisional_replay"
+    },
+    {
+      "experiment_id": "experiment-xvi",
+      "data_key": "CAV-1798-EXP-XVI",
+      "historical_source_records": 33,
+      "historical_source_kinds": {
+        "extreme_point": 12,
+        "division_crossing": 14,
+        "middle_vibration_time": 7
+      },
+      "historical_printed_calculation_records": 10,
+      "historical_calculation_kinds": {
+        "point_of_rest": 8,
+        "summary_motion": 1,
+        "summary_vibration_period": 1
+      },
+      "compatibility_anchors": 34,
+      "reconstructed_time_anchors": 14,
+      "reconstruction_records": 34,
+      "application_calculation_records": 3,
+      "reconstruction_segments": 1,
+      "replay_status": "separated_provisional_replay"
+    },
+    {
+      "experiment_id": "experiment-xvii",
+      "data_key": "CAV-1798-EXP-XVII",
+      "historical_source_records": 88,
+      "historical_source_kinds": {
+        "row_clock_time": 7,
+        "division_reading": 7,
+        "extreme_point": 20,
+        "division_crossing": 36,
+        "middle_vibration_time": 18
+      },
+      "historical_printed_calculation_records": 21,
+      "historical_calculation_kinds": {
+        "point_of_rest": 17,
+        "summary_motion": 2,
+        "summary_vibration_period": 2
+      },
+      "compatibility_anchors": 80,
+      "reconstructed_time_anchors": 20,
+      "reconstruction_records": 80,
+      "application_calculation_records": 4,
+      "reconstruction_segments": 1,
+      "replay_status": "separated_provisional_replay"
+    }
+  ],
+  "experiment_i_semantics": {
+    "build": "CV079B02",
+    "file": "assets/data/cavendish-experiment-i-semantics.json",
+    "cell_semantic_records": 43,
+    "method_relations": 17,
+    "allowed_rules": 5,
+    "prohibited_rules": 7,
+    "replay_changed": false,
+    "status": "semantic_definition_complete_known_noncompliant_replay",
+    "compatibility_conflicts": 4
+  }
+}

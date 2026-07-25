@@ -1,0 +1,1383 @@
+window.CAVENDISH_COLUMN_SEMANTICS_AUDIT = {
+  "schema_version": "1.0",
+  "audit_id": "CV080A07",
+  "title": "Experiment I-XVII original-table column semantics re-audit",
+  "status": "audit_only_not_connected_to_experiment_ii_xvii_display",
+  "base_ui_build": "CV080A05RB",
+  "source": {
+    "paper": "Henry Cavendish, Experiments to Determine the Density of the Earth (1798)",
+    "method_pages": [
+      474,
+      475,
+      476
+    ],
+    "experiment_table_pages": [
+      480,
+      482,
+      483,
+      484,
+      486,
+      487,
+      488,
+      489,
+      493,
+      494,
+      495,
+      497,
+      498,
+      499,
+      500,
+      501,
+      502,
+      503,
+      504,
+      505,
+      506,
+      507,
+      508
+    ]
+  },
+  "global_findings": [
+    "The original paper defines extreme points, intermediate divisions, crossing times, calculated point of rest, and interpolated time of the middle of vibration as different quantities.",
+    "For crossing-interpolation tables, Time and Time of middle of vibration must not be treated as timestamps of the extreme point in the same visual row.",
+    "Experiments VI-VIII use a different table form in which moving-section extreme points have same-row direct clock times.",
+    "Point of rest is a calculated quantity and must not be plotted as a direct historical observation sample.",
+    "Only Experiment I prints exact weight-movement clock times; other transition headings do not establish a single exact movement time."
+  ],
+  "table_families": {
+    "crossing_interpolation_table": {
+      "experiments": [
+        "I",
+        "II",
+        "III",
+        "IV",
+        "V",
+        "IX",
+        "X",
+        "XI",
+        "XII",
+        "XIII",
+        "XIV",
+        "XV",
+        "XVI",
+        "XVII"
+      ],
+      "columns": [
+        "Extreme points",
+        "Divisions",
+        "Time",
+        "Point of rest",
+        "Time of middle of vibration",
+        "Difference (when printed)"
+      ],
+      "core_rule": "Extreme points are untimed; Divisions+Time are direct crossing observations; Time of middle of vibration is interpolated."
+    },
+    "direct_extreme_clock_table": {
+      "experiments": [
+        "VI",
+        "VII",
+        "VIII"
+      ],
+      "columns": [
+        "Extreme points",
+        "Divisions",
+        "Time",
+        "Point of rest",
+        "Thermometer in Air",
+        "Thermometer in Weight"
+      ],
+      "core_rule": "In moving sections, each printed extreme point is paired with the same-row direct clock time; missed lines remain gaps."
+    }
+  },
+  "experiments": [
+    {
+      "experiment": "I",
+      "experiment_number": 1,
+      "date_original": "Aug. 5",
+      "source_pages": [
+        480
+      ],
+      "table_family": "crossing_interpolation_table",
+      "sections": [
+        {
+          "label": "Weights in midway position",
+          "mass_position": "midway",
+          "row_count": 3,
+          "modes": [
+            "static_division_direct_clock"
+          ]
+        },
+        {
+          "label": "Weights moved to positive position",
+          "mass_position": "positive",
+          "row_count": 5,
+          "modes": [
+            "extreme_point_untimed_sequence"
+          ]
+        },
+        {
+          "label": "Weights returned back to midway position",
+          "mass_position": "midway",
+          "row_count": 5,
+          "modes": [
+            "division_crossings_direct_clock",
+            "extreme_point_untimed_sequence",
+            "middle_of_vibration_interpolated_time"
+          ]
+        }
+      ],
+      "counts": {
+        "row_count": 13,
+        "static_division_clock_count": 3,
+        "direct_extreme_clock_count": 0,
+        "division_crossing_event_count": 8,
+        "derived_middle_time_count": 4,
+        "point_of_rest_count": 7,
+        "extreme_point_count": 10,
+        "missed_marker_count": 0
+      },
+      "transitions": [
+        {
+          "from": "midway",
+          "to": "positive",
+          "evidence": "exact_printed_time",
+          "printed_time": "10:05",
+          "source_page": 480
+        },
+        {
+          "from": "positive",
+          "to": "midway",
+          "evidence": "exact_printed_time",
+          "printed_time": "11:06",
+          "source_page": 480
+        }
+      ],
+      "semantic_decision": {
+        "extreme_points": "successive_turning_points",
+        "point_of_rest": "calculated_from_three_successive_extremes_not_direct_sample",
+        "thermometer": "metadata_not_waveform_sample",
+        "divisions": "intermediate_scale_crossings_near_vibration_middle_or_static_reading_in_rest_section",
+        "time": "clock_time_of_division_crossing_or_static_division_reading_not_extreme_timestamp",
+        "time_of_mid_vibration": "interpolated_time_arm_crossed_computed_middle_point_not_extreme_timestamp",
+        "difference": "interval_between_selected_middle_of_vibration_times"
+      },
+      "absolute_clock_waveform": {
+        "direct_extreme_points_supported": false,
+        "reason": "extreme_points_have_no_direct_clock_time; middle-of-vibration times belong to interpolated crossings",
+        "allowed_direct_clock_events": [
+          "static division readings",
+          "division crossing events"
+        ]
+      },
+      "display_recommendation": "existing_constrained_physical_reconstruction_protected",
+      "audit_status": "column_meaning_confirmed_display_not_reconnected"
+    },
+    {
+      "experiment": "II",
+      "experiment_number": 2,
+      "date_original": "Aug. 6",
+      "source_pages": [
+        482,
+        483
+      ],
+      "table_family": "crossing_interpolation_table",
+      "sections": [
+        {
+          "label": "Weights in midway position",
+          "mass_position": "midway",
+          "row_count": 4,
+          "modes": [
+            "static_division_direct_clock"
+          ]
+        },
+        {
+          "label": "Weights moved to positive position",
+          "mass_position": "positive",
+          "row_count": 9,
+          "modes": [
+            "extreme_point_untimed_sequence"
+          ]
+        },
+        {
+          "label": "Weights returned to midway position",
+          "mass_position": "midway",
+          "row_count": 6,
+          "modes": [
+            "division_crossings_direct_clock",
+            "extreme_point_untimed_sequence",
+            "middle_of_vibration_interpolated_time"
+          ]
+        }
+      ],
+      "counts": {
+        "row_count": 19,
+        "static_division_clock_count": 4,
+        "direct_extreme_clock_count": 0,
+        "division_crossing_event_count": 10,
+        "derived_middle_time_count": 5,
+        "point_of_rest_count": 12,
+        "extreme_point_count": 15,
+        "missed_marker_count": 0
+      },
+      "transitions": [
+        {
+          "from": "midway",
+          "to": "positive",
+          "evidence": "not_separately_clocked"
+        },
+        {
+          "from": "positive",
+          "to": "midway",
+          "evidence": "not_separately_clocked"
+        }
+      ],
+      "semantic_decision": {
+        "extreme_points": "successive_turning_points",
+        "point_of_rest": "calculated_from_three_successive_extremes_not_direct_sample",
+        "thermometer": "metadata_not_waveform_sample",
+        "divisions": "intermediate_scale_crossings_near_vibration_middle_or_static_reading_in_rest_section",
+        "time": "clock_time_of_division_crossing_or_static_division_reading_not_extreme_timestamp",
+        "time_of_mid_vibration": "interpolated_time_arm_crossed_computed_middle_point_not_extreme_timestamp",
+        "difference": "interval_between_selected_middle_of_vibration_times"
+      },
+      "absolute_clock_waveform": {
+        "direct_extreme_points_supported": false,
+        "reason": "extreme_points_have_no_direct_clock_time; middle-of-vibration times belong to interpolated crossings",
+        "allowed_direct_clock_events": [
+          "static division readings",
+          "division crossing events"
+        ]
+      },
+      "display_recommendation": "sequence_or_phase_reconstruction_required_before_replay",
+      "audit_status": "column_meaning_confirmed_display_not_reconnected"
+    },
+    {
+      "experiment": "III",
+      "experiment_number": 3,
+      "date_original": "Aug. 7",
+      "source_pages": [
+        483,
+        484
+      ],
+      "table_family": "crossing_interpolation_table",
+      "sections": [
+        {
+          "label": "Weights in positive position",
+          "mass_position": "positive",
+          "row_count": 4,
+          "modes": [
+            "extreme_point_untimed_sequence"
+          ]
+        },
+        {
+          "label": "Weights moved to midway position",
+          "mass_position": "midway",
+          "row_count": 6,
+          "modes": [
+            "division_crossings_direct_clock",
+            "extreme_point_untimed_sequence",
+            "middle_of_vibration_interpolated_time"
+          ]
+        },
+        {
+          "label": "Weights moved to positive position",
+          "mass_position": "positive",
+          "row_count": 6,
+          "modes": [
+            "division_crossings_direct_clock",
+            "extreme_point_untimed_sequence",
+            "middle_of_vibration_interpolated_time"
+          ]
+        }
+      ],
+      "counts": {
+        "row_count": 16,
+        "static_division_clock_count": 0,
+        "direct_extreme_clock_count": 0,
+        "division_crossing_event_count": 14,
+        "derived_middle_time_count": 7,
+        "point_of_rest_count": 9,
+        "extreme_point_count": 15,
+        "missed_marker_count": 0
+      },
+      "transitions": [
+        {
+          "from": "positive",
+          "to": "midway",
+          "evidence": "not_separately_clocked"
+        },
+        {
+          "from": "midway",
+          "to": "positive",
+          "evidence": "bounded_by_surrounding_crossing_records"
+        }
+      ],
+      "semantic_decision": {
+        "extreme_points": "successive_turning_points",
+        "point_of_rest": "calculated_from_three_successive_extremes_not_direct_sample",
+        "thermometer": "metadata_not_waveform_sample",
+        "divisions": "intermediate_scale_crossings_near_vibration_middle_or_static_reading_in_rest_section",
+        "time": "clock_time_of_division_crossing_or_static_division_reading_not_extreme_timestamp",
+        "time_of_mid_vibration": "interpolated_time_arm_crossed_computed_middle_point_not_extreme_timestamp",
+        "difference": "interval_between_selected_middle_of_vibration_times"
+      },
+      "absolute_clock_waveform": {
+        "direct_extreme_points_supported": false,
+        "reason": "extreme_points_have_no_direct_clock_time; middle-of-vibration times belong to interpolated crossings",
+        "allowed_direct_clock_events": [
+          "static division readings",
+          "division crossing events"
+        ]
+      },
+      "display_recommendation": "sequence_or_phase_reconstruction_required_before_replay",
+      "audit_status": "column_meaning_confirmed_display_not_reconnected",
+      "table_source_pages": [
+        483,
+        484
+      ],
+      "narrative_source_pages": [
+        485
+      ],
+      "source_page_note_ja": "原表行 p.483–484／関連叙述 p.485"
+    },
+    {
+      "experiment": "IV",
+      "experiment_number": 4,
+      "date_original": "Aug. 12",
+      "source_pages": [
+        486,
+        487
+      ],
+      "table_family": "crossing_interpolation_table",
+      "sections": [
+        {
+          "label": "Weights in midway position",
+          "mass_position": "midway",
+          "row_count": 3,
+          "modes": [
+            "static_division_direct_clock"
+          ]
+        },
+        {
+          "label": "Weights moved from midway to positive position",
+          "mass_position": "positive",
+          "row_count": 8,
+          "modes": [
+            "extreme_point_untimed_sequence"
+          ]
+        },
+        {
+          "label": "Weights moved to negative position",
+          "mass_position": "negative",
+          "row_count": 7,
+          "modes": [
+            "division_crossings_direct_clock",
+            "extreme_point_untimed_sequence",
+            "middle_of_vibration_interpolated_time"
+          ]
+        },
+        {
+          "label": "Weights moved to positive position",
+          "mass_position": "positive",
+          "row_count": 7,
+          "modes": [
+            "division_crossings_direct_clock",
+            "extreme_point_untimed_sequence",
+            "middle_of_vibration_interpolated_time"
+          ]
+        }
+      ],
+      "counts": {
+        "row_count": 25,
+        "static_division_clock_count": 3,
+        "direct_extreme_clock_count": 0,
+        "division_crossing_event_count": 24,
+        "derived_middle_time_count": 12,
+        "point_of_rest_count": 17,
+        "extreme_point_count": 22,
+        "missed_marker_count": 0
+      },
+      "transitions": [
+        {
+          "from": "midway",
+          "to": "positive",
+          "evidence": "not_separately_clocked"
+        },
+        {
+          "from": "positive",
+          "to": "negative",
+          "evidence": "not_separately_clocked"
+        },
+        {
+          "from": "negative",
+          "to": "positive",
+          "evidence": "bounded_by_surrounding_crossing_records"
+        }
+      ],
+      "semantic_decision": {
+        "extreme_points": "successive_turning_points",
+        "point_of_rest": "calculated_from_three_successive_extremes_not_direct_sample",
+        "thermometer": "metadata_not_waveform_sample",
+        "divisions": "intermediate_scale_crossings_near_vibration_middle_or_static_reading_in_rest_section",
+        "time": "clock_time_of_division_crossing_or_static_division_reading_not_extreme_timestamp",
+        "time_of_mid_vibration": "interpolated_time_arm_crossed_computed_middle_point_not_extreme_timestamp",
+        "difference": "interval_between_selected_middle_of_vibration_times"
+      },
+      "absolute_clock_waveform": {
+        "direct_extreme_points_supported": false,
+        "reason": "extreme_points_have_no_direct_clock_time; middle-of-vibration times belong to interpolated crossings",
+        "allowed_direct_clock_events": [
+          "static division readings",
+          "division crossing events"
+        ]
+      },
+      "display_recommendation": "sequence_or_phase_reconstruction_required_before_replay",
+      "audit_status": "column_meaning_confirmed_display_not_reconnected"
+    },
+    {
+      "experiment": "V",
+      "experiment_number": 5,
+      "date_original": "Aug. 20",
+      "source_pages": [
+        488,
+        489
+      ],
+      "table_family": "crossing_interpolation_table",
+      "sections": [
+        {
+          "label": "Weights in positive position",
+          "mass_position": "positive",
+          "row_count": 4,
+          "modes": [
+            "extreme_point_untimed_sequence"
+          ]
+        },
+        {
+          "label": "Weights moved to negative position",
+          "mass_position": "negative",
+          "row_count": 13,
+          "modes": [
+            "division_crossings_direct_clock",
+            "extreme_point_untimed_sequence",
+            "middle_of_vibration_interpolated_time"
+          ]
+        },
+        {
+          "label": "Weights moved to positive position",
+          "mass_position": "positive",
+          "row_count": 12,
+          "modes": [
+            "division_crossings_direct_clock",
+            "extreme_point_untimed_sequence",
+            "middle_of_vibration_interpolated_time"
+          ]
+        }
+      ],
+      "counts": {
+        "row_count": 29,
+        "static_division_clock_count": 0,
+        "direct_extreme_clock_count": 0,
+        "division_crossing_event_count": 14,
+        "derived_middle_time_count": 7,
+        "point_of_rest_count": 22,
+        "extreme_point_count": 28,
+        "missed_marker_count": 0
+      },
+      "transitions": [
+        {
+          "from": "positive",
+          "to": "negative",
+          "evidence": "not_separately_clocked"
+        },
+        {
+          "from": "negative",
+          "to": "positive",
+          "evidence": "bounded_by_surrounding_crossing_records"
+        }
+      ],
+      "semantic_decision": {
+        "extreme_points": "successive_turning_points",
+        "point_of_rest": "calculated_from_three_successive_extremes_not_direct_sample",
+        "thermometer": "metadata_not_waveform_sample",
+        "divisions": "intermediate_scale_crossings_near_vibration_middle_or_static_reading_in_rest_section",
+        "time": "clock_time_of_division_crossing_or_static_division_reading_not_extreme_timestamp",
+        "time_of_mid_vibration": "interpolated_time_arm_crossed_computed_middle_point_not_extreme_timestamp",
+        "difference": "interval_between_selected_middle_of_vibration_times"
+      },
+      "absolute_clock_waveform": {
+        "direct_extreme_points_supported": false,
+        "reason": "extreme_points_have_no_direct_clock_time; middle-of-vibration times belong to interpolated crossings",
+        "allowed_direct_clock_events": [
+          "static division readings",
+          "division crossing events"
+        ]
+      },
+      "display_recommendation": "sequence_or_phase_reconstruction_required_before_replay",
+      "audit_status": "column_meaning_confirmed_display_not_reconnected"
+    },
+    {
+      "experiment": "VI",
+      "experiment_number": 6,
+      "date_original": "Sept. 6",
+      "source_pages": [
+        493
+      ],
+      "table_family": "direct_extreme_clock_table",
+      "sections": [
+        {
+          "label": "Weights in midway position",
+          "mass_position": "midway",
+          "row_count": 2,
+          "modes": [
+            "static_division_direct_clock"
+          ]
+        },
+        {
+          "label": "Weights moved to negative position",
+          "mass_position": "negative",
+          "row_count": 10,
+          "modes": [
+            "extreme_point_direct_clock",
+            "missed_extreme_marker"
+          ]
+        },
+        {
+          "label": "Weights moved to positive position",
+          "mass_position": "positive",
+          "row_count": 9,
+          "modes": [
+            "extreme_point_direct_clock",
+            "missed_extreme_marker"
+          ]
+        }
+      ],
+      "counts": {
+        "row_count": 21,
+        "static_division_clock_count": 2,
+        "direct_extreme_clock_count": 17,
+        "division_crossing_event_count": 0,
+        "derived_middle_time_count": 0,
+        "point_of_rest_count": 10,
+        "extreme_point_count": 17,
+        "missed_marker_count": 2
+      },
+      "transitions": [
+        {
+          "from": "midway",
+          "to": "negative",
+          "evidence": "bounded_by_adjacent_direct_records"
+        },
+        {
+          "from": "negative",
+          "to": "positive",
+          "evidence": "bounded_by_adjacent_direct_records"
+        }
+      ],
+      "semantic_decision": {
+        "extreme_points": "successive_turning_points",
+        "point_of_rest": "calculated_from_three_successive_extremes_not_direct_sample",
+        "thermometer": "metadata_not_waveform_sample",
+        "divisions": "static_position_reading_in_midway_section; dash in moving extreme rows",
+        "time": "same-row direct clock time; division reading in midway section and extreme point in moving sections",
+        "missed": "explicit gap in extreme-point sequence; do not synthesize values or times"
+      },
+      "absolute_clock_waveform": {
+        "direct_extreme_points_supported": true,
+        "reason": "moving-section extreme points and times are printed in the same rows and no middle-of-vibration column is used",
+        "gap_rule": "preserve printed missed-extreme gaps"
+      },
+      "display_recommendation": "direct_extreme_clock_replay_candidate",
+      "audit_status": "column_meaning_confirmed_display_not_reconnected"
+    },
+    {
+      "experiment": "VII",
+      "experiment_number": 7,
+      "date_original": "Sept. 18",
+      "source_pages": [
+        494
+      ],
+      "table_family": "direct_extreme_clock_table",
+      "sections": [
+        {
+          "label": "Weights in midway position",
+          "mass_position": "midway",
+          "row_count": 2,
+          "modes": [
+            "static_division_direct_clock"
+          ]
+        },
+        {
+          "label": "Weights moved to negative position",
+          "mass_position": "negative",
+          "row_count": 7,
+          "modes": [
+            "extreme_point_direct_clock",
+            "missed_extreme_marker"
+          ]
+        },
+        {
+          "label": "Weights moved to positive position",
+          "mass_position": "positive",
+          "row_count": 7,
+          "modes": [
+            "extreme_point_direct_clock",
+            "missed_extreme_marker"
+          ]
+        }
+      ],
+      "counts": {
+        "row_count": 16,
+        "static_division_clock_count": 2,
+        "direct_extreme_clock_count": 12,
+        "division_crossing_event_count": 0,
+        "derived_middle_time_count": 0,
+        "point_of_rest_count": 4,
+        "extreme_point_count": 12,
+        "missed_marker_count": 2
+      },
+      "transitions": [
+        {
+          "from": "midway",
+          "to": "negative",
+          "evidence": "bounded_by_adjacent_direct_records"
+        },
+        {
+          "from": "negative",
+          "to": "positive",
+          "evidence": "bounded_by_adjacent_direct_records"
+        }
+      ],
+      "semantic_decision": {
+        "extreme_points": "successive_turning_points",
+        "point_of_rest": "calculated_from_three_successive_extremes_not_direct_sample",
+        "thermometer": "metadata_not_waveform_sample",
+        "divisions": "static_position_reading_in_midway_section; dash in moving extreme rows",
+        "time": "same-row direct clock time; division reading in midway section and extreme point in moving sections",
+        "missed": "explicit gap in extreme-point sequence; do not synthesize values or times"
+      },
+      "absolute_clock_waveform": {
+        "direct_extreme_points_supported": true,
+        "reason": "moving-section extreme points and times are printed in the same rows and no middle-of-vibration column is used",
+        "gap_rule": "preserve printed missed-extreme gaps"
+      },
+      "display_recommendation": "direct_extreme_clock_replay_candidate",
+      "audit_status": "column_meaning_confirmed_display_not_reconnected"
+    },
+    {
+      "experiment": "VIII",
+      "experiment_number": 8,
+      "date_original": "Sept. 23",
+      "source_pages": [
+        495
+      ],
+      "table_family": "direct_extreme_clock_table",
+      "sections": [
+        {
+          "label": "Weights in midway position",
+          "mass_position": "midway",
+          "row_count": 2,
+          "modes": [
+            "static_division_direct_clock"
+          ]
+        },
+        {
+          "label": "Weights moved to negative position",
+          "mass_position": "negative",
+          "row_count": 7,
+          "modes": [
+            "extreme_point_direct_clock",
+            "missed_extreme_marker"
+          ]
+        },
+        {
+          "label": "Weights moved to positive position",
+          "mass_position": "positive",
+          "row_count": 7,
+          "modes": [
+            "extreme_point_direct_clock",
+            "missed_extreme_marker"
+          ]
+        }
+      ],
+      "counts": {
+        "row_count": 16,
+        "static_division_clock_count": 2,
+        "direct_extreme_clock_count": 12,
+        "division_crossing_event_count": 0,
+        "derived_middle_time_count": 0,
+        "point_of_rest_count": 5,
+        "extreme_point_count": 12,
+        "missed_marker_count": 2
+      },
+      "transitions": [
+        {
+          "from": "midway",
+          "to": "negative",
+          "evidence": "bounded_by_adjacent_direct_records"
+        },
+        {
+          "from": "negative",
+          "to": "positive",
+          "evidence": "bounded_by_adjacent_direct_records"
+        }
+      ],
+      "semantic_decision": {
+        "extreme_points": "successive_turning_points",
+        "point_of_rest": "calculated_from_three_successive_extremes_not_direct_sample",
+        "thermometer": "metadata_not_waveform_sample",
+        "divisions": "static_position_reading_in_midway_section; dash in moving extreme rows",
+        "time": "same-row direct clock time; division reading in midway section and extreme point in moving sections",
+        "missed": "explicit gap in extreme-point sequence; do not synthesize values or times"
+      },
+      "absolute_clock_waveform": {
+        "direct_extreme_points_supported": true,
+        "reason": "moving-section extreme points and times are printed in the same rows and no middle-of-vibration column is used",
+        "gap_rule": "preserve printed missed-extreme gaps"
+      },
+      "display_recommendation": "direct_extreme_clock_replay_candidate",
+      "audit_status": "column_meaning_confirmed_display_not_reconnected"
+    },
+    {
+      "experiment": "IX",
+      "experiment_number": 9,
+      "date_original": "April 29",
+      "source_pages": [
+        497,
+        498
+      ],
+      "table_family": "crossing_interpolation_table",
+      "sections": [
+        {
+          "label": "Weights in positive position",
+          "mass_position": "positive",
+          "row_count": 3,
+          "modes": [
+            "extreme_point_untimed_sequence"
+          ]
+        },
+        {
+          "label": "Weights moved to negative position",
+          "mass_position": "negative",
+          "row_count": 9,
+          "modes": [
+            "division_crossings_direct_clock",
+            "extreme_point_untimed_sequence",
+            "middle_of_vibration_interpolated_time"
+          ]
+        }
+      ],
+      "counts": {
+        "row_count": 12,
+        "static_division_clock_count": 0,
+        "direct_extreme_clock_count": 0,
+        "division_crossing_event_count": 6,
+        "derived_middle_time_count": 3,
+        "point_of_rest_count": 8,
+        "extreme_point_count": 12,
+        "missed_marker_count": 0
+      },
+      "transitions": [
+        {
+          "from": "positive",
+          "to": "negative",
+          "evidence": "not_separately_clocked"
+        }
+      ],
+      "semantic_decision": {
+        "extreme_points": "successive_turning_points",
+        "point_of_rest": "calculated_from_three_successive_extremes_not_direct_sample",
+        "thermometer": "metadata_not_waveform_sample",
+        "divisions": "intermediate_scale_crossings_near_vibration_middle_or_static_reading_in_rest_section",
+        "time": "clock_time_of_division_crossing_or_static_division_reading_not_extreme_timestamp",
+        "time_of_mid_vibration": "interpolated_time_arm_crossed_computed_middle_point_not_extreme_timestamp",
+        "difference": "interval_between_selected_middle_of_vibration_times"
+      },
+      "absolute_clock_waveform": {
+        "direct_extreme_points_supported": false,
+        "reason": "extreme_points_have_no_direct_clock_time; middle-of-vibration times belong to interpolated crossings",
+        "allowed_direct_clock_events": [
+          "static division readings",
+          "division crossing events"
+        ]
+      },
+      "display_recommendation": "sequence_or_phase_reconstruction_required_before_replay",
+      "audit_status": "column_meaning_confirmed_display_not_reconnected"
+    },
+    {
+      "experiment": "X",
+      "experiment_number": 10,
+      "date_original": "May 5",
+      "source_pages": [
+        498,
+        499
+      ],
+      "table_family": "crossing_interpolation_table",
+      "sections": [
+        {
+          "label": "Weights in positive position",
+          "mass_position": "positive",
+          "row_count": 3,
+          "modes": [
+            "extreme_point_untimed_sequence"
+          ]
+        },
+        {
+          "label": "Weights moved to negative position",
+          "mass_position": "negative",
+          "row_count": 10,
+          "modes": [
+            "division_crossings_direct_clock",
+            "extreme_point_untimed_sequence",
+            "middle_of_vibration_interpolated_time"
+          ]
+        }
+      ],
+      "counts": {
+        "row_count": 13,
+        "static_division_clock_count": 0,
+        "direct_extreme_clock_count": 0,
+        "division_crossing_event_count": 10,
+        "derived_middle_time_count": 5,
+        "point_of_rest_count": 9,
+        "extreme_point_count": 13,
+        "missed_marker_count": 0
+      },
+      "transitions": [
+        {
+          "from": "positive",
+          "to": "negative",
+          "evidence": "not_separately_clocked"
+        }
+      ],
+      "semantic_decision": {
+        "extreme_points": "successive_turning_points",
+        "point_of_rest": "calculated_from_three_successive_extremes_not_direct_sample",
+        "thermometer": "metadata_not_waveform_sample",
+        "divisions": "intermediate_scale_crossings_near_vibration_middle_or_static_reading_in_rest_section",
+        "time": "clock_time_of_division_crossing_or_static_division_reading_not_extreme_timestamp",
+        "time_of_mid_vibration": "interpolated_time_arm_crossed_computed_middle_point_not_extreme_timestamp",
+        "difference": "interval_between_selected_middle_of_vibration_times"
+      },
+      "absolute_clock_waveform": {
+        "direct_extreme_points_supported": false,
+        "reason": "extreme_points_have_no_direct_clock_time; middle-of-vibration times belong to interpolated crossings",
+        "allowed_direct_clock_events": [
+          "static division readings",
+          "division crossing events"
+        ]
+      },
+      "display_recommendation": "sequence_or_phase_reconstruction_required_before_replay",
+      "audit_status": "column_meaning_confirmed_display_not_reconnected"
+    },
+    {
+      "experiment": "XI",
+      "experiment_number": 11,
+      "date_original": "May 6",
+      "source_pages": [
+        499,
+        500
+      ],
+      "table_family": "crossing_interpolation_table",
+      "sections": [
+        {
+          "label": "Weights in positive position",
+          "mass_position": "positive",
+          "row_count": 4,
+          "modes": [
+            "extreme_point_untimed_sequence"
+          ]
+        },
+        {
+          "label": "Weights moved to negative position",
+          "mass_position": "negative",
+          "row_count": 10,
+          "modes": [
+            "division_crossings_direct_clock",
+            "extreme_point_untimed_sequence",
+            "middle_of_vibration_interpolated_time",
+            "missed_extreme_marker"
+          ]
+        }
+      ],
+      "counts": {
+        "row_count": 14,
+        "static_division_clock_count": 0,
+        "direct_extreme_clock_count": 0,
+        "division_crossing_event_count": 8,
+        "derived_middle_time_count": 3,
+        "point_of_rest_count": 7,
+        "extreme_point_count": 13,
+        "missed_marker_count": 1
+      },
+      "transitions": [
+        {
+          "from": "positive",
+          "to": "negative",
+          "evidence": "not_separately_clocked"
+        }
+      ],
+      "semantic_decision": {
+        "extreme_points": "successive_turning_points",
+        "point_of_rest": "calculated_from_three_successive_extremes_not_direct_sample",
+        "thermometer": "metadata_not_waveform_sample",
+        "divisions": "intermediate_scale_crossings_near_vibration_middle_or_static_reading_in_rest_section",
+        "time": "clock_time_of_division_crossing_or_static_division_reading_not_extreme_timestamp",
+        "time_of_mid_vibration": "interpolated_time_arm_crossed_computed_middle_point_not_extreme_timestamp",
+        "difference": "interval_between_selected_middle_of_vibration_times"
+      },
+      "absolute_clock_waveform": {
+        "direct_extreme_points_supported": false,
+        "reason": "extreme_points_have_no_direct_clock_time; middle-of-vibration times belong to interpolated crossings",
+        "allowed_direct_clock_events": [
+          "static division readings",
+          "division crossing events"
+        ]
+      },
+      "display_recommendation": "sequence_or_phase_reconstruction_required_before_replay",
+      "audit_status": "column_meaning_confirmed_display_not_reconnected"
+    },
+    {
+      "experiment": "XII",
+      "experiment_number": 12,
+      "date_original": "May 9",
+      "source_pages": [
+        500,
+        501
+      ],
+      "table_family": "crossing_interpolation_table",
+      "sections": [
+        {
+          "label": "Weights in negative position",
+          "mass_position": "negative",
+          "row_count": 4,
+          "modes": [
+            "static_division_direct_clock"
+          ]
+        },
+        {
+          "label": "Weights moved to positive position",
+          "mass_position": "positive",
+          "row_count": 9,
+          "modes": [
+            "division_crossings_direct_clock",
+            "extreme_point_untimed_sequence",
+            "middle_of_vibration_interpolated_time"
+          ]
+        }
+      ],
+      "counts": {
+        "row_count": 13,
+        "static_division_clock_count": 4,
+        "direct_extreme_clock_count": 0,
+        "division_crossing_event_count": 6,
+        "derived_middle_time_count": 3,
+        "point_of_rest_count": 8,
+        "extreme_point_count": 9,
+        "missed_marker_count": 0
+      },
+      "transitions": [
+        {
+          "from": "negative",
+          "to": "positive",
+          "evidence": "bounded_by_static_and_crossing_records"
+        }
+      ],
+      "semantic_decision": {
+        "extreme_points": "successive_turning_points",
+        "point_of_rest": "calculated_from_three_successive_extremes_not_direct_sample",
+        "thermometer": "metadata_not_waveform_sample",
+        "divisions": "intermediate_scale_crossings_near_vibration_middle_or_static_reading_in_rest_section",
+        "time": "clock_time_of_division_crossing_or_static_division_reading_not_extreme_timestamp",
+        "time_of_mid_vibration": "interpolated_time_arm_crossed_computed_middle_point_not_extreme_timestamp",
+        "difference": "interval_between_selected_middle_of_vibration_times"
+      },
+      "absolute_clock_waveform": {
+        "direct_extreme_points_supported": false,
+        "reason": "extreme_points_have_no_direct_clock_time; middle-of-vibration times belong to interpolated crossings",
+        "allowed_direct_clock_events": [
+          "static division readings",
+          "division crossing events"
+        ]
+      },
+      "display_recommendation": "sequence_or_phase_reconstruction_required_before_replay",
+      "audit_status": "column_meaning_confirmed_display_not_reconnected"
+    },
+    {
+      "experiment": "XIII",
+      "experiment_number": 13,
+      "date_original": "May 25",
+      "source_pages": [
+        501,
+        502
+      ],
+      "table_family": "crossing_interpolation_table",
+      "sections": [
+        {
+          "label": "Weights in negative position",
+          "mass_position": "negative",
+          "row_count": 3,
+          "modes": [
+            "extreme_point_untimed_sequence"
+          ]
+        },
+        {
+          "label": "Weights moved to positive position",
+          "mass_position": "positive",
+          "row_count": 9,
+          "modes": [
+            "division_crossings_direct_clock",
+            "extreme_point_untimed_sequence",
+            "middle_of_vibration_interpolated_time"
+          ]
+        },
+        {
+          "label": "Weights moved to negative position",
+          "mass_position": "negative",
+          "row_count": 10,
+          "modes": [
+            "division_crossings_direct_clock",
+            "extreme_point_untimed_sequence",
+            "middle_of_vibration_interpolated_time"
+          ]
+        }
+      ],
+      "counts": {
+        "row_count": 22,
+        "static_division_clock_count": 0,
+        "direct_extreme_clock_count": 0,
+        "division_crossing_event_count": 20,
+        "derived_middle_time_count": 10,
+        "point_of_rest_count": 16,
+        "extreme_point_count": 22,
+        "missed_marker_count": 0
+      },
+      "transitions": [
+        {
+          "from": "negative",
+          "to": "positive",
+          "evidence": "not_separately_clocked"
+        },
+        {
+          "from": "positive",
+          "to": "negative",
+          "evidence": "bounded_by_surrounding_crossing_records"
+        }
+      ],
+      "semantic_decision": {
+        "extreme_points": "successive_turning_points",
+        "point_of_rest": "calculated_from_three_successive_extremes_not_direct_sample",
+        "thermometer": "metadata_not_waveform_sample",
+        "divisions": "intermediate_scale_crossings_near_vibration_middle_or_static_reading_in_rest_section",
+        "time": "clock_time_of_division_crossing_or_static_division_reading_not_extreme_timestamp",
+        "time_of_mid_vibration": "interpolated_time_arm_crossed_computed_middle_point_not_extreme_timestamp",
+        "difference": "interval_between_selected_middle_of_vibration_times"
+      },
+      "absolute_clock_waveform": {
+        "direct_extreme_points_supported": false,
+        "reason": "extreme_points_have_no_direct_clock_time; middle-of-vibration times belong to interpolated crossings",
+        "allowed_direct_clock_events": [
+          "static division readings",
+          "division crossing events"
+        ]
+      },
+      "display_recommendation": "sequence_or_phase_reconstruction_required_before_replay",
+      "audit_status": "column_meaning_confirmed_display_not_reconnected"
+    },
+    {
+      "experiment": "XIV",
+      "experiment_number": 14,
+      "date_original": "May 26",
+      "source_pages": [
+        503,
+        504
+      ],
+      "table_family": "crossing_interpolation_table",
+      "sections": [
+        {
+          "label": "Weights in negative position",
+          "mass_position": "negative",
+          "row_count": 4,
+          "modes": [
+            "static_division_direct_clock"
+          ]
+        },
+        {
+          "label": "Weights moved to positive position",
+          "mass_position": "positive",
+          "row_count": 9,
+          "modes": [
+            "division_crossings_direct_clock",
+            "extreme_point_untimed_sequence",
+            "middle_of_vibration_interpolated_time"
+          ]
+        },
+        {
+          "label": "Weights moved to negative position",
+          "mass_position": "negative",
+          "row_count": 9,
+          "modes": [
+            "division_crossings_direct_clock",
+            "extreme_point_untimed_sequence",
+            "middle_of_vibration_interpolated_time"
+          ]
+        }
+      ],
+      "counts": {
+        "row_count": 22,
+        "static_division_clock_count": 4,
+        "direct_extreme_clock_count": 0,
+        "division_crossing_event_count": 18,
+        "derived_middle_time_count": 9,
+        "point_of_rest_count": 15,
+        "extreme_point_count": 18,
+        "missed_marker_count": 0
+      },
+      "transitions": [
+        {
+          "from": "negative",
+          "to": "positive",
+          "evidence": "bounded_by_static_and_crossing_records"
+        },
+        {
+          "from": "positive",
+          "to": "negative",
+          "evidence": "bounded_by_surrounding_crossing_records"
+        }
+      ],
+      "semantic_decision": {
+        "extreme_points": "successive_turning_points",
+        "point_of_rest": "calculated_from_three_successive_extremes_not_direct_sample",
+        "thermometer": "metadata_not_waveform_sample",
+        "divisions": "intermediate_scale_crossings_near_vibration_middle_or_static_reading_in_rest_section",
+        "time": "clock_time_of_division_crossing_or_static_division_reading_not_extreme_timestamp",
+        "time_of_mid_vibration": "interpolated_time_arm_crossed_computed_middle_point_not_extreme_timestamp",
+        "difference": "interval_between_selected_middle_of_vibration_times"
+      },
+      "absolute_clock_waveform": {
+        "direct_extreme_points_supported": false,
+        "reason": "extreme_points_have_no_direct_clock_time; middle-of-vibration times belong to interpolated crossings",
+        "allowed_direct_clock_events": [
+          "static division readings",
+          "division crossing events"
+        ]
+      },
+      "display_recommendation": "sequence_or_phase_reconstruction_required_before_replay",
+      "audit_status": "column_meaning_confirmed_display_not_reconnected"
+    },
+    {
+      "experiment": "XV",
+      "experiment_number": 15,
+      "date_original": "May 27",
+      "source_pages": [
+        504,
+        505
+      ],
+      "table_family": "crossing_interpolation_table",
+      "sections": [
+        {
+          "label": "Weights in negative position",
+          "mass_position": "negative",
+          "row_count": 4,
+          "modes": [
+            "extreme_point_untimed_sequence"
+          ]
+        },
+        {
+          "label": "Weights moved to positive position",
+          "mass_position": "positive",
+          "row_count": 9,
+          "modes": [
+            "division_crossings_direct_clock",
+            "extreme_point_untimed_sequence",
+            "middle_of_vibration_interpolated_time"
+          ]
+        }
+      ],
+      "counts": {
+        "row_count": 13,
+        "static_division_clock_count": 0,
+        "direct_extreme_clock_count": 0,
+        "division_crossing_event_count": 10,
+        "derived_middle_time_count": 5,
+        "point_of_rest_count": 9,
+        "extreme_point_count": 13,
+        "missed_marker_count": 0
+      },
+      "transitions": [
+        {
+          "from": "negative",
+          "to": "positive",
+          "evidence": "not_separately_clocked"
+        }
+      ],
+      "semantic_decision": {
+        "extreme_points": "successive_turning_points",
+        "point_of_rest": "calculated_from_three_successive_extremes_not_direct_sample",
+        "thermometer": "metadata_not_waveform_sample",
+        "divisions": "intermediate_scale_crossings_near_vibration_middle_or_static_reading_in_rest_section",
+        "time": "clock_time_of_division_crossing_or_static_division_reading_not_extreme_timestamp",
+        "time_of_mid_vibration": "interpolated_time_arm_crossed_computed_middle_point_not_extreme_timestamp",
+        "difference": "interval_between_selected_middle_of_vibration_times"
+      },
+      "absolute_clock_waveform": {
+        "direct_extreme_points_supported": false,
+        "reason": "extreme_points_have_no_direct_clock_time; middle-of-vibration times belong to interpolated crossings",
+        "allowed_direct_clock_events": [
+          "static division readings",
+          "division crossing events"
+        ]
+      },
+      "display_recommendation": "sequence_or_phase_reconstruction_required_before_replay",
+      "audit_status": "column_meaning_confirmed_display_not_reconnected"
+    },
+    {
+      "experiment": "XVI",
+      "experiment_number": 16,
+      "date_original": "May 28",
+      "source_pages": [
+        505,
+        506
+      ],
+      "table_family": "crossing_interpolation_table",
+      "sections": [
+        {
+          "label": "Weights in negative position",
+          "mass_position": "negative",
+          "row_count": 4,
+          "modes": [
+            "extreme_point_untimed_sequence"
+          ]
+        },
+        {
+          "label": "Weights moved to positive position",
+          "mass_position": "positive",
+          "row_count": 8,
+          "modes": [
+            "division_crossings_direct_clock",
+            "extreme_point_untimed_sequence",
+            "middle_of_vibration_interpolated_time"
+          ]
+        }
+      ],
+      "counts": {
+        "row_count": 12,
+        "static_division_clock_count": 0,
+        "direct_extreme_clock_count": 0,
+        "division_crossing_event_count": 14,
+        "derived_middle_time_count": 7,
+        "point_of_rest_count": 8,
+        "extreme_point_count": 12,
+        "missed_marker_count": 0
+      },
+      "transitions": [
+        {
+          "from": "negative",
+          "to": "positive",
+          "evidence": "not_separately_clocked"
+        }
+      ],
+      "semantic_decision": {
+        "extreme_points": "successive_turning_points",
+        "point_of_rest": "calculated_from_three_successive_extremes_not_direct_sample",
+        "thermometer": "metadata_not_waveform_sample",
+        "divisions": "intermediate_scale_crossings_near_vibration_middle_or_static_reading_in_rest_section",
+        "time": "clock_time_of_division_crossing_or_static_division_reading_not_extreme_timestamp",
+        "time_of_mid_vibration": "interpolated_time_arm_crossed_computed_middle_point_not_extreme_timestamp",
+        "difference": "interval_between_selected_middle_of_vibration_times"
+      },
+      "absolute_clock_waveform": {
+        "direct_extreme_points_supported": false,
+        "reason": "extreme_points_have_no_direct_clock_time; middle-of-vibration times belong to interpolated crossings",
+        "allowed_direct_clock_events": [
+          "static division readings",
+          "division crossing events"
+        ]
+      },
+      "display_recommendation": "sequence_or_phase_reconstruction_required_before_replay",
+      "audit_status": "column_meaning_confirmed_display_not_reconnected"
+    },
+    {
+      "experiment": "XVII",
+      "experiment_number": 17,
+      "date_original": "May 30",
+      "source_pages": [
+        506,
+        507,
+        508
+      ],
+      "table_family": "crossing_interpolation_table",
+      "sections": [
+        {
+          "label": "Weights in negative position",
+          "mass_position": "negative",
+          "row_count": 7,
+          "modes": [
+            "static_division_direct_clock"
+          ]
+        },
+        {
+          "label": "Weights moved to positive position",
+          "mass_position": "positive",
+          "row_count": 11,
+          "modes": [
+            "division_crossings_direct_clock",
+            "extreme_point_untimed_sequence",
+            "middle_of_vibration_interpolated_time"
+          ]
+        },
+        {
+          "label": "Weights moved to negative position",
+          "mass_position": "negative",
+          "row_count": 9,
+          "modes": [
+            "division_crossings_direct_clock",
+            "extreme_point_untimed_sequence",
+            "middle_of_vibration_interpolated_time"
+          ]
+        }
+      ],
+      "counts": {
+        "row_count": 27,
+        "static_division_clock_count": 7,
+        "direct_extreme_clock_count": 0,
+        "division_crossing_event_count": 36,
+        "derived_middle_time_count": 18,
+        "point_of_rest_count": 17,
+        "extreme_point_count": 20,
+        "missed_marker_count": 0
+      },
+      "transitions": [
+        {
+          "from": "negative",
+          "to": "positive",
+          "evidence": "bounded_by_static_and_crossing_records"
+        },
+        {
+          "from": "positive",
+          "to": "negative",
+          "evidence": "bounded_by_surrounding_crossing_records"
+        }
+      ],
+      "semantic_decision": {
+        "extreme_points": "successive_turning_points",
+        "point_of_rest": "calculated_from_three_successive_extremes_not_direct_sample",
+        "thermometer": "metadata_not_waveform_sample",
+        "divisions": "intermediate_scale_crossings_near_vibration_middle_or_static_reading_in_rest_section",
+        "time": "clock_time_of_division_crossing_or_static_division_reading_not_extreme_timestamp",
+        "time_of_mid_vibration": "interpolated_time_arm_crossed_computed_middle_point_not_extreme_timestamp",
+        "difference": "interval_between_selected_middle_of_vibration_times"
+      },
+      "absolute_clock_waveform": {
+        "direct_extreme_points_supported": false,
+        "reason": "extreme_points_have_no_direct_clock_time; middle-of-vibration times belong to interpolated crossings",
+        "allowed_direct_clock_events": [
+          "static division readings",
+          "division crossing events"
+        ]
+      },
+      "display_recommendation": "sequence_or_phase_reconstruction_required_before_replay",
+      "audit_status": "column_meaning_confirmed_display_not_reconnected"
+    }
+  ],
+  "historical_data_sha256": "505e78259728471389b57260fac47bed98b718e1f8f7dee8cee16b26d47e1aa8"
+};

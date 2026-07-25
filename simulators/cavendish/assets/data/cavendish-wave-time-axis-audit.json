@@ -1,0 +1,541 @@
+{
+  "schema_version": "1.0",
+  "build": "CV080A25R",
+  "title": "All 17 Experiments Wave Current-Line / Time-Marker / Folded-Axis Audit",
+  "status": "PASS",
+  "policy": {
+    "current_line": "The gold vertical line is the only playback-position indicator. It is hidden while idle and follows the common time-axis mapping during replay, pause, stop, and completion.",
+    "time_markers": "Observation start/end triangles are retained for all formal replay sets. Semantic omission start/end triangles are retained only where the source time-axis definition explicitly provides them (Experiment I).",
+    "compressed_intervals": "Transition-uncertainty and missed-observation intervals use their dedicated bands/symbols and are not mislabeled as semantic omission triangles.",
+    "full_axis": "Full-time mode must contain no compressed segments.",
+    "responsive": "The same logical SVG coordinates must remain bounded and monotonic at mobile portrait, mobile landscape, and PC widths."
+  },
+  "totals": {
+    "experiments": 17,
+    "folded": 11,
+    "full": 6,
+    "omitted_segments": 23,
+    "markers": 36,
+    "line_samples": 4913,
+    "visible_line_samples": 4913,
+    "viewports_checked": 3,
+    "time_to_x_mapping_checks": 51051,
+    "start_end_boundary_checks": 102,
+    "omitted_boundary_checks": 138,
+    "failures": 0
+  },
+  "experiments": [
+    {
+      "key": "CAV-1798-EXP-I",
+      "experiment_id": "experiment-i",
+      "marker_policy": "formal_start_end",
+      "default_mode": "folded",
+      "omitted_count": 1,
+      "marker_roles": [
+        "observation_start",
+        "omission_start",
+        "omission_end",
+        "observation_end"
+      ],
+      "viewports": {
+        "mobile-portrait": {
+          "folded": true,
+          "omitted_segments": 1,
+          "marker_count": 4
+        },
+        "mobile-landscape": {
+          "folded": true,
+          "omitted_segments": 1,
+          "marker_count": 4
+        },
+        "pc": {
+          "folded": true,
+          "omitted_segments": 1,
+          "marker_count": 4
+        }
+      },
+      "line_samples": 289,
+      "line_visible_samples": 289
+    },
+    {
+      "key": "CAV-1798-EXP-II",
+      "experiment_id": "experiment-ii",
+      "marker_policy": "formal_clock_and_reconstructed_extrema",
+      "default_mode": "folded",
+      "omitted_count": 1,
+      "marker_roles": [
+        "observation_start",
+        "observation_end"
+      ],
+      "viewports": {
+        "mobile-portrait": {
+          "folded": true,
+          "omitted_segments": 1,
+          "marker_count": 2
+        },
+        "mobile-landscape": {
+          "folded": true,
+          "omitted_segments": 1,
+          "marker_count": 2
+        },
+        "pc": {
+          "folded": true,
+          "omitted_segments": 1,
+          "marker_count": 2
+        }
+      },
+      "line_samples": 289,
+      "line_visible_samples": 289
+    },
+    {
+      "key": "CAV-1798-EXP-III",
+      "experiment_id": "experiment-iii",
+      "marker_policy": "formal_clock_and_reconstructed_extrema",
+      "default_mode": "folded",
+      "omitted_count": 1,
+      "marker_roles": [
+        "observation_start",
+        "observation_end"
+      ],
+      "viewports": {
+        "mobile-portrait": {
+          "folded": true,
+          "omitted_segments": 1,
+          "marker_count": 2
+        },
+        "mobile-landscape": {
+          "folded": true,
+          "omitted_segments": 1,
+          "marker_count": 2
+        },
+        "pc": {
+          "folded": true,
+          "omitted_segments": 1,
+          "marker_count": 2
+        }
+      },
+      "line_samples": 289,
+      "line_visible_samples": 289
+    },
+    {
+      "key": "CAV-1798-EXP-IV",
+      "experiment_id": "experiment-iv",
+      "marker_policy": "formal_clock_and_reconstructed_extrema",
+      "default_mode": "folded",
+      "omitted_count": 2,
+      "marker_roles": [
+        "observation_start",
+        "observation_end"
+      ],
+      "viewports": {
+        "mobile-portrait": {
+          "folded": true,
+          "omitted_segments": 2,
+          "marker_count": 2
+        },
+        "mobile-landscape": {
+          "folded": true,
+          "omitted_segments": 2,
+          "marker_count": 2
+        },
+        "pc": {
+          "folded": true,
+          "omitted_segments": 2,
+          "marker_count": 2
+        }
+      },
+      "line_samples": 289,
+      "line_visible_samples": 289
+    },
+    {
+      "key": "CAV-1798-EXP-V",
+      "experiment_id": "experiment-v",
+      "marker_policy": "formal_clock_and_reconstructed_extrema",
+      "default_mode": "folded",
+      "omitted_count": 1,
+      "marker_roles": [
+        "observation_start",
+        "observation_end"
+      ],
+      "viewports": {
+        "mobile-portrait": {
+          "folded": true,
+          "omitted_segments": 1,
+          "marker_count": 2
+        },
+        "mobile-landscape": {
+          "folded": true,
+          "omitted_segments": 1,
+          "marker_count": 2
+        },
+        "pc": {
+          "folded": true,
+          "omitted_segments": 1,
+          "marker_count": 2
+        }
+      },
+      "line_samples": 289,
+      "line_visible_samples": 289
+    },
+    {
+      "key": "CAV-1798-EXP-VI",
+      "experiment_id": "experiment-vi",
+      "marker_policy": "formal_start_end",
+      "default_mode": "folded",
+      "omitted_count": 4,
+      "marker_roles": [
+        "observation_start",
+        "observation_end"
+      ],
+      "viewports": {
+        "mobile-portrait": {
+          "folded": true,
+          "omitted_segments": 4,
+          "marker_count": 2
+        },
+        "mobile-landscape": {
+          "folded": true,
+          "omitted_segments": 4,
+          "marker_count": 2
+        },
+        "pc": {
+          "folded": true,
+          "omitted_segments": 4,
+          "marker_count": 2
+        }
+      },
+      "line_samples": 289,
+      "line_visible_samples": 289
+    },
+    {
+      "key": "CAV-1798-EXP-VII",
+      "experiment_id": "experiment-vii",
+      "marker_policy": "formal_start_end",
+      "default_mode": "folded",
+      "omitted_count": 4,
+      "marker_roles": [
+        "observation_start",
+        "observation_end"
+      ],
+      "viewports": {
+        "mobile-portrait": {
+          "folded": true,
+          "omitted_segments": 4,
+          "marker_count": 2
+        },
+        "mobile-landscape": {
+          "folded": true,
+          "omitted_segments": 4,
+          "marker_count": 2
+        },
+        "pc": {
+          "folded": true,
+          "omitted_segments": 4,
+          "marker_count": 2
+        }
+      },
+      "line_samples": 289,
+      "line_visible_samples": 289
+    },
+    {
+      "key": "CAV-1798-EXP-VIII",
+      "experiment_id": "experiment-viii",
+      "marker_policy": "formal_start_end",
+      "default_mode": "folded",
+      "omitted_count": 4,
+      "marker_roles": [
+        "observation_start",
+        "observation_end"
+      ],
+      "viewports": {
+        "mobile-portrait": {
+          "folded": true,
+          "omitted_segments": 4,
+          "marker_count": 2
+        },
+        "mobile-landscape": {
+          "folded": true,
+          "omitted_segments": 4,
+          "marker_count": 2
+        },
+        "pc": {
+          "folded": true,
+          "omitted_segments": 4,
+          "marker_count": 2
+        }
+      },
+      "line_samples": 289,
+      "line_visible_samples": 289
+    },
+    {
+      "key": "CAV-1798-EXP-IX",
+      "experiment_id": "experiment-ix",
+      "marker_policy": "formal_clock_and_reconstructed_extrema",
+      "default_mode": "full",
+      "omitted_count": 0,
+      "marker_roles": [
+        "observation_start",
+        "observation_end"
+      ],
+      "viewports": {
+        "mobile-portrait": {
+          "folded": false,
+          "omitted_segments": 0,
+          "marker_count": 2
+        },
+        "mobile-landscape": {
+          "folded": false,
+          "omitted_segments": 0,
+          "marker_count": 2
+        },
+        "pc": {
+          "folded": false,
+          "omitted_segments": 0,
+          "marker_count": 2
+        }
+      },
+      "line_samples": 289,
+      "line_visible_samples": 289
+    },
+    {
+      "key": "CAV-1798-EXP-X",
+      "experiment_id": "experiment-x",
+      "marker_policy": "formal_clock_and_reconstructed_extrema",
+      "default_mode": "full",
+      "omitted_count": 0,
+      "marker_roles": [
+        "observation_start",
+        "observation_end"
+      ],
+      "viewports": {
+        "mobile-portrait": {
+          "folded": false,
+          "omitted_segments": 0,
+          "marker_count": 2
+        },
+        "mobile-landscape": {
+          "folded": false,
+          "omitted_segments": 0,
+          "marker_count": 2
+        },
+        "pc": {
+          "folded": false,
+          "omitted_segments": 0,
+          "marker_count": 2
+        }
+      },
+      "line_samples": 289,
+      "line_visible_samples": 289
+    },
+    {
+      "key": "CAV-1798-EXP-XI",
+      "experiment_id": "experiment-xi",
+      "marker_policy": "formal_clock_and_reconstructed_extrema",
+      "default_mode": "full",
+      "omitted_count": 0,
+      "marker_roles": [
+        "observation_start",
+        "observation_end"
+      ],
+      "viewports": {
+        "mobile-portrait": {
+          "folded": false,
+          "omitted_segments": 0,
+          "marker_count": 2
+        },
+        "mobile-landscape": {
+          "folded": false,
+          "omitted_segments": 0,
+          "marker_count": 2
+        },
+        "pc": {
+          "folded": false,
+          "omitted_segments": 0,
+          "marker_count": 2
+        }
+      },
+      "line_samples": 289,
+      "line_visible_samples": 289
+    },
+    {
+      "key": "CAV-1798-EXP-XII",
+      "experiment_id": "experiment-xii",
+      "marker_policy": "formal_clock_and_reconstructed_extrema",
+      "default_mode": "full",
+      "omitted_count": 0,
+      "marker_roles": [
+        "observation_start",
+        "observation_end"
+      ],
+      "viewports": {
+        "mobile-portrait": {
+          "folded": false,
+          "omitted_segments": 0,
+          "marker_count": 2
+        },
+        "mobile-landscape": {
+          "folded": false,
+          "omitted_segments": 0,
+          "marker_count": 2
+        },
+        "pc": {
+          "folded": false,
+          "omitted_segments": 0,
+          "marker_count": 2
+        }
+      },
+      "line_samples": 289,
+      "line_visible_samples": 289
+    },
+    {
+      "key": "CAV-1798-EXP-XIII",
+      "experiment_id": "experiment-xiii",
+      "marker_policy": "formal_clock_and_reconstructed_extrema",
+      "default_mode": "folded",
+      "omitted_count": 1,
+      "marker_roles": [
+        "observation_start",
+        "observation_end"
+      ],
+      "viewports": {
+        "mobile-portrait": {
+          "folded": true,
+          "omitted_segments": 1,
+          "marker_count": 2
+        },
+        "mobile-landscape": {
+          "folded": true,
+          "omitted_segments": 1,
+          "marker_count": 2
+        },
+        "pc": {
+          "folded": true,
+          "omitted_segments": 1,
+          "marker_count": 2
+        }
+      },
+      "line_samples": 289,
+      "line_visible_samples": 289
+    },
+    {
+      "key": "CAV-1798-EXP-XIV",
+      "experiment_id": "experiment-xiv",
+      "marker_policy": "formal_clock_and_reconstructed_extrema",
+      "default_mode": "folded",
+      "omitted_count": 2,
+      "marker_roles": [
+        "observation_start",
+        "observation_end"
+      ],
+      "viewports": {
+        "mobile-portrait": {
+          "folded": true,
+          "omitted_segments": 2,
+          "marker_count": 2
+        },
+        "mobile-landscape": {
+          "folded": true,
+          "omitted_segments": 2,
+          "marker_count": 2
+        },
+        "pc": {
+          "folded": true,
+          "omitted_segments": 2,
+          "marker_count": 2
+        }
+      },
+      "line_samples": 289,
+      "line_visible_samples": 289
+    },
+    {
+      "key": "CAV-1798-EXP-XV",
+      "experiment_id": "experiment-xv",
+      "marker_policy": "formal_clock_and_reconstructed_extrema",
+      "default_mode": "full",
+      "omitted_count": 0,
+      "marker_roles": [
+        "observation_start",
+        "observation_end"
+      ],
+      "viewports": {
+        "mobile-portrait": {
+          "folded": false,
+          "omitted_segments": 0,
+          "marker_count": 2
+        },
+        "mobile-landscape": {
+          "folded": false,
+          "omitted_segments": 0,
+          "marker_count": 2
+        },
+        "pc": {
+          "folded": false,
+          "omitted_segments": 0,
+          "marker_count": 2
+        }
+      },
+      "line_samples": 289,
+      "line_visible_samples": 289
+    },
+    {
+      "key": "CAV-1798-EXP-XVI",
+      "experiment_id": "experiment-xvi",
+      "marker_policy": "formal_clock_and_reconstructed_extrema",
+      "default_mode": "full",
+      "omitted_count": 0,
+      "marker_roles": [
+        "observation_start",
+        "observation_end"
+      ],
+      "viewports": {
+        "mobile-portrait": {
+          "folded": false,
+          "omitted_segments": 0,
+          "marker_count": 2
+        },
+        "mobile-landscape": {
+          "folded": false,
+          "omitted_segments": 0,
+          "marker_count": 2
+        },
+        "pc": {
+          "folded": false,
+          "omitted_segments": 0,
+          "marker_count": 2
+        }
+      },
+      "line_samples": 289,
+      "line_visible_samples": 289
+    },
+    {
+      "key": "CAV-1798-EXP-XVII",
+      "experiment_id": "experiment-xvii",
+      "marker_policy": "formal_clock_and_reconstructed_extrema",
+      "default_mode": "folded",
+      "omitted_count": 2,
+      "marker_roles": [
+        "observation_start",
+        "observation_end"
+      ],
+      "viewports": {
+        "mobile-portrait": {
+          "folded": true,
+          "omitted_segments": 2,
+          "marker_count": 2
+        },
+        "mobile-landscape": {
+          "folded": true,
+          "omitted_segments": 2,
+          "marker_count": 2
+        },
+        "pc": {
+          "folded": true,
+          "omitted_segments": 2,
+          "marker_count": 2
+        }
+      },
+      "line_samples": 289,
+      "line_visible_samples": 289
+    }
+  ]
+}

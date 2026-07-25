@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
+<title>キャベンディッシュ実験｜検証シミュレータ Ver0.79｜IMPULSE LABO</title>
+<link href="style.css?v=CV082A07" rel="stylesheet"/>
+</head>
+<body>
+<header class="app-header">
+<div class="app-header__identity">
+  <div class="brand">IMPULSE LABO</div>
+  <div class="title">キャベンディッシュ実験 / Cavendish Experiment</div>
+</div>
+<div class="app-header__right">
+  <nav class="cav-global-nav" aria-label="Cavendish関連ページ"><a href="cavendish-simulator.html" class="active" aria-current="page"><span class="nav-label-full">検証する</span><span class="nav-label-mobile" aria-hidden="true">検証</span></a><a href="cavendish-3d/cavendish-guide-3d.html"><span class="nav-label-full">1798年装置3D</span><span class="nav-label-mobile" aria-hidden="true">3D</span></a><a href="cavendish-guide.html"><span class="nav-label-full">実験の解説</span><span class="nav-label-mobile" aria-hidden="true">解説</span></a><a href="cavendish-manual.html"><span class="nav-label-full">操作マニュアル</span><span class="nav-label-mobile" aria-hidden="true">マニュアル</span></a></nav>
+  <div class="state">シミュレータ Ver0.79 / Build CV082A07</div>
+</div>
+</header>
+<main class="layout">
+<div class="control-column">
+<aside class="control">
+<section class="section">
+<div class="section-title">1. 操作・条件 <button class="help" type="button" aria-label="操作・条件の説明" data-help="観測セットを選ぶと、その実験の読取値・時刻・大球位置が、望遠鏡、波形、大球の配置、観測工程へ連動します。">?</button></div>
+<div class="control-field select-control"><span class="control-name">観測セット</span>
+        <select id="experimentSetSelect" class="combo-select" aria-label="観測セット"><option value="experiment-i">実験I</option><option value="experiment-ii">実験II</option><option value="experiment-iii">実験III</option><option value="experiment-iv">実験IV</option><option value="experiment-v">実験V</option><option value="experiment-vi">実験VI</option><option value="experiment-vii">実験VII</option><option value="experiment-viii">実験VIII</option><option value="experiment-ix">実験IX</option><option value="experiment-x">実験X</option><option value="experiment-xi">実験XI</option><option value="experiment-xii">実験XII</option><option value="experiment-xiii">実験XIII</option><option value="experiment-xiv">実験XIV</option><option value="experiment-xv">実験XV</option><option value="experiment-xvi">実験XVI</option><option value="experiment-xvii">実験XVII</option></select>
+        <button class="help control-help" type="button" aria-label="観測セットの説明" data-help="再現する実験を選びます。選択した当時の観測記録が、観測表示と記録へ接続されます。">?</button>
+</div>
+<div class="control-field select-control"><span class="control-name">観測方式</span>
+        <span class="fixed-control-value" role="text" aria-label="観測方式：史実記録の再現（Historical Reconstruction）固定">史実記録の再現 <small>固定</small></span>
+        <button class="help control-help" type="button" aria-label="観測方式の説明" data-help="実験ごとの読取値・時刻・大球位置を再生する方式に固定しています。時刻が記録されていない値は、時計時刻のある値と分けて扱います。">?</button>
+</div>
+<div class="control-field select-control"><span class="control-name">読取テスト</span>
+        <select id="motionMode" class="combo-select" aria-label="読取テスト" disabled>
+<option value="auto">自動再生</option>
+</select>
+        <button class="help control-help" type="button" aria-label="読取テストの説明" data-help="選択した実験の観測記録を共通72秒の表示時間へ圧縮して自動再生します。当時の時計時刻は波形軸と記録に保持します。">?</button>
+</div>
+<div class="control-field slider-control"><span class="control-name">史実値範囲</span>
+        <input id="amplitudeSlider" max="48" min="10" type="range" value="34" aria-label="史実値範囲（自動）" disabled/>
+        <output class="slider-value" id="amplitudeSliderValue">34 px</output>
+        <button class="help control-help" type="button" aria-label="史実値範囲の説明" data-help="選択した実験の読取値の最小〜最大範囲です。当時の観測記録から自動表示します。">?</button>
+</div>
+<div class="control-field slider-control"><span class="control-name">振動周期</span>
+        <input id="dampingSlider" max="18" min="2" type="range" value="7" aria-label="振動周期（自動）" disabled/>
+        <output class="slider-value" id="dampingSliderValue">7</output>
+        <button class="help control-help" type="button" aria-label="振動周期の説明" data-help="当時の観測記録にある振動周期から求めた中央値です。再生間隔の補助に使用します。">?</button>
+</div>
+<div class="control-field slider-control"><span class="control-name">開始位置</span>
+        <input id="restShiftSlider" max="28" min="-28" type="range" value="8" aria-label="開始位置（自動）" disabled/>
+        <output class="slider-value" id="restShiftSliderValue">+8 px</output>
+        <button class="help control-help" type="button" aria-label="開始位置の説明" data-help="選択した実験で最初に記録された大球位置です。">?</button>
+</div>
+<div class="control-field slider-control"><span class="control-name">位置順序</span>
+        <input id="restShiftAfterSlider" max="28" min="-28" type="range" value="18" aria-label="位置順序（自動）" disabled/>
+        <output class="slider-value" id="restShiftAfterSliderValue">+18 px</output>
+        <button class="help control-help" type="button" aria-label="位置順序の説明" data-help="選択した実験に記録された大球位置の順序です。">?</button>
+</div>
+</section>
+<details class="section optional-control-section" id="telescopeControlSection">
+<summary class="section-title">2. 望遠鏡・観測設定 <button class="help" type="button" aria-label="望遠鏡・観測設定の説明" data-help="史実読取と再構成値を分けて表示します。箱側に固定された象牙主尺と、アームに連動して動く5分割ノニウスを表示します。主尺と副尺は目盛を比較しやすい近接配置です。主尺1目盛は1 div（1/20 inch）、副尺は主尺1目盛を5分割し、通常の一致読取は0.2 div（1/100 inch）です。原表の0.1 div値は、副尺の隣接一致位置の中間を目測した値として表示します。直接読取は史実記録点だけ更新し、副尺の見かけの位置は再構成値へ連続追従します。">?</button></summary>
+<div class="section-body compact-control-body" aria-label="Telescope observation controls">
+<label class="control-field toggle-control" for="toggleReadMetric"><span class="control-name">史実直接読取</span><input id="toggleReadMetric" type="checkbox" checked/><span class="toggle-text">表示中</span></label>
+<label class="control-field toggle-control" for="toggleVernierMetric"><span class="control-name">史実副尺</span><input id="toggleVernierMetric" type="checkbox" checked/><span class="toggle-text">表示中</span></label>
+<label class="control-field toggle-control" for="toggleMatchMetric"><span class="control-name">再構成値</span><input id="toggleMatchMetric" type="checkbox" checked/><span class="toggle-text">表示中</span></label>
+<label class="control-field toggle-control" for="toggleVernierScale"><span class="control-name">固定主尺・アーム連動副尺</span><input id="toggleVernierScale" type="checkbox" checked/><span class="toggle-text">表示中</span></label>
+<label class="control-field toggle-control" for="toggleReadPointer"><span class="control-name">副尺ゼロ位置</span><input id="toggleReadPointer" type="checkbox" checked/><span class="toggle-text">強調中</span></label>
+<div class="control-field info-control"><span class="control-name">観測方式</span><span class="fixed-control-value">史実記録の再現 <small>固定</small></span></div>
+<p class="control-note">当時の観測値は変更せず、時計時刻が記録されていない値は時計軸から分けて扱います。</p>
+</div>
+</details>
+<details class="section optional-control-section" id="displayAnalysisSection">
+<summary class="section-title">3. 表示・解析設定 <button class="help" type="button" aria-label="表示・解析設定の説明" data-help="波形表示、大球の配置、観測工程の補助表示を調整します。各表示は選択した実験の再生データへ連動します。">?</button></summary>
+<div class="section-body compact-control-body" aria-label="表示・解析設定">
+<label class="control-field toggle-control" for="toggleWaveMarkers"><span class="control-name">史実マーカー</span><input id="toggleWaveMarkers" type="checkbox" checked/><span class="toggle-text">補助ON</span></label>
+<label class="control-field toggle-control" for="toggleEquilibriumGuides"><span class="control-name">平衡ガイド</span><input id="toggleEquilibriumGuides" type="checkbox" checked/><span class="toggle-text">補助ON</span></label>
+<label class="control-field toggle-control" for="toggleWeightNote"><span class="control-name">大球配置の説明</span><input id="toggleWeightNote" type="checkbox" checked/><span class="toggle-text">補助ON</span></label>
+<label class="control-field toggle-control" for="toggleTimelineDetail"><span class="control-name">観測工程の詳細</span><input id="toggleTimelineDetail" type="checkbox" checked/><span class="toggle-text">補助ON</span></label>
+<p class="control-note">当時の観測値、当時の記録から計算した値、時計時刻の有無を分けて表示します。</p>
+</div>
+</details>
+<details class="section optional-control-section" id="dataOutputControlSection">
+<summary class="section-title">4. データ・出力確認 <button class="help" type="button" aria-label="データ・出力確認の説明" data-help="出力操作は観測完了または停止後に表示します。史実読取記録CSV、再構成詳細CSV、A4レポートの状態を確認します。">?</button></summary>
+<div class="section-body compact-control-body" aria-label="データ・出力状態">
+<div class="control-field info-control"><span class="control-name">CSVメタ</span><span class="fixed-control-value">冒頭メタへ記録</span></div>
+<div class="control-field info-control"><span class="control-name">当時の記録データ</span><span class="fixed-control-value" id="historicalRowDataStatusControl">当時の観測記録</span></div>
+<div class="control-field info-control"><span class="control-name">CSV本体列</span><span class="fixed-control-value">変更なし</span></div>
+<div class="control-field info-control"><span class="control-name">補完計算の詳細データ</span><span class="fixed-control-value">別枠</span></div>
+<div class="control-field info-control"><span class="control-name">レポート</span><span class="fixed-control-value">A4プレビュー対応</span></div>
+<p class="control-note">出力操作は、観測完了または停止後に専用の出力欄へ表示します。この欄では出力データの状態のみを確認し、CSV本体列は変更しません。</p>
+</div>
+</details>
+<section class="section pc-completed-output-section" id="pcCompletedOutputCommands" hidden aria-label="結果保持後の出力コマンド">
+  <div class="section-title">結果保持後の出力</div>
+  <p class="control-note">観測完了または停止後に、レポート再表示とCSV確認・出力を行います。</p>
+  <button class="pc-output-report-btn" id="leftOpenReportPreviewBtn" type="button">A4レポート再表示</button>
+  <div class="pc-output-command-row">
+    <span>史実読取記録CSV</span>
+    <button id="leftPreviewHistoricalCsvBtn" type="button">プレビュー</button>
+    <button id="leftExportHistoricalCsvBtn" type="button">出力</button>
+  </div>
+  <div class="pc-output-command-row">
+    <span>再構成詳細CSV</span>
+    <button id="leftPreviewAnalysisCsvBtn" type="button">プレビュー</button>
+    <button id="leftExportAnalysisCsvBtn" type="button">出力</button>
+  </div>
+</section>
+</aside>
+<div aria-label="観測操作ボタン" class="buttons mobile-operation-bar">
+<button id="startBtn" title="観測を開始します。観測中・一時停止中・停止後・完了後は無効です。" type="button">▶<span>開始</span></button>
+<button id="pauseBtn" title="観測中は一時停止、一時停止中は再開します。" type="button">Ⅱ<span>一時停止</span></button>
+<button id="stopBtn" title="観測を任意停止し、記録済みデータを保持します。" type="button">■<span>停止</span></button>
+<button id="clearBtn" title="観測経過・読取記録・結果だけをクリアします。条件設定は保持します。" type="button">⌧<span>観測クリア</span></button>
+<button id="resetBtn" title="条件設定と観測結果をすべて初期状態へ戻します。" type="button">↻<span>リセット</span></button>
+</div>
+</div>
+<section class="main">
+<section class="panel telescope-panel">
+<div class="panel-head telescope-head">
+<span class="head-title-main">1. 史実望遠鏡表示</span>
+<small class="head-title-sub">Historical Telescope</small>
+<span class="metrics telescope-metrics">
+<span class="metric-label metric-read" title="Historical direct reading">史実直接</span><b class="metric-read" id="readValue">—</b>
+<span class="metric-sep metric-sep-read">|</span>
+<span class="metric-label metric-vernier" title="Historical five-part vernier reading">史実副尺</span><b class="metric-vernier" id="vernierValue">—</b>
+<span class="metric-sep metric-sep-vernier">|</span>
+<span class="metric-label metric-match" title="Reconstructed continuous position">再構成値</span><b class="metric-match" id="matchValue">—</b>
+</span>
+<button class="help telescope-help-button" type="button" aria-label="史実望遠鏡視界の説明" aria-controls="telescopeHelpInline" data-help-inline="telescopeHelpInline">?</button>
+</div>
+<div class="telescope-help-inline" id="telescopeHelpInline" data-inline-help-panel role="region" aria-label="史実5分割ノニウスの見方" hidden>
+  <div class="telescope-help-inline-title">史実5分割ノニウスの見方</div>
+  <ol class="telescope-help-steps">
+    <li><b>固定主尺を読む</b><span>固定主尺は箱側に固定されています。主尺1目盛は1 div（1/20 inch）です。</span></li>
+    <li><b>移動副尺の0を見る</b><span>可動副尺はアームとともに動きます。副尺の0が主尺のどの整数目盛を越えたかを読みます。</span></li>
+    <li><b>一致する線を探す</b><span>5分割ノニウスの線と主尺の線が一致する番号を読みます。1/5ごとに0.2 div（1/100 inch）です。</span></li>
+    <li><b>史実直接値と再構成値を分ける</b><span>望遠鏡は史実記録点の直接読取だけを保持します。波形途中の連続値は「再構成値」として別欄に表示します。</span></li>
+  </ol>
+  <div class="telescope-help-example"><b>例</b><span>25.6 div ＝ 主尺25 ＋ 副尺3/5（0.6 div）</span></div>
+  <div class="telescope-marker-demo" aria-label="5分割ノニウス一致表示例">
+    <span class="telescope-marker-demo-label">一致位置</span>
+    <span class="telescope-marker-demo-scale" aria-hidden="true"><i class="marker-demo-upper"></i><i class="marker-demo-lower"></i></span>
+    <span>主尺目盛の下端と副尺目盛の上端を境界側に揃え、同じ縦位置で重なる目盛を読みます。完全一致時は境界の小さな橙点だけを表示します。</span>
+  </div>
+  <p class="telescope-help-rule">Cavendishの記述では、主尺は1/20 inch刻み、アーム側の象牙片が5分割ノニウスで、1/100 inchを容易に読み、さらに細かく目測できる構成です。原表の0.1 div値は「目測」と明記し、0.01〜0.001 divの計算・補間値を史実直接読取として表示しません。</p>
+</div>
+<div class="lens">
+<div class="lens-circle">
+<div class="lens-shade"></div>
+<div aria-label="固定側の象牙主尺（1目盛1 div）" class="historical-fixed-main-scale" id="fixedMainScale">
+  <div class="scale-plate historical-main-plate"></div>
+  <div class="scale-axis"></div>
+  <div class="historical-main-ticks" id="historicalMainTicks"></div>
+</div>
+<div aria-label="アームとともに動く5分割ノニウス" class="historical-moving-vernier" id="movingVernierScale">
+  <div class="scale-plate historical-vernier-plate"></div>
+  <div class="scale-axis"></div>
+  <div class="tick zero" data-vernier-index="0" style="left:0%"></div>
+  <div class="tick micro" data-vernier-index="1" style="left:20%"></div>
+  <div class="tick micro" data-vernier-index="2" style="left:40%"></div>
+  <div class="tick micro" data-vernier-index="3" style="left:60%"></div>
+  <div class="tick micro" data-vernier-index="4" style="left:80%"></div>
+  <div class="tick major" data-vernier-index="5" style="left:100%"></div>
+  <div class="tick-label zero-label" style="left:0%">0</div>
+  <div class="tick-label" style="left:20%">1</div>
+  <div class="tick-label" style="left:40%">2</div>
+  <div class="tick-label" style="left:60%">3</div>
+  <div class="tick-label" style="left:80%">4</div>
+  <div class="tick-label" style="left:100%">5</div>
+  <div aria-hidden="true" class="historical-vernier-zero"></div>
+</div>
+<div class="historical-coincidence-marker" id="historicalCoincidenceMarker" aria-hidden="true" hidden><i></i></div>
+<div class="telescope-reading-badge" id="telescopeReadingBadge">史実直接読取</div>
+</div>
+</div>
+<div class="telescope-note">固定主尺とアーム連動の5分割副尺を近接表示しています。上段・下段の配置は読取比較のための表示上の再構成であり、史実確定事項は固定側／可動側の関係です。主尺1目盛=1 div（1/20 inch）、副尺1/5=0.2 div（1/100 inch）。史実直接読取は記録点だけ更新し、副尺の見かけの位置は波形の再構成値へ連続追従します。0.1 divの原表値は副尺間の目測値として示します。</div>
+</section>
+<section class="panel waveform-panel">
+<div class="panel-head">
+<span>2. 波形表示</span>
+<small id="waveStatusText">待機中：波形未表示</small>
+</div>
+<div class="wave">
+<div class="wave-weight-layout"><div class="wave-area">
+<div class="wave-time-axis-toolbar" id="waveTimeAxisToolbar">
+<div class="wave-time-axis-mode" id="waveTimeAxisMode"><b>省略表示</b><small>連続波形がない長時間区間を折りたたみ</small></div>
+<button class="wave-time-axis-toggle" id="waveTimeAxisToggle" type="button" aria-pressed="false">全時間軸を表示</button>
+</div>
+<svg class="is-idle" id="waveSvg" preserveaspectratio="none" viewbox="0 0 1000 220">
+<g class="wave-grid" aria-label="Waveform grid and scale">
+<line class="wave-gridline wave-gridline-x" x1="0" x2="1000" y1="33" y2="33"></line>
+<line class="wave-gridline wave-gridline-x" x1="0" x2="1000" y1="69" y2="69"></line>
+<line class="wave-gridline wave-gridline-zero" x1="0" x2="1000" y1="105" y2="105"></line>
+<line class="wave-switch-line" id="waveSwitchLine" x1="333.3" x2="333.3" y1="18" y2="188"></line>
+<text class="wave-switch-label" id="waveSwitchLabel" x="342" y="29">配置切替</text>
+<line class="wave-equilibrium-line" id="waveEquilibriumLine" x1="0" x2="1000" y1="105" y2="105"></line>
+<text class="wave-equilibrium-label" id="waveEquilibriumLabel" x="860" y="98">A平衡</text>
+<line class="wave-equilibrium-line wave-equilibrium-line-alt" id="waveEquilibriumLineAlt" x1="0" x2="1000" y1="105" y2="105"></line>
+<text class="wave-equilibrium-label wave-equilibrium-label-alt" id="waveEquilibriumLabelAlt" x="860" y="116">B平衡</text>
+<line class="wave-gridline wave-gridline-x" x1="0" x2="1000" y1="141" y2="141"></line>
+<line class="wave-gridline wave-gridline-x" x1="0" x2="1000" y1="177" y2="177"></line>
+<g id="waveTimeAxisGrid" aria-label="時間軸グリッド"></g>
+
+</g>
+<g aria-label="Unobserved waveform intervals" id="waveGapBands"></g>
+<g aria-label="省略した時間" id="waveTimeFoldMarker"></g>
+<path class="wave-reconstruction-band" d="" id="waveReconstructionBand"></path>
+<path class="wavepath wave-historical-path" d="" id="waveObservedPath"></path>
+<path class="wavepath wave-reconstruction-path" d="" id="waveReconstructionPath"></path>
+<line class="current" id="waveCurrentLine" x1="500" x2="500" y1="0" y2="210"></line>
+<g aria-label="Historical reading record markers" id="waveRecordMarkers"></g>
+<g aria-label="時刻カラーマーカー" id="waveTimeAxisMarkers"></g>
+<g class="wave-scale-labels" aria-label="Waveform numeric scale labels">
+<text class="wave-axis-label wave-axis-y" x="16" y="18">読取値［目盛/div］</text>
+<g class="wave-y-tick-label"><rect class="wave-label-bg" x="7" y="24" width="48" height="15" rx="2"></rect><text class="wave-grid-label wave-y-label" id="waveYLabel1" x="12" y="36">+0.05</text></g>
+<g class="wave-y-tick-label"><rect class="wave-label-bg" x="7" y="60" width="58" height="15" rx="2"></rect><text class="wave-grid-label wave-y-label" id="waveYLabel2" x="12" y="72">+0.025</text></g>
+<g class="wave-y-tick-label"><rect class="wave-label-bg" x="7" y="97" width="22" height="15" rx="2"></rect><text class="wave-grid-label wave-y-label" id="waveYLabel3" x="12" y="109">0</text></g>
+<g class="wave-y-tick-label"><rect class="wave-label-bg" x="7" y="133" width="58" height="15" rx="2"></rect><text class="wave-grid-label wave-y-label" id="waveYLabel4" x="12" y="145">-0.025</text></g>
+<g class="wave-y-tick-label"><rect class="wave-label-bg" x="7" y="169" width="48" height="15" rx="2"></rect><text class="wave-grid-label wave-y-label" id="waveYLabel5" x="12" y="181">-0.05</text></g>
+<g id="waveTimeAxisLabels" aria-label="時間軸ラベル"></g>
+<text class="wave-axis-label wave-axis-x" id="waveXAxisLabel" x="948" y="214">時刻</text>
+<g class="wave-idle-message" id="waveIdleMessage" aria-label="待機中の波形説明"><rect x="240" y="78" width="520" height="50" rx="4"></rect><text id="waveIdleTitle" x="500" y="98">開始すると観測波形を表示します</text><text id="waveIdleDetail" x="500" y="117">観測セットの時間構造を読み込んでいます</text></g>
+</g>
+</svg>
+<div class="wave-time-marker-legend" id="waveTimeMarkerLegend" aria-label="時刻カラーマーカー凡例" hidden></div>
+<div aria-label="Reconstruction model segment status" class="wave-residual-audit wave-model-status-strip" id="waveResidualAudit" hidden></div>
+</div><div class="weight-wave-side"><div class="weight-side-view">
+<div class="side-title">大球の配置 <button class="help" title="視認性のためサイズ・角度を補助拡大しています" type="button" aria-label="大球の配置の説明" data-help="当時の記録から確認できる配置を表示します。時計時刻のない初期配置から最初の時計付き配置までは「想定補間」と明示し、約2.5秒のUI表示として補います。大球2個は共通中心・一定半径・180°対向を保つ説明用円弧で動きます。この時間と速度は史実値ではありません。それ以外の未記録の途中経路は描かず、「配置変更」または「観測記録なし」と表示します。省略表示では、観測記録がない長時間区間を短時間で通過します。全時間軸表示へ切り替えると、実際の時刻間隔を確認できます。">?</button></div>
+<div class="top-view-stage mass-phase-a" id="topViewStage">
+<div class="arrangement-label arrangement-label-a" id="arrangementLabelA">正位置</div>
+<div class="arrangement-label arrangement-label-b" id="arrangementLabelB">負位置</div>
+<div class="large-mass large-a arrangement-a"><span>大球</span></div>
+<div class="large-mass large-d arrangement-a"><span>大球</span></div>
+<div class="large-mass large-b arrangement-b"><span>大球</span></div>
+<div class="large-mass large-c arrangement-b"><span>大球</span></div>
+<div class="large-mass moving-large-mass moving-large-mass-1" id="movingLargeMass1" aria-label="移動する大球1"><span>大球</span></div>
+<div class="large-mass moving-large-mass moving-large-mass-2" id="movingLargeMass2" aria-label="移動する大球2"><span>大球</span></div>
+<div class="switch-cue" id="massSwitchCue">配置切替</div>
+<div class="mass-state-card" id="massStateCard" hidden><b></b><span></span><small></small></div>
+<div class="torsion-arm" id="weightArm">
+<div class="small-mass small-left"><span>小球</span></div>
+<div class="small-mass small-right"><span>小球</span></div>
+</div>
+<div class="pivot-mark"><span>支点</span></div>
+<div class="theta-readout" id="thetaReadout">読取値 --</div>
+<div class="event-label" id="largeMassPositionLabel">大球：正位置</div>
+</div>
+<div class="weight-note" id="weightMotionNote">上面模式図 / 正位置・負位置・中間位置の史実区分と切替順を表示します。約2.5秒の想定補間は剛体円弧の説明表示で、史実時間・波形・観測値・結果集計には含めません。中間位置座標と移動経路は説明用再構成です。</div>
+</div></div></div>
+<details class="wave-support-details compact-detail-panel" id="waveSupportDetails">
+<summary><span>補助情報</span><small id="waveSupportSummary">時刻未記載極値・線種凡例</small></summary>
+<div aria-label="時計時刻が記録されていない振れ幅の一覧" class="wave-phase-lane" id="wavePhaseLane" hidden></div>
+<div aria-label="Waveform meaning note" class="wave-meaning">
+<span class="meaning-current">金色縦線：現在位置</span>
+<span class="wave-line-style-comparison" id="waveHistoricalGuideLegend"><i class="line-sample line-solid-sample"></i>実線：直接観測点間ガイド</span>
+<span class="wave-line-style-comparison" id="waveReconstructionGuideLegend"><i class="line-sample line-dashed-sample"></i>破線：補完・再構成波形</span>
+<span id="waveHistoricalMarkerLegend"><i class="marker-sample marker-a-sample"></i>赤点：史実時計付き読取</span>
+<span id="waveDirectClockGuideLegend" hidden><i class="line-sample line-solid-sample direct-clock-guide-sample"></i>実線：直接時計付き観測点間ガイド（点間を連続観測した意味ではない）</span>
+<span id="waveCrossingTimeGuideLegend" hidden><i class="line-sample line-dashed-sample"></i>破線：交差時刻・振動中央時刻に拘束した再構成波形</span>
+<span id="waveReconstructedMarkerLegend"><i class="marker-sample marker-b-sample"></i>青点：時計時刻がない振れ幅の記録（記録順・線なし）</span>
+<span><i class="gap-sample"></i>空白帯：未観測・補完しない区間</span>
+<span id="waveTransitionUncertaintyLegend" hidden><i class="transition-uncertainty-sample"></i><span id="waveTransitionUncertaintyLegendText">金色破線帯：配置変更時刻が不確定（波形を接続しない）</span></span>
+<span id="waveMissedObservationLegend" hidden><i class="missed-observation-sample"></i><span id="waveMissedObservationLegendText">青色下端括弧：原表の欠測（波形を接続しない）</span></span>
+<span id="waveMeaningStatus">波形：補助（未表示）</span>
+<button class="help wave-meaning-help" id="waveMeaningHelp" type="button" aria-label="波形の見方" data-help="縦軸は読取値の目盛（div）です。金色の縦線は現在位置を示し、移動する現在値点は表示しません。赤点は読取値と時計時刻が当時の記録に併記された直接観測です。実線は直接観測点どうしの関係を示すガイドで、途中の値まで観測した意味ではありません。破線は、振動中央時刻を振動の区切り、時計時刻がない振れ幅を計算の基準として作った補完波形です。中央線 m(t) の変化と、全区間で共通の減衰率 β は計算上の仮定です。同じ観測記録にある時計付き読取値と比べていますが、この計算方法だけが正しいことを証明するものではありません。青点は時計軸と対応しない記録順1→5で、線では結びません。空白帯は未観測で、補完しない区間です。破線帯は、大球の配置変更が前後の時計付き記録の間に起きたことだけ分かり、正確な移動時刻が記録されていない範囲です。下端括弧は、原表に missed と記された欠測範囲で、前後の直接時計付き点を線で結びません。">?</button>
+</div>
+</details>
+</div>
+</section>
+<section class="panel cycle-panel cycle-compact-panel">
+<div class="panel-head">
+<span>3. 観測工程</span>
+<small>実験別の史実再生</small>
+<button class="help" type="button" aria-label="観測工程の説明" data-help="選択した実験の時計付き観測、配置変更、欠測、不確定区間を史実時刻または時刻範囲とともに示します。*付き時刻は振動中央時刻などから再構成した境界です。">?</button>
+</div>
+<div aria-label="観測工程" class="cycle-row flow-timeline compact-flow-timeline" id="flowTimeline"></div>
+<div class="flow-timeline-key" aria-label="観測工程の表示種別">
+<span><i class="flow-key-observation"></i>時計付き観測</span>
+<span><i class="flow-key-transition"></i>配置変更</span>
+<span><i class="flow-key-missed"></i>欠測</span>
+<span><i class="flow-key-reconstructed"></i>* 再構成時刻</span>
+</div>
+<details aria-label="現在の観測工程" class="cycle-detail-panel compact-detail-panel">
+<summary id="flowDetailSummary">現在：観測開始</summary>
+<div aria-label="現在の観測状態" class="observation-flow">
+<div class="flow-title">現在段階：<b id="flowCurrentStage">初期安定化</b><span class="flow-reason" id="flowReason">振動安定待ち</span></div>
+</div>
+</details>
+</section>
+<section aria-label="Historical data compact status" class="historical-compact-panel" id="historicalCompactPanel">
+<div class="historical-compact-title" id="historicalDatasetSummary">史実データ：実験I / CAV-1798-EXP-I</div>
+<div class="historical-compact-grid">
+<div><small>実験</small><b id="historicalDatasetId">実験I</b></div>
+<div><small>史実ID</small><b id="historicalDatasetInternalId">CAV-1798-EXP-I</b></div>
+<div><small>日付</small><b id="historicalDatasetDate">1797 Aug. 5</b></div>
+<div><small>状態</small><b id="historicalDatasetStatus">当時の観測記録を収録済み</b></div>
+<div><small>接続</small><b id="historicalDatasetConnection">参照のみ</b></div>
+<div><small>CSVメタ</small><b id="historicalDatasetCsvMeta">冒頭メタへ記録</b></div>
+</div>
+<p class="historical-compact-note" id="historicalDatasetRegistryNote">選択した実験の登録状態と表示パターンを確認します。</p>
+<span hidden id="historicalDatasetColumns"></span>
+</section>
+<details aria-label="実験Iの当時の観測記録" class="historical-row-trial-panel compact-detail-panel" id="historicalRowTrialPanel">
+<summary><span id="historicalRowTrialSummary">実験I 当時の観測記録</span></summary>
+<p class="historical-row-trial-note" id="historicalRowTrialNote">必要時だけ開いて、転記候補8行と確認状態を見ます。</p>
+<div class="historical-row-trial-grid" id="historicalRowTrialGrid"></div>
+<p class="historical-row-trial-caution" id="historicalRowTrialCaution">当時の観測値は変更せず、時計時刻がない値は時計軸から分けて扱います。</p>
+</details>
+
+<div class="internal-state-store" hidden aria-hidden="true">
+<span id="stateLabel">Observing</span>
+<span id="summaryOffset">史実直接 — / 再構成 —</span>
+<span id="summaryRead">-0.022 div</span>
+<span id="debugTheta">+0.00 mrad</span>
+<span id="debugRead">+0.000 div</span>
+<span id="debugVernier">0.000 div</span>
+<span id="debugMatch">0/10</span>
+<span id="debugLargeMass">Position A</span>
+<span id="debugTimelineSlot">5 fixed</span>
+<span id="debugCycle">1</span>
+<span id="debugTime">0.0 s</span>
+</div>
+<details aria-label="当時の読取記録" class="reading-record-panel" id="readingRecordPanel">
+<summary class="reading-record-summary">
+<span class="reading-record-summary-head">
+<span class="reading-record-title">読取記録</span>
+<span class="reading-record-summary-action"><span class="when-closed">全記録を表示</span><span class="when-open">折りたたむ</span></span>
+</span>
+<span class="reading-record-overview" aria-label="読取記録の概要">
+<span><small>実験</small><b id="readingRecordExperiment">実験I</b></span>
+<span><small>記録件数</small><b id="readingRecordCount">0件</b></span>
+<span><small>時刻範囲</small><b id="readingRecordTimeRange">—</b></span>
+<span><small>読取値の範囲</small><b id="readingRecordReadRange">—</b></span>
+</span>
+</summary>
+<div class="reading-record-content">
+<div class="reading-record-note">当時の記録にある読取値と振れ幅を保持します。「時刻未記載」「時刻補完」は、当時の時計時刻ではありません。</div>
+<div class="reading-record-table-wrap">
+<table class="reading-record-table">
+<thead>
+<tr><th>番号</th><th>記録時刻</th><th>位置</th><th>種別</th><th>読取値［目盛/div］</th></tr>
+</thead>
+<tbody id="readingRecordBody">
+<tr class="empty"><td colspan="5">読取記録待ち</td></tr>
+</tbody>
+</table>
+</div>
+<div aria-label="読取値の平均" class="reading-average-panel" id="liveReadingStats">
+<div><small id="livePositionLabelA">位置1平均</small><b id="avgReadA">-- div（n=0）</b></div>
+<div><small id="livePositionLabelB">位置2平均</small><b id="avgReadB">-- div（n=0）</b></div>
+<div id="livePositionCWrap" hidden><small id="livePositionLabelC">位置3平均</small><b id="avgReadC">-- div（n=0）</b></div>
+<div><small id="liveDifferenceLabel">位置差</small><b id="readDiffAB">-- div</b></div>
+</div>
+<div aria-label="配置変更による読取差の説明" class="gravity-reading-diff" id="liveGravityDiff">
+<div class="gravity-reading-diff-head">
+<small>配置変更による読取差</small>
+<b id="gravityReadDiff">-- div</b>
+</div>
+<p id="liveDifferenceDescription">当時の記録にある位置別の読取値と移動量を分けて表示します。</p>
+<p class="gravity-reading-diff-caution">本表示は読取値の差であり、角度・トルク・力・万有引力定数Gそのものではありません。</p>
+</div>
+</div>
+</details>
+<section aria-label="観測結果のまとめ" class="result-summary-panel is-pending" id="resultSummaryPanel">
+<div class="result-summary-title">結果サマリー</div>
+<div class="result-summary-note" id="resultSummaryNote">観測完了または停止後に、最終結果だけを表示します。</div>
+<div class="result-summary-grid" id="resultSummaryGrid">
+<div><small id="resultCountLabelA">位置1読取数</small><b id="resultCountA">0 件</b></div>
+<div><small id="resultCountLabelB">位置2読取数</small><b id="resultCountB">0 件</b></div>
+<div id="resultPositionCCountWrap" hidden><small id="resultCountLabelC">位置3読取数</small><b id="resultCountC">0 件</b></div>
+<div><small id="resultAverageLabelA">位置1平均</small><b id="resultAvgA">-- div</b></div>
+<div><small id="resultAverageLabelB">位置2平均</small><b id="resultAvgB">-- div</b></div>
+<div id="resultPositionCAverageWrap" hidden><small id="resultAverageLabelC">位置3平均</small><b id="resultAvgC">-- div</b></div>
+<div id="resultDifferenceWrap"><small id="resultDifferenceLabel">位置差</small><b id="resultDiffAB">-- div</b></div>
+<div id="resultGravityDiffWrap"><small>配置変更による読取差</small><b id="resultGravityDiff">-- div</b></div>
+</div>
+<div aria-label="実験Iの観測記録と計算結果の比較" class="model-validation-panel" id="modelValidationPanel" hidden></div>
+</section>
+<div class="output-status-message" id="outputStatusMessage" role="status" aria-live="polite" hidden></div>
+<section aria-label="CSV出力" class="csv-schema-panel csv-compact-panel" id="dataReportOutputPanel" hidden>
+<div class="csv-schema-title">データ・レポート出力</div>
+<p class="csv-schema-note">史実読取記録CSVは主記録、再構成詳細CSVは時刻再構成・条件付き補完・同一資料内残差を追跡する補助記録として分離します。両CSVはUTF-8 BOM、CRLF、全セル引用で保存し、Experiment ID・出典ページ・原表行ID・Build・CSV Record ID・生成日時を記録します。</p>
+<div class="csv-schema-grid csv-compact-grid">
+<div>
+<small>主記録</small>
+<b>史実読取記録CSV</b>
+<div class="output-actions"><button class="csv-export-btn csv-preview-btn" id="previewHistoricalCsvBtn" type="button">CSVプレビュー</button><button class="csv-export-btn" id="exportHistoricalCsvBtn" type="button">CSV出力</button></div>
+</div>
+<div>
+<small>補助</small>
+<b>再構成詳細CSV</b>
+<div class="output-actions"><button class="csv-export-btn secondary csv-preview-btn" id="previewAnalysisCsvBtn" type="button">CSVプレビュー</button><button class="csv-export-btn secondary" id="exportAnalysisCsvBtn" type="button">CSV出力</button></div>
+</div>
+<div>
+<small>レポート</small>
+<b>A4レポートプレビュー</b>
+<button class="csv-export-btn report-preview-btn" id="openReportPreviewBtn" type="button">レポートプレビュー表示</button>
+</div>
+</div>
+</section>
+</section>
+</main>
+
+<section aria-label="CSVプレビュー" class="inline-csv-preview" id="inlineCsvPreview" aria-hidden="true">
+  <div class="inline-csv-toolbar" aria-label="CSVプレビュー操作">
+    <button class="inline-csv-action" id="inlineCsvSaveBtn" type="button">CSV保存</button>
+    <button class="inline-csv-action" id="inlineCsvBackBtn" type="button">戻る</button>
+  </div>
+  <article class="inline-csv-sheet">
+    <header class="inline-csv-head">
+      <h1 id="inlineCsvTitle">IMPULSE LABO ｜ CSVプレビュー</h1>
+      <div class="inline-csv-meta" id="inlineCsvMeta">CSVプレビュー Ver0.79 / Build CV081A05</div>
+    </header>
+    <div class="inline-csv-note" id="inlineCsvNote">CSV内容を同一画面内で確認します。</div>
+    <pre class="inline-csv-pre" id="inlineCsvPre"></pre>
+  </article>
+</section>
+
+<div id="commonHelpFloat" class="common-help-float" role="tooltip" aria-hidden="true"></div>
+
+<script src="assets/data/cavendish-historical-data.js?v=CV080A12-CV081A121R"></script>
+<script src="assets/data/cavendish-observation-set-registry.js?v=CV080A12-CV081A121R"></script>
+<script src="assets/data/cavendish-observation-structure.js?v=CV080A12"></script>
+<script src="assets/js/cavendish-data-layers.js?v=CV080A12"></script>
+<script src="assets/js/cavendish-experiment-i-semantics.js?v=CV080A12"></script>
+<script src="assets/js/cavendish-experiment-i-physical-model.js?v=CV080A12"></script>
+<script src="assets/js/cavendish-direct-clock-semantics.js?v=CV080A12"></script>
+<script src="assets/data/cavendish-crossing-time-semantics.js?v=CV080A12"></script>
+<script src="assets/data/cavendish-time-axis-config.js?v=CV080A12"></script>
+<script src="assets/js/cavendish-direct-clock-time-axis.js?v=CV080A12"></script>
+<script src="assets/js/cavendish-time-axis.js?v=CV080A12"></script>
+<script src="assets/js/cavendish-historical-replay.js?v=CV080A12"></script>
+<script src="script.js?v=CV081A05-CV081A121R"></script>
+</body>
+</html>

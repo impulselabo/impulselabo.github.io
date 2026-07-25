@@ -1,0 +1,237 @@
+{
+  "schema_version": "3.0.0",
+  "build": "CV079B12",
+  "data_key": "CAV-1798-EXP-I",
+  "raw_data_build": "CV079A02",
+  "semantic_build": "CV079B02",
+  "status": "internal_source_closure_within_resolution_physical_uniqueness_unresolved",
+  "equation": "y'' + 2*beta*y' + (omega_d^2 + beta^2)*y = 0; x = m(t) + y; m(t) linear between printed middle-vibration markers",
+  "historical_interpretation": {
+    "middle_vibration_times": [
+      "12:01:13",
+      "12:16:09",
+      "12:30:45",
+      "12:45:58"
+    ],
+    "middle_values_div": [
+      11.6,
+      12.4,
+      11.45,
+      12.0
+    ],
+    "adjacent_differences_s": [
+      896,
+      876,
+      913
+    ],
+    "mean_adjacent_difference_s": 895,
+    "meaning": "Each middle value is the arithmetic mean of adjacent untimed extrema. Printed middle-vibration times fix phase; extrema constrain amplitude only and receive no time."
+  },
+  "damping": {
+    "half_ranges_div": [
+      6.6,
+      5.8,
+      4.85,
+      4.3
+    ],
+    "beta_per_s": 0.00015957341762862676,
+    "estimation": "ln(first_half_range/last_half_range)/elapsed_time_between_first_and_fourth_middle markers",
+    "global_beta": true
+  },
+  "constraint_policy": {
+    "historical_direct_clock_points": 11,
+    "untimed_extreme_points": 10,
+    "untimed_extreme_pseudo_time_count": 0,
+    "point_of_rest_wave_anchors": 0,
+    "phase_marker_count": 4,
+    "phase_segment_count": 3,
+    "direct_clock_closure_check_count": 8,
+    "untimed_extreme_rule": "Amplitude constraint only. No absolute time, playback time, equal spacing, or reverse-inferred extreme time.",
+    "direct_clock_rule": "Printed clock/division pairs are same-source, non-statistical internal-closure checks; they are not independent validation and are not forced to zero residual.",
+    "middle_line_rule": "m(t) is linear between adjacent printed middle-vibration markers."
+  },
+  "phase_reconstruction_segments": [
+    {
+      "segment_id": "EXP-I-PHASE-RECON-01",
+      "middle_start_hms": "12:01:13",
+      "middle_end_hms": "12:16:09",
+      "duration_s": 896,
+      "middle_start_div": 11.6,
+      "middle_end_div": 12.4,
+      "extreme_row_id": "EXP-I-ROW-010",
+      "extreme_constraint_div": 18.2,
+      "amplitude_div": 6.6593928330151595,
+      "direct_clock_check_count": 2,
+      "max_direct_clock_residual_div": 0.01080936772662966,
+      "rms_direct_clock_residual_div": 0.009360055907272536,
+      "beta_per_s": 0.00015957341762862676,
+      "omega_d_rad_per_s": 0.0035062418008814655,
+      "omega_n_rad_per_s": 0.0035098711147080863,
+      "zeta": 0.04546418156494,
+      "validation_status": "consistent",
+      "validation_label_ja": "記録分解能内",
+      "historical_extreme_time_claim": false
+    },
+    {
+      "segment_id": "EXP-I-PHASE-RECON-02",
+      "middle_start_hms": "12:16:09",
+      "middle_end_hms": "12:30:45",
+      "duration_s": 876,
+      "middle_start_div": 12.4,
+      "middle_end_div": 11.45,
+      "extreme_row_id": "EXP-I-ROW-011",
+      "extreme_constraint_div": 6.6,
+      "amplitude_div": 5.710063105833209,
+      "direct_clock_check_count": 3,
+      "max_direct_clock_residual_div": 0.09906946187292931,
+      "rms_direct_clock_residual_div": 0.08222373850943018,
+      "beta_per_s": 0.00015957341762862676,
+      "omega_d_rad_per_s": 0.0035862929835499924,
+      "omega_n_rad_per_s": 0.0035898413668954215,
+      "zeta": 0.04445138414754788,
+      "validation_status": "consistent",
+      "validation_label_ja": "記録分解能内",
+      "historical_extreme_time_claim": false
+    },
+    {
+      "segment_id": "EXP-I-PHASE-RECON-03",
+      "middle_start_hms": "12:30:45",
+      "middle_end_hms": "12:45:58",
+      "duration_s": 913,
+      "middle_start_div": 11.45,
+      "middle_end_div": 12.0,
+      "extreme_row_id": "EXP-I-ROW-012",
+      "extreme_constraint_div": 16.3,
+      "amplitude_div": 4.920543768373419,
+      "direct_clock_check_count": 3,
+      "max_direct_clock_residual_div": 0.09652884488149915,
+      "rms_direct_clock_residual_div": 0.07703046561952832,
+      "beta_per_s": 0.00015957341762862676,
+      "omega_d_rad_per_s": 0.0034409558089702006,
+      "omega_n_rad_per_s": 0.0034446539093063396,
+      "zeta": 0.04632494927792631,
+      "validation_status": "consistent",
+      "validation_label_ja": "記録分解能内",
+      "historical_extreme_time_claim": false
+    }
+  ],
+  "direct_clock_closure": {
+    "comparison": "direct_clock_pair_closure_nonstatistical",
+    "source_resolution_div": 0.1,
+    "caution_threshold_div": 0.5,
+    "thresholds_are_statistical": false,
+    "check_count": 8,
+    "max_absolute_residual_div": 0.09906946187292931,
+    "rms_residual_div": 0.0691542919106074,
+    "mean_absolute_residual_div": 0.05421046830118592,
+    "validation_status_counts": {
+      "consistent": 3
+    },
+    "overall_status": "consistent",
+    "scope": "same_source_internal_closure_only",
+    "independent_validation": false,
+    "physical_validity_claim": false
+  },
+  "sensitivity_envelope": {
+    "variables": [
+      "beta"
+    ],
+    "beta_scale_factors": [
+      0.8,
+      1.0,
+      1.2
+    ],
+    "extreme_amplitude_reconstrained_per_variant": true,
+    "interpretation": "Deterministic beta sensitivity only; not measurement uncertainty, probability, or a confidence interval.",
+    "confidence_interval": false,
+    "probability_statement": false
+  },
+  "untimed_phase_groups": [
+    {
+      "position": "positive",
+      "count": 5,
+      "values_div": [
+        23.4,
+        27.6,
+        24.7,
+        27.3,
+        25.1
+      ],
+      "axis": "record_order_1_to_5",
+      "historical_time_claim": false
+    },
+    {
+      "position": "midway",
+      "count": 5,
+      "values_div": [
+        5.0,
+        18.2,
+        6.6,
+        16.3,
+        7.7
+      ],
+      "axis": "record_order_1_to_5",
+      "historical_time_claim": false
+    }
+  ],
+  "unresolved_intervals": [
+    {
+      "start_hms": "10:05:00",
+      "end_hms": "11:06:00",
+      "reason": "Positive extrema have values/order only and protective operations are not clocked."
+    },
+    {
+      "start_hms": "11:06:00",
+      "end_hms": "12:00:48",
+      "reason": "Return protective procedure and first physical extremity are unobserved."
+    }
+  ],
+  "diagnostics": {
+    "clock_segment_count": 3,
+    "full_sample_count": 1083,
+    "middle_phase_marker_count": 4,
+    "direct_clock_check_count": 8,
+    "max_direct_clock_closure_residual_div": 0.09906946187292931,
+    "rms_direct_clock_closure_residual_div": 0.0691542919106074,
+    "extreme_constraint_count": 3,
+    "extreme_time_claim_count": 0,
+    "overall_validation_status": "consistent",
+    "internal_closure_only": true,
+    "independent_validation": false,
+    "physical_uniqueness_resolved": false
+  },
+  "protections": [
+    "No untimed extreme receives abs_time_s or playback_time_s.",
+    "The 895 s mean is not used to generate extreme clocks.",
+    "Printed middle-vibration times are used directly as phase markers, not inverted to infer extreme clocks.",
+    "No curve is drawn through unresolved protective-operation intervals.",
+    "Historical source and printed-calculation layers remain unchanged.",
+    "Closure classification is explicitly non-statistical.",
+    "A closure result within 0.1 div is labelled as same-source internal closure, not model validity or independent verification."
+  ],
+  "numeric_model_build": "CV079B10",
+  "interpretation_build": "CV079B12",
+  "model_assumptions": {
+    "phase_boundary": "Printed middle-vibration times are used as phase boundaries.",
+    "amplitude_constraint": "Untimed extrema constrain amplitude only and receive no time.",
+    "central_line": "m(t) changes linearly between adjacent printed middle-vibration markers.",
+    "damping": "One global beta estimated from printed half-ranges is used for all three segments.",
+    "correction_force": "No segment-specific affine correction force is used.",
+    "independent_validation": false,
+    "physical_uniqueness": "unresolved"
+  },
+  "fix_scope": {
+    "fixed": [
+      "historical/reconstruction layer separation",
+      "pseudo-time removal",
+      "historical clock-axis display",
+      "same-source numerical closure within the printed 0.1 div resolution"
+    ],
+    "unresolved": [
+      "physical cause of the linearly changing central line m(t)",
+      "uniqueness of the selected reconstruction model",
+      "statistical measurement uncertainty",
+      "generalization to Experiments II-XVII"
+    ]
+  }
+}

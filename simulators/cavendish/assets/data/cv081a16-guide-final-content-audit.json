@@ -1,0 +1,25 @@
+{
+  "build": "CV081A16",
+  "date": "2026-07-22",
+  "scope": "Cavendish guide final content and cross-layer consistency audit",
+  "canonical_sources": {
+    "apparatus": "cavendish-3d/cavendish-guide-3d.html",
+    "telescope": "cavendish-simulator.html#historical-telescope",
+    "guide": "cavendish-guide.html"
+  },
+  "terminology": {
+    "positions": ["正位置", "負位置", "中間位置"],
+    "telescope": ["固定主尺", "アーム連動5分割副尺", "史実直接値", "史実副尺", "再構成値"],
+    "waveform": ["直接観測", "条件付き再構成", "未観測・補完しない区間", "欠測"]
+  },
+  "checks": [
+    {"id": "canonical-apparatus-3d", "result": "PASS"},
+    {"id": "canonical-telescope-screen", "result": "PASS"},
+    {"id": "position-terminology", "result": "PASS"},
+    {"id": "caption-image-correspondence", "result": "PASS"},
+    {"id": "internal-links", "result": "PASS"},
+    {"id": "local-file-references", "result": "PASS"},
+    {"id": "public-html-development-record-exclusion", "result": "PASS"},
+    {"id": "cv081a15r1-typography-preserved", "result": "PASS"}
+  ]
+}

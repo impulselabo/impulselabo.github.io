@@ -1,0 +1,360 @@
+{
+  "build": "CV080A25R",
+  "schema_version": "1.0.0",
+  "title": "All 17 Experiments Observation-Process Card / Placement-Transition / Missing-Interval Audit",
+  "purpose_ja": "全17実験の観測工程カード、配置変更時刻、不確定区間、欠測区間、現在工程同期、完了状態を横断監査する。",
+  "status": "PASS",
+  "policy": {
+    "exact_transition": "原表に明記された配置変更時刻だけを確定時刻として表示する。",
+    "uncertain_transition": "前後の時計付き記録で挟まれた範囲として表示し、正確な時刻や途中経路を断定しない。",
+    "missed_interval": "原表のmissed記録または再構成した欠測境界を欠測カードとして示し、前後の波形を接続しない。",
+    "untimed_stage": "時計時刻を持たない記録順カードは時計軸上の確定工程として扱わない。",
+    "completion": "観測完了時は最終工程カードと最終大球配置を保持する。"
+  },
+  "totals": {
+    "experiments": 17,
+    "stages": 89,
+    "observation_stages": 42,
+    "transition_exact": 2,
+    "transition_uncertain": 17,
+    "missed": 6,
+    "missed_reconstructed": 1,
+    "untimed": 4,
+    "end": 17,
+    "reconstructed_clock_stages": 4,
+    "stage_boundary_checks": 137,
+    "progression_samples": 17017,
+    "mass_position_checks": 34,
+    "final_state_checks": 17,
+    "max_stage_count": 10
+  },
+  "experiments": [
+    {
+      "key": "CAV-1798-EXP-I",
+      "experiment_id": "experiment-i",
+      "status": "PASS",
+      "stage_count": 6,
+      "kinds": {
+        "observation": 1,
+        "transition_exact": 2,
+        "untimed": 1,
+        "observation_resume": 1,
+        "end": 1
+      },
+      "transition_ranges": 0,
+      "missed_ranges": 0,
+      "initial_mass_position": "midway",
+      "final_mass_position": "midway",
+      "max_label_chars": 11,
+      "max_clock_chars": 11,
+      "reconstructed_clock_stages": 0
+    },
+    {
+      "key": "CAV-1798-EXP-II",
+      "experiment_id": "experiment-ii",
+      "status": "PASS",
+      "stage_count": 4,
+      "kinds": {
+        "observation_start": 1,
+        "transition_uncertain": 1,
+        "observation_resume": 1,
+        "end": 1
+      },
+      "transition_ranges": 1,
+      "missed_ranges": 0,
+      "initial_mass_position": "midway",
+      "final_mass_position": "midway",
+      "max_label_chars": 20,
+      "max_clock_chars": 14,
+      "reconstructed_clock_stages": 0
+    },
+    {
+      "key": "CAV-1798-EXP-III",
+      "experiment_id": "experiment-iii",
+      "status": "PASS",
+      "stage_count": 5,
+      "kinds": {
+        "untimed": 1,
+        "observation_start": 1,
+        "transition_uncertain": 1,
+        "observation_resume": 1,
+        "end": 1
+      },
+      "transition_ranges": 1,
+      "missed_ranges": 0,
+      "initial_mass_position": "midway",
+      "final_mass_position": "positive",
+      "max_label_chars": 12,
+      "max_clock_chars": 17,
+      "reconstructed_clock_stages": 0
+    },
+    {
+      "key": "CAV-1798-EXP-IV",
+      "experiment_id": "experiment-iv",
+      "status": "PASS",
+      "stage_count": 6,
+      "kinds": {
+        "observation_start": 1,
+        "transition_uncertain": 2,
+        "observation_resume": 2,
+        "end": 1
+      },
+      "transition_ranges": 2,
+      "missed_ranges": 0,
+      "initial_mass_position": "midway",
+      "final_mass_position": "positive",
+      "max_label_chars": 20,
+      "max_clock_chars": 17,
+      "reconstructed_clock_stages": 0
+    },
+    {
+      "key": "CAV-1798-EXP-V",
+      "experiment_id": "experiment-v",
+      "status": "PASS",
+      "stage_count": 5,
+      "kinds": {
+        "untimed": 1,
+        "observation_start": 1,
+        "transition_uncertain": 1,
+        "observation_resume": 1,
+        "end": 1
+      },
+      "transition_ranges": 1,
+      "missed_ranges": 0,
+      "initial_mass_position": "negative",
+      "final_mass_position": "positive",
+      "max_label_chars": 12,
+      "max_clock_chars": 14,
+      "reconstructed_clock_stages": 0
+    },
+    {
+      "key": "CAV-1798-EXP-VI",
+      "experiment_id": "experiment-vi",
+      "status": "PASS",
+      "stage_count": 10,
+      "kinds": {
+        "observation_start": 1,
+        "transition_uncertain": 2,
+        "observation_resume": 4,
+        "missed": 2,
+        "end": 1
+      },
+      "transition_ranges": 2,
+      "missed_ranges": 2,
+      "initial_mass_position": "midway",
+      "final_mass_position": "positive",
+      "max_label_chars": 12,
+      "max_clock_chars": 11,
+      "reconstructed_clock_stages": 0
+    },
+    {
+      "key": "CAV-1798-EXP-VII",
+      "experiment_id": "experiment-vii",
+      "status": "PASS",
+      "stage_count": 10,
+      "kinds": {
+        "observation_start": 1,
+        "transition_uncertain": 2,
+        "observation_resume": 4,
+        "missed": 2,
+        "end": 1
+      },
+      "transition_ranges": 2,
+      "missed_ranges": 2,
+      "initial_mass_position": "midway",
+      "final_mass_position": "positive",
+      "max_label_chars": 12,
+      "max_clock_chars": 11,
+      "reconstructed_clock_stages": 0
+    },
+    {
+      "key": "CAV-1798-EXP-VIII",
+      "experiment_id": "experiment-viii",
+      "status": "PASS",
+      "stage_count": 10,
+      "kinds": {
+        "observation_start": 1,
+        "transition_uncertain": 2,
+        "observation_resume": 4,
+        "missed": 2,
+        "end": 1
+      },
+      "transition_ranges": 2,
+      "missed_ranges": 2,
+      "initial_mass_position": "midway",
+      "final_mass_position": "positive",
+      "max_label_chars": 12,
+      "max_clock_chars": 11,
+      "reconstructed_clock_stages": 0
+    },
+    {
+      "key": "CAV-1798-EXP-IX",
+      "experiment_id": "experiment-ix",
+      "status": "PASS",
+      "stage_count": 2,
+      "kinds": {
+        "observation_start": 1,
+        "end": 1
+      },
+      "transition_ranges": 0,
+      "missed_ranges": 0,
+      "initial_mass_position": "negative",
+      "final_mass_position": "negative",
+      "max_label_chars": 12,
+      "max_clock_chars": 8,
+      "reconstructed_clock_stages": 0
+    },
+    {
+      "key": "CAV-1798-EXP-X",
+      "experiment_id": "experiment-x",
+      "status": "PASS",
+      "stage_count": 2,
+      "kinds": {
+        "observation_start": 1,
+        "end": 1
+      },
+      "transition_ranges": 0,
+      "missed_ranges": 0,
+      "initial_mass_position": "negative",
+      "final_mass_position": "negative",
+      "max_label_chars": 12,
+      "max_clock_chars": 8,
+      "reconstructed_clock_stages": 0
+    },
+    {
+      "key": "CAV-1798-EXP-XI",
+      "experiment_id": "experiment-xi",
+      "status": "PASS",
+      "stage_count": 4,
+      "kinds": {
+        "observation_start": 1,
+        "missed_reconstructed": 1,
+        "observation_resume": 1,
+        "end": 1
+      },
+      "transition_ranges": 0,
+      "missed_ranges": 1,
+      "initial_mass_position": "negative",
+      "final_mass_position": "negative",
+      "max_label_chars": 12,
+      "max_clock_chars": 18,
+      "reconstructed_clock_stages": 2
+    },
+    {
+      "key": "CAV-1798-EXP-XII",
+      "experiment_id": "experiment-xii",
+      "status": "PASS",
+      "stage_count": 4,
+      "kinds": {
+        "observation_start": 1,
+        "transition_uncertain": 1,
+        "observation_resume": 1,
+        "end": 1
+      },
+      "transition_ranges": 1,
+      "missed_ranges": 0,
+      "initial_mass_position": "negative",
+      "final_mass_position": "positive",
+      "max_label_chars": 12,
+      "max_clock_chars": 15,
+      "reconstructed_clock_stages": 2
+    },
+    {
+      "key": "CAV-1798-EXP-XIII",
+      "experiment_id": "experiment-xiii",
+      "status": "PASS",
+      "stage_count": 5,
+      "kinds": {
+        "untimed": 1,
+        "observation_start": 1,
+        "transition_uncertain": 1,
+        "observation_resume": 1,
+        "end": 1
+      },
+      "transition_ranges": 1,
+      "missed_ranges": 0,
+      "initial_mass_position": "positive",
+      "final_mass_position": "negative",
+      "max_label_chars": 12,
+      "max_clock_chars": 17,
+      "reconstructed_clock_stages": 0
+    },
+    {
+      "key": "CAV-1798-EXP-XIV",
+      "experiment_id": "experiment-xiv",
+      "status": "PASS",
+      "stage_count": 6,
+      "kinds": {
+        "observation_start": 1,
+        "transition_uncertain": 2,
+        "observation_resume": 2,
+        "end": 1
+      },
+      "transition_ranges": 2,
+      "missed_ranges": 0,
+      "initial_mass_position": "negative",
+      "final_mass_position": "negative",
+      "max_label_chars": 12,
+      "max_clock_chars": 17,
+      "reconstructed_clock_stages": 0
+    },
+    {
+      "key": "CAV-1798-EXP-XV",
+      "experiment_id": "experiment-xv",
+      "status": "PASS",
+      "stage_count": 2,
+      "kinds": {
+        "observation_start": 1,
+        "end": 1
+      },
+      "transition_ranges": 0,
+      "missed_ranges": 0,
+      "initial_mass_position": "positive",
+      "final_mass_position": "positive",
+      "max_label_chars": 12,
+      "max_clock_chars": 8,
+      "reconstructed_clock_stages": 0
+    },
+    {
+      "key": "CAV-1798-EXP-XVI",
+      "experiment_id": "experiment-xvi",
+      "status": "PASS",
+      "stage_count": 2,
+      "kinds": {
+        "observation_start": 1,
+        "end": 1
+      },
+      "transition_ranges": 0,
+      "missed_ranges": 0,
+      "initial_mass_position": "positive",
+      "final_mass_position": "positive",
+      "max_label_chars": 12,
+      "max_clock_chars": 8,
+      "reconstructed_clock_stages": 0
+    },
+    {
+      "key": "CAV-1798-EXP-XVII",
+      "experiment_id": "experiment-xvii",
+      "status": "PASS",
+      "stage_count": 6,
+      "kinds": {
+        "observation_start": 1,
+        "transition_uncertain": 2,
+        "observation_resume": 2,
+        "end": 1
+      },
+      "transition_ranges": 2,
+      "missed_ranges": 0,
+      "initial_mass_position": "negative",
+      "final_mass_position": "negative",
+      "max_label_chars": 12,
+      "max_clock_chars": 17,
+      "reconstructed_clock_stages": 0
+    }
+  ],
+  "notes_ja": [
+    "表示・物理・史実データは変更していない。",
+    "Mobileは2列カード、PCは工程数に応じた横1列カードという既存レイアウトを維持する。",
+    "最大工程数は10で、既存の9〜10工程用PC高さ配分範囲内である。"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "build": "CV081A14",
+  "title": "解説ページ挿絵正本統一・Telescope検証画面採用・装置図3D基準化",
+  "canonical_sources": {
+    "apparatus_structure": {
+      "source": "cavendish-3d/cavendish-guide-3d.html",
+      "image": "assets/images/guide/guide-canonical-3d-structure-cv081a14.png"
+    },
+    "optics_and_readout_ends": {
+      "source": "cavendish-3d/cavendish-guide-3d.html",
+      "image": "assets/images/guide/guide-canonical-3d-optics-cv081a14.png"
+    },
+    "historical_telescope": {
+      "source": "cavendish-simulator.html#Historical-Telescope",
+      "image": "assets/images/guide/guide-canonical-telescope-cv081a14.png"
+    },
+    "motion_view": {
+      "source": "cavendish-simulator.html#Motion-View",
+      "image": "assets/images/guide/guide-canonical-motion-view-cv081a14.png"
+    },
+    "waveform": {
+      "source": "cavendish-simulator.html#Waveform",
+      "image": "assets/images/guide/guide-canonical-waveform-cv081a14.png"
+    },
+    "simulator_overview": {
+      "source": "cavendish-simulator.html",
+      "image": "assets/images/guide/guide-canonical-simulator-overview-cv081a14.png"
+    }
+  },
+  "retired_from_public_html": [
+    "guide-technical-structure-r3i.png",
+    "guide-technical-optics-r3i.png",
+    "guide-technical-readout-r3i.png",
+    "guide-observation-sequence-r3i.png",
+    "guide-simulator-mapping-r3i.png"
+  ],
+  "protected": [
+    "cavendish-simulator.html functionality",
+    "cavendish-3d functionality",
+    "historical data",
+    "report and CSV"
+  ]
+}

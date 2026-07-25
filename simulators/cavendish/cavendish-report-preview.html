@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>キャベンディッシュ実験｜A4レポート Ver0.79｜IMPULSE LABO</title>
+<style>
+:root{
+  --paper-w:210mm;
+  --paper-h:297mm;
+  --ink:#111;
+  --sub:#555;
+  --line:#777;
+  --line-light:#bbb;
+  --paper:#fff;
+  --page:#f1f1f1;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{background:var(--page);color:var(--ink);font-family:"Helvetica Neue","Yu Gothic","YuGothic","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;}
+.report-actions{position:sticky;top:0;z-index:10;display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:center;gap:8px;padding:8px;background:rgba(241,241,241,.94);border-bottom:1px solid #d0d0d0;backdrop-filter:blur(6px);}
+.report-action-btn{appearance:none;border:1px solid #555;background:#fff;color:#111;border-radius:4px;padding:7px 14px;font-size:14px;font-weight:700;min-width:88px;}
+.report-action-btn:disabled{opacity:.55;cursor:wait;}
+.report-action-status{flex-basis:100%;min-height:16px;text-align:center;font-size:11px;line-height:1.3;color:#444;}
+.report-action-status:empty{display:none;}
+.pdf-fallback-panel{display:none;flex-basis:100%;width:min(680px,100%);margin:0 auto;padding:8px 10px;border-top:1px solid #c8c8c8;text-align:center;font-size:12px;line-height:1.45;color:#222;}
+.pdf-fallback-panel.is-open{display:block;}
+.pdf-fallback-panel p{margin:0 0 7px;}
+.pdf-fallback-actions{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;}
+.pdf-fallback-actions .report-action-btn{min-width:118px;}
+.report-action-wrap{position:relative;display:inline-flex;flex-direction:column;align-items:stretch;}
+.csv-choice-panel{display:none;width:min(360px,calc(100vw - 28px));background:#fff;border:1.2px solid #777;border-radius:5px;padding:7px;margin-top:6px;box-shadow:none;}
+.csv-choice-panel.is-open{display:block;}
+.csv-choice-panel::before{content:'CSVプレビュー';display:block;font-size:11px;font-weight:700;color:#555;margin:0 0 5px 2px;}
+.csv-choice-panel button{appearance:none;display:block;width:100%;border:1px solid #aaa;background:#fff;color:#111;text-align:center;padding:9px 8px;margin:5px 0;font-size:13px;font-weight:700;border-radius:4px;}
+.csv-choice-panel button:active,.csv-choice-panel button:hover{background:#efefef;}
+
+.csv-preview-screen{display:none;max-width:1060px;margin:0 auto 40px;padding:0 12px;}
+.csv-preview-mode .report-view{display:none;}
+.csv-preview-mode .csv-preview-screen{display:block;}
+.csv-preview-sheet{background:#fff;border:1px solid #c8c8c8;box-shadow:0 2px 12px rgba(0,0,0,.08);}
+.csv-preview-sheet header{display:flex;justify-content:space-between;gap:12px;align-items:flex-end;padding:16px 18px 10px;border-bottom:2px solid #222;}
+.csv-preview-sheet h1{font-size:20px;margin:0;line-height:1.2;}
+.csv-preview-meta{font-size:12px;text-align:right;color:#555;line-height:1.35;}
+.csv-preview-note{font-size:13px;padding:10px 18px;border-bottom:1px solid #ddd;color:#333;line-height:1.45;}
+.csv-preview-pre{margin:0;padding:14px 18px;white-space:pre;overflow:auto;font:12px/1.45 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;tab-size:2;max-height:70vh;}
+.csv-preview-mode .report-actions{background:rgba(247,247,247,.97);}
+@media print{.csv-choice-panel,.pdf-fallback-panel,.report-actions{display:none !important;}.csv-preview-screen{display:none !important;}.csv-preview-sheet{border:none;box-shadow:none}.csv-preview-pre{font-size:9px;white-space:pre-wrap;word-break:break-word;max-height:none}}
+
+.report-view{min-height:100vh;overflow:auto;padding:10px;background:var(--page);}
+.report-scale{--screen-scale:.86;width:683px;height:966px;margin:0 auto;transform-origin:top left;}
+.report-paper{width:var(--paper-w);min-height:var(--paper-h);background:var(--paper);padding:10mm;box-shadow:0 1px 3px rgba(0,0,0,.12);transform:scale(var(--screen-scale));transform-origin:top left;}
+.header{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:end;border-bottom:1.4px solid #000;padding-bottom:4px;margin-bottom:5px;}
+.title{font-size:18px;font-weight:700;letter-spacing:.01em;}
+.meta{font-size:10.7px;color:var(--sub);text-align:right;line-height:1.45;}
+.kv{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line);margin:5px 0 6px;font-size:10.8px;}
+.kv div{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:3px 5px;min-height:25px;}
+.kv b{display:block;font-size:9.5px;color:#444;margin-bottom:1px;}
+.result-band{display:grid;grid-template-columns:.82fr 1.1fr 1.08fr;border:1.2px solid #333;margin:5px 0 5px;}
+.result-cell{padding:4px 6px;border-right:1px solid #999;}
+.result-cell:last-child{border-right:0;}
+.result-head{font-size:10.2px;font-weight:700;color:#333;border-bottom:1px solid #c8c8c8;padding-bottom:2px;margin-bottom:3px;}
+.result-main{font-size:13px;font-weight:700;line-height:1.35;}
+.result-sub{font-size:9.6px;line-height:1.32;color:#333;margin-top:2px;}
+.result-text{font-size:10.6px;line-height:1.42;}
+.section-title{font-size:11.5px;font-weight:700;margin:5px 0 3px;padding-bottom:2px;border-bottom:1px solid #aaa;}
+table{width:100%;border-collapse:collapse;font-size:10.6px;margin-bottom:5px;}
+th,td{border:1px solid var(--line);padding:2.5px 4px;vertical-align:top;}
+th{background:#f2f2f2;font-weight:700;white-space:nowrap;}
+.visual-grid{display:grid;grid-template-columns:1.08fr 1.02fr 1.00fr;gap:5px;margin-bottom:5px;}
+.visual-box{border:1px solid var(--line);padding:3px;min-height:156px;display:flex;flex-direction:column;}
+.visual-head{display:flex;justify-content:space-between;align-items:flex-start;gap:5px;border-bottom:1px solid var(--line-light);padding-bottom:2px;margin-bottom:3px;font-size:10.9px;font-weight:700;}
+.visual-head-stacked{display:block;}
+.visual-title-line{display:block;line-height:1.18;}
+.visual-note{font-size:8.2px;color:#555;font-weight:400;line-height:1.2;text-align:right;}
+.visual-head-stacked .visual-note{display:block;text-align:left;margin-top:1px;}
+.visual-explain{font-size:9.2px;line-height:1.2;color:#333;margin:0 0 2px;min-height:18px;}
+.telescope-svg,.wave-svg,.weight-motion-report-svg{width:100%;height:120px;display:block;background:#fff;border:1px solid var(--line);}
+.svg-grid{stroke:#d2d2d2;stroke-width:.8;}
+.svg-axis{stroke:#888;stroke-width:1;}
+.svg-wave{fill:none;stroke:#111;stroke-width:1.35;}
+.svg-wave-observed{stroke-dasharray:none;}
+.svg-wave-reconstruction{stroke-dasharray:5 3;}
+.svg-label{font-size:9px;fill:#555;}
+.svg-mark-a{fill:#d65b42;stroke:#111;stroke-width:.4;}
+.svg-mark-b{fill:#287db4;stroke:#111;stroke-width:.4;}
+.svg-current{stroke:#111;stroke-width:1;}
+
+.weight-motion-report-svg .report-arm{stroke:#333;stroke-width:5;stroke-linecap:round;}
+.weight-motion-report-svg .report-arm-shadow{stroke:#bbb;stroke-width:8;stroke-linecap:round;}
+.weight-motion-report-svg .report-pivot{fill:#fff;stroke:#333;stroke-width:1.2;}
+.weight-motion-report-svg .report-small{fill:#f7f7f7;stroke:#333;stroke-width:1.1;}
+.weight-motion-report-svg .report-large{fill:#e9e9e9;stroke:#333;stroke-width:1.1;}
+.weight-motion-report-svg .report-large-muted{fill:#f4f4f4;stroke:#777;stroke-width:.9;opacity:.46;}
+.weight-motion-report-svg .report-stage-line{stroke:#888;stroke-width:.9;stroke-dasharray:5 5;}
+.weight-motion-report-svg .report-caption{font-size:11.2px;fill:#444;}
+.weight-motion-report-svg .report-caption-strong{font-size:12.2px;font-weight:700;fill:#222;}
+.weight-motion-report-svg .report-note-mini{font-size:10.2px;fill:#555;}
+.weight-motion-report-svg .report-link-line{stroke:#777;stroke-width:.9;stroke-dasharray:3 3;}
+.weight-motion-report-svg .report-switch-arrow{stroke:#555;stroke-width:1.2;fill:none;}
+.telescope-svg .report-main-plate{fill:#dedede;stroke:#8d8d8d;stroke-width:1;}
+.telescope-svg .report-vernier-plate{fill:#efefef;stroke:#8d8d8d;stroke-width:1;}
+.telescope-svg .report-main-tick,.telescope-svg .report-vernier-tick{stroke:#555;stroke-width:1;shape-rendering:crispEdges;}
+.telescope-svg .report-major-tick{stroke-width:1.6;}
+.telescope-svg .report-match-tick,.telescope-svg .report-vernier-zero{stroke:#c87416;stroke-width:2;}
+.telescope-svg .report-coincidence-dot{fill:#d88725;stroke:#9b5710;stroke-width:.5;}
+.telescope-svg .report-scale-number{font-size:9.3px;fill:#333;font-weight:700;}
+.telescope-svg .report-read-value{font-size:11.2px;fill:#111;font-weight:700;}
+.telescope-svg .report-scale-mini{font-size:9px;fill:#555;font-weight:700;}
+.telescope-svg .report-vernier-label{font-size:9.3px;fill:#444;font-weight:700;}
+.weight-motion-report-svg .report-read-dot-a{fill:#d65b42;stroke:#111;stroke-width:.4;}
+.weight-motion-report-svg .report-read-dot-b{fill:#287db4;stroke:#111;stroke-width:.4;}
+.weight-motion-report-svg .report-panel-guide{fill:none;stroke:#b5b5b5;stroke-width:.8;}
+.read-grid{display:grid;grid-template-columns:1fr .95fr;gap:7px;}
+.summary-grid{display:grid;grid-template-columns:repeat(var(--summary-cols,2),1fr);gap:0;border-top:1px solid var(--line);border-left:1px solid var(--line);font-size:10.6px;margin-bottom:5px;}
+.summary-grid div{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:3px 4px;min-height:30px;}
+.summary-grid b{display:block;font-size:9.4px;color:#444;margin-bottom:1px;}
+.summary-position span{display:block;line-height:1.28}.summary-transitions{grid-column:1 / -1;min-height:30px}.summary-transitions span{line-height:1.28}.summary-interpretation{grid-column:1 / -1;min-height:26px;}
+.summary-interpretation span{line-height:1.34;}
+.comment-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;margin-top:3px;}
+.comment-box{border:1px solid var(--line);min-height:48px;padding:4px;}
+.comment-title{font-size:11.2px;font-weight:700;border-bottom:1px solid var(--line-light);padding-bottom:2px;margin-bottom:3px;}
+.comment-body{font-size:9.8px;line-height:1.3;}
+.notice{font-size:9.5px;line-height:1.28;color:#333;border:1px solid var(--line);padding:3px 5px;margin-top:4px;}
+.footer{margin-top:4px;border-top:1px solid #aaa;padding-top:2px;font-size:9px;color:#666;text-align:right;}
+
+.pdf-capture-host{position:fixed;left:-12000px;top:0;width:210mm;height:297mm;overflow:hidden;background:#fff;z-index:-1;pointer-events:none;}
+.pdf-capture-paper{box-sizing:border-box;position:relative;transform:none !important;width:210mm !important;height:297mm !important;min-height:297mm !important;margin:0 !important;padding:10mm 10mm 14.8mm !important;box-shadow:none !important;overflow:hidden !important;background:#fff !important;}
+.pdf-capture-paper .header{margin-bottom:4px;padding-bottom:2px;}
+.pdf-capture-paper .result-band{margin:3px 0 4px;}
+.pdf-capture-paper .result-sub{font-size:9.2px;}
+.pdf-capture-paper .section-title{margin:4px 0 2px;}
+.pdf-capture-paper .visual-grid{margin-bottom:3px;}
+.pdf-capture-paper .visual-box{min-height:146px;padding:2px;}
+.pdf-capture-paper .telescope-svg,.pdf-capture-paper .wave-svg,.pdf-capture-paper .weight-motion-report-svg{height:110px;}
+.pdf-capture-paper table{margin-bottom:3px;}
+.pdf-capture-paper .read-grid{gap:5px;}
+.pdf-capture-paper .summary-grid{margin-bottom:3px;}
+.pdf-capture-paper .comment-grid{gap:4px;margin-top:2px;}
+.pdf-capture-paper .comment-box{min-height:43px;padding:3px;}
+.pdf-capture-paper .notice{margin-top:3px;padding:3px 5px;}
+.pdf-capture-paper .footer{position:absolute;left:10mm;right:10mm;bottom:10mm;margin:0;padding-top:2px;font-size:8px;line-height:1.15;}
+@media screen{.report-view{height:calc(100vh - 51px);}}
+@media screen and (max-width:900px){.report-view{padding:8px;}.report-scale{--screen-scale:.68;width:540px;height:764px;margin:0 auto;}}
+@media screen and (max-width:520px){.report-view{padding:8px 6px;}.report-scale{--screen-scale:.43;width:342px;height:483px;margin:0 auto;}}
+@media screen and (max-width:380px){.report-scale{--screen-scale:.40;width:318px;height:449px;}}
+@media print{
+  @page{size:A4 portrait;margin:0;}
+  .report-actions,.report-action-status{display:none !important;}
+  html,body{width:210mm;min-width:210mm;height:280mm;min-height:280mm;margin:0;padding:0;background:#fff;overflow:hidden;}
+  body{print-color-adjust:exact;-webkit-print-color-adjust:exact;}
+  .report-view{width:210mm;height:280mm;min-height:280mm;background:#fff;padding:0;overflow:hidden;}
+  .report-scale{transform:none;width:210mm;height:280mm;margin:0;break-after:avoid;page-break-after:avoid;}
+  .report-paper{box-sizing:border-box;position:relative;transform:none;width:210mm;height:280mm;min-height:280mm;margin:0;padding:10mm 10mm 10mm;box-shadow:none;overflow:hidden;break-inside:avoid;page-break-inside:avoid;}
+  .header{margin-bottom:4px;padding-bottom:2px;}
+  .result-band{margin:3px 0 4px;}
+  .result-sub{font-size:9.2px;}
+  .section-title{margin:4px 0 2px;}
+  .visual-grid{margin-bottom:3px;}
+  .visual-box{min-height:146px;padding:2px;}
+  .telescope-svg,.wave-svg,.weight-motion-report-svg{height:110px;}
+  table{margin-bottom:3px;}
+  .read-grid{gap:5px;}
+  .summary-grid{margin-bottom:3px;}
+  .comment-grid{gap:4px;margin-top:2px;}
+  .comment-box{min-height:43px;padding:3px;}
+  .notice{margin-top:3px;padding:3px 5px;}
+  .footer{position:absolute;left:10mm;right:10mm;bottom:6mm;margin:0;padding-top:2px;font-size:8px;line-height:1.15;}
+}
+.csv-only-action{display:none}.csv-preview-mode .csv-only-action{display:inline-block}.csv-preview-mode #reportCsvBtn{display:none}</style>
+</head>
+<body>
+<div class="report-actions" aria-label="レポート操作">
+  <button class="report-action-btn" id="reportPdfBtn" type="button" data-report-action="pdf-save" title="生成済みPDFファイルをSafariのダウンロードへ直接保存します">PDF保存</button>
+  <button class="report-action-btn" id="reportPrintBtn" type="button" data-report-action="print" title="プリンター出力。SafariのURL・日時・ページ番号は端末側で付加される場合があります">印刷</button>
+  <span class="report-action-wrap">
+    <button class="report-action-btn" id="reportCsvBtn" type="button" aria-controls="reportCsvMenu" aria-expanded="false">CSV</button>
+    <span class="csv-choice-panel" id="reportCsvMenu" aria-label="CSVプレビュー選択">
+      <button type="button" data-csv-kind="historical">史実読取記録CSV</button>
+      <button type="button" data-csv-kind="analysis">再構成詳細CSV</button>
+    </span>
+  </span>
+    <button class="report-action-btn csv-only-action" type="button" data-report-action="csv-save">CSV保存</button>
+    <button class="report-action-btn csv-only-action" type="button" data-report-action="csv-back">レポートへ戻る</button>
+  <button class="report-action-btn" type="button" data-report-action="close">閉じる</button>
+  <span class="report-action-status" id="reportActionStatus" aria-live="polite"></span>
+</div>
+<div class="report-view">
+  <div class="report-scale">
+    <main class="report-paper">
+      <header class="header">
+        <div class="title">IMPULSE LABO ｜ Cavendish Experiment Report</div>
+        <div class="meta">
+          <div id="reportVersion">Report Ver0.79</div>
+          <div id="reportBuild">Build CV081A05</div>
+          <div id="reportGenerated">Generated: 2026/06/14 00:00:00 JST (UTC+09:00)</div>
+          <div id="reportRecordId">Record ID: CAV-REPORT-PREVIEW-073A</div>
+        </div>
+      </header>
+
+      <section class="result-band" aria-label="report summary">
+        <div class="result-cell">
+          <div class="result-head">観測結果</div>
+          <div class="result-main" id="reportResultMain">史実記録待ち</div>
+          <div class="result-sub" id="reportResultReason">シミュレータからの保持データを表示します。</div>
+        </div>
+        <div class="result-cell">
+          <div class="result-head">主な値</div>
+          <div class="result-text" id="reportMainValues">位置別平均 -- div / 移動量 -- div</div>
+        </div>
+        <div class="result-cell">
+          <div class="result-head">注意</div>
+          <div class="result-text" id="reportNoticeText">史実値と時刻区分を区別して記録します。</div>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-title">観測概要</div>
+        <div class="kv">
+          <div><b>観測セット</b><span id="reportDatasetLabel">Experiment I</span></div>
+          <div><b>史実ID</b><span id="reportDatasetId">CAV-1798-EXP-I</span></div>
+          <div><b>観測方式</b><span id="reportObservationMethod">Experiment Historical Replay</span></div>
+          <div><b>読取テスト</b><span id="reportReadingTest">Auto Motion</span></div>
+          <div><b>観測日</b><span id="reportDatasetDate">1797 Aug. 5（年補足）</span></div>
+          <div><b>状態</b><span id="reportObservationState">観測完了</span></div>
+          <div><b>CSVメタ</b><span id="reportCsvMeta">値・時刻・出典を記録</span></div>
+          <div><b>原表行データ</b><span id="reportRowDataStatus">史実原表数値</span></div>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-title">Experiment史実再生 要約（大球位置→読取→波形）</div>
+        <div class="visual-grid">
+          <div class="visual-box visual-box-weight">
+            <div class="visual-head visual-head-stacked"><span class="visual-title-line">大球位置とRead差</span><span class="visual-note" id="reportWeightMotionNote">Top view / Experiment別位置順序</span></div>
+            <div class="visual-explain" id="reportWeightMotionExplain">原表の大球位置順序と読取値を対応させます。</div>
+            <svg class="weight-motion-report-svg" id="reportWeightMotionSvg" viewBox="0 0 320 180" role="img" aria-label="historical mass-position and Read correspondence report">
+              <defs>
+                <marker id="reportArrowHead" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0,0 L8,4 L0,8 Z" fill="#555"/></marker>
+              </defs>
+              <rect x="0" y="0" width="320" height="180" fill="#fff"/>
+              <rect class="report-panel-guide" x="12" y="16" width="122" height="112" rx="5"/>
+              <rect class="report-panel-guide" x="186" y="16" width="122" height="112" rx="5"/>
+
+              <text class="report-caption-strong" id="reportPositionNameA" x="22" y="34">位置1</text>
+              <text class="report-note-mini" id="reportPositionReadA" x="22" y="49">位置1読取</text>
+              <text class="report-caption-strong" id="reportPositionNameB" x="196" y="34">位置2</text>
+              <text class="report-note-mini" id="reportPositionReadB" x="196" y="49">位置2読取</text>
+
+              <circle class="report-large" id="reportLargeA1" cx="42" cy="78" r="16"/>
+              <circle class="report-large" id="reportLargeA2" cx="42" cy="104" r="16"/>
+              <line class="report-arm-shadow" x1="68" y1="101" x2="118" y2="80"/>
+              <line class="report-arm" x1="68" y1="101" x2="118" y2="80"/>
+              <circle class="report-small" cx="70" cy="100" r="7"/>
+              <circle class="report-small" cx="116" cy="81" r="7"/>
+              <circle class="report-pivot" cx="93" cy="91" r="6"/>
+              <circle class="report-read-dot-a" cx="122" cy="62" r="5"/>
+              <text class="report-caption-strong" id="reportDiagramReadA" x="82" y="66">位置1読取</text>
+
+              <circle class="report-large" id="reportLargeB1" cx="278" cy="78" r="16"/>
+              <circle class="report-large" id="reportLargeB2" cx="278" cy="104" r="16"/>
+              <line class="report-arm-shadow" x1="202" y1="101" x2="252" y2="80"/>
+              <line class="report-arm" x1="202" y1="101" x2="252" y2="80"/>
+              <circle class="report-small" cx="204" cy="100" r="7"/>
+              <circle class="report-small" cx="250" cy="81" r="7"/>
+              <circle class="report-pivot" cx="227" cy="91" r="6"/>
+              <circle class="report-read-dot-b" cx="284" cy="62" r="5"/>
+              <text class="report-caption-strong" id="reportDiagramReadB" x="244" y="66">位置2読取</text>
+
+              <path class="report-switch-arrow" d="M142 76 H178" marker-end="url(#reportArrowHead)"/>
+              <text class="report-note-mini" x="160" y="64" text-anchor="middle">配置切替</text>
+              <text class="report-note-mini" x="160" y="96" text-anchor="middle">軌跡なし</text>
+              <text class="report-note-mini" x="160" y="111" text-anchor="middle">状態記録</text>
+
+              <line class="report-link-line" x1="46" y1="148" x2="274" y2="148"/>
+              <circle class="report-read-dot-a" cx="58" cy="148" r="4.5"/>
+              <circle class="report-read-dot-b" cx="262" cy="148" r="4.5"/>
+              <text class="report-caption" id="reportBottomReadA" x="36" y="166">位置1</text>
+              <text class="report-caption-strong" id="reportWeightMotionStage" x="160" y="166" text-anchor="middle">移動量は結果欄で集計</text>
+              <text class="report-caption" id="reportBottomReadB" x="242" y="166">位置2</text>
+            </svg>
+          </div>
+          <div class="visual-box visual-box-telescope">
+            <div class="visual-head visual-head-stacked"><span class="visual-title-line">望遠鏡読取</span><span class="visual-note" id="reportTelescopeNote">最終直接読取時点 / 固定主尺＋移動5分割副尺</span></div>
+            <div class="visual-explain">本体と同じ固定主尺・移動5分割副尺（主尺4目盛幅）で史実直接読取を示します。再構成値は波形側で分離します。</div>
+            <svg class="telescope-svg" id="reportTelescopeSvg" viewBox="0 0 300 170" role="img" aria-label="固定主尺と移動5分割副尺による史実望遠鏡読取">
+              <rect x="0" y="0" width="300" height="170" fill="#fff"/>
+              <text class="report-read-value" id="reportTelescopeReadText" x="10" y="18">読取値：-- div（最終史実読取）</text>
+              <text class="svg-label" x="211" y="18">史実直接読取</text>
+              <text class="report-vernier-label" x="12" y="36">固定主尺 / 1 div = 1/20 inch</text>
+              <g id="reportTelescopeMainScale" aria-label="固定主尺"></g>
+              <g id="reportTelescopeVernierScale" aria-label="移動5分割副尺"></g>
+              <g id="reportTelescopeCoincidence" aria-label="主尺と副尺の一致位置" hidden></g>
+              <text class="report-vernier-label" x="12" y="149">移動副尺 / 5分割（主尺4目盛幅）</text>
+              <text class="report-read-value" id="reportTelescopePointerValue" x="12" y="165">Read --</text>
+            </svg>
+          </div>
+          <div class="visual-box visual-box-wave">
+            <div class="visual-head visual-head-stacked"><span class="visual-title-line">史実読取波形</span><span class="visual-note" id="reportWaveNote">史実値アンカー / 大球位置</span></div>
+            <div class="visual-explain">史実読取点と補間された連続表示の関係を示します。</div>
+            <svg class="wave-svg" id="reportWaveSvg" viewBox="0 0 480 170" role="img" aria-label="reading waveform report">
+              <rect x="0" y="0" width="480" height="170" fill="#fff"/>
+              <g id="reportWaveGrid"></g>
+              <path class="svg-wave svg-wave-observed" id="reportWavePath" d=""/>
+              <path class="svg-wave svg-wave-reconstruction" id="reportWaveReconstructionPath" d=""/>
+              <g id="reportWaveMarkers"></g>
+              <text class="svg-label" id="reportWaveEmptyText" x="155" y="88">読取記録なし</text>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <section class="read-grid">
+        <div>
+          <div class="section-title" id="reportReadingRecordTitle">読取記録</div>
+          <table>
+            <thead><tr><th>No.</th><th>史実時刻</th><th>位置</th><th>種別</th><th>Read div</th></tr></thead>
+            <tbody id="reportReadingRecordBody">
+              <tr><td colspan="5">史実読取記録なし</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <div class="section-title">結果サマリー</div>
+          <div class="summary-grid" id="reportSummaryGrid" style="--summary-cols:2">
+            <div class="summary-position"><b>位置1</b><span>読取0件 / 平均 -- div</span></div>
+            <div class="summary-position"><b>位置2</b><span>読取0件 / 平均 -- div</span></div>
+            <div class="summary-transitions"><b>配置変更による読取差</b><span>-- div</span></div>
+            <div class="summary-interpretation"><b>解釈</b><span id="reportInterpretationText">史実読取値を位置別に集計します。</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-title">史実データ確認</div>
+        <table>
+          <tr><th>転記状態</th><td id="reportHistoricalRowStatus">Experiment I 原表行データ 13行</td><th>接続</th><td id="reportHistoricalConnection">観測表示へ接続</td></tr>
+          <tr><th>要確認</th><td id="reportHistoricalCheck">原表ページ画像との照合済み</td><th>CSV</th><td id="reportHistoricalCsvNote">値・時刻区分・出典を記録。</td></tr>
+        </table>
+      </section>
+
+      <section class="comment-grid">
+        <div class="comment-box"><div class="comment-title">観測の意味</div><div class="comment-body" id="reportObservationMemo">Experiment別の史実値と大球位置を同一再生プロファイルで記録します。</div></div>
+        <div class="comment-box"><div class="comment-title">判定理由</div><div class="comment-body" id="reportHistoricalMemo">原表時刻と時刻未記載の資料値を区別して記録します。</div></div>
+        <div class="comment-box"><div class="comment-title">史実値との関係</div><div class="comment-body" id="reportNextCheck">角度・力・G換算は装置定数接続後に扱います。</div></div>
+      </section>
+
+      <div class="notice" id="reportBottomNotice">本レポートは、Experiment別の史実Read値、大球位置、原表時刻、時刻未記載区分を記録します。空欄や欠測値は推定で補いません。</div>
+      <div class="footer" id="reportFooter">IMPULSE LABO / Cavendish Experiment / report_ver0.79_build_cv080a28r / no personal device information is collected.</div>
+    </main>
+  </div>
+</div>
+
+
+<div class="csv-preview-screen" id="csvPreviewScreen" aria-label="CSVプレビュー">
+  <main class="csv-preview-sheet">
+    <header>
+      <h1 id="csvPreviewTitle">IMPULSE LABO ｜ CSVプレビュー</h1>
+      <div class="csv-preview-meta" id="csvPreviewMeta">CSV Preview Ver0.79 / Build CV081A05</div>
+    </header>
+    <div class="csv-preview-note" id="csvPreviewNote">CSV内容を表示します。</div>
+    <pre class="csv-preview-pre" id="csvPreviewPre"></pre>
+  </main>
+</div>
+
+<script src="assets/vendor/html2canvas/html2canvas.min.js?v=CV081A05"></script>
+<script src="assets/vendor/jspdf/jspdf.umd.min.js?v=CV081A05"></script>
+<script src="report_script_1.js?v=CV081A05-CV081A123R1"></script>
+</body>
+</html>

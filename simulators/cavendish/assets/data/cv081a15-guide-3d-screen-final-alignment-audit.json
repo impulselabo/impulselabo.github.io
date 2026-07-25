@@ -1,0 +1,86 @@
+{
+  "build": "CV081A15",
+  "title": "解説ページ挿絵・3D・検証画面 最終整合監査",
+  "scope": "static cross-layer consistency audit",
+  "canonical_policy": {
+    "apparatus": "cavendish-3d/cavendish-guide-3d.html",
+    "telescope": "cavendish-simulator.html#Historical-Telescope",
+    "motion_view": "cavendish-simulator.html#Motion-View",
+    "waveform": "cavendish-simulator.html#Waveform"
+  },
+  "results": {
+    "canonical_image_references": "PASS",
+    "source_file_presence": "PASS",
+    "retired_public_image_references": "PASS",
+    "position_terminology": "PASS",
+    "caption_content_alignment": "PASS",
+    "mobile_containment_rules": "PASS",
+    "public_html_editorial_history_exclusion": "PASS"
+  },
+  "checked_terms": [
+    "正位置",
+    "負位置",
+    "中間位置",
+    "大球",
+    "小球",
+    "望遠鏡",
+    "ランプ",
+    "ケース",
+    "滑車"
+  ],
+  "images": {
+    "apparatus_structure": {
+      "path": "assets/images/guide/guide-canonical-3d-structure-cv081a14.png",
+      "width_px": 1295,
+      "height_px": 708,
+      "format": "PNG",
+      "sha256": "a825a6f985d47598ba7dfaac2f8ac5b78d5d12c3e6625459f4f24ecb8ee054a5"
+    },
+    "optics_and_readout_ends": {
+      "path": "assets/images/guide/guide-canonical-3d-optics-cv081a14.png",
+      "width_px": 1045,
+      "height_px": 425,
+      "format": "PNG",
+      "sha256": "ff9556b8883119aadf3ffc7cc9691c713eab9994250fb2f7b1e8a9fbbe9eacd2"
+    },
+    "historical_telescope": {
+      "path": "assets/images/guide/guide-canonical-telescope-cv081a14.png",
+      "width_px": 1422,
+      "height_px": 160,
+      "format": "PNG",
+      "sha256": "93b1698b2b4402b6d338271a7963935cf6c57eb645050f68ad78cc9ae3b0b2e8"
+    },
+    "motion_view": {
+      "path": "assets/images/guide/guide-canonical-motion-view-cv081a14.png",
+      "width_px": 667,
+      "height_px": 425,
+      "format": "PNG",
+      "sha256": "247a8c4a7ad635de5e8cddfbf92dd996e0b494c6e0e11fcfbc1fa347c2570591"
+    },
+    "waveform": {
+      "path": "assets/images/guide/guide-canonical-waveform-cv081a14.png",
+      "width_px": 732,
+      "height_px": 478,
+      "format": "PNG",
+      "sha256": "b831a7091d38d4c438777932f5649a85ee56eaae2c41ff71f964c61d3dbad195"
+    },
+    "simulator_overview": {
+      "path": "assets/images/guide/guide-canonical-simulator-overview-cv081a14.png",
+      "width_px": 1918,
+      "height_px": 937,
+      "format": "PNG",
+      "sha256": "f66b53a7703af72824ef03a4ed0882cb3fd5344e059eec972ba125ef78730ad0"
+    }
+  },
+  "protected_unchanged": [
+    "historical data",
+    "physical calculation",
+    "report output",
+    "CSV output",
+    "simulator operation",
+    "3D operation"
+  ],
+  "limitations": [
+    "Automated audit verifies static files, references, terms and image metadata. Device-specific rendering remains a separate visual confirmation."
+  ]
+}

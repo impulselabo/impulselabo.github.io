@@ -1,0 +1,30 @@
+{
+  "build": "CV081A01",
+  "scope": "operation_manual_current_public_spec_integration",
+  "base_zip": "CV080A31R2.zip",
+  "manual": {
+    "html": "cavendish-manual.html",
+    "current_public_terms": true,
+    "obsolete_ab_and_slider_terms_removed": true,
+    "obsolete_screenshot_references_removed": true,
+    "pc_mobile_responsive_css": true
+  },
+  "unchanged": [
+    "historical_values",
+    "reconstruction_values",
+    "physics_and_calculation",
+    "simulator_behavior",
+    "a4_report_content_and_layout",
+    "csv_schema_and_values"
+  ],
+  "validation": {
+    "javascript_tests_passed": 79,
+    "historical_experiments": 17,
+    "historical_rows": 303,
+    "conclusion_rows": 29,
+    "appendix_lookup_values": 55,
+    "javascript_syntax": "pass",
+    "html_structure_and_internal_links": "pass"
+  },
+  "status": "implementation_and_automated_validation_complete_device_review_pending"
+}

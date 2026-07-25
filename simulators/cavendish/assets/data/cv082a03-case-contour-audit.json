@@ -1,0 +1,74 @@
+{
+  "build": "CV082A03",
+  "title": "Fig.1 wooden case contour and end-chamber fidelity audit",
+  "sourceBasis": [
+    "Cavendish 1798 Fig.1 front section ABCDDCBAEFFE",
+    "Cavendish 1798 Fig.9 end-chamber mapping",
+    "cv1798-constraints.json C007"
+  ],
+  "scope": [
+    "tapered central chamber E-F",
+    "paired sloping shoulders A-E",
+    "paired end-chamber steps A-B-C-D",
+    "central horizontal floor D-D",
+    "small-ball containment in both end chambers"
+  ],
+  "confirmedDimensions_in": {
+    "endChamberInnerWidth": 3.5,
+    "endChamberInnerHeight": 3.6,
+    "endChamberInnerDepth": 6.75,
+    "wallThickness": 0.75
+  },
+  "figureCalibratedCoordinates_world_in": {
+    "A_left": [-39.15, -29.5, 0.0],
+    "B_left": [-39.15, -37.55, 0.0],
+    "C_left": [-34.15, -37.55, 0.0],
+    "D_left": [-34.15, -32.45, 0.0],
+    "E_left": [-5.2, -24.25, 0.0],
+    "F_left": [-2.75, 10.5, 0.0],
+    "F_right": [2.75, 10.5, 0.0],
+    "E_right": [5.2, -24.25, 0.0],
+    "D_right": [34.15, -32.45, 0.0],
+    "C_right": [34.15, -37.55, 0.0],
+    "B_right": [39.15, -37.55, 0.0],
+    "A_right": [39.15, -29.5, 0.0]
+  },
+  "structuralMapping": {
+    "EF": "paired walls narrow from 10.40 in at E to 5.50 in at F",
+    "AE": "paired sloping roof shoulders connect the end contour to E",
+    "ABCD": "two 5.00 in outer-width end frames descend below the D-D floor",
+    "DD": "continuous horizontal main-case floor",
+    "F_gl": "case top F and torsion-wire top share world Y = 10.50 in"
+  },
+  "containmentAudit_in": {
+    "innerBottomY": -36.8,
+    "innerTopY": -33.2,
+    "smallBallCenterY": -35.0,
+    "smallBallRadius": 1.0,
+    "clearanceBelow": 0.8,
+    "clearanceAbove": 0.8
+  },
+  "preserved": [
+    "CV082A02 upper support Pp-p-MM-Mm and P-r-rr-Rr geometry",
+    "CV082A02R pulley and cord color separation",
+    "reader, lamp, telescope and optical paths",
+    "large-ball rigid arc motion and fixed coordinates",
+    "desktop interaction",
+    "iPhone initial fit and safe-area",
+    "single top common navigation"
+  ],
+  "results": {
+    "central_EF_taper": "PASS",
+    "paired_AE_shoulders": "PASS",
+    "paired_ABCD_steps": "PASS",
+    "central_DD_floor": "PASS",
+    "confirmed_end_dimensions": "PASS",
+    "small_ball_containment": "PASS",
+    "F_gl_height_alignment": "PASS",
+    "upper_support_regression": "PASS",
+    "pulley_contrast_regression": "PASS",
+    "mobile_fit_regression": "PASS",
+    "navigation_regression": "PASS"
+  },
+  "imageGeneration": "not used"
+}
