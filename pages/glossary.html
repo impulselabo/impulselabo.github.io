@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><title>用語解説｜IMPULSE LABO</title><link href="../assets/css/site.css?v=IL001A07" rel="stylesheet"/><script defer="True" src="../assets/js/site-reading.js?v=IL001A07"></script></head><body class="site-reading-page"><header class="site-header"><div class="wrap header-inner"><a class="brand" href="../index.html"><img alt="IMPULSE LABO" src="../assets/images/site/impulse-labo-logo-light.svg"/></a><div class="site-header-tools"><div aria-label="文字サイズ" class="font-size-control" role="group">
+<span>文字サイズ</span>
+<button aria-pressed="true" data-font-size="standard" type="button">標準</button>
+<button aria-pressed="false" data-font-size="large" type="button">大</button>
+<button aria-pressed="false" data-font-size="xlarge" type="button">特大</button>
+</div><nav aria-label="主要ナビゲーション" class="nav"><a href="../index.html#simulators">シミュレータ</a><a aria-current="page" href="glossary.html">用語解説</a><a href="../index.html#site-pages">サイト案内</a></nav></div></div></header><section class="page-shell"><div class="wrap"><p class="kicker">GLOSSARY</p><h1 class="page-title">用語解説</h1><p class="lead">シミュレータで使う用語、計算式、値の例をまとめています。</p></div></section><main class="wrap glossary-main">
+<section aria-label="このページの使い方" class="intro-card">
+<div>
+<h2>ブラックボックスにせず、途中の考え方も見えるようにします。</h2>
+<p>用語の意味だけでなく、「どの値を入れて、どの式で計算し、画面のどこに出るのか」まで追えるページを目指します。</p>
+</div>
+</section>
+<section aria-label="ブラックボックスにしないための説明" class="open-box">
+<article class="open-panel">
+<h2><span>見せる内容</span>を分けて表示します</h2>
+<p>シミュレータでは、結果だけを出すのではなく、根拠が追えるようにします。初めて見る方でも「なぜその値になるのか」を確認できる構成にします。</p>
+<ul class="flow-list">
+<li><strong>入力値：</strong>アーム長、ねじり剛性、観測距離、ノイズ量など</li>
+<li><strong>計算式：</strong>τ = κθ、F = τ / r、x ≒ 2Lθ など</li>
+<li><strong>途中値：</strong>トルク、ねじれ角、光点変位、平均値、S/N比など</li>
+<li><strong>結果：</strong>推力の目安、判定理由、注意点を文章で表示します</li>
+</ul>
+</article>
+<article class="open-panel">
+<h3><span>計算例</span>も一緒に見せます</h3>
+<p>値の大きさが想像しやすいように、代表的な数値を入れた例を載せます。</p>
+<div class="calc-demo">
+<code>τ = 1.0×10⁻⁸ N·m</code><br/>
+<code>r = 0.10 m</code><br/>
+<code>F = τ / r = 1.0×10⁻⁷ N = 0.1 μN</code>
+</div>
+<p class="small-note">このように、式・単位・換算後の値を並べると、シミュレータの結果がただの数字ではなくなります。</p>
+</article>
+</section>
+<section aria-label="シミュレータで使う基本式" class="section-heading">
+<h2>シミュレータで使う基本式</h2>
+<p>用語の意味だけでなく、画面上の値がどの入力値と式から出ているかも確認できるようにしています。</p>
+</section>
+<section aria-label="根拠となる計算式一覧" class="formula-grid">
+<article class="formula-card">
+<h3>ねじれとトルク</h3>
+<div class="formula">τ = κθ</div>
+<p class="formula-note">線がねじれると、元に戻ろうとする力の効果が出ます。θが角度、κがねじれにくさ、τが回す力です。</p>
+<ul class="formula-list"><li>θ：ねじれ角 rad</li><li>κ：ねじり剛性 N·m/rad</li><li>τ：トルク N·m</li><li>シミュレータでは、角度からトルクを推定する根拠になります。</li></ul>
+</article>
+<article class="formula-card">
+<h3>推力とトルク</h3>
+<div class="formula">F = τ / r</div>
+<p class="formula-note">力がアームの端にかかると、中心を回すトルクになります。rは中心から力がかかる位置までの距離です。</p>
+<ul class="formula-list"><li>例：τ = 1.0×10⁻⁸ N·m、r = 0.10 mなら、F = 1.0×10⁻⁷ Nです。</li><li>1.0×10⁻⁷ N = 0.1 μNです。</li><li>シミュレータでは、トルク表示を推力表示へ変換する場所です。</li></ul>
+</article>
+<article class="formula-card">
+<h3>ねじれ振り子の動き</h3>
+<div class="formula">Iθ'' + cθ' + κθ = τ外力 + τノイズ</div>
+<p class="formula-note">シミュレータの動きの中心になる式です。慣性、減衰、ねじれの戻り、外力、ノイズをまとめて扱います。</p>
+<ul class="formula-list"><li>I：回りにくさを表す慣性モーメント</li><li>c：減衰の強さ</li><li>τ外力：調べたい推力などによるトルク</li><li>シミュレータでは、波形のゆれ方や落ち着き方の説明になります。</li></ul>
+</article>
+<article class="formula-card">
+<h3>レーザー反射と光点変位</h3>
+<div class="formula">x ≒ 2Lθ</div>
+<p class="formula-note">鏡が少し傾くと、反射した光は約2倍の角度で動きます。Lが長いほど、光点の動きは大きく見えます。</p>
+<ul class="formula-list"><li>例：L = 1 m、θ = 0.001 radなら、x ≒ 2 mmです。</li><li>小さな角度を見やすくするための重要な式です。</li><li>シミュレータでは、光点表示の移動量に対応します。</li></ul>
+</article>
+<article class="formula-card">
+<h3>平均値とS/N比</h3>
+<div class="formula">平均値 = データの合計 / データ数<br/>S/N比 = 信号 / ノイズ</div>
+<p class="formula-note">平均値はばらつきをならすために使います。S/N比は、信号がノイズからどれくらい見分けやすいかを示します。</p>
+<ul class="formula-list"><li>例：信号1.0 μN、ノイズ0.2 μNなら、S/N比は5です。</li><li>値が大きいほど、信号として見やすくなります。</li><li>シミュレータでは、判定理由の説明に使います。</li></ul>
+</article>
+</section>
+<section aria-label="用語一覧見出し" class="section-heading">
+<h2>用語一覧</h2>
+<p>各シミュレータ内で出てくる言葉を、平易な説明と値の例でまとめています。</p>
+</section>
+<section aria-label="用語一覧" class="glossary-grid">
+<article class="card"><h2 class="term-title"><span class="num">01</span>トーションバランス</h2><p class="plain">細い線のねじれを使って、小さな力を調べる装置です。力が加わると、棒や鏡が少しだけ回ります。</p><p class="example"><strong>値の例：</strong>角度が0.001度だけ動くような変化も、レーザーを使うと見やすくできます。</p><p class="term-link-note">関連：τ = κθ で、ねじれ角からトルクを見積もります。</p></article>
+<article class="card"><h2 class="term-title"><span class="num">02</span>ねじれ振り子</h2><p class="plain">線がねじれて戻ろうとすることで、ゆっくり行ったり来たりする動きです。</p><p class="example"><strong>値の例：</strong>1往復に30秒かかる場合もあれば、数分かかる場合もあります。装置の重さや線の硬さで変わります。</p></article>
+<article class="card"><h2 class="term-title"><span class="num">03</span>レーザー反射</h2><p class="plain">レーザーの光を鏡に当てて、わずかな角度の変化を大きく見やすくする方法です。</p><p class="example"><strong>値の例：</strong>鏡が0.001 rad傾き、壁まで1 mあると、光点は約2 mm動きます。</p><p class="term-link-note">関連：x ≒ 2Lθ を使います。</p></article>
+<article class="card"><h2 class="term-title"><span class="num">04</span>光点変位</h2><p class="plain">反射した光の点が、画面や壁の上でどれだけ動いたかを表す言葉です。</p><p class="example"><strong>値の例：</strong>光点が中心から+3 mm動いた、という形で記録します。</p></article>
+<article class="card"><h2 class="term-title"><span class="num">05</span>ノイズ</h2><p class="plain">測りたい信号にまざる、余分なゆれやばらつきです。風、床の振動、温度変化などでも増えます。</p><p class="example"><strong>値の例：</strong>本当の信号が1.0 μNでも、ノイズが±0.5 μNあると判断が難しくなります。</p></article>
+<article class="card"><h2 class="term-title"><span class="num">06</span>平均値</h2><p class="plain">いくつかの値をならして見た、代表的な値です。ばらつきがあるデータを見るときに使います。</p><p class="example"><strong>値の例：</strong>0.9、1.1、1.0 μNなら、平均値は約1.0 μNです。</p></article>
+<article class="card"><h2 class="term-title"><span class="num">07</span>S/N比</h2><p class="plain">信号とノイズの比です。信号がノイズよりどれだけ見分けやすいかを表します。</p><p class="example"><strong>値の例：</strong>信号1.0 μN、ノイズ0.2 μNなら、S/N比は5です。大きいほど見分けやすいです。</p><p class="term-link-note">関連：S/N比 = 信号 / ノイズ です。</p></article>
+<article class="card"><h2 class="term-title"><span class="num">08</span>外力</h2><p class="plain">外から加わる力のことです。実験では、調べたい推力や、風などの余分な力も外力になります。</p><p class="example"><strong>値の例：</strong>Force ONの間だけ+1.0 μNを加え、OFFで0に戻す、という形で比べます。</p></article>
+<article class="card"><h2 class="term-title"><span class="num">09</span>減衰</h2><p class="plain">ゆれや動きが、だんだん小さくなっていくことです。空気抵抗や内部の摩擦で起こります。</p><p class="example"><strong>値の例：</strong>最初のゆれが10 mm、次に6 mm、次に3 mmのように小さくなります。</p></article>
+<article class="card"><h2 class="term-title"><span class="num">10</span>剛性</h2><p class="plain">どれだけ変形しにくいかを表す性質です。ねじれにくい線ほど剛性が高いと言えます。</p><p class="example"><strong>値の例：</strong>剛性が高いと同じ力でも角度は小さくなります。剛性が低いと大きく動きます。</p></article>
+<article class="card"><h2 class="term-title"><span class="num">11</span>観測時間</h2><p class="plain">測定や観察を続ける時間のことです。短すぎると、ゆれと信号の区別が難しくなります。</p><p class="example"><strong>値の例：</strong>まず5分、次に15分、必要なら30分のように長くして比べます。</p></article>
+<article class="card"><h2 class="term-title"><span class="num">12</span>キャリブレーション</h2><p class="plain">測定のずれを調整して、正しく測れるようにすることです。測定前の基準合わせです。</p><p class="example"><strong>値の例：</strong>既知の1.0 μN相当の力を入れて、表示も1.0 μNに近づくように合わせます。</p></article>
+<article class="card"><h2 class="term-title"><span class="num">13</span>Cavendish実験</h2><p class="plain">重力を確かめるために行われた有名な実験です。小さな重力を、ねじれの動きとして観測します。</p><p class="example"><strong>値の例：</strong>万有引力定数Gは約6.67×10⁻¹¹です。とても小さいため、精密な測定が必要です。</p><p class="term-link-note">関連：F = G m₁ m₂ / r² を使います。</p></article>
+</section>
+<section aria-label="このページについて" class="info-card">
+<div class="info-icon">i</div>
+<div>
+<h2>このページについて</h2>
+<p>このページは、初めて見る方にもわかりやすい言葉づかいを目指しています。公開中のシミュレータで使用する用語、入力値、計算式、結果表示を確認するために利用できます。</p>
+</div>
+</section>
+<div class="bottom-link"><a href="../index.html">ホームへ戻る</a></div>
+</main><footer class="footer"><div class="wrap footer-inner"><small>© 2026 IMPULSE LABO</small><nav class="footer-links"><a href="site-policy.html">サイトポリシー</a><a href="about.html">サイト情報</a><a href="feedback.html">フィードバック</a></nav></div></footer></body></html>

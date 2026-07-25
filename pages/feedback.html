@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
+<meta content="IMPULSE LABOの掲載内容、シミュレータ、表示や操作に関するフィードバックの案内です。" name="description"/>
+<title>フィードバック｜IMPULSE LABO</title>
+<link href="../assets/css/site.css?v=IL001A07" rel="stylesheet"/><link href="../assets/css/feedback.css?v=IL001A09" rel="stylesheet"/>
+<script defer="True" src="../assets/js/site-reading.js?v=IL001A07"></script><script defer="True" src="../assets/js/feedback-form.js?v=IL001A09"></script></head>
+<body class="site-reading-page">
+<header class="site-header">
+<div class="wrap header-inner">
+<a aria-label="IMPULSE LABO ホーム" class="brand" href="../index.html">
+<img alt="IMPULSE LABO" src="../assets/images/site/impulse-labo-logo-light.svg"/>
+</a>
+<div class="site-header-tools"><div aria-label="文字サイズ" class="font-size-control" role="group">
+<span>文字サイズ</span>
+<button aria-pressed="true" data-font-size="standard" type="button">標準</button>
+<button aria-pressed="false" data-font-size="large" type="button">大</button>
+<button aria-pressed="false" data-font-size="xlarge" type="button">特大</button>
+</div><nav aria-label="主要ナビゲーション" class="nav">
+<a href="../index.html#simulators">シミュレータ</a>
+<a href="glossary.html">用語解説</a>
+<a aria-current="page" href="../index.html#site-pages">サイト案内</a>
+</nav></div></div>
+</header>
+<main class="page-shell">
+<div class="wrap info-layout">
+<div class="info-main">
+<p class="kicker">FEEDBACK</p>
+<h1 class="page-title">フィードバック</h1>
+<p class="lead">IMPULSE LABOでは、掲載内容、シミュレータの動作、表示上の問題、改善に関する意見を受け付けます。</p><section class="content-panel info-section" id="form">
+<h2>フィードバックを送る</h2>
+<p>必要事項を入力して送信してください。返信が必要な場合のみ、返信用メールアドレスを入力してください。</p>
+<form accept-charset="UTF-8" action="https://formspree.io/f/xgognzzg" class="feedback-form" id="feedback-form" method="POST">
+<input name="_subject" type="hidden" value="IMPULSE LABO Feedback"/>
+<div class="feedback-field">
+<label for="feedback-type">内容 <span class="required-mark">必須</span></label>
+<select id="feedback-type" name="feedback_type" required="">
+<option value="">選択してください</option>
+<option value="simulator_bug">シミュレータの不具合</option>
+<option value="display_operation">表示・操作上の問題</option>
+<option value="calculation_content">計算結果・説明内容</option>
+<option value="source_material">出典・資料との不整合</option>
+<option value="typo_notation">誤字・表記</option>
+<option value="usability">操作性・判読性</option>
+<option value="other">その他</option>
+</select>
+</div>
+<div class="feedback-field">
+<label for="feedback-target">対象ページ・シミュレータ <span class="required-mark">必須</span></label>
+<input id="feedback-target" maxlength="120" name="target" placeholder="例：Cavendish Simulator" required="" type="text"/>
+</div>
+<div class="feedback-field-grid">
+<div class="feedback-field">
+<label for="feedback-device">使用端末 <span class="optional-mark">任意</span></label>
+<input id="feedback-device" maxlength="100" name="device" placeholder="例：iPhone 15" type="text"/>
+</div>
+<div class="feedback-field">
+<label for="feedback-browser">使用ブラウザ <span class="optional-mark">任意</span></label>
+<input id="feedback-browser" maxlength="100" name="browser" placeholder="例：Safari" type="text"/>
+</div>
+</div>
+<div class="feedback-field">
+<label for="feedback-steps">操作・設定条件・再現手順 <span class="optional-mark">任意</span></label>
+<textarea id="feedback-steps" maxlength="2000" name="steps" placeholder="問題が発生した操作や設定条件があれば記載してください。" rows="5"></textarea>
+</div>
+<div class="feedback-field">
+<label for="feedback-message">内容 <span class="required-mark">必須</span></label>
+<textarea id="feedback-message" maxlength="4000" name="message" placeholder="確認してほしい内容を記載してください。" required="" rows="8"></textarea>
+</div>
+<div class="feedback-field">
+<label for="feedback-email">返信用メールアドレス <span class="optional-mark">任意</span></label>
+<input autocomplete="email" id="feedback-email" inputmode="email" maxlength="254" name="email" placeholder="返信が必要な場合のみ入力してください。" type="email"/>
+<p class="field-note">メールアドレスを入力しなくても送信できます。個別の返信を保証するものではありません。</p>
+</div>
+<div aria-hidden="true" class="feedback-honeypot">
+<label for="feedback-company">会社名</label>
+<input autocomplete="off" id="feedback-company" name="_gotcha" tabindex="-1" type="text"/>
+</div>
+<p class="feedback-consent">送信前に、<a href="site-policy.html#feedback-data">サイトポリシー「フィードバックと情報の取扱い」</a>を確認してください。氏名、住所、電話番号など、確認に不要な個人情報は記載しないでください。</p>
+<div class="feedback-actions">
+<button class="feedback-submit" type="submit">送信する</button>
+<span aria-live="polite" class="feedback-status" id="feedback-status" role="status"></span>
+</div>
+</form>
+</section>
+<section class="content-panel info-section" id="scope">
+<h2>受け付ける内容</h2>
+<ul class="info-list">
+<li>シミュレータの不具合</li>
+<li>表示崩れや操作上の問題</li>
+<li>計算結果や説明内容に関する指摘</li>
+<li>出典や資料との不整合</li>
+<li>誤字や表記の誤り</li>
+<li>操作性や判読性に関する意見</li>
+</ul>
+</section>
+<section class="content-panel info-section" id="details">
+<h2>連絡時に必要な情報</h2>
+<p>確認を正確に行うため、可能な範囲で次の情報を添えてください。</p>
+<ul class="info-list"><li>対象ページまたはシミュレータ名</li><li>使用端末・使用ブラウザ</li><li>発生した操作や設定条件</li><li>表示された内容や再現手順</li></ul>
+<p class="notice-text">氏名、住所、電話番号など、確認に不要な個人情報は記載しないでください。</p>
+</section>
+<section class="content-panel info-section" id="response">
+<h2>対応について</h2>
+<p>受け付けた内容は確認しますが、個別の返信や修正を保証するものではありません。</p>
+<p>内容が不明確な場合や、同じ現象を再現できない場合は、対応できないことがあります。</p>
+<p>営業、広告掲載、相互リンクなど、サイトの検証内容と直接関係のない連絡には対応しない場合があります。</p>
+</section>
+<section class="content-panel info-section" id="privacy">
+<h2>個人情報の取り扱い</h2>
+<p>フォームでは、内容確認のための情報と、返信が必要な場合のメールアドレスを任意で受け付けます。送信内容はフォーム送信サービス「Formspree」を経由して受信し、内容確認および必要な連絡のために利用します。</p>
+<p>詳しい方針は、<a href="site-policy.html#feedback-data">サイトポリシー「フィードバックと情報の取扱い」</a>を確認してください。</p>
+</section>
+</div>
+<aside aria-label="フィードバック目次" class="info-nav">
+<p class="info-nav-title">目次</p><a href="#form">送信フォーム</a>
+<a href="#scope">受け付ける内容</a>
+<a href="#details">連絡時に必要な情報</a>
+<a href="#response">対応について</a>
+<a href="#privacy">個人情報の取り扱い</a>
+</aside>
+</div>
+</main>
+<footer class="footer">
+<div class="wrap footer-inner">
+<small>© 2026 IMPULSE LABO</small>
+<nav aria-label="フッターナビゲーション" class="footer-links">
+<a href="site-policy.html">サイトポリシー</a>
+<a href="about.html">サイト情報</a>
+<a aria-current="page" href="feedback.html">フィードバック</a>
+</nav>
+</div>
+</footer>
+</body>
+</html>
