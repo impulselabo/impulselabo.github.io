@@ -452,6 +452,63 @@
           <details class="fold-group" data-fold-key="help">
             <summary>詳細ヘルプ</summary>
             <div class="fold-note">入力条件、観測表示、解析値を確認できます。各項目の「?」で説明を表示します。</div>
+            <div class="state-debug" aria-label="AppState.controls確認表示">
+              <div class="state-debug-title">AppState.controls / physics 確認</div>
+              <pre id="controlsStateView">未初期化</pre>
+            </div>
+          </details>
+        </div>
+
+        <div class="control-dock" aria-label="観測操作">
+          <button class="dock-button" id="startButton" data-action="start" type="button">
+            <span class="dock-icon">▶</span><span>開始</span>
+          </button>
+          <button class="dock-button" id="pauseButton" data-action="toggle-pause" type="button" disabled>
+            <span class="dock-icon" id="pauseButtonIcon">Ⅱ</span><span id="pauseButtonLabel">一時停止</span>
+          </button>
+          <button class="dock-button" id="stopButton" data-action="stop" type="button" disabled>
+            <span class="dock-icon">■</span><span>停止</span>
+          </button>
+          <button class="dock-button" id="clearButton" data-action="clear-observation" type="button">
+            <span class="dock-icon">⌫</span><span>観測クリア</span>
+          </button>
+          <button class="dock-button" id="resetButton" data-action="reset-all" type="button">
+            <span class="dock-icon">↺</span><span>リセット</span>
+          </button>
+        </div>
+      </aside>
+
+      <section class="observation-stage" aria-label="観測表示">
+        <section class="instrument-container optical-container" id="opticalContainerVirtual" data-device-panel="virtual-optical" aria-label="光学表示（光点読取）">
+          <header class="container-header">
+            <h2>光学表示</h2>
+            <div class="compact-readouts optical-readouts" aria-label="光学表示値">
+              <span>x <b id="opticalCurText">--</b></span>
+              <span>θ <b id="opticalAngleText">--</b></span>
+              <span>+Peak <b id="opticalPeakPlusText">--</b></span>
+              <span>−Peak <b id="opticalPeakMinusText">--</b></span>
+              <span class="optical-range-readout">Range <b id="opticalScaleText">--</b></span>
+            </div>
+            <button class="help-trigger" type="button"
+              data-help="現在の光点変位x、観測全体の正負Peakと残像を表示します。光学領域をタップすると全画面表示へ切り替わります。波形の全体／窓切替によって光点は変わりません。">?</button>
+          </header>
+
+          <div class="optical-view optical-canvas-shell" id="opticalPanel" aria-label="光学表示Canvas">
+            <canvas id="opticalCanvas" aria-label="光学表示Canvas"></canvas>
+            <div class="optical-overlay optical-axis-meaning">横軸: 光点変位 x(mm)</div>
+            <button class="optical-expand-trigger" id="opticsExpandButton" type="button"
+              aria-expanded="false" aria-controls="opticalTimeline" aria-label="光学表示を全画面で表示する">
+              <span id="opticsTapHint">拡大</span>
+            </button>
+          </div>
+
+          <div class="optical-timeline timeline" id="opticalTimeline" aria-label="拡大光学タイムライン" hidden>
+            <div class="timeline-track" id="opticalTimelineTrack">
+              <div class="timeline-phase timeline-phase--pre" id="opticalTimelinePre"></div>
+              <div class="timeline-phase timeline-phase--active" id="opticalTimelineActive"></div>
+              <div class="timeline-phase timeline-phase--post" id="opticalTimelinePost"></div>
+              <div class="timeline-window" id="opticalTimelineWindow"></div>
+              <div class="timeline-current" id="opticalTimelineCurrent"></div>
             </div>
             <div class="timeline-labels" aria-hidden="true">
               <span data-optical-timeline-label="0">0s</span>
