@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>微小推力測定 用語解説｜トーションバランス・S/N比・検出限界｜IMPULSE LABO</title>
+<meta name="description" content="微小推力測定で使うトーションバランス、ねじり剛性k、トルクτ、光点変位、S/N比、ノイズ、遮蔽、検出限界などの用語を解説します。">
+<link href="assets/css/site.css?v=IL278-G02" rel="stylesheet">
+<script defer src="assets/js/site-reading.js?v=IL278-G02"></script>
+<link rel="canonical" href="https://impulselabo.github.io/simulators/micro-thrust/micro-thrust-glossary.html">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="IMPULSE LABO">
+<meta property="og:title" content="微小推力測定 用語解説｜トーションバランス・S/N比・検出限界｜IMPULSE LABO">
+<meta property="og:description" content="微小推力測定で使うトーションバランス、ねじり剛性k、トルクτ、光点変位、S/N比、ノイズ、遮蔽、検出限界などの用語を解説します。">
+<meta property="og:url" content="https://impulselabo.github.io/simulators/micro-thrust/micro-thrust-glossary.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="微小推力測定 用語解説｜トーションバランス・S/N比・検出限界｜IMPULSE LABO">
+<meta name="twitter:description" content="微小推力測定で使うトーションバランス、ねじり剛性k、トルクτ、光点変位、S/N比、ノイズ、遮蔽、検出限界などの用語を解説します。">
+</head>
+<body class="site-reading-page">
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="micro-thrust-simulator.html">
+      <img src="https://impulselabo.github.io/assets/images/site/impulse-labo-logo-light.svg" alt="IMPULSE LABO">
+    </a>
+    <div class="site-header-tools">
+      <div class="font-size-control" role="group" aria-label="文字サイズ">
+        <span>文字サイズ</span>
+        <button type="button" data-font-size="standard" aria-pressed="true">標準</button>
+        <button type="button" data-font-size="large" aria-pressed="false">大</button>
+        <button type="button" data-font-size="xlarge" aria-pressed="false">特大</button>
+      </div>
+      <nav class="nav" aria-label="微小推力測定シミュレータ関連ページ">
+        <a href="micro-thrust-simulator.html">検証する</a>
+        <a href="virtual-torsion-3d/virtual-torsion-guide-3d.html">装置3D</a>
+        <a href="micro-thrust-guide.html">実験の解説</a>
+        <a href="micro-thrust-manual.html">操作マニュアル</a>
+        <a href="micro-thrust-glossary.html" aria-current="page">用語解説</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<section class="page-shell">
+  <div class="wrap">
+    <p class="kicker">GLOSSARY</p>
+    <h1 class="page-title">用語解説</h1>
+    <p class="lead">微小推力測定シミュレータで使う用語、計算式、値の例をまとめています。</p>
+  </div>
+</section>
+
+<main class="wrap glossary-main">
+
+<section aria-label="このページの使い方" class="intro-card">
+  <div>
+    <h2>ブラックボックスにせず、途中の考え方も見えるようにします。</h2>
+    <p>用語の意味だけでなく、「どの値を入れて、どの式で計算し、画面のどこに出るのか」まで追えるページを目指します。</p>
+  </div>
+</section>
+
+<section aria-label="ブラックボックスにしないための説明" class="open-box">
+  <article class="open-panel">
+    <h2><span>見せる内容</span>を分けて表示します</h2>
+    <p>シミュレータでは、結果だけを出すのではなく、根拠が追えるようにします。初めて見る方でも「なぜその値になるのか」を確認できる構成にします。</p>
+    <ul class="flow-list">
+      <li><strong>入力値：</strong>材質、ワイヤー径、ファイバー長、慣性、減衰、光学距離、入力トルクなど</li>
+      <li><strong>計算式：</strong>k=πGd⁴/(32L)、θeq=τ/k、x≒2Lθ など</li>
+      <li><strong>途中値：</strong>剛性k、捩れ角θ、光点変位x、S/N比など</li>
+      <li><strong>結果：</strong>検出可能／条件付き評価／検出不可といった判定と、その理由を文章で表示します</li>
+    </ul>
+  </article>
+  <article class="open-panel">
+    <h3><span>計算例</span>も一緒に見せます</h3>
+    <p>値の大きさが想像しやすいように、代表的な数値を入れた例を載せます。</p>
+    <div class="calc-demo">
+      <code>τ = 2.0×10⁻⁹ N·m</code><br>
+      <code>k = 2.0×10⁻⁶ N·m/rad</code><br>
+      <code>θeq = τ / k = 1.0×10⁻³ rad</code>
+    </div>
+    <p class="small-note">このように、式・単位・換算後の値を並べると、シミュレータの結果がただの数字ではなくなります。</p>
+  </article>
+</section>
+
+<section aria-label="シミュレータで使う基本式" class="section-heading">
+  <h2>シミュレータで使う基本式</h2>
+  <p>用語の意味だけでなく、画面上の値がどの入力値と式から出ているかも確認できるようにしています。</p>
+</section>
+
+<section aria-label="根拠となる計算式一覧" class="formula-grid">
+  <article class="formula-card">
+    <h3>剛性kの逆算</h3>
+    <div class="formula">k = πGd⁴ / (32L)</div>
+    <p class="formula-note">ワイヤーは、太いほど・短いほど硬く(kが大きく)なります。Gは材質ごとに決まった硬さの指標(せん断弾性率)です。</p>
+    <ul class="formula-list">
+      <li>G：材質のせん断弾性率(タングステン160GPa、石英30GPa、ナイロン1.1GPa)</li>
+      <li>d：ワイヤー径 m、L：ファイバー長 m</li>
+      <li>例：d=0.1mm、L=0.785m、タングステンならk≒2.0×10⁻⁶ N·m/rad</li>
+    </ul>
+  </article>
+  <article class="formula-card">
+    <h3>ねじれの釣り合い</h3>
+    <div class="formula">θeq = τ / k</div>
+    <p class="formula-note">推力(トルクτ)がアームを押すと、ワイヤーが戻ろうとする力と釣り合うところで止まります。その角度がθeqです。</p>
+    <ul class="formula-list">
+      <li>τ：入力トルク N·m、k：剛性 N·m/rad、θeq：平衡角 rad</li>
+      <li>kが小さいほど、同じτでも大きく捩れます(装置が敏感になる)</li>
+    </ul>
+  </article>
+  <article class="formula-card">
+    <h3>ねじり系の動き</h3>
+    <div class="formula">Iθ'' + cθ' + kθ = τ外力 + τノイズ</div>
+    <p class="formula-note">シミュレータの動きの中心になる式です。慣性、減衰、ねじれの戻り、外力、ノイズをまとめて扱います。</p>
+    <ul class="formula-list">
+      <li>I：慣性モーメント kg·m²、c：減衰係数 N·m·s/rad</li>
+      <li>cを大きくすると、揺れが早く収まります(overdamped)</li>
+    </ul>
+  </article>
+  <article class="formula-card">
+    <h3>ミラー反射と光点変位</h3>
+    <div class="formula">x ≒ 2Lθ</div>
+    <p class="formula-note">ミラーが少し傾くと、反射した光は約2倍の角度で動きます。Lが長いほど、光点の動きは大きく見えます。</p>
+    <ul class="formula-list">
+      <li>例：L=1m、θ=1.0×10⁻³ radなら、x≒2mmです。</li>
+      <li>シミュレータでは、光学表示の光点位置に対応します。</li>
+    </ul>
+  </article>
+  <article class="formula-card">
+    <h3>S/N比</h3>
+    <div class="formula">S/N比 = 信号 / ノイズ</div>
+    <p class="formula-note">信号がノイズからどれくらい見分けやすいかを示します。値が大きいほど、はっきり検出できます。</p>
+    <ul class="formula-list">
+      <li>例：信号1.0×10⁻³ rad、ノイズ2.0×10⁻⁴ radなら、S/N比は5です。</li>
+      <li>シミュレータでは、検出可能／条件付き評価などの判定根拠になります。</li>
+    </ul>
+  </article>
+  <article class="formula-card">
+    <h3>渦電流ダンパーの減衰</h3>
+    <div class="formula">c = I × λ、λ ∝ B² / ρ</div>
+    <p class="formula-note">磁石とパドルの距離(ギャップ)を近づけるほど磁場Bが強くなり、減衰cが大きくなります。実物の可変式ダンパーと同じ理屈です。</p>
+    <ul class="formula-list">
+      <li>B：磁場 T(テスラ)、ρ：パドル材質(アルミ)の電気抵抗率</li>
+      <li>装置3Dページでギャップを動かすと、その場でcを再計算します。</li>
+    </ul>
+  </article>
+</section>
+
+<section aria-label="用語一覧見出し" class="section-heading">
+  <h2>用語一覧</h2>
+  <p>シミュレータ内で出てくる言葉を、平易な説明と値の例でまとめています。</p>
+</section>
+
+<section aria-label="用語一覧" class="glossary-grid">
+  <article class="card"><h2 class="term-title"><span class="num">01</span>仮想トーションバランス</h2><p class="plain">細いワイヤーのねじれを使って、小さな力(推力)を調べる架空の装置です。力が加わると、アームとミラーが少しだけ回ります。</p><p class="example"><strong>値の例：</strong>ファイバー長0.785m・ワイヤー径0.1mm(タングステン)のとき、剛性kは約2.0×10⁻⁶ N·m/radです。</p></article>
+
+  <article class="card"><h2 class="term-title"><span class="num">02</span>剛性 k</h2><p class="plain">ワイヤーがどれだけ捩れにくいかを表す値です。単位はN·m/rad(ニュートンメートル毎ラジアン)。値が大きいほど、同じ力でも捩れる角度が小さくなります。</p><p class="example"><strong>値の例：</strong>材質をタングステンからナイロンに変えると、kはおよそ1/145になります(ワイヤーが柔らかくなる分、同じ力でも大きく捩れます)。</p><p class="term-link-note">関連：k = πGd⁴/(32L)</p></article>
+
+  <article class="card"><h2 class="term-title"><span class="num">03</span>減衰 c</h2><p class="plain">揺れがどれだけ早く収まるかを表す値です。単位はN·m·s/rad。cが大きいと振動せずにじわっと収まり(overdamped)、小さいとしばらく揺れ続けます。</p><p class="example"><strong>値の例：</strong>c=1.0×10⁻⁵ N·m·s/radが標準設定です。渦電流ダンパーの磁石ギャップを狭めるとcは大きくなります。</p></article>
+
+  <article class="card"><h2 class="term-title"><span class="num">04</span>慣性 I</h2><p class="plain">物体の回りにくさを表す値です。単位はkg·m²(キログラムメートル毎乗)。値が大きいほど、力を加えてもゆっくりとしか動きません。</p><p class="example"><strong>値の例：</strong>I=1.0×10⁻⁶ kg·m²が標準設定です。アーム両端の錘の重さと配置で決まります。</p></article>
+
+  <article class="card"><h2 class="term-title"><span class="num">05</span>捩れ角 θ と光点変位 x</h2><p class="plain">θはワイヤーが捩れた角度(単位rad=ラジアン)。xは、その捩れをミラーで光学的に拡大して読み取った、光点の動いた距離(単位mm)です。</p><p class="example"><strong>値の例：</strong>光学距離L=1mのとき、θ=1.0×10⁻³ radならx≒2mmです。</p><p class="term-link-note">関連：x ≒ 2Lθ</p></article>
+
+  <article class="card"><h2 class="term-title"><span class="num">06</span>S/N比</h2><p class="plain">信号(測りたい変化)とノイズ(余分なゆれ)の比です。大きいほど、信号がはっきり見分けられます。</p><p class="example"><strong>値の例：</strong>S/N比が10を超えると「検出可能」、小さいと「条件付き評価」や「検出不可」と判定されます。</p></article>
+
+  <article class="card"><h2 class="term-title"><span class="num">07</span>材質(タングステン・石英・ナイロン)</h2><p class="plain">ワイヤーの材質です。材質によって硬さ(せん断弾性率G)と、温度による硬さの変わりやすさ(温度係数)が異なります。</p><p class="example"><strong>値の例：</strong>G=160GPa(タングステン)、30GPa(石英)、1.1GPa(ナイロン)。石英はタングステンと温度係数の符号が逆になる、という実例が文献にあります。</p></article>
+
+  <article class="card"><h2 class="term-title"><span class="num">08</span>ノイズ成分(White・drift・periodic・impulse・optical・numeric)</h2><p class="plain">装置に必ず混ざる6種類の揺らぎです。それぞれ熱雑音、温度ドリフト、地面の傾き、突発的な衝撃、光学読取誤差、量子化誤差という別々の原因を持ちます。</p><p class="example"><strong>値の例：</strong>各成分は個別にON/OFF・強度を調整でき、観測結果のS/N比に影響します。</p></article>
+
+  <article class="card"><h2 class="term-title"><span class="num">09</span>遮蔽レベル(弱・標準・強)</h2><p class="plain">装置を振動・温度変化から守る対策の強さです。防振ゴムや断熱材を積み増すイメージで、レベルを上げるほど一部のノイズが減ります。</p><p class="example"><strong>値の例：</strong>drift成分は標準で約1/10、強で約1/33まで減ります。ただしWhite・periodicは原理的に遮蔽の効果を受けません。</p></article>
+
+  <article class="card"><h2 class="term-title"><span class="num">10</span>渦電流ダンパーとギャップ</h2><p class="plain">磁石とアルミ板(パドル)の間に生じる電磁的なブレーキで、揺れを減衰させる仕組みです。ギャップ(隙間)を狭めるほど効きが強くなります。</p><p class="example"><strong>値の例：</strong>基準ギャップ8mmで磁場0.15T。ギャップを4mmまで狭めると磁場は0.6Tまで強くなります。</p></article>
+
+  <article class="card"><h2 class="term-title"><span class="num">11</span>被検証推力源(τ)</h2><p class="plain">アーム端に搭載する、検証したい推力の発生源です。未確認推力のような未確認の推力主張も、この位置に置かれたものとして扱われます。</p><p class="example"><strong>値の例：</strong>装置3Dページでは橙色のラベル「τ 被検証推力源」で示されます。</p></article>
+
+  <article class="card"><h2 class="term-title"><span class="num">12</span>AUTO(観測方式)・校正モード</h2><p class="plain">AUTOは、選んだモードに応じてシミュレータが推奨観測時間を自動で設定する方式です。校正モードは、既知の入力トルクを使って、装置が正しく検出できているかを確かめるためのモードです。</p><p class="example"><strong>値の例：</strong>校正モードのAUTO推奨時間は120秒です。</p></article>
+
+</section>
+
+<section class="content-panel" aria-label="このページについて">
+  <h2>このページについて</h2>
+  <p>ここに載っている数式・数値は、シミュレータ本体および装置3Dページの実装と同じものです。値を変えると、この用語解説で示した通りの関係で結果が変化します。詳しい操作方法は<a href="micro-thrust-manual.html">操作マニュアル</a>、装置の全体像は<a href="micro-thrust-guide.html">実験の解説</a>をご覧ください。</p>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p>IMPULSE LABO / 微小推力測定シミュレータ / Build IL278S3Q</p>
+    <p><a href="micro-thrust-simulator.html">検証する</a> ｜ <a href="virtual-torsion-3d/virtual-torsion-guide-3d.html">装置3D</a> ｜ <a href="micro-thrust-guide.html">実験の解説</a> ｜ <a href="micro-thrust-manual.html">操作マニュアル</a> ｜ <a href="micro-thrust-glossary.html">用語解説</a></p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="微小推力測定のしくみ、仮想トーションバランス、ねじり天秤、光点変位、ノイズ、遮蔽、S/N比、検出限界、判定方法を解説します。">
+  <title>微小推力測定とは｜トーションバランス・S/N比・検出限界の解説｜IMPULSE LABO</title>
+  <link rel="stylesheet" href="assets/css/micro-thrust-guide.css?v=IL278-G01">
+  <link rel="stylesheet" href="assets/css/site.css?v=IL278-G02">
+  <script defer src="assets/js/site-reading.js?v=IL278-G02"></script>
+<link rel="canonical" href="https://impulselabo.github.io/simulators/micro-thrust/micro-thrust-guide.html">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="IMPULSE LABO">
+<meta property="og:title" content="微小推力測定とは｜トーションバランス・S/N比・検出限界の解説｜IMPULSE LABO">
+<meta property="og:description" content="微小推力測定のしくみ、仮想トーションバランス、ねじり天秤、光点変位、ノイズ、遮蔽、S/N比、検出限界、判定方法を解説します。">
+<meta property="og:url" content="https://impulselabo.github.io/simulators/micro-thrust/micro-thrust-guide.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="微小推力測定とは｜トーションバランス・S/N比・検出限界の解説｜IMPULSE LABO">
+<meta name="twitter:description" content="微小推力測定のしくみ、仮想トーションバランス、ねじり天秤、光点変位、ノイズ、遮蔽、S/N比、検出限界、判定方法を解説します。">
+</head>
+<body class="guide-page reading-page">
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="micro-thrust-guide.html">
+        <img src="https://impulselabo.github.io/assets/images/site/impulse-labo-logo-light.svg" alt="IMPULSE LABO">
+      </a>
+      <div class="site-header-tools">
+        <div class="font-size-control" role="group" aria-label="文字サイズ">
+          <span>文字サイズ</span>
+          <button type="button" data-font-size="standard" aria-pressed="true">標準</button>
+          <button type="button" data-font-size="large" aria-pressed="false">大</button>
+          <button type="button" data-font-size="xlarge" aria-pressed="false">特大</button>
+        </div>
+        <nav class="nav" aria-label="微小推力測定シミュレータ関連ページ">
+          <a href="micro-thrust-simulator.html">検証する</a>
+          <a href="virtual-torsion-3d/virtual-torsion-guide-3d.html">装置3D</a>
+          <a href="micro-thrust-guide.html" aria-current="page">実験の解説</a>
+          <a href="micro-thrust-manual.html">操作マニュアル</a>
+          <a href="micro-thrust-glossary.html">用語解説</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="intro" aria-labelledby="page-title">
+      <p class="eyebrow">IMPULSE LABO / MICRO-THRUST MEASUREMENT</p>
+      <h1 id="page-title">微小推力測定シミュレータの解説</h1>
+      <p class="lead">仮想トーションバランス(ねじり天秤)を使って、微小推力、推力測定、光学読取、ノイズ、遮蔽、S/N比、検出限界の関係を確認するシミュレータです。装置の目的、構造、測定原理、ノイズと遮蔽の考え方、そして「架空の装置である」ことの意味を整理します。</p>
+    </section>
+
+    <nav class="toc" aria-label="ページ内目次">
+      <a href="#outline">シミュレータの目的</a>
+      <a href="#balance">装置の構造</a>
+      <a href="#principle">測定原理</a>
+      <a href="#noise">ノイズと遮蔽</a>
+      <a href="#simulator">シミュレータでできること</a>
+      <a href="#scope">再構成の範囲</a>
+    </nav>
+
+    <section id="outline" class="section" aria-labelledby="outline-title">
+      <div class="section-heading"><p class="section-no">01</p><h2 id="outline-title">シミュレータの目的</h2></div>
+      <div class="prose prose--wide">
+        <p>「微小な推力を、本当に検出できているのか」を確かめるのは、見た目以上に難しい作業です。反作用の有無が議論される推力主張や、その他の未確認の推力源を検証する実験では、装置自体が持つノイズ(熱雑音、温度ドリフト、地面の振動、突発的な衝撃など)が、探している信号よりも大きくなりがちです。こうした未知推力の主張を扱う場合でも、既知の外乱や装置ノイズと区別できるかを定量的に確認する必要があります。</p>
+        <p>本シミュレータは、そうした検証のプロセスそのものを体験できるように作られています。入力トルクτ(検証対象の推力が生む力)を任意に設定し、装置のノイズ環境(6種類の物理的根拠を持つノイズ成分)や遮蔽レベルを変えながら、S/N比や判定結果がどう変化するかを確認できます。</p>
+      </div>
+    </section>
+
+    <section id="balance" class="section" aria-labelledby="balance-title">
+      <div class="section-heading"><p class="section-no">02</p><h2 id="balance-title">装置の構造 — 仮想トーションバランス</h2></div>
+      <figure class="diagram">
+        <svg viewBox="0 0 480 260" role="img" aria-labelledby="balance-diagram-title">
+          <title id="balance-diagram-title">仮想トーションバランスの模式図：ファイバー、アーム、両端の錘、ミラー、推力源マウント、ダンパー</title>
+          <line x1="240" y1="20" x2="240" y2="150" stroke="#5a6773" stroke-width="3"/>
+          <text x="248" y="90" font-size="12" fill="#5a6773">ファイバー</text>
+          <line x1="150" y1="150" x2="330" y2="150" stroke="#8a97a3" stroke-width="6" stroke-linecap="round"/>
+          <circle cx="150" cy="150" r="16" fill="#c7ced4"/>
+          <circle cx="330" cy="150" r="16" fill="#c7ced4"/>
+          <rect x="118" y="95" width="26" height="26" fill="#e08a2e"/>
+          <text x="90" y="90" font-size="12" fill="#8a4d0c">τ 推力源</text>
+          <rect x="230" y="132" width="20" height="20" fill="#bfe0f2" stroke="#3d7ab5" stroke-width="1.5"/>
+          <text x="255" y="128" font-size="12" fill="#1c4b78">θ ミラー</text>
+          <rect x="316" y="150" width="18" height="24" fill="#b23b3b"/>
+          <text x="300" y="200" font-size="12" fill="#5a6773">渦電流ダンパー</text>
+          <line x1="330" y1="30" x2="440" y2="30" stroke="#c9a227" stroke-width="2" stroke-dasharray="4 3"/>
+          <rect x="440" y="18" width="24" height="24" fill="#3d4457"/>
+          <text x="370" y="20" font-size="12" fill="#8a5a0c">光路→PSDリーダー</text>
+        </svg>
+        <figcaption>アーム両端の錘で慣性を、片端のτマウントに検証対象の推力源を搭載する想定。中心のミラーで角度θを光学的に読み取る。</figcaption>
+      </figure>
+      <div class="prose prose--wide">
+        <p>装置の心臓部は、タングステン製の細いファイバー(ねじり線)で吊られた水平なアームです。アームの両端には慣性を持たせるための小さな錘があり、片端には検証対象の推力源(τ)を搭載する想定のマウントがあります。推力がアームに働くと、ファイバーがわずかに捻れ(θ)、その角度をアーム中心のミラーで光学的に検出します。</p>
+        <p>ファイバーの長さ・太さ・材質(タングステン/石英/ナイロン)は、装置の「剛性k」と物理式(k=πGd⁴/(32L)、Gは材質のせん断弾性率)で一貫してつながっています。材質を変えれば、剛性だけでなく温度による剛性のドリフト特性も一緒に変わります。振動を抑える渦電流ダンパーは、磁石とアルミ製パドルの間のギャップを変えることで減衰の強さを調整できる、実際の精密機器と同じ可変式の設計です。</p>
+        <p>この装置の外観・断面構造は「装置3D」ページで実際に回転・拡大しながら確認できます。3Dページはシミュレータの現在の設定値(剛性・減衰・慣性・光学距離・材質・ワイヤー径)からその場で寸法を逆算して表示するため、シミュレータで設定を変えると3D側の見た目も連動して変化します。</p>
+      </div>
+    </section>
+
+    <section id="principle" class="section" aria-labelledby="principle-title">
+      <div class="section-heading"><p class="section-no">03</p><h2 id="principle-title">測定原理 — τを捻り、θを読む</h2></div>
+      <figure class="diagram">
+        <svg viewBox="0 0 480 160" role="img" aria-labelledby="principle-diagram-title">
+          <title id="principle-diagram-title">τ(入力トルク)からθ(捩れ角)を経てx(光点変位)を読み取る流れ</title>
+          <rect x="10" y="55" width="110" height="50" rx="6" fill="#fdf1de" stroke="#e08a2e" stroke-width="1.5"/>
+          <text x="30" y="85" font-size="14" fill="#8a4d0c">τ 入力トルク</text>
+          <line x1="120" y1="80" x2="175" y2="80" stroke="#5a6773" stroke-width="2" marker-end="url(#arrow)"/>
+          <rect x="180" y="55" width="120" height="50" rx="6" fill="#eaf1fa" stroke="#3d7ab5" stroke-width="1.5"/>
+          <text x="200" y="78" font-size="14" fill="#1c4b78">θeq = τ / k</text>
+          <text x="196" y="96" font-size="11" fill="#1c4b78">(ミラーで光学検出)</text>
+          <line x1="300" y1="80" x2="355" y2="80" stroke="#5a6773" stroke-width="2" marker-end="url(#arrow)"/>
+          <rect x="360" y="55" width="110" height="50" rx="6" fill="#eef4ee" stroke="#5f9671" stroke-width="1.5"/>
+          <text x="378" y="78" font-size="14" fill="#245c3b">x = 2θL</text>
+          <text x="368" y="96" font-size="11" fill="#245c3b">(光点変位・観測値)</text>
+          <defs>
+            <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#5a6773"/></marker>
+          </defs>
+        </svg>
+        <figcaption>τが平衡角θeqを決め、光学距離Lをかけた光点変位xとして観測される。観測されたxを装置ノイズと比較し、S/N比を判定する。</figcaption>
+      </figure>
+      <div class="prose prose--wide">
+        <p>測定の骨格は単純です。トルクτが働くと、ねじり系は平衡角θeq=τ/kに向かって収束します(減衰係数cが大きいほど、振動せずに滑らかに収束します)。この角度をミラーで光学的に読み取り、光点の変位x=2θLとして観測します(Lは光学距離)。あとは、この変位が装置自身のノイズに対してどれだけ有意な信号なのか(S/N比)を判定するだけです。</p>
+        <p>実際の観測では、入力トルクをOFFにした「ノイズ確認」モードや、既知の入力トルクで正しく検出できるかを確かめる「校正」モードなど、複数のモードを切り替えながら装置の信頼性を段階的に検証していきます。</p>
+      </div>
+    </section>
+
+    <section id="noise" class="section" aria-labelledby="noise-title">
+      <div class="section-heading"><p class="section-no">04</p><h2 id="noise-title">ノイズと遮蔽 — 6つの成分と3層の対策</h2></div>
+      <div class="prose prose--wide">
+        <p>本シミュレータのノイズは、思いつきの数値ではなく、それぞれ物理的な発生源を持つ6つの成分として実装されています：熱雑音(White、等分配則θ_rms=√(k_BT/k))、温度ドリフト(drift、ファイバーの温度係数によるkの変化)、周期性ノイズ(periodic、地面の傾き)、突発的な衝撃(impulse、机上の軽い衝撃)、光学読取誤差(optical、PSDセンサーの分解能)、量子化誤差(numeric、表示分解能)です。</p>
+        <p>遮蔽は「弱・標準・強」の3レベルで、それぞれ実在する制振材(Sorbothane制振ゴム)や断熱パネルの実測文献をもとに減衰率を設定しています。ただし、熱雑音(White)と周期性ノイズ(periodic)は、通常の遮蔽では原理的に低減できないことが物理的に確認されています。「効くはずのないものに効かせない」という誠実さを優先した設計です。</p>
+        <p>感覚的には、遮蔽は装置を魔法瓶に入れるようなものです。外の温度変化(温度ドリフト)は中に伝わりにくくなりますが、魔法瓶に入れても分子の熱運動そのもの(熱雑音)は止められないのと同じ理屈です。設定値の具体例や、他の項目(材質・減衰など)を変えるとどうなるかは、操作マニュアルの「設定を変えるとどうなるか」でまとめています。</p>
+      </div>
+    </section>
+
+    <section id="simulator" class="section" aria-labelledby="simulator-title">
+      <div class="section-heading"><p class="section-no">05</p><h2 id="simulator-title">シミュレータでできること</h2></div>
+      <div class="prose prose--wide">
+        <ul>
+          <li>入力トルク・剛性・減衰・慣性・光学距離・材質・ワイヤー径・ファイバー長を自由に設定し、観測結果への影響を確認できます。</li>
+          <li>6種類のノイズ成分を個別にON/OFF・強度調整でき、遮蔽レベルとの組み合わせでS/N比がどう変わるかを試せます。</li>
+          <li>観測結果はPDFレポート・CSVとして出力でき、装置条件・判定根拠・解析値が記録されます。</li>
+          <li>装置の3D表示で、寸法・遮蔽構造・渦電流ダンパーのギャップ調整を視覚的に確認できます。</li>
+          <li>スマートフォンの加速度センサーを使ったimpulse成分の端末センサー入力も利用できます。ただし、端末やブラウザにより取得できない場合があります。</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="scope" class="section section--quiet" aria-labelledby="scope-title">
+      <div class="section-heading"><p class="section-no">06</p><h2 id="scope-title">再構成の範囲 — これは架空の装置です</h2></div>
+      <div class="prose prose--wide">
+        <p>この仮想トーションバランスは、実在する特定の装置ではありません。ただし、すべての寸法・物性値はシミュレータ本体の設定値と物理式から一貫して逆算されており、内部で矛盾のない、実在しうる設計として組み立てられています。材質の物性値(タングステン・石英は文献値、ナイロンはオーダー推定)や遮蔽構造の実例(Sorbothane制振材、断熱パネルの実測データ)は、それぞれ実在する文献・実験に基づいています。</p>
+        <p>一方で、ケースの外形寸法や一部の配置(推力源マウントの位置など)は、装置を説明するためのレイアウトであり、実測根拠を持つものではありません。どの数値がどの区分(確定値からの逆算／実例文献からの採用／説明用レイアウト)にあたるかは、3Dページの寸法基準テーブルで色分けして示しています。</p>
+      </div>
+    </section>
+
+
+    <section id="faq" class="section section--quiet" aria-labelledby="faq-title">
+      <div class="section-heading"><p class="section-no">FAQ</p><h2 id="faq-title">よく検索される内容</h2></div>
+      <div class="prose prose--wide">
+        <h3>微小推力測定とは何ですか</h3>
+        <p>微小推力測定は、非常に小さな力やトルクを、トーションバランス、光学読取、ノイズ評価、検出限界の確認によって測定可能か判断する考え方です。</p>
+        <h3>トーションバランスでは何を見ていますか</h3>
+        <p>アームに加わるトルクによって生じるねじれ角θを、ミラーと光学距離Lによる光点変位xとして読み取ります。シミュレータでは、この変位をノイズと比較してS/N比を求めます。</p>
+        <h3>検出限界とは何ですか</h3>
+        <p>検出限界は、装置ノイズや読取誤差の中で、信号を有意に区別できるかを判断するための目安です。入力推力が小さすぎる場合は、波形が動いていても検出と断定できないことがあります。</p>
+      </div>
+    </section>
+
+    <section class="launch" aria-labelledby="launch-title">
+      <div>
+        <p class="eyebrow">NEXT</p>
+        <h2 id="launch-title">実際に検証する</h2>
+        <p>装置パラメータを変えながら、S/N比や判定結果の変化を試してみてください。操作方法はマニュアル、装置の見た目は3Dページで確認できます。</p>
+      </div>
+      <div class="launch-actions">
+        <a class="button button--primary" href="micro-thrust-simulator.html">シミュレータ</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>IMPULSE LABO / 微小推力測定シミュレータ / Build IL278S3Q</p>
+    <p><a href="micro-thrust-simulator.html">検証する</a> ｜ <a href="virtual-torsion-3d/virtual-torsion-guide-3d.html">装置3D</a> ｜ <a href="micro-thrust-guide.html">実験の解説</a> ｜ <a href="micro-thrust-manual.html">操作マニュアル</a> ｜ <a href="micro-thrust-glossary.html">用語解説</a></p>
+  </footer>
+</body>
+</html>

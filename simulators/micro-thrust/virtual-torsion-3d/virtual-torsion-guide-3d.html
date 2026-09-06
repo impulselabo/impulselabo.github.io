@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>微小推力測定 装置3D｜仮想トーションバランス・遮蔽・光学読取｜IMPULSE LABO</title>
+<meta name="description" content="微小推力測定に用いる仮想トーションバランスを3Dで表示し、ねじり天秤、ファイバー、アーム、遮蔽構造、光学読取、ダンパーを確認できます。">
+<link rel="stylesheet" href="assets/style.css?v=IL278-3D-A01">
+<link rel="canonical" href="https://impulselabo.github.io/simulators/micro-thrust/virtual-torsion-3d/virtual-torsion-guide-3d.html">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="IMPULSE LABO">
+<meta property="og:title" content="微小推力測定 装置3D｜仮想トーションバランス・遮蔽・光学読取｜IMPULSE LABO">
+<meta property="og:description" content="微小推力測定に用いる仮想トーションバランスを3Dで表示し、ねじり天秤、ファイバー、アーム、遮蔽構造、光学読取、ダンパーを確認できます。">
+<meta property="og:url" content="https://impulselabo.github.io/simulators/micro-thrust/virtual-torsion-3d/virtual-torsion-guide-3d.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="微小推力測定 装置3D｜仮想トーションバランス・遮蔽・光学読取｜IMPULSE LABO">
+<meta name="twitter:description" content="微小推力測定に用いる仮想トーションバランスを3Dで表示し、ねじり天秤、ファイバー、アーム、遮蔽構造、光学読取、ダンパーを確認できます。">
+</head>
+<body class="three-d-page">
+<header class="site-header">
+  <div class="site-header__inner">
+    <a class="brand" href="../micro-thrust-simulator.html">IMPULSE LABO</a>
+    <div class="header-tools">
+      <div class="font-size-control" role="group" aria-label="文字サイズ">
+        <span>文字サイズ</span>
+        <button type="button" data-font-size="standard" aria-pressed="true">標準</button>
+        <button type="button" data-font-size="large" aria-pressed="false">大</button>
+        <button type="button" data-font-size="xlarge" aria-pressed="false">特大</button>
+      </div>
+      <nav class="cav-global-nav" aria-label="微小推力測定シミュレータ関連ページ">
+        <a href="../micro-thrust-simulator.html"><span class="nav-label-full">検証する</span><span class="nav-label-mobile" aria-hidden="true">検証</span></a>
+        <a href="virtual-torsion-guide-3d.html" class="active" aria-current="page"><span class="nav-label-full">装置3D</span><span class="nav-label-mobile" aria-hidden="true">3D</span></a>
+        <a href="../micro-thrust-guide.html"><span class="nav-label-full">実験の解説</span><span class="nav-label-mobile" aria-hidden="true">解説</span></a>
+        <a href="../micro-thrust-manual.html"><span class="nav-label-full">操作マニュアル</span><span class="nav-label-mobile" aria-hidden="true">マニュアル</span></a>
+        <a href="../micro-thrust-glossary.html"><span class="nav-label-full">用語解説</span><span class="nav-label-mobile" aria-hidden="true">用語</span></a>
+      </nav>
+    </div>
+  </div>
+</header>
+<section class="three-d-intro" aria-labelledby="page-title">
+  <h1 id="page-title">仮想トーションバランス3D</h1>
+  <p class="lead">微小推力測定シミュレータ(IL278)の装置構造を3Dで再構成し、ねじり天秤・遮蔽構造・読取光学系・渦電流ダンパーのギャップ調整を確認します。この装置は架空(仮想)ですが、寸法・物性はすべてシミュレータ本体の設定値・物理式から逆算した、内部で矛盾のない設計です。</p>
+  <p class="lead"><strong>測定原理を一言で：</strong> アーム端に搭載した<span style="color:#8a4d0c">τ(被検証推力源)</span>がアームを捻り、その<span style="color:#1c4b78">θ(捩れ角)</span>をミラーで光学的に検出します。3D中の橙色ラベルがτ、青色ラベルがθです。</p>
+</section>
+<main class="layout">
+  <aside class="control-panel">
+    <section>
+      <h2>表示</h2>
+      <div class="button-grid">
+        <button class="mode active" data-mode="all">全体</button>
+        <button class="mode" data-mode="transparent">ケース透明</button>
+        <button class="mode" data-mode="inside">ねじり天秤</button>
+        <button class="mode" data-mode="optics">読取光学系</button>
+        <button class="mode" data-mode="audit">XYZ座標監査</button>
+      </div>
+      <p class="audit-help">モードを切り替えると、それぞれ見やすい視点に自動でカメラが移動します(「全体」は装置全体、「ねじり天秤」はアーム周りに接写、「読取光学系」はミラー〜リーダー間)。ドラッグ・ピンチでさらに動かせます。</p>
+      <p class="audit-help">「全体」ではケース外装(うっすら半透明)と読取光学系のリーダーヘッドも含めて表示します。「ケース透明」は遮蔽レベル(弱/標準/強)を切り替えて、3層構造(制振マウント／断熱箱／二重壁+暗箱)を透過表示します。</p>
+      <p class="audit-help">実物のファイバー太さは0.1mm(髪の毛未満)で肉眼では見えないため、3D表示上は視認できる太さまで誇張しています。長さ(0.785m)・アーム全長(0.1m)等の寸法比率は実寸通りです。</p>
+    </section>
+
+    <section class="device-params">
+      <h2>装置パラメータ</h2>
+      <p class="audit-help">ここに表示されている値が、この3Dの寸法根拠のすべてです。シミュレータを訪れたことがなくても、この欄だけで完結して確認・調整できます。</p>
+      <div class="field-row">
+        <label for="paramK">剛性 k</label>
+        <input id="paramK" type="text" inputmode="decimal" value="2e-6">
+        <span class="unit">N·m/rad</span>
+      </div>
+      <div class="field-row">
+        <label for="paramC">減衰 c</label>
+        <input id="paramC" type="text" inputmode="decimal" value="1e-5">
+        <span class="unit">N·m·s/rad</span>
+      </div>
+      <div class="field-row">
+        <label for="paramI">慣性 I</label>
+        <input id="paramI" type="text" inputmode="decimal" value="1e-6">
+        <span class="unit">kg·m²</span>
+      </div>
+      <div class="field-row">
+        <label for="paramL">光学距離 L</label>
+        <input id="paramL" type="text" inputmode="decimal" value="1.0">
+        <span class="unit">m</span>
+      </div>
+      <div class="field-row">
+        <label for="paramWire">ワイヤー径</label>
+        <input id="paramWire" type="text" inputmode="decimal" value="0.1">
+        <span class="unit">mm</span>
+      </div>
+      <div class="field-row">
+        <label for="paramMaterial">材質</label>
+        <select id="paramMaterial">
+          <option value="tungsten" selected>タングステン</option>
+          <option value="quartz">石英</option>
+          <option value="nylon">ナイロン</option>
+        </select>
+      </div>
+      <div class="field-row">
+        <button type="button" id="paramReset">標準初期値に戻す</button>
+        <button type="button" id="paramPull">シミュレータの現在値を読み込む</button>
+      </div>
+      <p class="audit-help" id="paramPullStatus"></p>
+    </section>
+
+    <section class="shielding-controls">
+      <h2>遮蔽レベル</h2>
+      <div class="optics-toggle-grid">
+        <button class="optics-toggle active" data-shield="none">なし</button>
+        <button class="optics-toggle" data-shield="weak">弱</button>
+        <button class="optics-toggle" data-shield="standard">標準</button>
+        <button class="optics-toggle" data-shield="strong">強</button>
+      </div>
+      <p class="audit-help" id="shieldLevelNote">なし：ケース内の機構がそのまま見えます。</p>
+    </section>
+
+    <section class="damping-controls">
+      <h2>渦電流ダンパー・磁石ギャップ</h2>
+      <label class="range-row">ギャップ（可変・実連動）
+        <input id="gapSlider" type="range" min="4" max="40" step="0.5" value="8">
+        <output id="gapValue">8.0 mm</output>
+      </label>
+      <p class="audit-help">実物の渦電流ダンパーは磁石とパドルの距離(ギャップ)で減衰の強さを調整する可変式が一般的です。ギャップを動かすと、磁場B→減衰係数cをその場で計算し直します。</p>
+      <div class="optics-status-box">
+        <div><span>磁場 B(gap)</span><b id="dampingBValue">0.150 T</b></div>
+        <div><span>減衰係数 c = I×λ</span><b id="dampingCValue">1.00e-5 N·m·s/rad</b></div>
+        <div><span>基準値との比</span><b id="dampingRatioValue">×1.00</b></div>
+      </div>
+      <p class="audit-help">基準ギャップ8mmで、シミュレータ本体の初期値(c=1.00e-5 N·m·s/rad)と一致するよう校正しています。B(gap)=B0×(gap_ref/gap)²の近似モデルです。</p>
+    </section>
+
+    <section>
+      <h2>部品(クリックで詳細)</h2>
+      <div id="parts" class="part-list"></div>
+    </section>
+
+    <section class="facts">
+      <h2 id="partTitle">装置全体</h2>
+      <p id="partRole">タングステン製トーションファイバーでアームを吊り、両端の錘で慣性を、渦電流ダンパーで減衰を持たせた仮想装置です。アーム中心のミラーで角度変位を光学的に読み取ります。</p>
+      <dl>
+        <div><dt>部品</dt><dd id="partId">—</dd></div>
+        <div><dt>寸法・値</dt><dd id="partValue">—</dd></div>
+        <div><dt>根拠区分</dt><dd id="partBasis">—</dd></div>
+        <div><dt>基準座標</dt><dd id="partCoord">—</dd></div>
+      </dl>
+    </section>
+  </aside>
+
+  <section class="viewer-card">
+    <div class="viewer-head">
+      <div>
+        <strong id="viewTitle">全体表示</strong>
+        <span>1本指ドラッグ：回転　ピンチ：拡大　2本指ドラッグ：移動</span>
+      </div>
+      <button id="resetView">視点を戻す</button>
+    </div>
+    <p id="syncStatus" class="audit-help sync-status">確認中…</p>
+    <div class="viewer-stage">
+      <canvas id="viewer" aria-label="仮想トーションバランス3D"></canvas>
+      <div id="axisLegend" class="axis-legend" hidden>
+        <span class="axis-x">X</span><small>アーム方向</small>
+        <span class="axis-y">Y</span><small>鉛直上向き(ファイバー方向)</small>
+        <span class="axis-z">Z</span><small>光学読取方向</small>
+      </div>
+      <div id="coordinateOverlay" class="coordinate-overlay" hidden aria-label="主要座標ラベル"></div>
+    </div>
+    <div id="projectionStatus" class="projection-status" hidden aria-live="polite">
+      <div><b id="projectionName">正面正投影</b><span id="projectionPlane">X–Y平面／Z方向から観察</span></div>
+      <div><b>原点 C</b><span>ねじり軸とアーム中心の交点</span></div>
+    </div>
+    <div class="status-strip">
+      <span>ファイバー長：<b id="statusFiberLength">0.785 m</b></span>
+      <span>アーム全長：<b id="statusArmLength">0.100 m</b></span>
+      <span>光学距離：<b id="statusOpticalDistance">1.000 m</b></span>
+      <span>遮蔽レベル：<b id="shieldStatus">なし</b></span>
+      <span>ダンパーギャップ：<b id="gapStatus">8.0 mm</b></span>
+    </div>
+  </section>
+
+  <aside class="reference-panel">
+    <section>
+      <h2>寸法・構造基準</h2>
+      <table class="data-table">
+        <tbody>
+          <tr><th>トーションファイバー長</th><td id="tblFiberLength">0.785 m</td><td class="confirmed" id="tblFiberLengthBasis">標準仕様逆算(k=2e-6 N·m/rad)</td></tr>
+          <tr><th>ファイバー径</th><td id="tblWireDiameter">0.10 mm</td><td class="confirmed">UI確定値</td></tr>
+          <tr><th>ファイバー材質</th><td id="tblMaterial">タングステン</td><td class="confirmed">UI確定値</td></tr>
+          <tr><th>アーム全長</th><td>0.100 m</td><td class="confirmed">標準仕様(I=2mr²)</td></tr>
+          <tr><th>アーム端の錘</th><td id="tblEndMass">0.2 g×2</td><td class="confirmed">I=2mr²からの逆算</td></tr>
+          <tr><th>光学距離 L</th><td id="tblOpticalDistance">1.000 m</td><td class="confirmed">UI確定値</td></tr>
+          <tr><th>ダンパーパドル</th><td id="tblPaddleSide">29 mm角・アルミ</td><td class="confirmed">c=I×λからの逆算</td></tr>
+          <tr><th>磁場(基準ギャップ8mm)</th><td>0.15 T</td><td class="measured">assumed_typical</td></tr>
+          <tr><th>制振マウント</th><td>Sorbothane 12mm</td><td class="measured">実例(Rev.Sci.Instrum.)</td></tr>
+          <tr><th>断熱箱(標準)</th><td>40mm サンドイッチ</td><td class="measured">実例(arXiv:0805.1183)</td></tr>
+          <tr><th>断熱箱(強・追加)</th><td>+30mm 二重壁</td><td class="measured">実例(arXiv:2405.10982)</td></tr>
+        </tbody>
+      </table>
+      <p class="audit-help">色分け：<span class="confirmed">緑=シミュレータ確定値からの逆算</span>／<span class="measured">青=実例文献からのorder-of-magnitude採用</span>。ケース外形寸法は機構を収める説明用レイアウトで、実測根拠はありません。シミュレータ連携時は、ファイバー長・アーム端の錘・ダンパーパドルの値がシミュレータの現在設定に応じて自動更新されます。</p>
+    </section>
+    <section>
+      <h2>3D表示の素材色</h2>
+      <ul class="material-legend">
+        <li><i style="background:#54565f"></i>タングステン(ファイバー)</li>
+        <li><i style="background:#ccced0"></i>アルミ(アーム・錘・ダンパーパドル)</li>
+        <li><i style="background:#d9ecf7"></i>ガラス/ミラー(読取面)</li>
+        <li><i style="background:#3d4457"></i>計測器筐体(PSDリーダー)</li>
+        <li><i style="background:#bf4040"></i>磁石(ダンパー)</li>
+        <li><i style="background:#f2d940"></i>光路(読取光線)</li>
+        <li><i style="background:#f28c1f"></i>被検証推力源マウント(τ発生位置)</li>
+      </ul>
+      <p class="audit-help">この装置は特定の推進方式を前提としません。未確認推力等の「未確認の推力主張」を客観的に測定するという目的自体は、Tajmar SpaceDrive Project(TU Dresden)と同一です(標準仕様 known_precedents参照)。アーム左端の橙色マーカーが、検証対象の候補推力源を搭載する想定位置です。</p>
+    </section>
+  </aside>
+</main>
+
+<footer class="related-footer" aria-label="関連ページ">
+  <p>IMPULSE LABO / Virtual Torsion Balance 3D / Build IL278-3D-A01</p>
+  <p><a href="../micro-thrust-simulator.html">検証する</a> ｜ <a href="virtual-torsion-guide-3d.html">装置3D</a> ｜ <a href="../micro-thrust-guide.html">実験の解説</a> ｜ <a href="../micro-thrust-manual.html">操作マニュアル</a> ｜ <a href="../micro-thrust-glossary.html">用語解説</a></p>
+</footer>
+
+<script src="assets/app.js?v=IL278-3D-A01"></script>
+
+<script>
+(() => {
+  const key = 'virtualTorsionReadingFontSize';
+  const allowed = ['standard', 'large', 'xlarge'];
+  const root = document.documentElement;
+  const buttons = Array.from(document.querySelectorAll('[data-font-size]'));
+  const apply = (value) => {
+    const size = allowed.includes(value) ? value : 'standard';
+    root.dataset.readingFont = size;
+    buttons.forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.fontSize === size)));
+    try { localStorage.setItem(key, size); } catch (_) {}
+  };
+  buttons.forEach((button) => button.addEventListener('click', () => apply(button.dataset.fontSize)));
+  let saved = 'standard';
+  try { saved = localStorage.getItem(key) || 'standard'; } catch (_) {}
+  apply(saved);
+})();
+</script>
+</body>
+</html>

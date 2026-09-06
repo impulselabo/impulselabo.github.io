@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="微小推力測定シミュレータの使い方、装置設定、ノイズ条件、遮蔽、観測開始、S/N比、検出限界、PDFレポート、CSV出力を説明します。">
+  <title>微小推力測定シミュレータ操作マニュアル｜推力測定・ノイズ・レポート出力｜IMPULSE LABO</title>
+  <link rel="stylesheet" href="assets/css/micro-thrust-guide.css?v=IL278-G01">
+  <link rel="stylesheet" href="assets/css/site.css?v=IL278-G02">
+  <script defer src="assets/js/site-reading.js?v=IL278-G02"></script>
+<link rel="canonical" href="https://impulselabo.github.io/simulators/micro-thrust/micro-thrust-manual.html">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="IMPULSE LABO">
+<meta property="og:title" content="微小推力測定シミュレータ操作マニュアル｜推力測定・ノイズ・レポート出力｜IMPULSE LABO">
+<meta property="og:description" content="微小推力測定シミュレータの使い方、装置設定、ノイズ条件、遮蔽、観測開始、S/N比、検出限界、PDFレポート、CSV出力を説明します。">
+<meta property="og:url" content="https://impulselabo.github.io/simulators/micro-thrust/micro-thrust-manual.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="微小推力測定シミュレータ操作マニュアル｜推力測定・ノイズ・レポート出力｜IMPULSE LABO">
+<meta name="twitter:description" content="微小推力測定シミュレータの使い方、装置設定、ノイズ条件、遮蔽、観測開始、S/N比、検出限界、PDFレポート、CSV出力を説明します。">
+</head>
+<body class="manual-page reading-page">
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="micro-thrust-guide.html">
+        <img src="https://impulselabo.github.io/assets/images/site/impulse-labo-logo-light.svg" alt="IMPULSE LABO">
+      </a>
+      <div class="site-header-tools">
+        <div class="font-size-control" role="group" aria-label="文字サイズ">
+          <span>文字サイズ</span>
+          <button type="button" data-font-size="standard" aria-pressed="true">標準</button>
+          <button type="button" data-font-size="large" aria-pressed="false">大</button>
+          <button type="button" data-font-size="xlarge" aria-pressed="false">特大</button>
+        </div>
+        <nav class="nav" aria-label="微小推力測定シミュレータ関連ページ">
+          <a href="micro-thrust-simulator.html">検証する</a>
+          <a href="virtual-torsion-3d/virtual-torsion-guide-3d.html">装置3D</a>
+          <a href="micro-thrust-guide.html">実験の解説</a>
+          <a href="micro-thrust-manual.html" aria-current="page">操作マニュアル</a>
+          <a href="micro-thrust-glossary.html">用語解説</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="intro intro--manual" aria-labelledby="page-title">
+      <p class="eyebrow">IMPULSE LABO / MICRO-THRUST MEASUREMENT</p>
+      <h1 id="page-title">操作マニュアル</h1>
+      <p class="lead">装置設定、ノイズ・遮蔽条件、観測の流れ、結果の見方、PDF・CSV出力、3Dページとの連携までを整理します。</p>
+      <nav class="toc toc-card" aria-label="ページ内目次">
+        <a href="#screen">画面構成</a>
+        <a href="#before">開始前の確認</a>
+        <a href="#effects">設定を変えるとどうなるか</a>
+        <a href="#operate">操作ボタン</a>
+        <a href="#noise">ノイズ・遮蔽条件</a>
+        <a href="#wave">波形・光学表示</a>
+        <a href="#flow">観測の流れ</a>
+        <a href="#results">結果表示</a>
+        <a href="#outputs">PDF・CSV出力</a>
+        <a href="#threed">3Dページとの連携</a>
+        <a href="#notes">表示上の注意</a>
+      </nav>
+    </section>
+
+    <section id="screen" class="section" aria-labelledby="screen-title">
+      <div class="section-heading"><p class="section-no">01</p><h2 id="screen-title">画面構成</h2></div>
+      <p class="section-intro">PCでは左側に操作パネル、右側に光学表示・波形表示を配置します。Mobileでは同じ内容を上から順に表示し、開始・停止などの操作ボタンを画面下部に固定します。</p>
+      <div class="prose prose--wide">
+        <p>操作パネルは「基本条件」「観測条件」「詳細条件」「ノイズ条件」「遮蔽条件」「impulse実測(未検証)」「表示条件」「レポート/CSV出力」「詳細ヘルプ」の折りたたみセクションで構成されています。各項目の「?」ボタンから、その場で入力範囲や意味を確認できます。</p>
+      </div>
+      <figure class="manual-shot manual-shot--wide">
+        <img src="assets/images/manual/manual-panel-overview.png" alt="PC版シミュレータ全体。左に操作パネル、右上に光学表示、右下に波形表示を配置。">
+        <figcaption>PC版の全体画面。左の操作パネルと、右側の光学表示・波形表示を同時に確認できます。</figcaption>
+      </figure>
+    </section>
+
+    <section id="before" class="section" aria-labelledby="before-title">
+      <div class="section-heading"><p class="section-no">02</p><h2 id="before-title">観測開始前の確認</h2></div>
+      <div class="prose prose--wide">
+        <p><strong>装置モデル</strong>：「仮想トーションバランス」と「キャベンディッシュ1798」から選べます。仮想モデルでは材質・ワイヤー径・ファイバー長から剛性kが自動計算され、キャベンディッシュモデルでは史実仕様の固定値が使われます。</p>
+        <p><strong>材質・ワイヤー径・ファイバー長</strong>：詳細条件内にあります。材質(タングステン/石英/ナイロン)ごとにせん断弾性率と温度係数が異なり、剛性k、および温度ドリフト成分の振幅の両方に実際に反映されます。剛性k欄自体は自動計算された値の表示専用で、直接編集はできません。</p>
+        <p><strong>入力トルクτ・慣性I・減衰c・光学距離L</strong>：測定対象の力(τ)、応答の速さ(I・c)、角度から変位への換算(L)を決めます。減衰cを大きくすると、振動が収まりやすくなります(overdamped)。</p>
+        <p><strong>モード</strong>：校正・ノイズ確認・重力測定・カスタム測定など、目的に応じたプリセットです。それぞれ推奨される観測時間・入力条件が自動設定されます。8種類あるモードは、それぞれ「何と比べて装置の感度を確認するか」が違います。下の一覧で、身近な例えとあわせて説明します。</p>
+      </div>
+
+      <div class="prose prose--wide">
+        <dl class="term-list">
+          <div>
+            <dt>校正</dt>
+            <dd>大きさの分かっている力(既知の入力トルク)を装置に与えて、正しく反応するかを確認します。キッチンスケールを使う前に、重さの分かった分銅で目盛りを合わせるのと同じです。</dd>
+          </div>
+          <div>
+            <dt>ノイズ確認</dt>
+            <dd>推力(τ)を一切与えず、ノイズだけを観測します。録音する前に部屋の暗騒音(周りの雑音)を測っておくようなものです。</dd>
+          </div>
+          <div>
+            <dt>重力測定</dt>
+            <dd>近くに置いた重いもの同士が、実際の万有引力でどれだけ引き合うかを測ります。地球上のどんな物同士にも働く、架空ではない実在の力を検出対象にする、いわばミニ版のキャベンディッシュ実験です。</dd>
+          </div>
+          <div>
+            <dt>カスタム測定</dt>
+            <dd>入力トルクτなど条件をすべて自分で設定して試すモードです。「もし推力がこれくらいの大きさだったら検出できるか」を自由に試したいときに使います。</dd>
+          </div>
+          <div>
+            <dt>静電気力</dt>
+            <dd>下敷きを髪でこすった後に紙くずを引き寄せる、あの静電気の力を検出対象にします。重力よりも条件(湿度や距離)で変わりやすいため、判定は「推定評価」という位置づけになります。</dd>
+          </div>
+          <div>
+            <dt>繰り返し試験</dt>
+            <dd>同じ条件で何度も測り直して、毎回同じような結果になるか(再現性)を確認します。体重計に何度も乗って、同じ体重が表示されるか確かめるのと同じ考え方です。</dd>
+          </div>
+          <div>
+            <dt>検出限界チェック</dt>
+            <dd>わざと弱い信号を使って、「これ以上小さいと、この装置ではもう見分けがつかない」という限界を探るモードです。</dd>
+          </div>
+          <div>
+            <dt>蚊飛翔(かひしょう)</dt>
+            <dd>蚊が近くを飛ぶときに生じる、ごくごく小さな空気の乱れ・振動と同じくらいの大きさの外乱を再現します。マイクロニュートンという単位がどれくらい小さいか、蚊の羽ばたき程度だと考えると実感が湧きます。</dd>
+          </div>
+        </dl>
+      </div>
+      <figure class="manual-shot manual-shot--detail">
+        <img src="assets/images/manual/manual-material-setting.jpg" alt="材質をナイロンに切り替えた詳細条件欄。剛性kが1.375e-8 N·m/radへ自動的に再計算されている。">
+        <figcaption>材質をナイロンに切り替えた例。ワイヤー径・ファイバー長を変えずに材質だけ変更すると、せん断弾性率の比に応じて剛性k(ロック表示)が1.375e-8 N·m/radへ自動的に再計算されます。</figcaption>
+      </figure>
+    </section>
+
+    <section id="effects" class="section" aria-labelledby="effects-title">
+      <div class="section-heading"><p class="section-no">03</p><h2 id="effects-title">設定を変えるとどうなるか</h2></div>
+      <p class="section-intro">装置の反応は、身の回りのものに例えると分かりやすくなります。4つの設定について、変えると何が起きるかを見ていきます。</p>
+
+      <div class="prose prose--wide">
+        <h3>① 材質を変える — ブランコの鎖の硬さ</h3>
+        <p>剛性k(ねじり系の硬さ)は、ブランコを吊る鎖の硬さに似ています。鎖が硬い(kが大きい)ほど、同じ力で押してもブランコはあまり揺れません。鎖が柔らかい(kが小さい)ほど、小さな力でも大きく揺れます。</p>
+      </div>
+      <figure class="diagram diagram--compact">
+        <svg viewBox="0 0 480 130" role="img" aria-labelledby="k-diagram-title">
+          <title id="k-diagram-title">材質による剛性kの違いの比較図</title>
+          <line x1="90" y1="10" x2="90" y2="55" stroke="#5a6773" stroke-width="4"/>
+          <circle cx="90" cy="75" r="18" fill="#c7ced4"/>
+          <text x="40" y="105" font-size="13" fill="#245c3b">タングステン(硬い)</text>
+          <text x="40" y="122" font-size="12" fill="#5a6773">k大 → 揺れにくい</text>
+          <line x1="330" y1="10" x2="360" y2="55" stroke="#5a6773" stroke-width="3"/>
+          <circle cx="365" cy="72" r="18" fill="#c7ced4"/>
+          <text x="300" y="105" font-size="13" fill="#8a4d0c">ナイロン(柔らかい)</text>
+          <text x="300" y="122" font-size="12" fill="#5a6773">k小 → 揺れやすい</text>
+        </svg>
+        <figcaption>タングステンからナイロンに変えると、剛性kはおよそ1/145に下がります(せん断弾性率の比)。同じ推力τでも、より大きく振れる=敏感な装置になりますが、その分ちょっとした振動や温度変化にも大きく反応してしまいます。</figcaption>
+      </figure>
+
+      <div class="prose prose--wide">
+        <h3>② 減衰cを変える — ブランコを手で止めるか、放っておくか</h3>
+        <p>減衰cは、ブランコが揺れたあとにどれだけ早く止まるかを決めます。cを大きくすると、まるで手で軽く支えながら止めるように、揺れが早く収まります(overdamped、行き過ぎずにじわっと収束)。cを小さくすると、放っておいたブランコのように、しばらく振動し続けます。</p>
+      </div>
+
+      <div class="prose prose--wide">
+        <h3>③ 遮蔽レベルを上げる — 魔法瓶に入れる</h3>
+        <p>遮蔽は、装置を魔法瓶に入れるようなものです。何も入れず机の上に置いた飲み物(遮蔽なし)は、部屋の温度変化にすぐ影響されます。魔法瓶(遮蔽・強)に入れれば、外の温度が多少変わっても中身の温度はほとんど変わりません。</p>
+      </div>
+      <figure class="diagram diagram--compact">
+        <svg viewBox="0 0 480 120" role="img" aria-labelledby="shield-diagram-title">
+          <title id="shield-diagram-title">遮蔽レベルによる温度ドリフトの違い</title>
+          <rect x="30" y="20" width="90" height="70" rx="6" fill="none" stroke="#b23b3b" stroke-width="2"/>
+          <text x="35" y="105" font-size="12" fill="#8a4d0c">遮蔽なし</text>
+          <text x="20" y="118" font-size="11" fill="#5a6773">温度変化がそのまま伝わる</text>
+          <rect x="200" y="20" width="90" height="70" rx="6" fill="none" stroke="#c9a227" stroke-width="2" stroke-dasharray="5 3"/>
+          <text x="205" y="105" font-size="12" fill="#8a5a0c">遮蔽・標準</text>
+          <text x="190" y="118" font-size="11" fill="#5a6773">drift振幅が約1/10</text>
+          <rect x="370" y="20" width="90" height="70" rx="6" fill="none" stroke="#245c3b" stroke-width="3"/>
+          <text x="375" y="105" font-size="12" fill="#245c3b">遮蔽・強</text>
+          <text x="365" y="118" font-size="11" fill="#5a6773">drift振幅が約1/33</text>
+        </svg>
+        <figcaption>遮蔽レベルを弱→標準→強と上げると、温度ドリフト(drift)成分の振幅が段階的に小さくなります。ただし熱雑音(White)や地面の揺れ(periodic)は、遮蔽箱に入れても原理的に減らせないため変化しません(魔法瓶に入れても分子の熱運動そのものは止められないのと同じです)。</figcaption>
+      </figure>
+
+      <div class="prose prose--wide">
+        <h3>④ 入力トルクτを変える — 声の大きさと騒がしい部屋</h3>
+        <p>入力トルクτは、検証したい推力の「声の大きさ」、ノイズはその部屋の「周りのざわめき」にあたります。声(τ)がざわめき(ノイズ)より十分大きければ、はっきり聞き取れます(S/N比が高い=検出可能)。声が小さいと、ざわめきに埋もれて聞き取れません(検出不可)。遮蔽を強くする・ノイズ成分を減らすことは、部屋を静かにして声を聞き取りやすくすることに相当します。</p>
+      </div>
+    </section>
+
+    <section id="operate" class="section" aria-labelledby="operate-title">
+      <div class="section-heading"><p class="section-no">04</p><h2 id="operate-title">操作ボタン</h2></div>
+      <div class="prose prose--wide">
+        <p><strong>開始／一時停止／停止</strong>：観測を開始・中断・終了します。<strong>観測クリア</strong>は表示中の波形・解析結果だけを消去し、条件設定は保持します。<strong>リセット</strong>はすべての設定を初期値に戻します。</p>
+      </div>
+    </section>
+
+    <section id="noise" class="section" aria-labelledby="noise-title">
+      <div class="section-heading"><p class="section-no">05</p><h2 id="noise-title">ノイズ・遮蔽条件</h2></div>
+      <div class="prose prose--wide">
+        <p>ノイズ条件では、White(熱雑音)・drift(温度ドリフト)・periodic(周期性ノイズ)・impulse(衝撃)・optical(光学読取誤差)・numeric(量子化誤差)の6成分を、それぞれ表示ON/OFFと強度で調整できます。表示のON/OFFは成分線の見た目だけを切り替え、観測・解析には強度が0より大きい成分がすべて適用されます。</p>
+        <p>遮蔽条件では「弱・標準・強」のレベルを選べます。レベルが上がるほど断熱・防振構造が積み増され、drift成分などが低減しますが、White・periodicは原理的に遮蔽の効果を受けません(詳しくは解説ページを参照)。</p>
+      </div>
+    </section>
+
+    <section id="wave" class="section" aria-labelledby="wave-title">
+      <div class="section-heading"><p class="section-no">06</p><h2 id="wave-title">波形・光学表示の見方</h2></div>
+      <div class="prose prose--wide">
+        <p>光学表示は、光点変位x(mm)を横軸にとった散布図です。波形表示は縦軸をθ(rad)、横軸を時間t(s)にとった時系列グラフで、±Peakのラベルが振れ幅の最大・最小を示します。黄色い帯は主評価窓(判定に使う時間範囲)を表します。</p>
+      </div>
+    </section>
+
+    <section id="flow" class="section" aria-labelledby="flow-title">
+      <div class="section-heading"><p class="section-no">07</p><h2 id="flow-title">観測の流れ</h2></div>
+      <div class="prose prose--wide">
+        <ol>
+          <li>装置モデル・材質・入力条件・ノイズ/遮蔽条件を設定します。</li>
+          <li>観測方式(AUTO推奨時間、または手動)と最大観測時間を選びます。</li>
+          <li>「開始」を押すと観測が始まり、波形がリアルタイムに描画されます。</li>
+          <li>観測時間が満了するか、手動で「停止」すると、S/N比・判定結果が確定します。</li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="results" class="section" aria-labelledby="results-title">
+      <div class="section-heading"><p class="section-no">08</p><h2 id="results-title">結果表示</h2></div>
+      <div class="prose prose--wide">
+        <p>観測完了後、S/N比とその判定(検出可能／条件付き評価／検出不可 等)、Baseline(ノイズのみの基準観測)との差分、残留・終盤の補助確認結果が画面下部に表示されます。総合判定は、主評価窓の信号とBaselineの状態を統合したものです。</p>
+      </div>
+    </section>
+
+    <section id="outputs" class="section" aria-labelledby="outputs-title">
+      <div class="section-heading"><p class="section-no">09</p><h2 id="outputs-title">PDF・CSV出力</h2></div>
+      <div class="prose prose--wide">
+        <p>「レポート/CSV出力」から、観測条件・解析値・判定理由をまとめたPDFレポートと、生データを含むCSVをダウンロードできます。PDFには機械・光学条件(慣性・減衰・材質・ワイヤー径・ファイバー長)や遮蔽条件、Noiseのプリセット・seed値も記録され、後から観測条件を再現・確認できます。</p>
+      </div>
+    </section>
+
+    <section id="threed" class="section" aria-labelledby="threed-title">
+      <div class="section-heading"><p class="section-no">10</p><h2 id="threed-title">3Dページとの連携</h2></div>
+      <div class="prose prose--wide">
+        <p>「装置3D」ページには、シミュレータと同等の装置パラメータ入力欄があります。3Dページを開いた直後は常に標準初期値が表示され、シミュレータで設定した値を使いたい場合は「シミュレータの現在値を読み込む」ボタンで明示的に取り込みます。</p>
+      </div>
+      <figure class="manual-shot manual-shot--detail">
+        <img src="assets/images/manual/manual-3d-linkage.jpg" alt="装置3Dページの装置パラメータ欄。「標準初期値に戻す」「シミュレータの現在値を読み込む」の2つのボタンが並ぶ。">
+        <figcaption>装置3Dページの「シミュレータの現在値を読み込む」ボタン。押すまでは常に標準初期値が表示され、明示的に押したときだけシミュレータの設定が反映されます。</figcaption>
+      </figure>
+    </section>
+
+    <section id="notes" class="section section--quiet" aria-labelledby="notes-title">
+      <div class="section-heading"><p class="section-no">11</p><h2 id="notes-title">表示上の注意</h2></div>
+      <div class="prose prose--wide">
+        <p>本シミュレータは架空の装置を対象としたシミュレーションです。判定結果は入力条件と内部モデルに基づく計算結果であり、実験値として扱う場合は、実際の装置条件・校正記録・環境ログを別途記録してください。impulse実測モードはブラウザのセンサーAPIを使う端末センサー機能で、端末やブラウザの対応状況により、センサー値を取得できない場合があります。</p>
+      </div>
+    </section>
+
+    <section class="launch" aria-labelledby="launch-title">
+      <div>
+        <p class="eyebrow">NEXT</p>
+        <h2 id="launch-title">実際に検証する</h2>
+        <p>操作方法を確認したら、実際にシミュレータで試してみてください。</p>
+      </div>
+      <div class="launch-actions">
+        <a class="button button--primary" href="micro-thrust-simulator.html">シミュレータ</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>IMPULSE LABO / 微小推力測定シミュレータ / Build IL278S3Q</p>
+    <p><a href="micro-thrust-simulator.html">検証する</a> ｜ <a href="virtual-torsion-3d/virtual-torsion-guide-3d.html">装置3D</a> ｜ <a href="micro-thrust-guide.html">実験の解説</a> ｜ <a href="micro-thrust-manual.html">操作マニュアル</a> ｜ <a href="micro-thrust-glossary.html">用語解説</a></p>
+  </footer>
+</body>
+</html>

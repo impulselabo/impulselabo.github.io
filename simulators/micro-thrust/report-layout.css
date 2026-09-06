@@ -1,0 +1,466 @@
+/* IL277: report layout rebuilt on the Cavendish html2canvas+jsPDF capture model.
+   The report sheet flows naturally (no fixed grid-template-rows). A dedicated
+   .pdf-capture-sheet variant fixes the box to exactly 210mm x 297mm with
+   overflow:hidden during capture, so PDF export can never spill onto a second
+   page -- worst case is silent clipping of the very bottom, never a page 2. */
+
+.report-view[hidden]{
+  display:none;
+}
+
+body.report-view-open{
+  overflow:auto;
+  background:#20252c;
+}
+
+body.report-view-open>.app-shell{
+  display:none;
+}
+
+.report-view{
+  --report-scale:1;
+  --report-visual-top:0px;
+  --report-visual-width:100vw;
+  min-height:100dvh;
+  padding:8px 10px calc(env(safe-area-inset-bottom) + 18px);
+  background:#20252c;
+  color:#17202a;
+}
+
+.report-screen-actions{
+  position:sticky;
+  top:calc(var(--report-visual-top) + env(safe-area-inset-top));
+  z-index:20;
+  display:grid;
+  grid-template-columns:repeat(3,minmax(84px,1fr));
+  gap:7px;
+  width:min(520px,calc(var(--report-visual-width) - 20px));
+  margin:0 auto 10px;
+  padding:6px;
+  border:1px solid #536372;
+  border-radius:7px;
+  background:rgba(12,18,24,.96);
+  box-shadow:0 4px 14px rgba(0,0,0,.28);
+}
+
+.report-screen-actions button{
+  min-height:42px;
+  border:1px solid #7f95a8;
+  border-radius:5px;
+  background:#182531;
+  color:#f6f8fa;
+  font:700 13px/1.2 system-ui,-apple-system,"Hiragino Sans","Yu Gothic",sans-serif;
+}
+
+.report-screen-actions button:disabled{
+  opacity:.55;
+}
+
+.report-screen-actions button:last-child{
+  border-color:#c6a44b;
+  background:#4a3b16;
+}
+
+.report-action-status{
+  grid-column:1 / -1;
+  min-height:14px;
+  margin-top:2px;
+  text-align:center;
+  color:#c9d3db;
+  font-size:10.5px;
+  line-height:1.3;
+}
+
+.report-action-status:empty{
+  display:none;
+}
+
+.report-frame{
+  position:relative;
+  width:794px;
+  margin:0 auto;
+}
+
+/* --- report-sheet: natural flowing A4 sheet (screen preview, scaled to fit viewport) --- */
+
+.report-sheet{
+  box-sizing:border-box;
+  width:794px;
+  min-height:1123px;
+  padding:38px;
+  background:#fff;
+  color:#17202a;
+  box-shadow:0 3px 18px rgba(0,0,0,.35);
+  font:11px/1.35 system-ui,-apple-system,"Hiragino Sans","Yu Gothic",sans-serif;
+  transform:scale(var(--report-scale));
+  transform-origin:top left;
+  -webkit-print-color-adjust:exact;
+  print-color-adjust:exact;
+}
+
+.report-sheet h1,
+.report-sheet h2,
+.report-sheet h3,
+.report-sheet p,
+.report-sheet dl,
+.report-sheet dd{
+  margin:0;
+}
+
+.report-sheet>*{
+  margin-bottom:6px;
+}
+
+.report-sheet>*:last-child{
+  margin-bottom:0;
+}
+
+.report-header{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  border-bottom:1.4px solid #000;
+  padding-bottom:4px;
+}
+
+.report-brand{
+  color:#111;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.12em;
+}
+
+.report-header h1{
+  margin-top:2px;
+  font-size:18px;
+  font-weight:700;
+  line-height:1.15;
+  letter-spacing:.01em;
+}
+
+.report-meta{
+  display:grid;
+  justify-items:end;
+  gap:1px;
+  color:#555;
+  font-size:10.7px;
+  line-height:1.3;
+}
+
+.report-result-band{
+  display:grid;
+  grid-template-columns:.82fr 1.1fr 1.08fr;
+  border:1.2px solid #333;
+}
+
+.report-result-band>div{
+  min-width:0;
+  padding:4px 6px;
+  border-right:1px solid #999;
+}
+
+.report-result-band>div:last-child{
+  border-right:0;
+}
+
+.report-section-label{
+  display:block;
+  margin-bottom:2px;
+  color:#333;
+  font-size:10.2px;
+  font-weight:700;
+  border-bottom:1px solid #c8c8c8;
+  padding-bottom:2px;
+}
+
+.report-result-band strong{
+  display:block;
+  color:#111;
+  font-size:13px;
+  font-weight:700;
+  line-height:1.35;
+}
+
+.report-result-band p{
+  font-size:10.4px;
+  line-height:1.4;
+}
+
+.report-overview,
+.report-analysis,
+.report-conclusion{
+  border:1px solid #777;
+  padding:5px 7px;
+}
+
+.report-sheet h2{
+  margin-bottom:4px;
+  padding-bottom:2px;
+  color:#111;
+  font-size:11.5px;
+  font-weight:700;
+  line-height:1.2;
+  border-bottom:1px solid #aaa;
+}
+
+/* --- key-value tables (overview / analysis) --- */
+
+.report-overview-table,
+.report-analysis-table{
+  display:grid;
+  gap:0;
+  border:1px solid #bbb;
+}
+
+.report-overview-table>div,
+.report-analysis-table>div{
+  display:grid;
+  grid-template-columns:82px minmax(0,1fr) 82px minmax(0,1fr);
+  min-width:0;
+  border-bottom:1px solid #ccc;
+}
+
+.report-overview-table>div:last-child,
+.report-analysis-table>div:last-child{
+  border-bottom:0;
+}
+
+.report-overview-table dt,
+.report-analysis-table dt{
+  padding:3px 5px;
+  border-right:1px solid #ccc;
+  background:#f2f2f2;
+  color:#444;
+  font-size:9.5px;
+  font-weight:700;
+}
+
+.report-overview-table dd,
+.report-analysis-table dd{
+  min-width:0;
+  padding:3px 5px;
+  border-right:1px solid #ccc;
+  overflow-wrap:anywhere;
+  font-size:10px;
+  font-weight:600;
+}
+
+.report-overview-table dd:last-child,
+.report-analysis-table dd:last-child{
+  border-right:0;
+}
+
+.report-overview-table .report-overview-wide,
+.report-analysis-table .report-analysis-wide{
+  grid-template-columns:82px minmax(0,1fr);
+}
+
+/* --- visuals (wave / optical) --- */
+
+.report-visuals{
+  display:grid;
+  grid-template-columns:1.16fr .84fr;
+  gap:6px;
+}
+
+.report-wave-block,
+.report-optical-block{
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+  height:205px;
+  border:1px solid #777;
+  padding:3px;
+  overflow:hidden;
+}
+
+/* IL278: #reportOpticalBlock/#reportVernierBlock toggle exclusively by device
+   model. [hidden] must win over the display:flex above (author stylesheet
+   class rules otherwise override the UA [hidden] default). */
+#reportOpticalBlock[hidden],
+#reportVernierBlock[hidden]{
+  display:none!important;
+}
+
+.report-visual-heading{
+  flex:0 0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+  padding-bottom:2px;
+  margin-bottom:3px;
+  border-bottom:1px solid #bbb;
+}
+
+.report-visual-heading h2{
+  margin:0;
+  padding:0;
+  border:0;
+  font-size:10.9px;
+}
+
+.report-visual-heading span{
+  color:#555;
+  min-width:0;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  font-size:9px;
+  white-space:nowrap;
+}
+
+.report-sheet canvas,
+.report-wave-block img,
+.report-optical-block img{
+  display:block;
+  width:100%;
+  flex:1 1 0;
+  min-height:0;
+  background:#fff;
+}
+
+/* --- analysis values --- */
+
+.report-analysis-table{
+  margin-top:0;
+}
+
+/* --- conclusion / comment grids --- */
+
+.report-comment-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:6px;
+  margin-bottom:6px;
+}
+
+.report-comment-grid>div,
+.report-reliability-grid>div,
+.report-submission-grid>div{
+  min-width:0;
+  border:1px solid #bbb;
+  padding:4px 5px;
+  background:#fafafa;
+}
+
+.report-conclusion h3{
+  margin-bottom:3px;
+  color:#405765;
+  font-size:10px;
+  font-weight:700;
+}
+
+.report-conclusion p{
+  white-space:pre-line;
+  font-size:9.5px;
+  line-height:1.3;
+}
+
+.report-reliability-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:6px;
+  margin-bottom:6px;
+}
+
+.report-submission-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:6px;
+}
+
+.report-reliability-table{
+  display:grid;
+  margin-top:3px;
+  border:1px solid #ccc;
+}
+
+.report-reliability-table>div{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  border-bottom:1px solid #ccc;
+}
+
+.report-reliability-table>div:last-child{ border-bottom:0; }
+.report-reliability-table dt,
+.report-reliability-table dd{ padding:1px 3px; font-size:9.5px; line-height:1.25; }
+.report-reliability-table dt{ background:#f2f2f2; font-weight:700; }
+.report-reliability-table dd{ margin:0; border-left:1px solid #ccc; font-weight:600; }
+
+.report-footer{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:10px;
+  border-top:1px solid #999;
+  padding-top:4px;
+  color:#555;
+  font-size:8.5px;
+}
+
+@media (max-width:680px){
+  .report-view{
+    padding-left:5px;
+    padding-right:5px;
+  }
+
+  .report-screen-actions{
+    grid-template-columns:repeat(3,1fr);
+    width:calc(var(--report-visual-width) - 10px);
+  }
+}
+
+/* --- PDF capture staging (off-screen host + fixed, clipped clone) ---
+   Modeled directly on Cavendish's .pdf-capture-host / .pdf-capture-paper.
+   The clone is captured by html2canvas at natural (unscaled) size and the
+   resulting single image is force-fit into one 210mm x 297mm PDF page by
+   jsPDF, so overflow can only clip silently -- it can never create a 2nd page. */
+
+.pdf-capture-host{
+  position:fixed;
+  left:-12000px;
+  top:0;
+  width:210mm;
+  height:297mm;
+  overflow:hidden;
+  background:#fff;
+  z-index:-1;
+  pointer-events:none;
+}
+
+.pdf-capture-sheet{
+  box-sizing:border-box;
+  position:relative;
+  transform:none!important;
+  width:210mm!important;
+  height:297mm!important;
+  min-height:297mm!important;
+  margin:0!important;
+  padding:10mm!important;
+  box-shadow:none!important;
+  overflow:hidden!important;
+  background:#fff!important;
+}
+
+.pdf-capture-sheet>*{
+  margin-bottom:5px;
+}
+
+.pdf-capture-sheet .report-header{
+  padding-bottom:3px;
+}
+
+.pdf-capture-sheet .report-result-band>div{
+  padding:3px 5px;
+}
+
+.pdf-capture-sheet .report-overview,
+.pdf-capture-sheet .report-analysis,
+.pdf-capture-sheet .report-conclusion{
+  padding:4px 6px;
+}
+
+.pdf-capture-sheet .report-wave-block,
+.pdf-capture-sheet .report-optical-block{
+  height:185px;
+}

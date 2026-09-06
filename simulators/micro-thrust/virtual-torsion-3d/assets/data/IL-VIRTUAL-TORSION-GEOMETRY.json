@@ -1,0 +1,151 @@
+{
+  "version": "IL278-3D-A01",
+  "unit": "meter",
+  "source_note": "全数値はIL-VIRTUAL-TORSION-SPEC.json(標準装置仕様・遮蔽仕様遮蔽構造)から逆算。手法・分類方式はキャベンディッシュ3D(cv1798-geometry.json)に準拠。",
+  "coordinate_system": {
+    "origin": "C: ねじり軸とアーム中心の交点(アーム面上)",
+    "x": "+ アーム右方向",
+    "y": "+ 鉛直上向き(ファイバーは+Y方向へ伸びる)",
+    "z": "+ 光学読取方向(ミラーからPSDへ向かう向き)"
+  },
+  "confirmed_dimensions": {
+    "torsion_fiber_length": 0.785,
+    "torsion_fiber_diameter": 0.0001,
+    "arm_half_length": 0.05,
+    "arm_end_mass_kg": 0.0002,
+    "optical_lever_distance": 1.0,
+    "damping_paddle_side_length": 0.029,
+    "vibration_mount_pad_thickness": 0.012,
+    "insulated_box_wall_thickness_standard": 0.04,
+    "insulated_box_wall_thickness_strong_additional": 0.03,
+    "dark_enclosure_lining_thickness": 0.003,
+    "damping_magnet_gap_reference": 0.008
+  },
+  "derived_dimensions": {
+    "arm_full_length": 0.1,
+    "arm_end_mass_sphere_radius": 0.002605,
+    "case_inner_width_x": 0.3,
+    "case_inner_height_y": 0.95,
+    "case_inner_depth_z": 0.3,
+    "optical_port_diameter": 0.02,
+    "damping_magnet_gap_min": 0.004,
+    "damping_magnet_gap_max": 0.04
+  },
+  "key_coordinates_C_origin": {
+    "C": [
+      0,
+      0,
+      0
+    ],
+    "torsion_wire_top": [
+      0,
+      0.785,
+      0
+    ],
+    "arm_end_left": [
+      -0.05,
+      0,
+      0
+    ],
+    "arm_end_right": [
+      0.05,
+      0,
+      0
+    ],
+    "mirror_center": [
+      0,
+      0,
+      0
+    ],
+    "damping_paddle_center": [
+      0.05,
+      -0.02,
+      0
+    ],
+    "damping_magnet_left": [
+      0.05,
+      -0.02,
+      -0.008
+    ],
+    "damping_magnet_right": [
+      0.05,
+      -0.02,
+      0.008
+    ],
+    "reader_head_psd": [
+      0,
+      0,
+      -1.0
+    ],
+    "case_inner_min": [
+      -0.15,
+      -0.15,
+      -0.15
+    ],
+    "case_inner_max": [
+      0.15,
+      0.8,
+      0.15
+    ]
+  },
+  "shielding_layers_outward": {
+    "note": "IL-VIRTUAL-TORSION-SPEC.json shielding_structure.layersに対応。内側(機構)から外側へ積層。",
+    "vibration_mount": {
+      "material": "Sorbothane制振ゴムパッド",
+      "thickness": 0.012,
+      "placement": "ケース最外底面4隅",
+      "applies_from_level": "weak"
+    },
+    "insulated_box_single_layer": {
+      "material": "発泡断熱材+合板+アルミ板サンドイッチ",
+      "thickness": 0.04,
+      "placement": "ケース壁(全面)",
+      "applies_from_level": "standard"
+    },
+    "insulated_box_double_wall_plus_dark_enclosure": {
+      "material": "二重壁断熱(追加層)+内壁つや消し黒塗装",
+      "additional_wall_thickness": 0.03,
+      "dark_lining_thickness": 0.003,
+      "placement": "standard層のさらに外側+内壁塗装",
+      "applies_from_level": "strong"
+    }
+  },
+  "classification": {
+    "confirmed_from_spec": [
+      "torsion_fiber_length",
+      "torsion_fiber_diameter",
+      "arm_half_length",
+      "arm_end_mass_kg",
+      "optical_lever_distance",
+      "damping_paddle_side_length",
+      "vibration_mount_pad_thickness",
+      "insulated_box_wall_thickness_standard",
+      "insulated_box_wall_thickness_strong_additional",
+      "dark_enclosure_lining_thickness"
+    ],
+    "derived_from_confirmed": [
+      "arm_full_length",
+      "arm_end_mass_sphere_radius(アルミ密度2700kg/m3の球体換算)",
+      "optical_port_diameter(視覚的余裕を持たせた説明用の値)"
+    ],
+    "explanatory_layout": [
+      "case_inner_width_x/height_y/depth_z(機構を収める最小限+余裕のケース内寸。実測根拠なし、説明用)",
+      "reader_head_psd位置(ケース外、光学距離1.0mを直線区間として配置)",
+      "damping_paddle/magnet位置(渦電流ダンパーの一般的な配置を模した説明用配置)"
+    ]
+  },
+  "damping_gap_model": {
+    "decision": "固定ギャップではなく可変ギャップ式を採用(2026-08-25、Sと合意)。3Dページ上にスライダーを設け、ギャップ→磁場→減衰係数cの計算式を実連動させる。",
+    "formula": "B(gap) = B0 * (gap_ref / gap)^2",
+    "tier": "assumed_typical(永久磁石近傍磁場の距離減衰を逆二乗で近似する簡易モデル。標準装置仕様のeddy_current_paddle式自体も近似モデルである点を踏襲)",
+    "parameters": {
+      "B0_T": 0.15,
+      "gap_reference_m": 0.008,
+      "gap_min_m": 0.004,
+      "gap_max_m": 0.04
+    },
+    "downstream_formula": "λ = 2(A²/L_perimeter)(B(gap)²/ρ)、c = I×λ（IL-VIRTUAL-TORSION-SPEC.json damping.formulaと同一）",
+    "ui_intent": "3Dページのギャップスライダーを動かすと、その場でB・λ・cを再計算して表示し、シミュレータ本体の「減衰c」入力値と対応するギャップ位置を直感的に確認できるようにする。",
+    "note_range_revision": "初版(3-20mm)はSより「意外と狭い」と指摘。近接側は小型磁石でのB上限(~0.6T)を超えない4mmへ後退、遠方側はc変化を体感しやすくするため40mm(B≈0.006T)まで拡張。基準c(1e-5)に対し約17倍(強)〜1/350倍(弱)の可変幅。"
+  }
+}
